@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="basicAccountButton" destination="wJn-W4-bKe" id="8IQ-qo-Epv"/>
+                <outlet property="emailButton" destination="jRe-h6-dGa" id="6Xm-CT-uXm"/>
+                <outlet property="facebbokButton" destination="COG-jJ-iED" id="X3h-ah-ngF"/>
+                <outlet property="twitterButton" destination="hiA-6i-IoH" id="022-Zs-CDP"/>
+                <outlet property="view" destination="iN0-l3-epB" id="44G-UG-uhE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COG-jJ-iED">
+                    <rect key="frame" x="187" y="96" width="226" height="53"/>
+                    <color key="backgroundColor" red="0.095507603080000003" green="0.25761191709999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53" id="kz5-uI-tFO"/>
+                        <constraint firstAttribute="width" constant="226" id="zHJ-4H-lAP"/>
+                    </constraints>
+                    <state key="normal" title="Login With Facebok">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiA-6i-IoH">
+                    <rect key="frame" x="187" y="177" width="226" height="53"/>
+                    <color key="backgroundColor" red="0.095507603080000003" green="0.25761191709999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53" id="b8n-Wq-9Ea"/>
+                        <constraint firstAttribute="width" constant="226" id="hj7-9b-6lR"/>
+                    </constraints>
+                    <state key="normal" title="Login With Twitter">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRe-h6-dGa">
+                    <rect key="frame" x="187" y="258" width="226" height="53"/>
+                    <color key="backgroundColor" red="0.094117647058823528" green="0.25882352941176467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53" id="so3-Yy-f4w"/>
+                        <constraint firstAttribute="width" constant="226" id="uAy-Eh-Dhb"/>
+                    </constraints>
+                    <state key="normal" title="Sign In"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJn-W4-bKe">
+                    <rect key="frame" x="187" y="339" width="226" height="53"/>
+                    <color key="backgroundColor" red="0.095507603080000003" green="0.25761191709999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="226" id="IKk-ST-b8j"/>
+                        <constraint firstAttribute="height" constant="53" id="gXK-Vh-mbU"/>
+                    </constraints>
+                    <state key="normal" title="Create Account"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="wJn-W4-bKe" firstAttribute="top" secondItem="jRe-h6-dGa" secondAttribute="bottom" constant="28" id="Ao8-ov-R7h"/>
+                <constraint firstItem="jRe-h6-dGa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CJY-VW-kc0"/>
+                <constraint firstItem="hiA-6i-IoH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Jjl-oq-V89"/>
+                <constraint firstItem="COG-jJ-iED" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="96" id="LiK-Dr-Ju2"/>
+                <constraint firstItem="hiA-6i-IoH" firstAttribute="top" secondItem="COG-jJ-iED" secondAttribute="bottom" constant="28" id="cna-5J-kuV"/>
+                <constraint firstItem="COG-jJ-iED" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="j22-cb-Ond"/>
+                <constraint firstItem="jRe-h6-dGa" firstAttribute="top" secondItem="hiA-6i-IoH" secondAttribute="bottom" constant="28" id="jIu-y5-ZMe"/>
+                <constraint firstItem="wJn-W4-bKe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zdQ-Db-2Vx"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
