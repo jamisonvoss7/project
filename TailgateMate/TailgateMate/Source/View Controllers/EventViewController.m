@@ -29,6 +29,10 @@
     self.navbar.leftButton.hidden = YES;
     self.navbar.titleLabel.text = self.event.name;
     
+    
+    self.titleLabel.text = self.event.name;
+    self.lotNumberLabel.text = self.event.parkingLot.lotName;
+    
 }
 
 

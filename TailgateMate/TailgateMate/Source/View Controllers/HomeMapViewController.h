@@ -15,10 +15,10 @@
 
 @property (nonatomic, weak) IBOutlet MGLMapView *mapView;
 
-@property (nonatomic, weak) IBOutlet UIView *upperLeftView;
-@property (nonatomic, weak) IBOutlet UIView *upperRightView;
-@property (nonatomic, weak) IBOutlet UIView *lowerLeftView;
-@property (nonatomic, weak) IBOutlet UIView *lowerRightView;
+@property (nonatomic, weak) IBOutlet UIButton *backButton;
+@property (nonatomic, weak) IBOutlet UIButton *searchButton;
+@property (nonatomic, weak) IBOutlet UIButton *addButton;
+@property (nonatomic, weak) IBOutlet UIButton *filterButton;
 
 @end
 

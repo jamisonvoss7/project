@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TailgateMate.xcodeproj">
+      location = "self:/Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate.xcodeproj">
    </FileRef>
 </Workspace>

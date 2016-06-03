@@ -39,7 +39,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>6</string>
 	<key>FacebookAppID</key>
 	<string>141644702857245</string>
 	<key>FacebookDisplayName</key>
@@ -53,6 +53,8 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoiamFtaXNvbnZvc3MiLCJhIjoiY2luMXNhbGtxMGIzbXdibHVzM2JpYjlvZiJ9.zIAiW_lj4yokjT9fl79zcw</string>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array>
 		<string>MKDirectionsModePedestrian</string>
@@ -84,10 +86,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
 	<key>UIBackgroundModes</key>
 	<array/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -96,9 +98,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
-	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoiamFtaXNvbnZvc3MiLCJhIjoiY2luMXNhbGtxMGIzbXdibHVzM2JpYjlvZiJ9.zIAiW_lj4yokjT9fl79zcw</string>
 </dict>
 </plist>

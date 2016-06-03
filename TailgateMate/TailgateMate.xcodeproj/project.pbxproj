@@ -31,7 +31,6 @@
 		EF135F821CBE7ED800C80753 /* AddEventMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F811CBE7ED800C80753 /* AddEventMapView.xib */; };
 		EF135F851CBE863F00C80753 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F841CBE863F00C80753 /* LocationManager.m */; };
 		EF135F891CC12F4B00C80753 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF135F881CC12F4B00C80753 /* Mapbox.framework */; };
-		EF135F8A1CC12F4B00C80753 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF135F881CC12F4B00C80753 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF135F8E1CC1497400C80753 /* red-flag-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = EF135F8D1CC1497400C80753 /* red-flag-hi.png */; };
 		EF135F901CC152FB00C80753 /* RedFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = EF135F8F1CC152FB00C80753 /* RedFlag.png */; };
 		EF135F931CC1598A00C80753 /* AddEventSuppliesView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F921CC1598A00C80753 /* AddEventSuppliesView.m */; };
@@ -41,6 +40,9 @@
 		EF135F9E1CC16EE000C80753 /* TailgateSupplyButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F9D1CC16EE000C80753 /* TailgateSupplyButton.xib */; };
 		EF135FA01CC18B1600C80753 /* TailgateSupplyRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F9F1CC18B1600C80753 /* TailgateSupplyRow.xib */; };
 		EF135FA31CC28BDC00C80753 /* TailgatePartyServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135FA21CC28BDC00C80753 /* TailgatePartyServiceProvider.m */; };
+		EF2992AA1CF8883900A41E0B /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2992A91CF8883900A41E0B /* Mapbox.framework */; };
+		EF2992AB1CF8883900A41E0B /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF2992A91CF8883900A41E0B /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EF2992B21CF9FFA600A41E0B /* TailgateMBPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2992B11CF9FFA600A41E0B /* TailgateMBPointAnnotation.m */; };
 		EF3C11BA1C8E70770069DAE4 /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3C11B91C8E70770069DAE4 /* UserCredentials.m */; };
 		EF43C2851CDABB6100BA1C7F /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2841CDABB6100BA1C7F /* EventViewController.m */; };
 		EF43C2881CDABBA100BA1C7F /* TailgateSupplySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2871CDABBA100BA1C7F /* TailgateSupplySlider.m */; };
@@ -69,6 +71,8 @@
 		EF73F79E1BC3759900FA9DBA /* TailgateParty.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F79D1BC3759900FA9DBA /* TailgateParty.m */; };
 		EF73F7A21BC37AFA00FA9DBA /* TailgateSupply.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F7A11BC37AFA00FA9DBA /* TailgateSupply.m */; };
 		EF84EF841CEE92E3006459DA /* JackTrice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EF84EF831CEE92E3006459DA /* JackTrice.gpx */; };
+		EF84EF871CEEA20E006459DA /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF84EF861CEEA20E006459DA /* LandingViewController.m */; };
+		EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF84EF881CEEA434006459DA /* LandingViewController.xib */; };
 		EF90AE991CB19C7900883032 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90AE981CB19C7900883032 /* ProfileView.m */; };
 		EF90AE9C1CB19C8D00883032 /* ProfileEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90AE9B1CB19C8D00883032 /* ProfileEditView.m */; };
 		EF90AEA21CB5C62300883032 /* NSUserDefaults+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */; };
@@ -100,7 +104,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EF135F8A1CC12F4B00C80753 /* Mapbox.framework in Embed Frameworks */,
+				EF2992AB1CF8883900A41E0B /* Mapbox.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,7 +148,7 @@
 		EF135F811CBE7ED800C80753 /* AddEventMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEventMapView.xib; sourceTree = "<group>"; };
 		EF135F831CBE863F00C80753 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		EF135F841CBE863F00C80753 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
-		EF135F881CC12F4B00C80753 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		EF135F881CC12F4B00C80753 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = /Users/jamisonvoss/Documents/projects/project/TailgateMate/Mapbox.framework; sourceTree = "<absolute>"; };
 		EF135F8D1CC1497400C80753 /* red-flag-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-flag-hi.png"; sourceTree = "<group>"; };
 		EF135F8F1CC152FB00C80753 /* RedFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedFlag.png; sourceTree = "<group>"; };
 		EF135F911CC1598A00C80753 /* AddEventSuppliesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventSuppliesView.h; sourceTree = "<group>"; };
@@ -159,6 +163,9 @@
 		EF135F9F1CC18B1600C80753 /* TailgateSupplyRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TailgateSupplyRow.xib; sourceTree = "<group>"; };
 		EF135FA11CC28BDC00C80753 /* TailgatePartyServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgatePartyServiceProvider.h; sourceTree = "<group>"; };
 		EF135FA21CC28BDC00C80753 /* TailgatePartyServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgatePartyServiceProvider.m; sourceTree = "<group>"; };
+		EF2992A91CF8883900A41E0B /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = TailgateMate/Libraries/Mapbox.framework; sourceTree = "<group>"; };
+		EF2992B01CF9FFA600A41E0B /* TailgateMBPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateMBPointAnnotation.h; sourceTree = "<group>"; };
+		EF2992B11CF9FFA600A41E0B /* TailgateMBPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateMBPointAnnotation.m; sourceTree = "<group>"; };
 		EF3C11B81C8E70770069DAE4 /* UserCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCredentials.h; sourceTree = "<group>"; };
 		EF3C11B91C8E70770069DAE4 /* UserCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCredentials.m; sourceTree = "<group>"; };
 		EF43C2831CDABB6100BA1C7F /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
@@ -203,6 +210,9 @@
 		EF73F7A01BC37AFA00FA9DBA /* TailgateSupply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupply.h; sourceTree = "<group>"; };
 		EF73F7A11BC37AFA00FA9DBA /* TailgateSupply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateSupply.m; sourceTree = "<group>"; };
 		EF84EF831CEE92E3006459DA /* JackTrice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JackTrice.gpx; sourceTree = "<group>"; };
+		EF84EF851CEEA20E006459DA /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		EF84EF861CEEA20E006459DA /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		EF84EF881CEEA434006459DA /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		EF90AE971CB19C7900883032 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
 		EF90AE981CB19C7900883032 /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		EF90AE9A1CB19C8D00883032 /* ProfileEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditView.h; sourceTree = "<group>"; };
@@ -251,6 +261,7 @@
 				EFBF8DE51C5B25EA0075DE38 /* Firebase.framework in Frameworks */,
 				EF135F891CC12F4B00C80753 /* Mapbox.framework in Frameworks */,
 				EFEAC8421BC75AA10074B1C2 /* Social.framework in Frameworks */,
+				EF2992AA1CF8883900A41E0B /* Mapbox.framework in Frameworks */,
 				EFEAC83B1BC75A760074B1C2 /* AudioToolbox.framework in Frameworks */,
 				EFEAC83C1BC75A760074B1C2 /* libsqlite3.0.tbd in Frameworks */,
 				EFEAC83D1BC75A760074B1C2 /* libz.tbd in Frameworks */,
@@ -282,6 +293,8 @@
 				EF43C2841CDABB6100BA1C7F /* EventViewController.m */,
 				EF135F501CBB413300C80753 /* HomeMapViewController.h */,
 				EF135F511CBB413300C80753 /* HomeMapViewController.m */,
+				EF84EF851CEEA20E006459DA /* LandingViewController.h */,
+				EF84EF861CEEA20E006459DA /* LandingViewController.m */,
 				EF135F521CBB413300C80753 /* LoginViewController.h */,
 				EF135F531CBB413300C80753 /* LoginViewController.m */,
 				EF135F541CBB413300C80753 /* ProfileViewController.h */,
@@ -300,6 +313,7 @@
 				EF135F651CBB424600C80753 /* AddEventViewController.xib */,
 				EF43C28D1CDAC15200BA1C7F /* EventViewController.xib */,
 				EF135F661CBB424600C80753 /* HomeMapViewController.xib */,
+				EF84EF881CEEA434006459DA /* LandingViewController.xib */,
 				EF135F671CBB424600C80753 /* LoginViewController.xib */,
 				EF135F681CBB424600C80753 /* ProfileViewController.xib */,
 				EF135F691CBB424600C80753 /* SignInViewController.xib */,
@@ -358,8 +372,8 @@
 		EF73F7511BC36B9100FA9DBA = {
 			isa = PBXGroup;
 			children = (
+				EF2992A91CF8883900A41E0B /* Mapbox.framework */,
 				EF84EF831CEE92E3006459DA /* JackTrice.gpx */,
-				EF135F881CC12F4B00C80753 /* Mapbox.framework */,
 				EF73F75C1BC36B9100FA9DBA /* TailgateMate */,
 				EFEAC8301BC7591A0074B1C2 /* Frameworks */,
 				EF73F75B1BC36B9100FA9DBA /* Products */,
@@ -472,6 +486,8 @@
 				EF135F9A1CC16B5900C80753 /* TailgateSupplyRow.m */,
 				EF43C2861CDABBA100BA1C7F /* TailgateSupplySlider.h */,
 				EF43C2871CDABBA100BA1C7F /* TailgateSupplySlider.m */,
+				EF2992B01CF9FFA600A41E0B /* TailgateMBPointAnnotation.h */,
+				EF2992B11CF9FFA600A41E0B /* TailgateMBPointAnnotation.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -549,6 +565,7 @@
 				EF73F7571BC36B9100FA9DBA /* Frameworks */,
 				EF73F7581BC36B9100FA9DBA /* Resources */,
 				EF135F8B1CC12F4B00C80753 /* Embed Frameworks */,
+				EF2992AC1CF8885E00A41E0B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -605,6 +622,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */,
 				EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */,
 				EF73F76A1BC36B9100FA9DBA /* Assets.xcassets in Resources */,
 				EF135F951CC159A000C80753 /* AddEventSuppliesView.xib in Resources */,
@@ -631,6 +649,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EF2992AC1CF8885E00A41E0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EF73F7561BC36B9100FA9DBA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -654,12 +688,14 @@
 				EF4C7BAD1CA89C00004A6CF3 /* AccountManager.m in Sources */,
 				EF43C2881CDABBA100BA1C7F /* TailgateSupplySlider.m in Sources */,
 				EF73F77D1BC36D7500FA9DBA /* AppDelegate.m in Sources */,
+				EF2992B21CF9FFA600A41E0B /* TailgateMBPointAnnotation.m in Sources */,
 				EF43C2851CDABB6100BA1C7F /* EventViewController.m in Sources */,
 				EF135F801CBE7D5200C80753 /* AddEventMapView.m in Sources */,
 				EFBF8DF41C6C13B70075DE38 /* AppManager.m in Sources */,
 				EFBF8DF11C6AB3BE0075DE38 /* AccountService.m in Sources */,
 				EF4C7BC01CAB40DD004A6CF3 /* ParkingLot.m in Sources */,
 				EF3C11BA1C8E70770069DAE4 /* UserCredentials.m in Sources */,
+				EF84EF871CEEA20E006459DA /* LandingViewController.m in Sources */,
 				EF90AE9C1CB19C8D00883032 /* ProfileEditView.m in Sources */,
 				EF135F7A1CBC842A00C80753 /* SupplyType.m in Sources */,
 				EFBF8DF71C6C15200075DE38 /* FireBaseServiceProvider.m in Sources */,
@@ -763,19 +799,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
+					"TailgateMate/Libraries/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TailgateMate/Libraries",
 				);
 				GCC_PREFIX_HEADER = TailgateMate/PrefixHeader.pch;
 				INFOPLIST_FILE = TailgateMate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.TailgateMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -783,19 +824,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
+					"TailgateMate/Libraries/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/TailgateMate/Libraries",
 				);
 				GCC_PREFIX_HEADER = TailgateMate/PrefixHeader.pch;
 				INFOPLIST_FILE = TailgateMate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.TailgateMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

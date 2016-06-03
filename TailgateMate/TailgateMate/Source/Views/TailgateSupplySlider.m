@@ -10,14 +10,33 @@
 
 @implementation TailgateSupplyView
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 + (instancetype)instanceWitDefaultNib {
     UINib *nib = [UINib nibWithNibName:@"TailgateSupplyView" bundle:[NSBundle mainBundle]];
     return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }
 
+- (void)populateWithTailgateSupply:(TailgateSupply *)supply {
+    self.titleLabel.text = supply.name;
+}
+
 @end
 
 @implementation TailgateSupplySlider
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 + (instancetype)instanceWitDefaultNib {
     UINib *nib = [UINib nibWithNibName:@"TailgateSupplySlider" bundle:[NSBundle mainBundle]];
     return [[nib instantiateWithOwner:nil options:nil] lastObject];

@@ -10,6 +10,7 @@
 #import "ProfileViewController.h"
 #import "TailgatePartyServiceProvider.h"
 #import "EventViewController.h"
+#import "TailgateMBPointAnnotation.h"
 
 @interface HomeMapViewController ()
 @property (nonatomic) CLLocation *initialLocationToUse;
@@ -86,6 +87,13 @@
 }
 
 - (void)mapView:(MGLMapView *)mapView tapOnCalloutForAnnotation:(id<MGLAnnotation>)annotation {
+    TailgateMBPointAnnotation *tgAnnotation = (TailgateMBPointAnnotation *)annotation;
+    NSString *uid = tgAnnotation.uid;
+    TailgateParty *party = [[self partiesKeyedById:self.parties] objectForKey:uid];
+    
+    EventViewController *vc = [[EventViewController alloc] initWithEvent:party];
+    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
+    [self.baseViewControllerDelegate addViewController:vc];
     
 }
 
@@ -111,10 +119,11 @@
     
     for (TailgateParty *party in newParties) {
         if (![self.partyAnnotations objectForKey:party.uid]) {
-            MGLPointAnnotation *annocation = [[MGLPointAnnotation alloc] init];
+            TailgateMBPointAnnotation *annocation = [[TailgateMBPointAnnotation alloc] init];
             annocation.coordinate = CLLocationCoordinate2DMake(party.parkingLot.location.lat.doubleValue, party.parkingLot.location.lon.doubleValue);
             annocation.title = party.name;
             annocation.subtitle = party.parkingLot.lotName;
+            annocation.uid = party.uid;
             
             [self.mapView addAnnotation:annocation];
             
@@ -125,35 +134,24 @@
     self.parties = newParties;
 }
 
-- (void)upperLeftAction:(UITapGestureRecognizer *)sender {
+- (void)addEventAction:(UIButton *)sender {
     AddEventViewController *vc = [[AddEventViewController alloc] init];
     vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
     
     [self.baseViewControllerDelegate addViewController:vc];
 }
 
-- (void)upperRightAction:(UITapGestureRecognizer *)sender {
-    if ([AppManager sharedInstance].accountManager.isAuthenticated) {
-        ProfileViewController *vc = [[ProfileViewController alloc] init];
-        vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
-    
-        [self.baseViewControllerDelegate addViewController:vc];
-    } else {
-        LoginViewController *vc = [[LoginViewController alloc] init];
-        vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
-    
-        [self.baseViewControllerDelegate addViewController:vc];
-    }
+- (void)goBackAction:(UIButton *)sender {
+    [self.baseViewControllerDelegate dismissViewController:self];
 }
 
-- (void)lowerLeftAction:(UITapGestureRecognizer *)sender {
-
-}
-
-- (void)lowerRightActin:(UITapGestureRecognizer *)sender {
+- (void)filterAction:(UIButton *)sender {
     
 }
 
+- (void)searchAction:(UIButton *)sender {
+    
+}
 
 - (CLLocation *)checkForBackUpLocation {
     CLLocation *loc = [[CLLocation alloc] initWithLatitude:42.014382613289001 longitude:-93.635700716097716];
@@ -161,27 +159,21 @@
 }
 
 - (void)setupCornerButtons {
-    self.upperLeftView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
-    self.upperRightView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
-    self.lowerLeftView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
-    self.lowerRightView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.5];
+    [self.addButton addTarget:self
+                       action:@selector(addEventAction:)
+             forControlEvents:UIControlEventTouchUpInside];
     
-    self.upperLeftView.layer.cornerRadius = self.upperLeftView.frame.size.width / 2.0f;
-    self.upperRightView.layer.cornerRadius = self.upperRightView.frame.size.width / 2.0f;
-    self.lowerLeftView.layer.cornerRadius = self.lowerLeftView.frame.size.width / 2.0f;
-    self.lowerRightView.layer.cornerRadius = self.lowerRightView.frame.size.width / 2.0f;
+    [self.searchButton addTarget:self
+                          action:@selector(searchAction:)
+                forControlEvents:UIControlEventTouchUpInside];
     
-    UITapGestureRecognizer *URtap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(upperRightAction:)];
-    URtap.numberOfTapsRequired = 1;
-    [self.upperRightView addGestureRecognizer:URtap];
+    [self.backButton addTarget:self
+                        action:@selector(goBackAction:)
+              forControlEvents:UIControlEventTouchUpInside];
     
-    UITapGestureRecognizer *ULTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(upperLeftAction:)];
-    ULTap.numberOfTapsRequired = 1;
-    [self.upperLeftView addGestureRecognizer:ULTap];
+    [self.filterButton addTarget:self
+                          action:@selector(filterAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    UITapGestureRecognizer *othertap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lowerLeftAction:)];
-    othertap.numberOfTapsRequired = 1;
-    [self.lowerLeftView addGestureRecognizer:othertap];
 }
 
 - (NSDictionary *)partiesKeyedById:(NSArray *)parties {
