@@ -26,6 +26,16 @@
     return [NSArray arrayWithArray:array];
 }
 
++ (NSArray *)arrayFromArray:(NSArray *)arrayData {
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:arrayData.count];
+    
+    for (NSDictionary *snap in arrayData) {
+        [array addObject:[self instacneFromDictionary:snap]];
+    }
+    
+    return [NSArray arrayWithArray:array];
+}
+
 + (NSDictionary *)dictionaryFromArray:(NSArray *)array {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:array.count];
     
@@ -33,9 +43,9 @@
     
     for (FirebaseObject *object in array) {
         if (object.uid.length > 0) {
-            dict[object.uid] = object;
+            dict[object.uid] = [object dictionaryRepresentation];
         } else {
-            dict[[NSNumber numberWithInteger:i]] = object;
+            dict[[[NSNumber numberWithInteger:i] stringValue]] = [object dictionaryRepresentation];
         }
         i++;
     }

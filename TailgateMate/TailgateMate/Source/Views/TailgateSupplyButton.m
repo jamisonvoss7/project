@@ -11,6 +11,7 @@
 @interface TailgateSupplyButton ()
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic) TailgateSupply *supply;
+@property (nonatomic, copy) void (^tapCallback)(TailgateSupply *, BOOL);
 @end
 
 @implementation TailgateSupplyButton
@@ -32,7 +33,13 @@
 
 - (void)populateWithTailgateSupply:(TailgateSupply *)supply {
     self.titleLabel.text = supply.name;
+    self.imageView.image = [UIImage imageNamed:supply.name];
     self.supply = supply;
+}
+- (void)tailgateSupplyStatusChangedWithComplete:(void (^)(TailgateSupply *, BOOL))handler {
+    if (handler) {
+        self.tapCallback = handler;
+    }
 }
 
 - (void)tapHandler:(UITapGestureRecognizer *)sender {
@@ -47,6 +54,10 @@
     }
     
     self.selected = !self.selected;
+    
+    if (self.tapCallback) {
+        self.tapCallback(self.supply, self.selected);
+    }
 }
 
 @end

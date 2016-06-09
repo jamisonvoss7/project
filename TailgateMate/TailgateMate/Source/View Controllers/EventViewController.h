@@ -7,8 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "TailgateSupplySlider.h"
-#import "Navbar.h"
 
 @interface EventViewController : BaseViewController
 
@@ -17,11 +15,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *lotNumberLabel;
 @property (nonatomic, weak) IBOutlet UIButton *moreDtailsButton;
-@property (nonatomic, weak) IBOutlet TailgateSupplySlider *havesSlider;
-@property (nonatomic, weak) IBOutlet TailgateSupplySlider *needsSlider;
+@property (nonatomic, weak) IBOutlet UIView *havesContainer;
+@property (nonatomic, weak) IBOutlet UIView *needsContainer;
 
-@property (nonatomic, weak) IBOutlet Navbar *navbar;
-
-- (id)initWithEvent:(TailgateParty *)event;
+- (id)initWithEvent:(TailgateParty *)tailgateParty;
 
 @end

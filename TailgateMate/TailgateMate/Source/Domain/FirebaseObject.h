@@ -13,6 +13,7 @@
 + (instancetype)instanceFromDate:(FDataSnapshot *)data;
 + (instancetype)instacneFromDictionary:(NSDictionary *)dictionary;
 + (NSArray *)arrayFromData:(FDataSnapshot *)data;
++ (NSArray *)arrayFromArray:(NSArray *)arrayData;
 + (NSDictionary *)dictionaryFromArray:(NSArray *)array;
 
 - (NSDictionary *)dictionaryRepresentation;

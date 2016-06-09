@@ -179,7 +179,8 @@
     location.lon = [NSNumber numberWithDouble:self.mapView.mapview.centerCoordinate.longitude];
     party.parkingLot.location = location;
     
-//    party.supplies = [TailgateSupply dictionaryFromArray:<#(NSArray *)#>]
+    party.supplies = self.suppliesView.selectedSupplies;
+    party.needs = self.neededSuppliesView.selectedSupplies;
     
     return party;
 }

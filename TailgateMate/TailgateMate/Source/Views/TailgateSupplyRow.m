@@ -7,6 +7,7 @@
 //
 
 #import "TailgateSupplyRow.h"
+#import "TailgateSupplyButton.h"
 
 @implementation TailgateSupplyRow
 
@@ -19,264 +20,83 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-   // self.backgroundColor = [UIColor whiteColor];
 }
 
-- (void)setButtons:(NSArray *)buttons {
-    if (buttons.count == 1) {
-        UIView *view = [buttons firstObject];
-        view.frame = self.bounds;
-        [self addSubview:view];
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view
-//                                                         attribute:NSLayoutAttributeTop
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeTop
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//    
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view
-//                                                         attribute:NSLayoutAttributeLeading
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeLeading
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//    
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view
-//                                                         attribute:NSLayoutAttributeTrailing
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeTrailing
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-    } else if (buttons.count == 2) {
-        UIView *view1 = [buttons firstObject];
-        UIView *view2 = [buttons lastObject];
+- (void)setSupplies:(NSArray *)supplies {
+    
+    void (^delegateCallback)(TailgateSupply *, BOOL) = ^(TailgateSupply *supply, BOOL selected) {
+        if (selected) {
+            [self.delegate supplyAdded:supply];
+        } else {
+            [self.delegate supplyRemoved:supply];
+        }
+    };
+    
+    if (supplies.count == 1) {
+        TailgateSupply *supply = [supplies firstObject];
+        TailgateSupplyButton *button = [TailgateSupplyButton instanceFromDefaultNib];
+        [button populateWithTailgateSupply:supply];
+        [button tailgateSupplyStatusChangedWithComplete:delegateCallback];
+        
+        button.frame = self.bounds;
+        [self addSubview:button];
+    } else if (supplies.count == 2) {
+        TailgateSupply *supply1 = [supplies firstObject];
+        TailgateSupply *supply2 = [supplies lastObject];
 
-        CGRect frame = view1.frame;
+        TailgateSupplyButton *button1 = [TailgateSupplyButton instanceFromDefaultNib];
+        TailgateSupplyButton *button2 = [TailgateSupplyButton instanceFromDefaultNib];
+        [button1 populateWithTailgateSupply:supply1];
+        [button2 populateWithTailgateSupply:supply2];
+        
+        CGRect frame = button1.frame;
         frame.origin.x = 0;
         frame.origin.y = 0;
         frame.size.height = self.frame.size.height;
         frame.size.width = self.frame.size.width / 2.0f;
-        view1.frame = frame;
+        button1.frame = frame;
         
         frame.origin.x = self.frame.size.width / 2.0f;
-        view2.frame = frame;
+        button2.frame = frame;
         
-        [self addSubview:view1];
-        [self addSubview:view2];
+        [button1 tailgateSupplyStatusChangedWithComplete:delegateCallback];
+        [button2 tailgateSupplyStatusChangedWithComplete:delegateCallback];
         
-        // =======================
-        // View 1 Constraints
-        // =======================
+        [self addSubview:button1];
+        [self addSubview:button2];
+    } else if (supplies.count == 3) {
+        TailgateSupply *supply1 = [supplies firstObject];
+        TailgateSupply *supply2 = [supplies objectAtIndex:1];
+        TailgateSupply *supply3 = [supplies lastObject];
 
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeTop
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeTop
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view2
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeTrailing
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view2
-//                                                         attribute:NSLayoutAttributeLeading
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        // =======================
-//        // View 2 constraints
-//        // =======================
-//
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                         attribute:NSLayoutAttributeTop
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeTop
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view1
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                         attribute:NSLayoutAttributeLeading
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view1
-//                                                         attribute:NSLayoutAttributeTrailing
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-
-    } else if (buttons.count == 3) {
-        UIView *view1 = [buttons firstObject];
-        UIView *view2 = [buttons objectAtIndex:1];
-        UIView *view3 = [buttons lastObject];
-
-        CGRect frame = view1.frame;
+        TailgateSupplyButton *button1 = [TailgateSupplyButton instanceFromDefaultNib];
+        TailgateSupplyButton *button2 = [TailgateSupplyButton instanceFromDefaultNib];
+        TailgateSupplyButton *button3 = [TailgateSupplyButton instanceFromDefaultNib];
+        
+        [button1 populateWithTailgateSupply:supply1];
+        [button2 populateWithTailgateSupply:supply2];
+        [button3 populateWithTailgateSupply:supply3];
+        
+        CGRect frame = button1.frame;
         frame.origin.x = 0;
         frame.origin.y = 0;
         frame.size.height = self.frame.size.height;
         frame.size.width = self.frame.size.width / 3.0f;
-        view1.frame = frame;
+        button1.frame = frame;
         
         frame.origin.x = self.frame.size.width / 3.0f;
-        view2.frame = frame;
+        button2.frame = frame;
 
         frame.origin.x = self.frame.size.width / 3.0f * 2.0f;
-        view3.frame = frame;
+        button3.frame = frame;
         
-        [self addSubview:view1];
-        [self addSubview:view2];
-        [self addSubview:view3];
-        
-        // =======================
-        // View 1 Constraints
-        // =======================
+        [button1 tailgateSupplyStatusChangedWithComplete:delegateCallback];
+        [button2 tailgateSupplyStatusChangedWithComplete:delegateCallback];
+        [button3 tailgateSupplyStatusChangedWithComplete:delegateCallback];
 
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeTop
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeTop
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view2
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeTrailing
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view2
-//                                                         attribute:NSLayoutAttributeLeading
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        // =======================
-//        // View 2 constraints
-//        // =======================
-//
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                         attribute:NSLayoutAttributeTop
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeTop
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//                [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                                 attribute:NSLayoutAttributeWidth
-//                                                                 relatedBy:NSLayoutRelationEqual
-//                                                                    toItem:view1
-//                                                                 attribute:NSLayoutAttributeWidth
-//                                                                multiplier:1.0f
-//                                                                  constant:0.0f]];
-//        
-//                [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                                 attribute:NSLayoutAttributeTrailing
-//                                                                 relatedBy:NSLayoutRelationEqual
-//                                                                    toItem:view2
-//                                                                 attribute:NSLayoutAttributeLeading
-//                                                                multiplier:1.0f
-//                                                                  constant:0.0f]];
-//
-//        // =======================
-//        // View 3 constraints
-//        // =======================
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view3
-//                                                         attribute:NSLayoutAttributeTop
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeTop
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view3
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:self
-//                                                         attribute:NSLayoutAttributeBottom
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view2
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view1
-//                                                         attribute:NSLayoutAttributeWidth
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-//        
-//        [self addConstraint:[NSLayoutConstraint constraintWithItem:view1
-//                                                         attribute:NSLayoutAttributeTrailing
-//                                                         relatedBy:NSLayoutRelationEqual
-//                                                            toItem:view2
-//                                                         attribute:NSLayoutAttributeLeading
-//                                                        multiplier:1.0f
-//                                                          constant:0.0f]];
-
+        [self addSubview:button1];
+        [self addSubview:button2];
+        [self addSubview:button3];
     }
 }
 

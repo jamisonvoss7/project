@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAD1D08DBE200551CDA /* Burgers.png */; };
+		EF0B5EB71D08DBE200551CDA /* Burgers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */; };
+		EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */; };
+		EF0B5EB91D08DBE200551CDA /* Cups.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB01D08DBE200551CDA /* Cups.png */; };
+		EF0B5EBA1D08DBE200551CDA /* Cups@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB11D08DBE200551CDA /* Cups@2x.png */; };
+		EF0B5EBB1D08DBE200551CDA /* Cups@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB21D08DBE200551CDA /* Cups@3x.png */; };
+		EF0B5EBC1D08DBE200551CDA /* Grill.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB31D08DBE200551CDA /* Grill.png */; };
+		EF0B5EBD1D08DBE200551CDA /* Grill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB41D08DBE200551CDA /* Grill@2x.png */; };
+		EF0B5EBE1D08DBE200551CDA /* Grill@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB51D08DBE200551CDA /* Grill@3x.png */; };
 		EF135F4A1CBB185500C80753 /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F491CBB185500C80753 /* Thing.m */; };
 		EF135F5A1CBB413300C80753 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F4D1CBB413300C80753 /* AddEventViewController.m */; };
 		EF135F5B1CBB413300C80753 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F4F1CBB413300C80753 /* BaseViewController.m */; };
@@ -46,7 +55,6 @@
 		EF3C11BA1C8E70770069DAE4 /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3C11B91C8E70770069DAE4 /* UserCredentials.m */; };
 		EF43C2851CDABB6100BA1C7F /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2841CDABB6100BA1C7F /* EventViewController.m */; };
 		EF43C2881CDABBA100BA1C7F /* TailgateSupplySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2871CDABBA100BA1C7F /* TailgateSupplySlider.m */; };
-		EF43C28A1CDABE7B00BA1C7F /* TailgateSupplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C2891CDABE7B00BA1C7F /* TailgateSupplyView.xib */; };
 		EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C28B1CDAC05B00BA1C7F /* TailgateSupplySlider.xib */; };
 		EF43C28E1CDAC15200BA1C7F /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C28D1CDAC15200BA1C7F /* EventViewController.xib */; };
 		EF43C2911CE8E9F100BA1C7F /* Navbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2901CE8E9F100BA1C7F /* Navbar.m */; };
@@ -112,6 +120,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EF0B5EAD1D08DBE200551CDA /* Burgers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Burgers.png; sourceTree = "<group>"; };
+		EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@2x.png"; sourceTree = "<group>"; };
+		EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@3x.png"; sourceTree = "<group>"; };
+		EF0B5EB01D08DBE200551CDA /* Cups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cups.png; sourceTree = "<group>"; };
+		EF0B5EB11D08DBE200551CDA /* Cups@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cups@2x.png"; sourceTree = "<group>"; };
+		EF0B5EB21D08DBE200551CDA /* Cups@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cups@3x.png"; sourceTree = "<group>"; };
+		EF0B5EB31D08DBE200551CDA /* Grill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grill.png; sourceTree = "<group>"; };
+		EF0B5EB41D08DBE200551CDA /* Grill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grill@2x.png"; sourceTree = "<group>"; };
+		EF0B5EB51D08DBE200551CDA /* Grill@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grill@3x.png"; sourceTree = "<group>"; };
 		EF135F481CBB185500C80753 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
 		EF135F491CBB185500C80753 /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
 		EF135F4C1CBB413300C80753 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
@@ -172,7 +189,6 @@
 		EF43C2841CDABB6100BA1C7F /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		EF43C2861CDABBA100BA1C7F /* TailgateSupplySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupplySlider.h; sourceTree = "<group>"; };
 		EF43C2871CDABBA100BA1C7F /* TailgateSupplySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateSupplySlider.m; sourceTree = "<group>"; };
-		EF43C2891CDABE7B00BA1C7F /* TailgateSupplyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TailgateSupplyView.xib; sourceTree = "<group>"; };
 		EF43C28B1CDAC05B00BA1C7F /* TailgateSupplySlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TailgateSupplySlider.xib; sourceTree = "<group>"; };
 		EF43C28D1CDAC15200BA1C7F /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
 		EF43C28F1CE8E9F100BA1C7F /* Navbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Navbar.h; sourceTree = "<group>"; };
@@ -282,6 +298,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF0B5EAC1D08DBE200551CDA /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				EF0B5EAD1D08DBE200551CDA /* Burgers.png */,
+				EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */,
+				EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */,
+				EF0B5EB01D08DBE200551CDA /* Cups.png */,
+				EF0B5EB11D08DBE200551CDA /* Cups@2x.png */,
+				EF0B5EB21D08DBE200551CDA /* Cups@3x.png */,
+				EF0B5EB31D08DBE200551CDA /* Grill.png */,
+				EF0B5EB41D08DBE200551CDA /* Grill@2x.png */,
+				EF0B5EB51D08DBE200551CDA /* Grill@3x.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		EF135F4B1CBB413300C80753 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,7 +366,6 @@
 				EF135F9D1CC16EE000C80753 /* TailgateSupplyButton.xib */,
 				EF135F9F1CC18B1600C80753 /* TailgateSupplyRow.xib */,
 				EF43C28B1CDAC05B00BA1C7F /* TailgateSupplySlider.xib */,
-				EF43C2891CDABE7B00BA1C7F /* TailgateSupplyView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +373,7 @@
 		EF135F8C1CC1497400C80753 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EF0B5EAC1D08DBE200551CDA /* Icons */,
 				EF135F8D1CC1497400C80753 /* red-flag-hi.png */,
 				EF135F8F1CC152FB00C80753 /* RedFlag.png */,
 			);
@@ -622,25 +654,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */,
 				EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */,
 				EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */,
 				EF73F76A1BC36B9100FA9DBA /* Assets.xcassets in Resources */,
 				EF135F951CC159A000C80753 /* AddEventSuppliesView.xib in Resources */,
 				EF84EF841CEE92E3006459DA /* JackTrice.gpx in Resources */,
+				EF0B5EBC1D08DBE200551CDA /* Grill.png in Resources */,
+				EF0B5EB71D08DBE200551CDA /* Burgers@2x.png in Resources */,
 				EF135F731CBB424600C80753 /* SignUpViewController.xib in Resources */,
+				EF0B5EBA1D08DBE200551CDA /* Cups@2x.png in Resources */,
 				EF135F6E1CBB424600C80753 /* AddEventViewController.xib in Resources */,
 				EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */,
 				EF135F711CBB424600C80753 /* ProfileViewController.xib in Resources */,
 				EF135F751CBB424600C80753 /* ProfileView.xib in Resources */,
+				EF0B5EB91D08DBE200551CDA /* Cups.png in Resources */,
 				EF135F8E1CC1497400C80753 /* red-flag-hi.png in Resources */,
 				EF135F771CBB425E00C80753 /* AddEventDetailsView.xib in Resources */,
 				EF135F721CBB424600C80753 /* SignInViewController.xib in Resources */,
+				EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */,
 				EF135F821CBE7ED800C80753 /* AddEventMapView.xib in Resources */,
 				EF135F741CBB424600C80753 /* ProfileEditView.xib in Resources */,
+				EF0B5EBE1D08DBE200551CDA /* Grill@3x.png in Resources */,
 				EF135F9E1CC16EE000C80753 /* TailgateSupplyButton.xib in Resources */,
 				EF43C2931CE8EB3A00BA1C7F /* Navbar.xib in Resources */,
-				EF43C28A1CDABE7B00BA1C7F /* TailgateSupplyView.xib in Resources */,
+				EF0B5EBD1D08DBE200551CDA /* Grill@2x.png in Resources */,
 				EF135FA01CC18B1600C80753 /* TailgateSupplyRow.xib in Resources */,
+				EF0B5EBB1D08DBE200551CDA /* Cups@3x.png in Resources */,
 				EF43C28E1CDAC15200BA1C7F /* EventViewController.xib in Resources */,
 				EF135F6F1CBB424600C80753 /* HomeMapViewController.xib in Resources */,
 				EF135F901CC152FB00C80753 /* RedFlag.png in Resources */,

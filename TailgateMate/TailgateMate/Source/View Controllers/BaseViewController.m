@@ -47,7 +47,7 @@
 }
 
 - (void)dismissViewController:(UIViewController *)viewController {
-    self.currentViewController = viewController.parentViewController;
+    self.currentViewController = viewController.presentingViewController;
     [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 

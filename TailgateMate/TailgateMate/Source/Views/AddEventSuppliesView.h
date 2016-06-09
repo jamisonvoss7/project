@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEventSuppliesView : UIView <UITableViewDelegate, UITableViewDataSource>
+@interface AddEventSuppliesView : UIView <UIScrollViewDelegate>
 
+@property (nonatomic, weak) IBOutlet UIScrollView *containerView;
 @property (nonatomic, weak) IBOutlet UILabel *promptLabel;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
-@property (nonatomic, readonly) NSMutableDictionary *selectedSupplies;
+@property (nonatomic, readonly) NSMutableArray *selectedSupplies;
 
 + (instancetype)instanceFromDefaultNib;
 - (void)setTailgateSupplies:(NSArray *)supplies;

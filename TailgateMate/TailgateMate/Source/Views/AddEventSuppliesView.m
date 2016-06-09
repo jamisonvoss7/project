@@ -10,8 +10,8 @@
 #import "TailgateSupplyRow.h"
 #import "TailgateSupplyButton.h"
 
-@interface AddEventSuppliesView ()
-@property (nonatomic, readwrite) NSMutableDictionary *selectedSupplies;
+@interface AddEventSuppliesView () <TailgateSupplyRowDelegateProtocol>
+@property (nonatomic, readwrite) NSMutableArray *selectedSupplies;
 @property (nonatomic) NSArray *availableSupplies;
 @end
 
@@ -26,51 +26,63 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.containerView.delegate = self;
     
-    self.selectedSupplies = [[NSMutableDictionary alloc] init];
+    self.selectedSupplies = [[NSMutableArray alloc] init];
 }
 
 - (void)setTailgateSupplies:(NSArray *)supplies {
     self.availableSupplies = [NSArray arrayWithArray:supplies];
-    [self.tableView reloadData];
+    [self loadViews];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+- (void)loadViews {
+    
+    NSInteger numberOfRows = self.availableSupplies.count / 3 + 1;
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.availableSupplies.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"supplyCell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"supplyCell"];
+    for (int i = 0; i < numberOfRows; i++) {
+        NSInteger firstPos = i * 3;
+        NSInteger secondPos = i * 3 + 1;
+        NSInteger thirdPost = i * 3 + 2;
+       
+        NSMutableArray *supplies = [[NSMutableArray alloc] init];
+        if (firstPos < self.availableSupplies.count) {
+            TailgateSupply *supply1 = [self.availableSupplies objectAtIndex:firstPos];
+            [supplies addObject:supply1];
+        }
+        if (secondPos < self.availableSupplies.count) {
+            TailgateSupply *supply2 = [self.availableSupplies objectAtIndex:secondPos];
+            [supplies addObject:supply2];
+        }
+        if (thirdPost < self.availableSupplies.count) {
+            TailgateSupply *supply3 = [self.availableSupplies objectAtIndex:thirdPost];
+            [supplies addObject:supply3];
+        }
+        
+        TailgateSupplyRow *row = [TailgateSupplyRow instanceFromDefaultNib];
+        [row setSupplies:supplies];
+        row.delegate = self;
+        
+        CGRect frame = row.frame;
+        frame.origin.x = 0;
+        frame.origin.y = i * frame.size.height;
+        frame.size.width = self.containerView.frame.size.width;
+        row.frame = frame;
+        
+        [self.containerView addSubview:row];
+        
+        CGSize size = self.containerView.contentSize;
+        size.height = row.frame.size.height + row.frame.origin.y;
+        [self.containerView setContentSize:size];
     }
-    
-    TailgateSupply *supply = [self.availableSupplies objectAtIndex:indexPath.row];
-    cell.textLabel.text = supply.name;
-    
-    if ([self.selectedSupplies objectForKey:[NSNumber numberWithInteger:indexPath.row]]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-    return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.selectedSupplies objectForKey:[NSNumber numberWithInteger:indexPath.row]]) {
-        [self.selectedSupplies removeObjectForKey:[NSNumber numberWithInteger:indexPath.row]];
-    } else {
-        [self.selectedSupplies setObject:[self.availableSupplies objectAtIndex:indexPath.row] forKey:[NSNumber numberWithInteger:indexPath.row]];
-    }
-    
-    [self.tableView reloadData];
+- (void)supplyAdded:(TailgateSupply *)supply {
+    [self.selectedSupplies addObject:supply];
 }
+
+- (void)supplyRemoved:(TailgateSupply *)supply {
+    [self.selectedSupplies removeObject:supply];
+}
+
 @end

@@ -7,27 +7,7 @@
 //
 
 #import "TailgateSupplySlider.h"
-
-@implementation TailgateSupplyView
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
-+ (instancetype)instanceWitDefaultNib {
-    UINib *nib = [UINib nibWithNibName:@"TailgateSupplyView" bundle:[NSBundle mainBundle]];
-    return [[nib instantiateWithOwner:nil options:nil] lastObject];
-}
-
-- (void)populateWithTailgateSupply:(TailgateSupply *)supply {
-    self.titleLabel.text = supply.name;
-}
-
-@end
+#import "TailgateSupplyButton.h"
 
 @implementation TailgateSupplySlider
 - (instancetype)init {
@@ -48,14 +28,16 @@
     int i = 0;
     
     for (TailgateSupply *supply in tailgateSupplies) {
-        TailgateSupplyView *view = [TailgateSupplyView instanceWitDefaultNib];
-        [view populateWithTailgateSupply:supply];
+        TailgateSupplyButton *button = [TailgateSupplyButton instanceFromDefaultNib];
+        [button populateWithTailgateSupply:supply];
+        button.userInteractionEnabled = NO;
         
-        CGRect frame = view.frame;
+        CGRect frame = button.frame;
         frame.origin.x = i * 100;
-        view.frame = frame;
+        button.frame = frame;
         
-        [self.scrollView addSubview:view];
+        [self.scrollView addSubview:button];
+        i++;
     }
 }
 @end

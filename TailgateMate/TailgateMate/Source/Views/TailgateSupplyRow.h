@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol  TailgateSupplyRowDelegateProtocol <NSObject>
+- (void)supplyAdded:(TailgateSupply *)supply;
+- (void)supplyRemoved:(TailgateSupply *)supply;
+@end
+
 @interface TailgateSupplyRow : UIView
 
+@property (nonatomic, weak) id<TailgateSupplyRowDelegateProtocol> delegate;
+
 + (instancetype)instanceFromDefaultNib;
-- (void)setButtons:(NSArray *)buttons;
+- (void)setSupplies:(NSArray *)supplies;
 
 @end

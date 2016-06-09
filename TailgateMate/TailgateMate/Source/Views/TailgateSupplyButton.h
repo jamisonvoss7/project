@@ -18,5 +18,6 @@
 
 + (instancetype)instanceFromDefaultNib;
 - (void)populateWithTailgateSupply:(TailgateSupply *)supply;
+- (void)tailgateSupplyStatusChangedWithComplete:(void (^)(TailgateSupply *supply, BOOL selected))handler;
 
 @end

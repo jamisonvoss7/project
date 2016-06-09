@@ -18,10 +18,19 @@
     instance.personCount = data.value[@"personCount"];
     instance.parkingLot = [ParkingLot instacneFromDictionary:data.value[@"parkingLot"]];
     instance.uid = data.value[@"uid"];
-    instance.supplies = [TailgateSupply arrayFromData:data.value[@"supplies"]];
-    instance.needs = [TailgateSupply arrayFromData:data.value[@"supplies"]];
+    instance.supplies = [TailgateSupply arrayFromArray:data.value[@"supplies"]];
+    instance.needs = [TailgateSupply arrayFromArray:data.value[@"needs"]];
     
     return instance;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _supplies = [[NSArray alloc] init];
+        _needs = [[NSArray alloc] init];
+    }
+    return self;
 }
 
 - (NSDictionary *)dictionaryRepresentation {

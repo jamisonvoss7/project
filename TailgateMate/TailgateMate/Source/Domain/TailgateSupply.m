@@ -19,6 +19,16 @@
     return supply;
 }
 
++ (instancetype)instacneFromDictionary:(NSDictionary *)dictionary {
+    TailgateSupply *supply = [[TailgateSupply alloc] init];
+    
+    supply.name = dictionary[@"name"];
+    supply.details = dictionary[@"details"];
+    supply.type = [[SupplyType alloc] initWithString:dictionary[@"type"]];
+    
+    return supply;
+}
+
 - (NSDictionary *)dictionaryRepresentation {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     

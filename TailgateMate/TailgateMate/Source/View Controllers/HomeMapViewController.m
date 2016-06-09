@@ -24,8 +24,6 @@
     [super viewDidLoad];
     
     self.mapView.delegate = self;
-        
-    [self setupCornerButtons];
     
     // If the user turned off location services, don't ask.
     if ([LocationManager isLocationServicesEnabled]
@@ -69,6 +67,10 @@
     return YES;
 }
 
+//- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
+//    [mapView setCenterCoordinate:annotation.coordinate animated:YES];
+//}
+
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
     // Try to reuse the existing ‘pisa’ annotation image, if it exists
     MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"flag"];
@@ -94,7 +96,6 @@
     EventViewController *vc = [[EventViewController alloc] initWithEvent:party];
     vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
     [self.baseViewControllerDelegate addViewController:vc];
-    
 }
 
 // Private Methods
