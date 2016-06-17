@@ -1,5 +1,5 @@
 //
-//  AddEventDetailsView.h
+//  AddTailgateDetailsView.h
 //  TailgateMate
 //
 //  Created by Jamison Voss on 4/10/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEventDetailsView : UIView
+@interface AddTailgateDetailsView : UIView
 
 @property (nonatomic, weak) IBOutlet UITextField *titleTextView;
 @property (nonatomic, weak) IBOutlet UITextField *lotNumberTextView;

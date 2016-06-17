@@ -9,6 +9,7 @@
 #import "AddEventMapView.h"
 #import "AddEventSuppliesView.h"
 #import "TailgatePartyServiceProvider.h"
+#import "NavbarView.h"
 
 @interface AddEventViewController () <UIScrollViewDelegate>
 @property (nonatomic) AddEventDetailsView *detailView;
@@ -16,6 +17,7 @@
 @property (nonatomic) AddEventSuppliesView *suppliesView;
 @property (nonatomic) AddEventSuppliesView *neededSuppliesView;
 @property (nonatomic) NSArray *defaultSupplies;
+@property (nonatomic) NavbarView *navbar;
 @end
 
 @implementation AddEventViewController
@@ -60,8 +62,24 @@
     
     self.scrollview.delegate = self;
     
-    [self setNavBarStringsForIndex:0];
 
+    self.navbar = [NavbarView instanceFromDefaultNib];
+    CGRect frame = self.navbar.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    self.navbar.frame = frame;
+    
+    UITapGestureRecognizer *leftTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftTapHandler:)];
+    leftTap.numberOfTapsRequired = 1;
+    [self.navbar.leftButton addGestureRecognizer:leftTap];
+    
+    UITapGestureRecognizer *rightTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightTapHandler:)];
+    rightTap.numberOfTapsRequired = 1;
+    [self.navbar.rightButton addGestureRecognizer:rightTap];
+    
+    [self.view addSubview:self.navbar];
+    
+    [self setNavBarStringsForIndex:0];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -74,11 +92,11 @@
     [self setNavBarStringsForIndex:index];
 }
 
-- (void)cancel:(UIButton *)sender {
+- (void)cancel {
     [self.baseViewControllerDelegate dismissViewController:self];
 }
 
-- (void)addEvent:(UIButton *)sender {
+- (void)addEvent {
     TailgateParty *party = [self buildTailgateParty];
     party.uid = [NSUUID UUID].UUIDString;
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
@@ -90,79 +108,37 @@
                  }];
 }
 
-- (void)scrollRight:(UIButton *)sender {
+- (void)scrollRight {
     CGPoint point = self.scrollview.contentOffset;
     point.x = point.x + self.view.frame.size.width;
     [self.scrollview setContentOffset:point animated:YES];
 }
 
+- (void)scrollLeft {
+    CGPoint point = self.scrollview.contentOffset;
+    point.x = point.x - self.view.frame.size.width;
+    [self.scrollview setContentOffset:point animated:YES];
+}
+
 - (void)setNavBarStringsForIndex:(NSInteger)index {
-    switch (index) {
-        case 0:
-            self.titleLabel.text = @"Event Details";
-
-            [self.leftButton setTitle:@"Cancel"
-                             forState:UIControlStateNormal];
-            [self.rightButton setTitle:@"Next"
-                              forState:UIControlStateNormal];
-            
-            [self.leftButton addTarget:self
-                                action:@selector(cancel:)
-                      forControlEvents:UIControlEventTouchUpInside];
-            [self.rightButton addTarget:self
-                                 action:@selector(scrollRight:)
-                       forControlEvents:UIControlEventTouchUpInside];
-
-            break;
-        case 1:
-            self.titleLabel.text = @"Event Location";
-
-            [self.leftButton setTitle:@"Cancel"
-                             forState:UIControlStateNormal];
-            [self.rightButton setTitle:@"Next"
-                              forState:UIControlStateNormal];
-            
-            [self.leftButton addTarget:self
-                                action:@selector(cancel:)
-                      forControlEvents:UIControlEventTouchUpInside];
-            [self.rightButton addTarget:self
-                                 action:@selector(scrollRight:)
-                       forControlEvents:UIControlEventTouchUpInside];
-            break;
-        case 2:
-            self.titleLabel.text = @"Event Supplies";
-
-            [self.leftButton setTitle:@"Cancel"
-                             forState:UIControlStateNormal];
-            [self.rightButton setTitle:@"Next"
-                              forState:UIControlStateNormal];
-            
-            [self.leftButton addTarget:self
-                                action:@selector(cancel:)
-                      forControlEvents:UIControlEventTouchUpInside];
-            [self.rightButton addTarget:self
-                                 action:@selector(scrollRight:)
-                       forControlEvents:UIControlEventTouchUpInside];
-            break;
-            
-        case 3:
-            self.titleLabel.text = @"Event Needs";
-
-            [self.leftButton setTitle:@"Cancel"
-                             forState:UIControlStateNormal];
-            [self.rightButton setTitle:@"Add"
-                              forState:UIControlStateNormal];
-            
-            [self.leftButton addTarget:self
-                                action:@selector(cancel:)
-                      forControlEvents:UIControlEventTouchUpInside];
-            [self.rightButton addTarget:self
-                                 action:@selector(addEvent:)
-                       forControlEvents:UIControlEventTouchUpInside];
-
-            break;
-        default:
-            break;
+    if (index == 0) {
+        self.navbar.leftButton.text = @"Cancle";
+        self.navbar.rightButton.text = @"Next";
+   
+        self.navbar.titleLabel.text = @"Event Details";
+    } else if (index == 1 || index == 2 ) {
+        self.navbar.leftButton.text = @"Back";
+        self.navbar.rightButton.text = @"Next";
+        if (index == 1) {
+            self.navbar.titleLabel.text = @"Event Location";
+        } else {
+            self.navbar.titleLabel.text = @"Event Supplies";
+        }
+    } else {
+        self.navbar.leftButton.text = @"Back";
+        self.navbar.rightButton.text = @"Add";
+        
+        self.navbar.titleLabel.text = @"Event Needs";
     }
 }
 
@@ -183,6 +159,24 @@
     party.needs = self.neededSuppliesView.selectedSupplies;
     
     return party;
+}
+
+- (void)leftTapHandler:(UITapGestureRecognizer *)tap {
+    CGFloat index = self.scrollview.contentOffset.x / self.view.frame.size.width;
+    if (index == 0) {
+        [self cancel];
+    } else {
+        [self scrollLeft];
+    }
+}
+
+- (void)rightTapHandler:(UITapGestureRecognizer *)tap {
+    CGFloat index = self.scrollview.contentOffset.x / self.view.frame.size.width;
+    if (index == 3) {
+        [self addEvent];
+    } else {
+        [self scrollRight];
+    }
 }
 
 - (NSArray *)defaultSupplies {

@@ -1,16 +1,16 @@
 //
-//  AddEventDetailsView.m
+//  AddTailgateDetailsView.m
 //  TailgateMate
 //
 //  Created by Jamison Voss on 4/10/16.
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "AddEventDetailsView.h"
+#import "AddTailgateDetailsView.h"
 
-@implementation AddEventDetailsView
+@implementation AddTailgateDetailsView
 + (instancetype)instanceFromDefaultNib {
-    UINib *nib = [UINib nibWithNibName:@"AddEventDetailsView"
+    UINib *nib = [UINib nibWithNibName:@"AddTailgateDetailsView"
                                 bundle:[NSBundle mainBundle]];
     return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }

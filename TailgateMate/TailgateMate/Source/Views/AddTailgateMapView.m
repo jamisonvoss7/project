@@ -1,21 +1,21 @@
 //
-//  AddEventMapView.m
+//  AddTailgateMapView.m
 //  TailgateMate
 //
 //  Created by Jamison Voss on 4/13/16.
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "AddEventMapView.h"
+#import "AddTailgateMapView.h"
 
-@interface AddEventMapView ()
+@interface AddTailgateMapView ()
 @property (nonatomic) CLLocation *initialLocationToUse;
 @end
 
-@implementation AddEventMapView
+@implementation AddTailgateMapView
 
 + (instancetype)instanceFromDefaultNib {
-    UINib *nib = [UINib nibWithNibName:@"AddEventMapView" bundle:[NSBundle mainBundle]];
+    UINib *nib = [UINib nibWithNibName:@"AddTailgateMapView" bundle:[NSBundle mainBundle]];
     return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }
 

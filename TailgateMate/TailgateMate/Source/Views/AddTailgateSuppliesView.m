@@ -1,24 +1,24 @@
 //
-//  AddEventSuppliesView.m
+//  AddTailgateSuppliesView.m
 //  TailgateMate
 //
 //  Created by Jamison Voss on 4/15/16.
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "AddEventSuppliesView.h"
+#import "AddTailgateSuppliesView.h"
 #import "TailgateSupplyRow.h"
 #import "TailgateSupplyButton.h"
 
-@interface AddEventSuppliesView () <TailgateSupplyRowDelegateProtocol>
+@interface AddTailgateSuppliesView () <TailgateSupplyRowDelegateProtocol>
 @property (nonatomic, readwrite) NSMutableArray *selectedSupplies;
 @property (nonatomic) NSArray *availableSupplies;
 @end
 
-@implementation AddEventSuppliesView
+@implementation AddTailgateSuppliesView
 
 + (instancetype)instanceFromDefaultNib {
-    UINib *nib = [UINib nibWithNibName:@"AddEventSuppliesView"
+    UINib *nib = [UINib nibWithNibName:@"AddTailgateSuppliesView"
                                 bundle:[NSBundle mainBundle]];
     return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }

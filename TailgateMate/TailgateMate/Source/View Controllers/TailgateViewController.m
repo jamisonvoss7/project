@@ -8,13 +8,13 @@
 
 #import "EventViewController.h"
 #import "TailgateSupplySlider.h"
-#import "Navbar.h"
+#import "NavbarView.h"
 
 @interface EventViewController ()
 @property (nonatomic) TailgateParty *tailgateParty;
 @property (nonatomic) TailgateSupplySlider *havesSlider;
 @property (nonatomic) TailgateSupplySlider *needsSlider;
-@property (nonatomic) Navbar *navbar;
+@property (nonatomic) NavbarView *navbar;
 @end
 
 @implementation EventViewController
@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navbar = [Navbar instanceFromDefaultNib];
+    self.navbar = [NavbarView instanceFromDefaultNib];
     CGRect frame = self.navbar.frame;
     frame.origin.x = 0;
     frame.origin.y = 0;
@@ -38,15 +38,14 @@
     
     [self.view addSubview:self.navbar];
     
-    [self.navbar.rightButton setTitle:@"Close" forState:UIControlStateNormal];
+    self.navbar.rightButton.text = @"Close";
     self.navbar.leftButton.hidden = YES;
     self.navbar.titleLabel.text = self.tailgateParty.name;
     
-    [self.navbar.rightButton addTarget:self
-                                action:@selector(close:)
-                      forControlEvents:UIControlEventTouchUpInside];
-    
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goBack)];
+    tap.numberOfTapsRequired = 1;
+    [self.navbar.rightButton addGestureRecognizer:tap];
+        
     self.titleLabel.text = self.tailgateParty.name;
     self.lotNumberLabel.text = self.tailgateParty.parkingLot.lotName;
     
@@ -63,7 +62,7 @@
     [self.needsSlider setSupplies:self.tailgateParty.needs];
 }
 
-- (void)close:(UIButton *)sender {
+- (void)goBack {
     [self.baseViewControllerDelegate dismissViewController:self];
 }
 

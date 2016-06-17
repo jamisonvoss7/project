@@ -1,5 +1,5 @@
 //
-//  AddEventSuppliesView.h
+//  AddTailgateSuppliesView.h
 //  TailgateMate
 //
 //  Created by Jamison Voss on 4/15/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEventSuppliesView : UIView <UIScrollViewDelegate>
+@interface AddTailgateSuppliesView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *containerView;
 @property (nonatomic, weak) IBOutlet UILabel *promptLabel;
