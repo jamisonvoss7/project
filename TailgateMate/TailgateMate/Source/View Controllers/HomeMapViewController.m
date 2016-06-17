@@ -6,10 +6,10 @@
 
 #import "HomeMapViewController.h"
 #import "LoginViewController.h"
-#import "AddEventViewController.h"
+#import "AddTailgateViewController.h"
 #import "ProfileViewController.h"
 #import "TailgatePartyServiceProvider.h"
-#import "EventViewController.h"
+#import "TailgateViewController.h"
 #import "TailgateMBPointAnnotation.h"
 
 @interface HomeMapViewController ()
@@ -48,6 +48,7 @@
         self.initialLocationToUse = [self checkForBackUpLocation];
     }
     
+    [self setupButtonBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,7 +94,7 @@
     NSString *uid = tgAnnotation.uid;
     TailgateParty *party = [[self partiesKeyedById:self.parties] objectForKey:uid];
     
-    EventViewController *vc = [[EventViewController alloc] initWithEvent:party];
+    TailgateViewController *vc = [[TailgateViewController alloc] initWithTailgate:party];
     vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
     [self.baseViewControllerDelegate addViewController:vc];
 }
@@ -135,8 +136,8 @@
     self.parties = newParties;
 }
 
-- (void)addEventAction:(UIButton *)sender {
-    AddEventViewController *vc = [[AddEventViewController alloc] init];
+- (void)addTailgateAction:(UIButton *)sender {
+    AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
     vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
     
     [self.baseViewControllerDelegate addViewController:vc];
@@ -159,9 +160,9 @@
     return loc;
 }
 
-- (void)setupCornerButtons {
+- (void)setupButtonBar {
     [self.addButton addTarget:self
-                       action:@selector(addEventAction:)
+                       action:@selector(addTailgateAction:)
              forControlEvents:UIControlEventTouchUpInside];
     
     [self.searchButton addTarget:self
@@ -173,7 +174,8 @@
               forControlEvents:UIControlEventTouchUpInside];
     
     [self.filterButton addTarget:self
-                          action:@selector(filterAction:) forControlEvents:UIControlEventTouchUpInside];
+                          action:@selector(filterAction:)
+                forControlEvents:UIControlEventTouchUpInside];
     
 }
 

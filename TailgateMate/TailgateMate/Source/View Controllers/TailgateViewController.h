@@ -1,5 +1,5 @@
 //
-//  EventViewController.h
+//  TailgateViewController.h
 //  TailgateMate
 //
 //  Created by Jamison Voss on 5/4/16.
@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface EventViewController : BaseViewController
+@interface TailgateViewController : BaseViewController
 
 @property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
 
@@ -18,6 +18,6 @@
 @property (nonatomic, weak) IBOutlet UIView *havesContainer;
 @property (nonatomic, weak) IBOutlet UIView *needsContainer;
 
-- (id)initWithEvent:(TailgateParty *)tailgateParty;
+- (id)initWithTailgate:(TailgateParty *)tailgateParty;
 
 @end

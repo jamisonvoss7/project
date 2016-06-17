@@ -1,26 +1,26 @@
 //
-//  AddEventViewController.m
+//  AddTailgateViewController.m
 //
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "AddEventViewController.h"
-#import "AddEventDetailsView.h"
-#import "AddEventMapView.h"
-#import "AddEventSuppliesView.h"
+#import "AddTailgateViewController.h"
+#import "AddTailgateDetailsView.h"
+#import "AddTailgateMapView.h"
+#import "AddTailgateSuppliesView.h"
 #import "TailgatePartyServiceProvider.h"
 #import "NavbarView.h"
 
-@interface AddEventViewController () <UIScrollViewDelegate>
-@property (nonatomic) AddEventDetailsView *detailView;
-@property (nonatomic) AddEventMapView *mapView;
-@property (nonatomic) AddEventSuppliesView *suppliesView;
-@property (nonatomic) AddEventSuppliesView *neededSuppliesView;
+@interface AddTailgateViewController () <UIScrollViewDelegate>
+@property (nonatomic) AddTailgateDetailsView *detailView;
+@property (nonatomic) AddTailgateMapView *mapView;
+@property (nonatomic) AddTailgateSuppliesView *suppliesView;
+@property (nonatomic) AddTailgateSuppliesView *neededSuppliesView;
 @property (nonatomic) NSArray *defaultSupplies;
 @property (nonatomic) NavbarView *navbar;
 @end
 
-@implementation AddEventViewController
+@implementation AddTailgateViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,18 +37,18 @@
     
     CGRect baseFrame = self.scrollview.bounds;
 
-    self.detailView = [AddEventDetailsView instanceFromDefaultNib];
+    self.detailView = [AddTailgateDetailsView instanceFromDefaultNib];
     self.detailView.frame = baseFrame;
     
-    self.mapView = [AddEventMapView instanceFromDefaultNib];
+    self.mapView = [AddTailgateMapView instanceFromDefaultNib];
     baseFrame.origin.x = self.view.frame.size.width;
     self.mapView.frame = baseFrame;
     
-    self.suppliesView = [AddEventSuppliesView instanceFromDefaultNib];
+    self.suppliesView = [AddTailgateSuppliesView instanceFromDefaultNib];
     baseFrame.origin.x = self.view.frame.size.width * 2;
     self.suppliesView.frame = baseFrame;
     
-    self.neededSuppliesView = [AddEventSuppliesView instanceFromDefaultNib];
+    self.neededSuppliesView = [AddTailgateSuppliesView instanceFromDefaultNib];
     baseFrame.origin.x = self.view.frame.size.width * 3;
     self.neededSuppliesView.frame = baseFrame;
     
@@ -96,7 +96,7 @@
     [self.baseViewControllerDelegate dismissViewController:self];
 }
 
-- (void)addEvent {
+- (void)addTailgate {
     TailgateParty *party = [self buildTailgateParty];
     party.uid = [NSUUID UUID].UUIDString;
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
@@ -125,20 +125,20 @@
         self.navbar.leftButton.text = @"Cancle";
         self.navbar.rightButton.text = @"Next";
    
-        self.navbar.titleLabel.text = @"Event Details";
+        self.navbar.titleLabel.text = @"Tailgate Details";
     } else if (index == 1 || index == 2 ) {
         self.navbar.leftButton.text = @"Back";
         self.navbar.rightButton.text = @"Next";
         if (index == 1) {
-            self.navbar.titleLabel.text = @"Event Location";
+            self.navbar.titleLabel.text = @"Tailgate Location";
         } else {
-            self.navbar.titleLabel.text = @"Event Supplies";
+            self.navbar.titleLabel.text = @"Tailgate Supplies";
         }
     } else {
         self.navbar.leftButton.text = @"Back";
         self.navbar.rightButton.text = @"Add";
         
-        self.navbar.titleLabel.text = @"Event Needs";
+        self.navbar.titleLabel.text = @"Tailgate Needs";
     }
 }
 
@@ -173,7 +173,7 @@
 - (void)rightTapHandler:(UITapGestureRecognizer *)tap {
     CGFloat index = self.scrollview.contentOffset.x / self.view.frame.size.width;
     if (index == 3) {
-        [self addEvent];
+        [self addTailgate];
     } else {
         [self scrollRight];
     }

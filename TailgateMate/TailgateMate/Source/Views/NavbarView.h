@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Navbar : UIView
+@interface NavbarView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UIButton *leftButton;
-@property (nonatomic, weak) IBOutlet UIButton *rightButton;
+@property (nonatomic, weak) IBOutlet UILabel *leftButton;
+@property (nonatomic, weak) IBOutlet UILabel *rightButton;
 
 + (instancetype)instanceFromDefaultNib;
 

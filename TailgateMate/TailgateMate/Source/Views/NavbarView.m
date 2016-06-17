@@ -6,25 +6,18 @@
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "Navbar.h"
+#import "NavbarView.h"
 
-@implementation Navbar
+@implementation NavbarView
 
 + (instancetype)instanceFromDefaultNib {
-    UINib *nib = [UINib nibWithNibName:@"Navbar"
+    UINib *nib = [UINib nibWithNibName:@"NavbarView"
                                 bundle:[NSBundle mainBundle]];
     return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)awakeFromNib {
-    
+    self.leftButton.userInteractionEnabled = YES;
+    self.rightButton.userInteractionEnabled = YES;
 }
 @end

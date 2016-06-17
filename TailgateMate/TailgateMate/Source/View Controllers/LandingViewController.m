@@ -9,7 +9,7 @@
 #import "LandingViewController.h"
 #import "HomeMapViewController.h"
 #import "ProfileViewController.h"
-#import "AddEventViewController.h"
+#import "AddTailgateViewController.h"
 
 @interface LandingViewController ()
 
@@ -55,7 +55,7 @@
 }
 
 - (void)hostTapHandler:(UITapGestureRecognizer *)sender {
-    AddEventViewController *vc = [[AddEventViewController alloc] init];
+    AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
     vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
     [self.baseViewControllerDelegate addViewController:vc];
 }

@@ -17,15 +17,15 @@
 		EF0B5EBD1D08DBE200551CDA /* Grill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB41D08DBE200551CDA /* Grill@2x.png */; };
 		EF0B5EBE1D08DBE200551CDA /* Grill@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EB51D08DBE200551CDA /* Grill@3x.png */; };
 		EF135F4A1CBB185500C80753 /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F491CBB185500C80753 /* Thing.m */; };
-		EF135F5A1CBB413300C80753 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F4D1CBB413300C80753 /* AddEventViewController.m */; };
+		EF135F5A1CBB413300C80753 /* AddTailgateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F4D1CBB413300C80753 /* AddTailgateViewController.m */; };
 		EF135F5B1CBB413300C80753 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F4F1CBB413300C80753 /* BaseViewController.m */; };
 		EF135F5C1CBB413300C80753 /* HomeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F511CBB413300C80753 /* HomeMapViewController.m */; };
 		EF135F5D1CBB413300C80753 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F531CBB413300C80753 /* LoginViewController.m */; };
 		EF135F5E1CBB413300C80753 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F551CBB413300C80753 /* ProfileViewController.m */; };
 		EF135F5F1CBB413300C80753 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F571CBB413300C80753 /* SignInViewController.m */; };
 		EF135F601CBB413300C80753 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F591CBB413300C80753 /* SignUpViewController.m */; };
-		EF135F631CBB41F500C80753 /* AddEventDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F621CBB41F500C80753 /* AddEventDetailsView.m */; };
-		EF135F6E1CBB424600C80753 /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F651CBB424600C80753 /* AddEventViewController.xib */; };
+		EF135F631CBB41F500C80753 /* AddTailgateDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F621CBB41F500C80753 /* AddTailgateDetailsView.m */; };
+		EF135F6E1CBB424600C80753 /* AddTailgateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F651CBB424600C80753 /* AddTailgateViewController.xib */; };
 		EF135F6F1CBB424600C80753 /* HomeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F661CBB424600C80753 /* HomeMapViewController.xib */; };
 		EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F671CBB424600C80753 /* LoginViewController.xib */; };
 		EF135F711CBB424600C80753 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F681CBB424600C80753 /* ProfileViewController.xib */; };
@@ -33,17 +33,17 @@
 		EF135F731CBB424600C80753 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F6A1CBB424600C80753 /* SignUpViewController.xib */; };
 		EF135F741CBB424600C80753 /* ProfileEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F6C1CBB424600C80753 /* ProfileEditView.xib */; };
 		EF135F751CBB424600C80753 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F6D1CBB424600C80753 /* ProfileView.xib */; };
-		EF135F771CBB425E00C80753 /* AddEventDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F761CBB425E00C80753 /* AddEventDetailsView.xib */; };
+		EF135F771CBB425E00C80753 /* AddTailgateDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F761CBB425E00C80753 /* AddTailgateDetailsView.xib */; };
 		EF135F7A1CBC842A00C80753 /* SupplyType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F791CBC842A00C80753 /* SupplyType.m */; };
 		EF135F7D1CBC85B100C80753 /* FirebaseEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F7C1CBC85B100C80753 /* FirebaseEnum.m */; };
-		EF135F801CBE7D5200C80753 /* AddEventMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F7F1CBE7D5200C80753 /* AddEventMapView.m */; };
-		EF135F821CBE7ED800C80753 /* AddEventMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F811CBE7ED800C80753 /* AddEventMapView.xib */; };
+		EF135F801CBE7D5200C80753 /* AddTailgateMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F7F1CBE7D5200C80753 /* AddTailgateMapView.m */; };
+		EF135F821CBE7ED800C80753 /* AddTailgateMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F811CBE7ED800C80753 /* AddTailgateMapView.xib */; };
 		EF135F851CBE863F00C80753 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F841CBE863F00C80753 /* LocationManager.m */; };
 		EF135F891CC12F4B00C80753 /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF135F881CC12F4B00C80753 /* Mapbox.framework */; };
 		EF135F8E1CC1497400C80753 /* red-flag-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = EF135F8D1CC1497400C80753 /* red-flag-hi.png */; };
 		EF135F901CC152FB00C80753 /* RedFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = EF135F8F1CC152FB00C80753 /* RedFlag.png */; };
-		EF135F931CC1598A00C80753 /* AddEventSuppliesView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F921CC1598A00C80753 /* AddEventSuppliesView.m */; };
-		EF135F951CC159A000C80753 /* AddEventSuppliesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F941CC159A000C80753 /* AddEventSuppliesView.xib */; };
+		EF135F931CC1598A00C80753 /* AddTailgateSuppliesView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F921CC1598A00C80753 /* AddTailgateSuppliesView.m */; };
+		EF135F951CC159A000C80753 /* AddTailgateSuppliesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F941CC159A000C80753 /* AddTailgateSuppliesView.xib */; };
 		EF135F981CC16B4800C80753 /* TailgateSupplyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F971CC16B4800C80753 /* TailgateSupplyButton.m */; };
 		EF135F9B1CC16B5900C80753 /* TailgateSupplyRow.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F9A1CC16B5900C80753 /* TailgateSupplyRow.m */; };
 		EF135F9E1CC16EE000C80753 /* TailgateSupplyButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F9D1CC16EE000C80753 /* TailgateSupplyButton.xib */; };
@@ -53,12 +53,12 @@
 		EF2992AB1CF8883900A41E0B /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF2992A91CF8883900A41E0B /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF2992B21CF9FFA600A41E0B /* TailgateMBPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2992B11CF9FFA600A41E0B /* TailgateMBPointAnnotation.m */; };
 		EF3C11BA1C8E70770069DAE4 /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3C11B91C8E70770069DAE4 /* UserCredentials.m */; };
-		EF43C2851CDABB6100BA1C7F /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2841CDABB6100BA1C7F /* EventViewController.m */; };
+		EF43C2851CDABB6100BA1C7F /* TailgateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2841CDABB6100BA1C7F /* TailgateViewController.m */; };
 		EF43C2881CDABBA100BA1C7F /* TailgateSupplySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2871CDABBA100BA1C7F /* TailgateSupplySlider.m */; };
 		EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C28B1CDAC05B00BA1C7F /* TailgateSupplySlider.xib */; };
-		EF43C28E1CDAC15200BA1C7F /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C28D1CDAC15200BA1C7F /* EventViewController.xib */; };
-		EF43C2911CE8E9F100BA1C7F /* Navbar.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2901CE8E9F100BA1C7F /* Navbar.m */; };
-		EF43C2931CE8EB3A00BA1C7F /* Navbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C2921CE8EB3A00BA1C7F /* Navbar.xib */; };
+		EF43C28E1CDAC15200BA1C7F /* TailgateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C28D1CDAC15200BA1C7F /* TailgateViewController.xib */; };
+		EF43C2911CE8E9F100BA1C7F /* NavbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF43C2901CE8E9F100BA1C7F /* NavbarView.m */; };
+		EF43C2931CE8EB3A00BA1C7F /* NavbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C2921CE8EB3A00BA1C7F /* NavbarView.xib */; };
 		EF4C7BAD1CA89C00004A6CF3 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4C7BAC1CA89C00004A6CF3 /* AccountManager.m */; };
 		EF4C7BB81CA8F8D8004A6CF3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4C7BB71CA8F8D8004A6CF3 /* MapKit.framework */; };
 		EF4C7BC01CAB40DD004A6CF3 /* ParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4C7BBF1CAB40DD004A6CF3 /* ParkingLot.m */; };
@@ -131,8 +131,8 @@
 		EF0B5EB51D08DBE200551CDA /* Grill@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Grill@3x.png"; sourceTree = "<group>"; };
 		EF135F481CBB185500C80753 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
 		EF135F491CBB185500C80753 /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
-		EF135F4C1CBB413300C80753 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
-		EF135F4D1CBB413300C80753 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		EF135F4C1CBB413300C80753 /* AddTailgateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTailgateViewController.h; sourceTree = "<group>"; };
+		EF135F4D1CBB413300C80753 /* AddTailgateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTailgateViewController.m; sourceTree = "<group>"; };
 		EF135F4E1CBB413300C80753 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		EF135F4F1CBB413300C80753 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		EF135F501CBB413300C80753 /* HomeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMapViewController.h; sourceTree = "<group>"; };
@@ -145,9 +145,9 @@
 		EF135F571CBB413300C80753 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		EF135F581CBB413300C80753 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		EF135F591CBB413300C80753 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		EF135F611CBB41F500C80753 /* AddEventDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventDetailsView.h; sourceTree = "<group>"; };
-		EF135F621CBB41F500C80753 /* AddEventDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventDetailsView.m; sourceTree = "<group>"; };
-		EF135F651CBB424600C80753 /* AddEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
+		EF135F611CBB41F500C80753 /* AddTailgateDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTailgateDetailsView.h; sourceTree = "<group>"; };
+		EF135F621CBB41F500C80753 /* AddTailgateDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTailgateDetailsView.m; sourceTree = "<group>"; };
+		EF135F651CBB424600C80753 /* AddTailgateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTailgateViewController.xib; sourceTree = "<group>"; };
 		EF135F661CBB424600C80753 /* HomeMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMapViewController.xib; sourceTree = "<group>"; };
 		EF135F671CBB424600C80753 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		EF135F681CBB424600C80753 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -155,22 +155,22 @@
 		EF135F6A1CBB424600C80753 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		EF135F6C1CBB424600C80753 /* ProfileEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEditView.xib; sourceTree = "<group>"; };
 		EF135F6D1CBB424600C80753 /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
-		EF135F761CBB425E00C80753 /* AddEventDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEventDetailsView.xib; sourceTree = "<group>"; };
+		EF135F761CBB425E00C80753 /* AddTailgateDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTailgateDetailsView.xib; sourceTree = "<group>"; };
 		EF135F781CBC842A00C80753 /* SupplyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupplyType.h; sourceTree = "<group>"; };
 		EF135F791CBC842A00C80753 /* SupplyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupplyType.m; sourceTree = "<group>"; };
 		EF135F7B1CBC85B100C80753 /* FirebaseEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseEnum.h; sourceTree = "<group>"; };
 		EF135F7C1CBC85B100C80753 /* FirebaseEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseEnum.m; sourceTree = "<group>"; };
-		EF135F7E1CBE7D5200C80753 /* AddEventMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventMapView.h; sourceTree = "<group>"; };
-		EF135F7F1CBE7D5200C80753 /* AddEventMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventMapView.m; sourceTree = "<group>"; };
-		EF135F811CBE7ED800C80753 /* AddEventMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEventMapView.xib; sourceTree = "<group>"; };
+		EF135F7E1CBE7D5200C80753 /* AddTailgateMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTailgateMapView.h; sourceTree = "<group>"; };
+		EF135F7F1CBE7D5200C80753 /* AddTailgateMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTailgateMapView.m; sourceTree = "<group>"; };
+		EF135F811CBE7ED800C80753 /* AddTailgateMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTailgateMapView.xib; sourceTree = "<group>"; };
 		EF135F831CBE863F00C80753 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		EF135F841CBE863F00C80753 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		EF135F881CC12F4B00C80753 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = /Users/jamisonvoss/Documents/projects/project/TailgateMate/Mapbox.framework; sourceTree = "<absolute>"; };
 		EF135F8D1CC1497400C80753 /* red-flag-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-flag-hi.png"; sourceTree = "<group>"; };
 		EF135F8F1CC152FB00C80753 /* RedFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedFlag.png; sourceTree = "<group>"; };
-		EF135F911CC1598A00C80753 /* AddEventSuppliesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventSuppliesView.h; sourceTree = "<group>"; };
-		EF135F921CC1598A00C80753 /* AddEventSuppliesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventSuppliesView.m; sourceTree = "<group>"; };
-		EF135F941CC159A000C80753 /* AddEventSuppliesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEventSuppliesView.xib; sourceTree = "<group>"; };
+		EF135F911CC1598A00C80753 /* AddTailgateSuppliesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTailgateSuppliesView.h; sourceTree = "<group>"; };
+		EF135F921CC1598A00C80753 /* AddTailgateSuppliesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTailgateSuppliesView.m; sourceTree = "<group>"; };
+		EF135F941CC159A000C80753 /* AddTailgateSuppliesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTailgateSuppliesView.xib; sourceTree = "<group>"; };
 		EF135F961CC16B4800C80753 /* TailgateSupplyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupplyButton.h; sourceTree = "<group>"; };
 		EF135F971CC16B4800C80753 /* TailgateSupplyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateSupplyButton.m; sourceTree = "<group>"; };
 		EF135F991CC16B5900C80753 /* TailgateSupplyRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupplyRow.h; sourceTree = "<group>"; };
@@ -185,15 +185,15 @@
 		EF2992B11CF9FFA600A41E0B /* TailgateMBPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateMBPointAnnotation.m; sourceTree = "<group>"; };
 		EF3C11B81C8E70770069DAE4 /* UserCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCredentials.h; sourceTree = "<group>"; };
 		EF3C11B91C8E70770069DAE4 /* UserCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCredentials.m; sourceTree = "<group>"; };
-		EF43C2831CDABB6100BA1C7F /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
-		EF43C2841CDABB6100BA1C7F /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		EF43C2831CDABB6100BA1C7F /* TailgateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateViewController.h; sourceTree = "<group>"; };
+		EF43C2841CDABB6100BA1C7F /* TailgateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateViewController.m; sourceTree = "<group>"; };
 		EF43C2861CDABBA100BA1C7F /* TailgateSupplySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupplySlider.h; sourceTree = "<group>"; };
 		EF43C2871CDABBA100BA1C7F /* TailgateSupplySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateSupplySlider.m; sourceTree = "<group>"; };
 		EF43C28B1CDAC05B00BA1C7F /* TailgateSupplySlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TailgateSupplySlider.xib; sourceTree = "<group>"; };
-		EF43C28D1CDAC15200BA1C7F /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
-		EF43C28F1CE8E9F100BA1C7F /* Navbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Navbar.h; sourceTree = "<group>"; };
-		EF43C2901CE8E9F100BA1C7F /* Navbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Navbar.m; sourceTree = "<group>"; };
-		EF43C2921CE8EB3A00BA1C7F /* Navbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Navbar.xib; sourceTree = "<group>"; };
+		EF43C28D1CDAC15200BA1C7F /* TailgateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TailgateViewController.xib; sourceTree = "<group>"; };
+		EF43C28F1CE8E9F100BA1C7F /* NavbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavbarView.h; sourceTree = "<group>"; };
+		EF43C2901CE8E9F100BA1C7F /* NavbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavbarView.m; sourceTree = "<group>"; };
+		EF43C2921CE8EB3A00BA1C7F /* NavbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavbarView.xib; sourceTree = "<group>"; };
 		EF4C7BAB1CA89C00004A6CF3 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		EF4C7BAC1CA89C00004A6CF3 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		EF4C7BB51CA8E28E004A6CF3 /* AuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationDelegate.h; sourceTree = "<group>"; };
@@ -317,12 +317,12 @@
 		EF135F4B1CBB413300C80753 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF135F4C1CBB413300C80753 /* AddEventViewController.h */,
-				EF135F4D1CBB413300C80753 /* AddEventViewController.m */,
+				EF135F4C1CBB413300C80753 /* AddTailgateViewController.h */,
+				EF135F4D1CBB413300C80753 /* AddTailgateViewController.m */,
 				EF135F4E1CBB413300C80753 /* BaseViewController.h */,
 				EF135F4F1CBB413300C80753 /* BaseViewController.m */,
-				EF43C2831CDABB6100BA1C7F /* EventViewController.h */,
-				EF43C2841CDABB6100BA1C7F /* EventViewController.m */,
+				EF43C2831CDABB6100BA1C7F /* TailgateViewController.h */,
+				EF43C2841CDABB6100BA1C7F /* TailgateViewController.m */,
 				EF135F501CBB413300C80753 /* HomeMapViewController.h */,
 				EF135F511CBB413300C80753 /* HomeMapViewController.m */,
 				EF84EF851CEEA20E006459DA /* LandingViewController.h */,
@@ -342,8 +342,8 @@
 		EF135F641CBB424600C80753 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF135F651CBB424600C80753 /* AddEventViewController.xib */,
-				EF43C28D1CDAC15200BA1C7F /* EventViewController.xib */,
+				EF135F651CBB424600C80753 /* AddTailgateViewController.xib */,
+				EF43C28D1CDAC15200BA1C7F /* TailgateViewController.xib */,
 				EF135F661CBB424600C80753 /* HomeMapViewController.xib */,
 				EF84EF881CEEA434006459DA /* LandingViewController.xib */,
 				EF135F671CBB424600C80753 /* LoginViewController.xib */,
@@ -357,10 +357,10 @@
 		EF135F6B1CBB424600C80753 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF135F761CBB425E00C80753 /* AddEventDetailsView.xib */,
-				EF135F811CBE7ED800C80753 /* AddEventMapView.xib */,
-				EF135F941CC159A000C80753 /* AddEventSuppliesView.xib */,
-				EF43C2921CE8EB3A00BA1C7F /* Navbar.xib */,
+				EF135F761CBB425E00C80753 /* AddTailgateDetailsView.xib */,
+				EF135F811CBE7ED800C80753 /* AddTailgateMapView.xib */,
+				EF135F941CC159A000C80753 /* AddTailgateSuppliesView.xib */,
+				EF43C2921CE8EB3A00BA1C7F /* NavbarView.xib */,
 				EF135F6C1CBB424600C80753 /* ProfileEditView.xib */,
 				EF135F6D1CBB424600C80753 /* ProfileView.xib */,
 				EF135F9D1CC16EE000C80753 /* TailgateSupplyButton.xib */,
@@ -500,14 +500,14 @@
 		EF73F7791BC36D7500FA9DBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF135F611CBB41F500C80753 /* AddEventDetailsView.h */,
-				EF135F621CBB41F500C80753 /* AddEventDetailsView.m */,
-				EF135F7E1CBE7D5200C80753 /* AddEventMapView.h */,
-				EF135F7F1CBE7D5200C80753 /* AddEventMapView.m */,
-				EF135F911CC1598A00C80753 /* AddEventSuppliesView.h */,
-				EF135F921CC1598A00C80753 /* AddEventSuppliesView.m */,
-				EF43C28F1CE8E9F100BA1C7F /* Navbar.h */,
-				EF43C2901CE8E9F100BA1C7F /* Navbar.m */,
+				EF135F611CBB41F500C80753 /* AddTailgateDetailsView.h */,
+				EF135F621CBB41F500C80753 /* AddTailgateDetailsView.m */,
+				EF135F7E1CBE7D5200C80753 /* AddTailgateMapView.h */,
+				EF135F7F1CBE7D5200C80753 /* AddTailgateMapView.m */,
+				EF135F911CC1598A00C80753 /* AddTailgateSuppliesView.h */,
+				EF135F921CC1598A00C80753 /* AddTailgateSuppliesView.m */,
+				EF43C28F1CE8E9F100BA1C7F /* NavbarView.h */,
+				EF43C2901CE8E9F100BA1C7F /* NavbarView.m */,
 				EF90AE971CB19C7900883032 /* ProfileView.h */,
 				EF90AE981CB19C7900883032 /* ProfileView.m */,
 				EF90AE9A1CB19C8D00883032 /* ProfileEditView.h */,
@@ -658,30 +658,30 @@
 				EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */,
 				EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */,
 				EF73F76A1BC36B9100FA9DBA /* Assets.xcassets in Resources */,
-				EF135F951CC159A000C80753 /* AddEventSuppliesView.xib in Resources */,
+				EF135F951CC159A000C80753 /* AddTailgateSuppliesView.xib in Resources */,
 				EF84EF841CEE92E3006459DA /* JackTrice.gpx in Resources */,
 				EF0B5EBC1D08DBE200551CDA /* Grill.png in Resources */,
 				EF0B5EB71D08DBE200551CDA /* Burgers@2x.png in Resources */,
 				EF135F731CBB424600C80753 /* SignUpViewController.xib in Resources */,
 				EF0B5EBA1D08DBE200551CDA /* Cups@2x.png in Resources */,
-				EF135F6E1CBB424600C80753 /* AddEventViewController.xib in Resources */,
+				EF135F6E1CBB424600C80753 /* AddTailgateViewController.xib in Resources */,
 				EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */,
 				EF135F711CBB424600C80753 /* ProfileViewController.xib in Resources */,
 				EF135F751CBB424600C80753 /* ProfileView.xib in Resources */,
 				EF0B5EB91D08DBE200551CDA /* Cups.png in Resources */,
 				EF135F8E1CC1497400C80753 /* red-flag-hi.png in Resources */,
-				EF135F771CBB425E00C80753 /* AddEventDetailsView.xib in Resources */,
+				EF135F771CBB425E00C80753 /* AddTailgateDetailsView.xib in Resources */,
 				EF135F721CBB424600C80753 /* SignInViewController.xib in Resources */,
 				EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */,
-				EF135F821CBE7ED800C80753 /* AddEventMapView.xib in Resources */,
+				EF135F821CBE7ED800C80753 /* AddTailgateMapView.xib in Resources */,
 				EF135F741CBB424600C80753 /* ProfileEditView.xib in Resources */,
 				EF0B5EBE1D08DBE200551CDA /* Grill@3x.png in Resources */,
 				EF135F9E1CC16EE000C80753 /* TailgateSupplyButton.xib in Resources */,
-				EF43C2931CE8EB3A00BA1C7F /* Navbar.xib in Resources */,
+				EF43C2931CE8EB3A00BA1C7F /* NavbarView.xib in Resources */,
 				EF0B5EBD1D08DBE200551CDA /* Grill@2x.png in Resources */,
 				EF135FA01CC18B1600C80753 /* TailgateSupplyRow.xib in Resources */,
 				EF0B5EBB1D08DBE200551CDA /* Cups@3x.png in Resources */,
-				EF43C28E1CDAC15200BA1C7F /* EventViewController.xib in Resources */,
+				EF43C28E1CDAC15200BA1C7F /* TailgateViewController.xib in Resources */,
 				EF135F6F1CBB424600C80753 /* HomeMapViewController.xib in Resources */,
 				EF135F901CC152FB00C80753 /* RedFlag.png in Resources */,
 			);
@@ -710,7 +710,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF135F931CC1598A00C80753 /* AddEventSuppliesView.m in Sources */,
+				EF135F931CC1598A00C80753 /* AddTailgateSuppliesView.m in Sources */,
 				EF135F5D1CBB413300C80753 /* LoginViewController.m in Sources */,
 				EF90AE991CB19C7900883032 /* ProfileView.m in Sources */,
 				EF135F5F1CBB413300C80753 /* SignInViewController.m in Sources */,
@@ -720,17 +720,17 @@
 				EF73F79E1BC3759900FA9DBA /* TailgateParty.m in Sources */,
 				EF135FA31CC28BDC00C80753 /* TailgatePartyServiceProvider.m in Sources */,
 				EF135F851CBE863F00C80753 /* LocationManager.m in Sources */,
-				EF135F631CBB41F500C80753 /* AddEventDetailsView.m in Sources */,
+				EF135F631CBB41F500C80753 /* AddTailgateDetailsView.m in Sources */,
 				EF135F9B1CC16B5900C80753 /* TailgateSupplyRow.m in Sources */,
 				EF73F7A21BC37AFA00FA9DBA /* TailgateSupply.m in Sources */,
-				EF135F5A1CBB413300C80753 /* AddEventViewController.m in Sources */,
+				EF135F5A1CBB413300C80753 /* AddTailgateViewController.m in Sources */,
 				EF90AEA21CB5C62300883032 /* NSUserDefaults+Additions.m in Sources */,
 				EF4C7BAD1CA89C00004A6CF3 /* AccountManager.m in Sources */,
 				EF43C2881CDABBA100BA1C7F /* TailgateSupplySlider.m in Sources */,
 				EF73F77D1BC36D7500FA9DBA /* AppDelegate.m in Sources */,
 				EF2992B21CF9FFA600A41E0B /* TailgateMBPointAnnotation.m in Sources */,
-				EF43C2851CDABB6100BA1C7F /* EventViewController.m in Sources */,
-				EF135F801CBE7D5200C80753 /* AddEventMapView.m in Sources */,
+				EF43C2851CDABB6100BA1C7F /* TailgateViewController.m in Sources */,
+				EF135F801CBE7D5200C80753 /* AddTailgateMapView.m in Sources */,
 				EFBF8DF41C6C13B70075DE38 /* AppManager.m in Sources */,
 				EFBF8DF11C6AB3BE0075DE38 /* AccountService.m in Sources */,
 				EF4C7BC01CAB40DD004A6CF3 /* ParkingLot.m in Sources */,
@@ -748,7 +748,7 @@
 				EF135F4A1CBB185500C80753 /* Thing.m in Sources */,
 				EF73F75F1BC36B9100FA9DBA /* main.m in Sources */,
 				EF135F7D1CBC85B100C80753 /* FirebaseEnum.m in Sources */,
-				EF43C2911CE8E9F100BA1C7F /* Navbar.m in Sources */,
+				EF43C2911CE8E9F100BA1C7F /* NavbarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

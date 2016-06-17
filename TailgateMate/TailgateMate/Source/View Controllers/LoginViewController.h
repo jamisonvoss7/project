@@ -16,5 +16,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *twitterButton;
 @property (nonatomic, weak) IBOutlet UIButton *emailButton;
 @property (nonatomic, weak) IBOutlet UIButton *basicAccountButton;
+@property (nonatomic, weak) IBOutlet UIButton *skipButton;
 
 @end

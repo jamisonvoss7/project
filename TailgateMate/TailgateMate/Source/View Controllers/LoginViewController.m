@@ -37,25 +37,29 @@
                                 action:@selector(signUpBUttonTapped:)
                       forControlEvents:UIControlEventTouchUpInside];
     
+    [self.skipButton addTarget:self
+                        action:@selector(skipButtonTapped:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
+    
     self.facebbokButton.layer.cornerRadius = 15.0f;
     self.twitterButton.layer.cornerRadius = 15.0f;
     self.emailButton.layer.cornerRadius = 15.0f;
     self.basicAccountButton.layer.cornerRadius = 15.0f;
+    self.skipButton.layer.cornerRadius = 15.0f;
     
     self.facebbokButton.layer.borderWidth = 3.0f;
     self.twitterButton.layer.borderWidth = 3.0f;
     self.emailButton.layer.borderWidth = 3.0f;
     self.basicAccountButton.layer.borderWidth = 3.0f;
+    self.skipButton.layer.borderWidth = 3.0f;
     
     self.facebbokButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.twitterButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.emailButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.basicAccountButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-}
+    self.skipButton.layer.borderColor = [[UIColor whiteColor] CGColor];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)facebookButtonAction:(UIButton *)sender {

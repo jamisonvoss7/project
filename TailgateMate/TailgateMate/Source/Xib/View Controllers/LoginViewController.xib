@@ -9,6 +9,7 @@
                 <outlet property="basicAccountButton" destination="wJn-W4-bKe" id="8IQ-qo-Epv"/>
                 <outlet property="emailButton" destination="jRe-h6-dGa" id="6Xm-CT-uXm"/>
                 <outlet property="facebbokButton" destination="COG-jJ-iED" id="X3h-ah-ngF"/>
+                <outlet property="skipButton" destination="XIX-pX-Hhx" id="PNx-dp-wf1"/>
                 <outlet property="twitterButton" destination="hiA-6i-IoH" id="022-Zs-CDP"/>
                 <outlet property="view" destination="iN0-l3-epB" id="44G-UG-uhE"/>
             </connections>
