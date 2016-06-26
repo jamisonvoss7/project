@@ -95,8 +95,7 @@
     TailgateParty *party = [[self partiesKeyedById:self.parties] objectForKey:uid];
     
     TailgateViewController *vc = [[TailgateViewController alloc] initWithTailgate:party];
-    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
-    [self.baseViewControllerDelegate addViewController:vc];
+    [self.baseDelegate addViewController:vc];
 }
 
 // Private Methods
@@ -138,13 +137,12 @@
 
 - (void)addTailgateAction:(UIButton *)sender {
     AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
-    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
     
-    [self.baseViewControllerDelegate addViewController:vc];
+    [self.baseDelegate addViewController:vc];
 }
 
 - (void)goBackAction:(UIButton *)sender {
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
 }
 
 - (void)filterAction:(UIButton *)sender {

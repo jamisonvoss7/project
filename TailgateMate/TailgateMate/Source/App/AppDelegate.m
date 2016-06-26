@@ -8,10 +8,10 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "FireBaseServiceProvider.h"
 #import "AppManager.h"
-#import "BaseViewController.h"
+#import "RootViewController.h"
 
 @interface AppDelegate ()
-@property (nonatomic) BaseViewController *baseViewController;
+@property (nonatomic) RootViewController *rootViewController;
 @end
 
 @implementation AppDelegate
@@ -24,9 +24,9 @@
         self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }
     
-    self.baseViewController = [[BaseViewController alloc] init];
+    self.rootViewController = [[RootViewController alloc] init];
     
-    self.window.rootViewController = self.baseViewController;
+    self.window.rootViewController = self.rootViewController;
     [self.window makeKeyAndVisible];
     [self initialize];
     
@@ -50,7 +50,7 @@
 
 - (void)initialize {
     [[AppManager sharedInstance] initAppWIthComplete:^(BOOL success, NSError *error) {
-        [self.baseViewController startup];
+        [self.rootViewController startup];
     }];
 }
 @end

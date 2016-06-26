@@ -11,6 +11,7 @@
                 <outlet property="firstNameField" destination="G1h-Wo-cbo" id="piU-vB-4Kg"/>
                 <outlet property="lastNameField" destination="t9v-jt-gK3" id="Z9m-St-Zme"/>
                 <outlet property="passwordField" destination="Haf-eX-Y6v" id="a8e-ah-KKD"/>
+                <outlet property="phoneNumberField" destination="hYT-1P-SAR" id="F83-FE-rXU"/>
                 <outlet property="signUpButton" destination="bkh-Q0-gtm" id="q2J-40-JnE"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kkn-oI-Pyv"/>
             </connections>
@@ -39,13 +40,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" id="Haf-eX-Y6v">
-                    <rect key="frame" x="49" y="153" width="222" height="30"/>
+                    <rect key="frame" x="49" y="195" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bkh-Q0-gtm">
-                    <rect key="frame" x="49" y="231" width="222" height="53"/>
+                    <rect key="frame" x="49" y="256" width="222" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.094117647058823528" green="0.25882352941176467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Sign up"/>
@@ -57,6 +58,12 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone #" textAlignment="natural" minimumFontSize="17" id="hYT-1P-SAR">
+                    <rect key="frame" x="49" y="153" width="222" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <point key="canvasLocation" x="355" y="217"/>

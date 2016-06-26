@@ -9,11 +9,15 @@
 #import "ProfileViewController.h"
 #import "ProfileView.h"
 #import "ProfileEditView.h"
+#import "NavbarView.h"
+#import "AddContactsViewController.h"
 
 @interface ProfileViewController ()
 @property (nonatomic) ProfileView *profileView;
 @property (nonatomic) ProfileEditView *editView;
 @property (nonatomic) UIBarButtonItem *barButton;
+@property (nonatomic) NavbarView *navbarView;
+@property (nonatomic, assign) BOOL isEditiing;
 @end
 
 @implementation ProfileViewController
@@ -29,49 +33,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navbarView = [NavbarView instanceFromDefaultNib];
+    self.navbarView.titleLabel.text = @"Profile";
+    self.navbarView.leftButton.text = @"Close";
+    self.navbarView.rightButton.text = @"Edit";
+    
+    [self.view addSubview:self.navbarView];
+    
+    CGSize size = self.containerView.contentSize;
+    size.width = self.view.frame.size.width;
+    self.containerView.contentSize = size;
+    
+    self.containerView.scrollEnabled = NO;
+    
+    self.isEditiing = NO;
+    
     self.profileView = [ProfileView instanceFromDefaultNib];
     self.editView = [ProfileEditView instanceFromDefaultNib];
     
+    CGRect frame = self.editView.frame;
+    frame.origin.x = self.view.frame.size.width;
+    self.editView.frame = frame;
+    
     [self.containerView addSubview:self.profileView];
     [self.containerView addSubview:self.editView];
-    self.editView.hidden = YES;
     
-    self.titleLabel.text = @"Profile";
-    [self.leftButton setTitle:@"Close" forState:UIControlStateNormal];;
-    [self.rightButton setTitle:@"Edit" forState:UIControlStateNormal];
-    
-    self.signoutButton.layer.cornerRadius = 15.0f;
-    self.signoutButton.layer.borderWidth = 3.0f;
     self.signoutButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    
-    [self.leftButton addTarget:self
-                        action:@selector(close:)
-              forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.rightButton addTarget:self
-                         action:@selector(startEditing:)
-               forControlEvents:UIControlEventTouchUpInside];
     
     [self.signoutButton addTarget:self
                            action:@selector(signOutHandler:)
                  forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.profileView.contactsButton addTarget:self
+                                        action:@selector(showContacts:)
+                              forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 - (void)startEditing:(UIButton *)sender {
-    self.profileView.hidden = YES;
-    self.editView.hidden = NO;
+    CGPoint point = self.containerView.contentOffset;
+    point.x = self.view.frame.size.width;
+    [self.containerView setContentOffset:point animated:YES];
     
-    [self.leftButton setTitle:@"Cancel" forState:UIControlStateNormal];
-    [self.rightButton setTitle:@"Save" forState:UIControlStateNormal];
-    
-    [self.leftButton addTarget:self
-                        action:@selector(cancel:)
-              forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.rightButton addTarget:self
-                         action:@selector(save:)
-               forControlEvents:UIControlEventTouchUpInside];
+    self.navbarView.leftButton.text = @"Back";
+    self.navbarView.rightButton.text = @"Save";
+    self.navbarView.titleLabel.text = @"Edit Profile";
 }
 
 - (void)save:(UIButton *)sender {
@@ -82,11 +88,15 @@
     
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     [manager saveAccount:account withComplete:^(BOOL success, NSError *error) {
-        self.profileView.hidden = NO;
-        self.editView.hidden = YES;
-
         [self.profileView reload];
         [self.editView reload];
+        
+        CGPoint point = self.containerView.contentOffset;
+        point.x = 0;
+        [self.containerView setContentOffset:point animated:YES];
+        
+        self.profileView.hidden = NO;
+        self.editView.hidden = YES;
     }];
 }
 
@@ -99,13 +109,22 @@
 }
 
 - (void)close:(UIButton *)sender {
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
 }
 
 - (void)signOutHandler:(UIButton *)sender {
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     [manager signOut];
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
+}
+
+- (void)closeView:(UITapGestureRecognizer *)sender {
+    [self.baseDelegate dismissViewController:self];
+}
+
+- (void)showContacts:(UITapGestureRecognizer *)sender {
+    AddContactsViewController *vc = [[AddContactsViewController alloc] init];
+    [self.baseDelegate addViewController:vc];
 }
 
 @end

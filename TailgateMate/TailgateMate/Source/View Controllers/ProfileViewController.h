@@ -7,18 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewControllerDelegate.h"
+#import "BaseViewController.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : BaseViewController
 
-@property (nonatomic, weak) IBOutlet UIView *navbar;
-@property (nonatomic, weak) IBOutlet UIButton *leftButton;
-@property (nonatomic, weak) IBOutlet UIButton *rightButton;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UIView *containerView;
-
+@property (nonatomic, weak) IBOutlet UIScrollView *containerView;
 @property (nonatomic, weak) IBOutlet UIButton *signoutButton;
-
-@property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
 
 @end

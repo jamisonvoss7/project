@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewControllerDelegate.h"
+#import "BaseViewController.h"
 
-@interface LandingViewController : UIViewController
-
-@property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
+@interface LandingViewController : BaseViewController
 
 @property (nonatomic, weak) IBOutlet UIView *createTailgateView;
 @property (nonatomic, weak) IBOutlet UIView *viewMapView;

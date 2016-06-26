@@ -10,7 +10,6 @@
 
 @implementation Account
 
-
 + (instancetype)instanceFromDate:(FDataSnapshot *)data {
     Account *account = [[Account alloc] init];
     
@@ -19,6 +18,7 @@
     account.firstName = data.value[@"firstName"];
     account.lastName = data.value[@"lastName"];
     account.emailAddress = data.value[@"emailAddress"];
+    account.phoneNumber = data.value[@"phoneNumber"];
     account.uid = data.value[@"uid"];
     if (data.value[@"userCredentials"]) {
         account.credentials = [UserCredentials instacneFromDictionary:data.value[@"userCredentials"]];
@@ -37,6 +37,9 @@
     }
     if (self.emailAddress.length > 0) {
         dictionary[@"emailAddress"] = self.emailAddress;
+    }
+    if (self.phoneNumber.length > 0) {
+        dictionary[@"phoneNumber"] = self.phoneNumber;
     }
     if (self.uid.length > 0) {
         dictionary[@"uid"] = self.uid;

@@ -39,7 +39,8 @@
               }];
 }
 
-- (void)authenticateWithUserCredentialsHelper:(UserCredentials *)credentials withCompletion:(void (^)(Account *account, NSError *error))handler {
+- (void)authenticateWithUserCredentialsHelper:(UserCredentials *)credentials
+                               withCompletion:(void (^)(Account *account, NSError *error))handler {
     Firebase *ref = [AppManager sharedInstance].firebaseRef;
 
     [ref createUser:credentials.userName

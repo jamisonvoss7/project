@@ -40,7 +40,7 @@
 }
 
 - (void)goBack:(UIButton *)sender {
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
 }
 
 @end

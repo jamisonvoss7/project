@@ -26,9 +26,13 @@
 - (void)reload {
     Account *account = [AppManager sharedInstance].accountManager.profileAccount;
     
-    self.firstNameLabel.text = account.firstName;
-    self.lastNameLabel.text = account.lastName;
-    self.eamilLabel.text = account.emailAddress;
+    if (account.firstName.length > 0 && account.lastName.length > 0) {
+        self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", account.firstName, account.lastName];
+    } else if (account.firstName.length > 0) {
+        self.nameLabel.text = [NSString stringWithFormat:@"%@", account.firstName];
+    } else {
+        self.nameLabel.text = [NSString stringWithFormat:@"%@", account.lastName];
+    }
 }
 
 @end

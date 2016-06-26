@@ -5,12 +5,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewControllerDelegate.h"
+#import "BaseViewController.h"
 
-@interface AddTailgateViewController : UIViewController
+@interface AddTailgateViewController : BaseViewController
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollview;
-
-@property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
 
 @end

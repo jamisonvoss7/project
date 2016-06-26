@@ -33,7 +33,7 @@
 
 - (void)authenticateWithNewAccount:(Account *)account withCompletion:(void (^)(BOOL, NSError *))handler {
     AccountService *service = [[AccountService alloc] init];
-    if (account.type == AccountTypeFacebook) {
+    if (account.type == ACCOUNTTYPE_FACEBOOK) {
         [service createAccount:account
                   withComplete:^(BOOL success, NSError *error) {
                       if (success) {
@@ -42,16 +42,15 @@
                           handler(NO, nil);
                       }
                   }];
-    } else if (account.type == AccountTypeEmail) {
-        [service authenticateWithUserCredentialsHelper:account.credentials
-                                     withCompletion:^(Account *account, NSError *error) {
-                                         if (account) {
-                                             [self loadProfileAccountWithAccount:account
-                                                                  withCompletion:handler];
-                                         } else {
-                                             handler(NO, nil);
-                                         }
-                                     }];
+    } else if (account.type == ACCOUNTTYPE_EMAIL) {
+        [service createAccount:account
+                  withComplete:^(BOOL success, NSError *error) {
+                      if (success) {
+                          [self loadProfileAccountWithAccount:account withCompletion:handler];
+                      } else {
+                          handler(NO, nil);
+                      }
+                  }];
     }
 }
 
@@ -152,7 +151,7 @@
     newAccount.lastName = [profile objectForKey:@"last_name"];
     newAccount.emailAddress = [profile objectForKey:@"email"];
     newAccount.uid = data.uid;
-    newAccount.type = AccountTypeFacebook;
+    newAccount.type = ACCOUNTTYPE_FACEBOOK;
     
     return newAccount;
 }

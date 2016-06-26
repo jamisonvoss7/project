@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
             <connections>
-                <outlet property="containerView" destination="c4a-NA-Ge0" id="uAD-sj-zJc"/>
+                <outlet property="containerView" destination="n9V-px-c3D" id="wXe-40-20c"/>
                 <outlet property="signoutButton" destination="JiG-Pi-h6d" id="dhc-O1-PHm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="p3L-aL-ARC"/>
             </connections>
@@ -16,19 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="c4a-NA-Ge0">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JiG-Pi-h6d">
-                    <rect key="frame" x="47" y="499" width="226" height="53"/>
+                    <rect key="frame" x="0.0" y="526" width="320" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.25882352939999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Sign Out">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="n9V-px-c3D">
+                    <rect key="frame" x="0.0" y="64" width="320" height="462"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="355" y="217"/>

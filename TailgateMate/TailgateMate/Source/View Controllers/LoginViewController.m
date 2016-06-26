@@ -66,26 +66,19 @@
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     [manager signInWithFacebookFromViewController:self
                                    withCompletion:^(BOOL success, NSError *error) {
-                                       [self.baseViewControllerDelegate dismissViewController:self];
+                                       [self.baseDelegate dismissViewController:self];
                                    }];
 }
 
 - (void)signUpBUttonTapped:(UIButton *)sender {
     SignUpViewController *vc = [[SignUpViewController alloc] init];
     vc.authDelegate = self;
-    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
-
-    [self presentViewController:vc
-                       animated:YES
-                     completion:^{
-        
-                     }];
+    [self.baseDelegate addViewController:vc];
 }
 
 - (void)signInButtonTapped:(UIButton *)sender {
     SignInViewController *vc = [[SignInViewController alloc] init];
     vc.authDelegate = self;
-    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
 
     [self presentViewController:vc
                      animated:YES
@@ -98,11 +91,11 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:YES forKey:@"hasSkipped"];
     
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
 }
 
 - (void)didAuthenticate {
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
 }
 
 - (void)failedToAuthenticate {

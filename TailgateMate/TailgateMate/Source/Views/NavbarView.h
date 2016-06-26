@@ -1,5 +1,4 @@
 //
-//  Navbar.h
 //  TailgateMate
 //
 //  Created by Jamison Voss on 5/15/16.

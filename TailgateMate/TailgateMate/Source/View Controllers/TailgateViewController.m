@@ -63,7 +63,7 @@
 }
 
 - (void)goBack {
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
 }
 
 

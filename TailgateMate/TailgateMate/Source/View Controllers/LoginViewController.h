@@ -6,11 +6,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AuthenticationDelegate.h"
-#import "BaseViewControllerDelegate.h"
+#import "BaseViewController.h"
 
-@interface LoginViewController : UIViewController <AuthenticationDelegate>
-
-@property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
+@interface LoginViewController : BaseViewController <AuthenticationDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *facebbokButton;
 @property (nonatomic, weak) IBOutlet UIButton *twitterButton;

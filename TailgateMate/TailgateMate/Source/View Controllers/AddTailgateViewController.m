@@ -93,7 +93,7 @@
 }
 
 - (void)cancel {
-    [self.baseViewControllerDelegate dismissViewController:self];
+    [self.baseDelegate dismissViewController:self];
 }
 
 - (void)addTailgate {
@@ -103,7 +103,7 @@
     [service addTailgateParty:party
                  withComplete:^(BOOL succcess, NSError *error) {
                      if (succcess) {
-                         [self.baseViewControllerDelegate dismissViewController:self];
+                         [self.baseDelegate dismissViewController:self];
                      }
                  }];
 }

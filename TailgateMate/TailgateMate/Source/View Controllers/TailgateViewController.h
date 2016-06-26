@@ -10,8 +10,6 @@
 
 @interface TailgateViewController : BaseViewController
 
-@property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
-
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *lotNumberLabel;
 @property (nonatomic, weak) IBOutlet UIButton *moreDtailsButton;

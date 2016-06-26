@@ -14,8 +14,6 @@
 
 @property (nonatomic, weak) id<AuthenticationDelegate> authDelegate;
 
-@property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
-
 @property (nonatomic, weak) IBOutlet UITextField *emailField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;
 @property (nonatomic, weak) IBOutlet UIButton *signInButton;

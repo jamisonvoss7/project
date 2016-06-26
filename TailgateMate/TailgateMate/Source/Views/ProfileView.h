@@ -10,9 +10,11 @@
 
 @interface ProfileView : UIView
 
-@property (nonatomic, weak) IBOutlet UILabel *firstNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel *lastNameLabel;
-@property (nonatomic, weak) IBOutlet UILabel *eamilLabel;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *profileImageView;
+
+@property (nonatomic, weak) IBOutlet UIButton *contactsButton;
+@property (nonatomic, weak) IBOutlet UIButton *tailgatesButton;
 
 + (instancetype)instanceFromDefaultNib;
 - (void)reload;

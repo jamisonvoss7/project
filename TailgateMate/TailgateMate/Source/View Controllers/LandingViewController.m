@@ -56,20 +56,17 @@
 
 - (void)hostTapHandler:(UITapGestureRecognizer *)sender {
     AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
-    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
-    [self.baseViewControllerDelegate addViewController:vc];
+    [self.baseDelegate addViewController:vc];
 }
 
 - (void)viewTapHandler:(UITapGestureRecognizer *)sender {
     HomeMapViewController *vc = [[HomeMapViewController alloc] init];
-    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
-    [self.baseViewControllerDelegate addViewController:vc];
+    [self.baseDelegate addViewController:vc];
 }
 
 - (void)viewProfile:(UIButton *)sender {
     ProfileViewController *vc = [[ProfileViewController alloc] init];
-    vc.baseViewControllerDelegate = self.baseViewControllerDelegate;
-    [self.baseViewControllerDelegate addViewController:vc];
+    [self.baseDelegate addViewController:vc];
 }
 
 @end

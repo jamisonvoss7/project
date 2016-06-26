@@ -7,11 +7,9 @@
 #import <UIKit/UIKit.h>
 #import <Mapbox/Mapbox.h>
 
-#import "BaseViewControllerDelegate.h"
+#import "BaseViewController.h"
 
-@interface HomeMapViewController : UIViewController <MGLMapViewDelegate>
-
-@property (nonatomic, weak) id<BaseViewControllerDelegate> baseViewControllerDelegate;
+@interface HomeMapViewController : BaseViewController <MGLMapViewDelegate>
 
 @property (nonatomic, weak) IBOutlet MGLMapView *mapView;
 
