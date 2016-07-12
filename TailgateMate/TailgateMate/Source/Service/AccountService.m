@@ -12,23 +12,11 @@
 
 @implementation AccountService
 
-- (void)loadAllAccounts {
-    NSString *path = [NSString stringWithFormat:@"accounts"];
-    
-    [super observeDateAtPath:path
-              withCompletion:^(FDataSnapshot *data) {
-                  if (data) {
-                      NSLog(@"%@", data.value);
-                  }
-              }];
-
-}
-
 - (void)loadAccountForkey:(NSString *)uid withComplete:(void (^)(Account *account, NSError *error))handler {
     NSString *path = [NSString stringWithFormat:@"accounts/%@", uid];
     
     [super observeDateAtPath:path
-              withCompletion:^(FDataSnapshot *data) {
+              withCompletion:^(FIRDataSnapshot *data) {
                   if (data.exists) {
                       Account *account = [Account instanceFromDate:data];
                       self.account = account;
@@ -39,24 +27,33 @@
               }];
 }
 
-- (void)authenticateWithUserCredentialsHelper:(UserCredentials *)credentials
-                               withCompletion:(void (^)(Account *account, NSError *error))handler {
-    Firebase *ref = [AppManager sharedInstance].firebaseRef;
+- (void)authenticateWithNewUserCredentials:(UserCredentials *)credentials
+                               withCompletion:(void (^)(NSString *uid, NSError *error))handler {
+    [[FIRAuth auth] createUserWithEmail:credentials.userName
+                               password:credentials.password
+                             completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+                                 NSString *uid = user.uid;
+                                 
+                                 if (uid.length > 0 && !error) {
+                                     handler(uid, nil);
+                                 } else {
+                                     handler(nil, error);
+                                 }
 
-    [ref createUser:credentials.userName
-           password:credentials.password
-withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
-    NSString *uid = [result objectForKey:@"uid"];
-    
-    if (uid.length > 0 && !error) {
-        Account *account = [[Account alloc] init];
-        account.uid = uid;
-        handler(account, nil);
-    } else {
-        handler(nil, error);
-    }
-}];
-    
+                             }];
+}
+
+- (void)authenticateWithUserCredentials:(UserCredentials *)credentials
+                         withCompletion:(void (^)(NSString *, NSError *))handler {
+    [[FIRAuth auth] signInWithEmail:credentials.userName
+                           password:credentials.password
+                         completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+                             if (user && !error) {
+                                 handler(user.uid, nil);
+                             } else {
+                                 handler(nil, error);
+                             }
+                         }];
 }
 
 - (void)createAccount:(Account *)account withComplete:(void (^)(BOOL, NSError *))handler {
@@ -64,7 +61,7 @@ withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
 
     [self setData:account
           forPath:path
-   withCompletion:^(NSError *error, Firebase *ref) {
+   withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
        if (!error && ref) {
            handler(YES, nil);
        } else {
@@ -79,7 +76,7 @@ withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
 
     [self setData:account
           forPath:path
-   withCompletion:^(NSError *error, Firebase *ref) {
+   withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
        if (!error && ref) {
            handler(YES, nil);
        } else {

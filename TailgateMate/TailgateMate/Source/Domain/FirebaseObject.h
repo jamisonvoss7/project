@@ -10,9 +10,9 @@
 
 @property (nonatomic, copy) NSString *uid;
 
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data;
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data;
 + (instancetype)instacneFromDictionary:(NSDictionary *)dictionary;
-+ (NSArray *)arrayFromData:(FDataSnapshot *)data;
++ (NSArray *)arrayFromData:(FIRDataSnapshot *)data;
 + (NSArray *)arrayFromArray:(NSArray *)arrayData;
 + (NSDictionary *)dictionaryFromArray:(NSArray *)array;
 

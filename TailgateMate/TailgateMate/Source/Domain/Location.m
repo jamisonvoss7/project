@@ -10,7 +10,7 @@
 
 @implementation Location
 
-+ (instancetype) instanceFromDate:(FDataSnapshot *)data {
++ (instancetype) instanceFromDate:(FIRDataSnapshot *)data {
     Location *location = [[Location alloc] init];
     
     location.lat = data.value[@"lat"];

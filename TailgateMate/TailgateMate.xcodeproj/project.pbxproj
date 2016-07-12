@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		739D0BEB371318B8F4C82F0C /* libPods-TailgateMate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38E32563CCCF33DAA3B423F /* libPods-TailgateMate.a */; };
 		EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAD1D08DBE200551CDA /* Burgers.png */; };
 		EF0B5EB71D08DBE200551CDA /* Burgers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */; };
 		EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */; };
@@ -84,6 +85,7 @@
 		EF73F7981BC3745600FA9DBA /* Stadium.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F7971BC3745600FA9DBA /* Stadium.m */; };
 		EF73F79E1BC3759900FA9DBA /* TailgateParty.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F79D1BC3759900FA9DBA /* TailgateParty.m */; };
 		EF73F7A21BC37AFA00FA9DBA /* TailgateSupply.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F7A11BC37AFA00FA9DBA /* TailgateSupply.m */; };
+		EF7AF9EF1D1FA6EA00D58E0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF7AF9EE1D1FA6EA00D58E0A /* GoogleService-Info.plist */; };
 		EF84EF841CEE92E3006459DA /* JackTrice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EF84EF831CEE92E3006459DA /* JackTrice.gpx */; };
 		EF84EF871CEEA20E006459DA /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF84EF861CEEA20E006459DA /* LandingViewController.m */; };
 		EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF84EF881CEEA434006459DA /* LandingViewController.xib */; };
@@ -92,7 +94,6 @@
 		EF90AEA21CB5C62300883032 /* NSUserDefaults+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */; };
 		EFBF8DE11C5B194F0075DE38 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF8DE01C5B194F0075DE38 /* libicucore.tbd */; };
 		EFBF8DE31C5B196A0075DE38 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF8DE21C5B196A0075DE38 /* libc++.tbd */; };
-		EFBF8DE51C5B25EA0075DE38 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF8DE41C5B25EA0075DE38 /* Firebase.framework */; };
 		EFBF8DED1C6AB1D80075DE38 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DEC1C6AB1D80075DE38 /* Account.m */; };
 		EFBF8DF11C6AB3BE0075DE38 /* AccountService.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF01C6AB3BE0075DE38 /* AccountService.m */; };
 		EFBF8DF41C6C13B70075DE38 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF31C6C13B70075DE38 /* AppManager.m */; };
@@ -109,6 +110,7 @@
 		EFEAC84F1BC7626D0074B1C2 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC8491BC7626D0074B1C2 /* FBSDKLoginKit.framework */; };
 		EFEAC8501BC7626D0074B1C2 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC84A1BC7626D0074B1C2 /* FBSDKMessengerShareKit.framework */; };
 		EFEAC8511BC7626D0074B1C2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC84B1BC7626D0074B1C2 /* FBSDKShareKit.framework */; };
+		EFEB1B001D28F5A8006299CD /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB1AFF1D28F5A8006299CD /* Contact.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -126,6 +128,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		62723DCA303C9686A2580BC4 /* Pods-TailgateMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TailgateMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TailgateMate/Pods-TailgateMate.release.xcconfig"; sourceTree = "<group>"; };
+		B38E32563CCCF33DAA3B423F /* libPods-TailgateMate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TailgateMate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF00C6561D24AC2B0073B091 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = TailgateMate/Libraries/Firebase.framework; sourceTree = "<group>"; };
 		EF0B5EAD1D08DBE200551CDA /* Burgers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Burgers.png; sourceTree = "<group>"; };
 		EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@2x.png"; sourceTree = "<group>"; };
 		EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@3x.png"; sourceTree = "<group>"; };
@@ -241,6 +246,7 @@
 		EF73F79F1BC3767D00FA9DBA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EF73F7A01BC37AFA00FA9DBA /* TailgateSupply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupply.h; sourceTree = "<group>"; };
 		EF73F7A11BC37AFA00FA9DBA /* TailgateSupply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateSupply.m; sourceTree = "<group>"; };
+		EF7AF9EE1D1FA6EA00D58E0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF84EF831CEE92E3006459DA /* JackTrice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JackTrice.gpx; sourceTree = "<group>"; };
 		EF84EF851CEEA20E006459DA /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		EF84EF861CEEA20E006459DA /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
@@ -275,6 +281,9 @@
 		EFEAC8491BC7626D0074B1C2 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = TailgateMate/Libraries/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		EFEAC84A1BC7626D0074B1C2 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = TailgateMate/Libraries/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		EFEAC84B1BC7626D0074B1C2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = TailgateMate/Libraries/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		EFEB1AFE1D28F5A8006299CD /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		EFEB1AFF1D28F5A8006299CD /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		F8EEDBC025944BC8F0B65D52 /* Pods-TailgateMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TailgateMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TailgateMate/Pods-TailgateMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,7 +300,6 @@
 				EFEAC84F1BC7626D0074B1C2 /* FBSDKLoginKit.framework in Frameworks */,
 				EFEAC8501BC7626D0074B1C2 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				EFEAC8511BC7626D0074B1C2 /* FBSDKShareKit.framework in Frameworks */,
-				EFBF8DE51C5B25EA0075DE38 /* Firebase.framework in Frameworks */,
 				EF135F891CC12F4B00C80753 /* Mapbox.framework in Frameworks */,
 				EFEAC8421BC75AA10074B1C2 /* Social.framework in Frameworks */,
 				EF2992AA1CF8883900A41E0B /* Mapbox.framework in Frameworks */,
@@ -309,12 +317,22 @@
 				EF73F78D1BC3737A00FA9DBA /* CoreData.framework in Frameworks */,
 				EF73F7891BC3736A00FA9DBA /* AdSupport.framework in Frameworks */,
 				EF73F7871BC3736300FA9DBA /* Accounts.framework in Frameworks */,
+				739D0BEB371318B8F4C82F0C /* libPods-TailgateMate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BED22536819ECDCDB16DFDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8EEDBC025944BC8F0B65D52 /* Pods-TailgateMate.debug.xcconfig */,
+				62723DCA303C9686A2580BC4 /* Pods-TailgateMate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EF0B5EAC1D08DBE200551CDA /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +449,7 @@
 				EF73F75C1BC36B9100FA9DBA /* TailgateMate */,
 				EFEAC8301BC7591A0074B1C2 /* Frameworks */,
 				EF73F75B1BC36B9100FA9DBA /* Products */,
+				5BED22536819ECDCDB16DFDB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -448,6 +467,7 @@
 				EF73F7741BC36D7500FA9DBA /* Source */,
 				EF73F7691BC36B9100FA9DBA /* Assets.xcassets */,
 				EF73F76E1BC36B9100FA9DBA /* Info.plist */,
+				EF7AF9EE1D1FA6EA00D58E0A /* GoogleService-Info.plist */,
 				EF135F8C1CC1497400C80753 /* Images */,
 				EF73F75D1BC36B9100FA9DBA /* Supporting Files */,
 			);
@@ -501,6 +521,8 @@
 				EFBF8DEC1C6AB1D80075DE38 /* Account.m */,
 				EF0B5ECA1D1EF0A700551CDA /* AccountType.h */,
 				EF0B5ECB1D1EF0A700551CDA /* AccountType.m */,
+				EFEB1AFE1D28F5A8006299CD /* Contact.h */,
+				EFEB1AFF1D28F5A8006299CD /* Contact.m */,
 				EF73F7811BC372FE00FA9DBA /* Location.h */,
 				EF73F7821BC372FE00FA9DBA /* Location.m */,
 				EF4C7BBE1CAB40DD004A6CF3 /* ParkingLot.h */,
@@ -584,6 +606,7 @@
 		EFEAC8301BC7591A0074B1C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF00C6561D24AC2B0073B091 /* Firebase.framework */,
 				EF0B5EC81D1EE7EB00551CDA /* Contacts.framework */,
 				EF4C7BB71CA8F8D8004A6CF3 /* MapKit.framework */,
 				EFBF8DE21C5B196A0075DE38 /* libc++.tbd */,
@@ -609,6 +632,7 @@
 				EF73F7881BC3736A00FA9DBA /* AdSupport.framework */,
 				EF73F7861BC3736300FA9DBA /* Accounts.framework */,
 				EF73F7841BC3735D00FA9DBA /* CoreGraphics.framework */,
+				B38E32563CCCF33DAA3B423F /* libPods-TailgateMate.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -620,11 +644,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF73F7711BC36B9100FA9DBA /* Build configuration list for PBXNativeTarget "TailgateMate" */;
 			buildPhases = (
+				C6ADC3F5F945E4175F716561 /* [CP] Check Pods Manifest.lock */,
 				EF73F7561BC36B9100FA9DBA /* Sources */,
 				EF73F7571BC36B9100FA9DBA /* Frameworks */,
 				EF73F7581BC36B9100FA9DBA /* Resources */,
 				EF135F8B1CC12F4B00C80753 /* Embed Frameworks */,
 				EF2992AC1CF8885E00A41E0B /* ShellScript */,
+				9ABE4ED6937D36C5C0A901EE /* [CP] Embed Pods Frameworks */,
+				9DC4FC64D2EEBF91FD03A16A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -706,6 +733,7 @@
 				EF135F9E1CC16EE000C80753 /* TailgateSupplyButton.xib in Resources */,
 				EF43C2931CE8EB3A00BA1C7F /* NavbarView.xib in Resources */,
 				EF0B5ED11D1F10B800551CDA /* AddContactsViewController.xib in Resources */,
+				EF7AF9EF1D1FA6EA00D58E0A /* GoogleService-Info.plist in Resources */,
 				EF0B5EBD1D08DBE200551CDA /* Grill@2x.png in Resources */,
 				EF135FA01CC18B1600C80753 /* TailgateSupplyRow.xib in Resources */,
 				EF0B5EBB1D08DBE200551CDA /* Cups@3x.png in Resources */,
@@ -718,6 +746,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		9ABE4ED6937D36C5C0A901EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TailgateMate/Pods-TailgateMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DC4FC64D2EEBF91FD03A16A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TailgateMate/Pods-TailgateMate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6ADC3F5F945E4175F716561 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		EF2992AC1CF8885E00A41E0B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -778,6 +851,7 @@
 				EF73F75F1BC36B9100FA9DBA /* main.m in Sources */,
 				EF0B5EC41D1C9BDC00551CDA /* AddContactsViewController.m in Sources */,
 				EF135F7D1CBC85B100C80753 /* FirebaseEnum.m in Sources */,
+				EFEB1B001D28F5A8006299CD /* Contact.m in Sources */,
 				EF43C2911CE8E9F100BA1C7F /* NavbarView.m in Sources */,
 				EF0B5EC71D1C9CCD00551CDA /* BaseViewController.m in Sources */,
 				EF0B5ECF1D1EF86500551CDA /* TailgatePartyType.m in Sources */,
@@ -869,6 +943,7 @@
 		};
 		EF73F7721BC36B9100FA9DBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8EEDBC025944BC8F0B65D52 /* Pods-TailgateMate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -884,7 +959,7 @@
 				INFOPLIST_FILE = TailgateMate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.TailgateMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -894,6 +969,7 @@
 		};
 		EF73F7731BC36B9100FA9DBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62723DCA303C9686A2580BC4 /* Pods-TailgateMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -909,7 +985,7 @@
 				INFOPLIST_FILE = TailgateMate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.TailgateMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

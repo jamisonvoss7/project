@@ -5,7 +5,6 @@
 //
 
 #import "SignUpViewController.h"
-#import "AccountManager.h"
 #import "AddContactsViewController.h"
 
 @interface SignUpViewController ()
@@ -30,11 +29,9 @@
 }
 
 - (void)signUpButtonTapped:(UIButton *)sender {
-    AccountManager *manager = [[AccountManager alloc] init];
     Account *account = [[Account alloc] init];
     
-    account.firstName = self.firstNameField.text;
-    account.lastName = self.lastNameField.text;
+    account.displayName = self.nameField.text;
     account.phoneNumber = self.phoneNumberField.text;
     
     UserCredentials *user = [[UserCredentials alloc] init];
@@ -45,11 +42,15 @@
     account.type = ACCOUNTTYPE_EMAIL;
     account.uid = [NSUUID UUID].UUIDString;
 
+    AccountManager *manager = [AppManager sharedInstance].accountManager;
+    
     [manager authenticateWithNewAccount:account
                          withCompletion:^(BOOL authenticated, NSError *error) {
                              if (authenticated) {
-                                 AddContactsViewController *vc = [[AddContactsViewController alloc] init];
-                                 [self.baseDelegate addViewController:vc];
+                                 [self.baseDelegate dismissViewController:self];
+                                 [self.authDelegate didAuthenticate];
+//                                 AddContactsViewController *vc = [[AddContactsViewController alloc] init];
+//                                 [self.baseDelegate addViewController:vc];
                              }
                          }];
 }

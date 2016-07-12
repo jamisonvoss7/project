@@ -13,7 +13,7 @@
 - (void)getAllTailgateParties:(void (^)(NSArray *, NSError *))handler {
     NSString *route = [NSString stringWithFormat:@"tailgateParties"];
 
-    [self observeDateAtPath:route withCompletion:^(FDataSnapshot *data) {
+    [self observeDateAtPath:route withCompletion:^(FIRDataSnapshot *data) {
         NSArray *array = [TailgateParty arrayFromData:data];
         if (array) {
             handler(array, nil);
@@ -28,7 +28,7 @@
     
     [self setData:party
           forPath:route
-   withCompletion:^(NSError *error, Firebase *ref) {
+   withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
        if (ref && !error) {
            handler(YES, nil);
        } else {
@@ -42,7 +42,7 @@
     
     [self updateData:party
              forPath:route
-      withCompletion:^(NSError *error, Firebase *ref) {
+      withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
           if (ref && !error) {
               handler(YES, nil);
           } else {

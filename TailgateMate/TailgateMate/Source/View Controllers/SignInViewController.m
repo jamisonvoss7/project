@@ -35,7 +35,10 @@
     
     [manager authenticateWithUserCredentials:user
                               withCompletion:^(BOOL authenticated, NSError *error) {
-                                  [self.authDelegate didAuthenticate];
+                                  if (authenticated) {
+                                      [self.baseDelegate dismissViewController:self];
+                                      [self.authDelegate didAuthenticate];
+                                  }
                               }];
 }
 

@@ -10,7 +10,7 @@
 
 @implementation TailgateParty
 
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data; {
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data; {
     TailgateParty *instance = [[TailgateParty alloc] init];
  
     instance.name = data.value[@"name"];

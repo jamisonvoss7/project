@@ -9,8 +9,8 @@
 #import "FirebaseEnum.h"
 
 #define TAILGATEPARTYTYPE_PUBLIC [TailgatePartyType _PUBLIC];
-#define TAILGATEPARTYTYPE_PRIVATE [TailgatePartyType _PUBLIC];
-#define TAILGATEPARTYTYPE_PROMOTED [TailgatePartyType _PUBLIC];
+#define TAILGATEPARTYTYPE_PRIVATE [TailgatePartyType _PRIVATE];
+#define TAILGATEPARTYTYPE_PROMOTED [TailgatePartyType _PROMOTED];
 
 @interface TailgatePartyType : FirebaseEnum
 

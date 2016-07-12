@@ -10,7 +10,7 @@
 
 @implementation Stadium
 
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data {
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data {
     Stadium *instance = [[Stadium alloc] init];
     
     instance.name = data.value[@"name"];

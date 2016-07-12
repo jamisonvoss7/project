@@ -9,7 +9,8 @@
 #import "TailgateSupply.h"
 
 @implementation TailgateSupply
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data {
+
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data {
     TailgateSupply *supply = [[TailgateSupply alloc] init];
     
     supply.name = data.value[@"name"];

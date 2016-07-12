@@ -8,7 +8,7 @@
 
 @implementation FirebaseObject
 
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data {
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data {
     return [[FirebaseObject alloc] init];
 }
 
@@ -16,10 +16,10 @@
     return [[FirebaseObject alloc] init];
 }
 
-+ (NSArray *)arrayFromData:(FDataSnapshot *)data {
++ (NSArray *)arrayFromData:(FIRDataSnapshot *)data {
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:data.childrenCount];
     
-    for (FDataSnapshot *snap in data.children) {
+    for (FIRDataSnapshot *snap in data.children) {
         [array addObject:[self instanceFromDate:snap]];
     }
 

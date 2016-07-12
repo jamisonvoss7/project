@@ -9,6 +9,7 @@
 #import "Thing.h"
 
 @interface AppManager ()
+@property (nonatomic, readwrite) FIRDatabaseReference *firedatabasebaseRef;
 @property (nonatomic, readwrite) AccountManager *accountManager;
 @property (nonatomic, readwrite) LocationManager *locationManager;
 @end
@@ -26,21 +27,21 @@
 
 - (id)init {
     if (self = [super init]) {
-        _firebaseRef = [[Firebase alloc] initWithUrl:@"https://tailgatemate.firebaseIO.com"];
+        self.firedatabasebaseRef = [[FIRDatabase database] reference];
     }
     return self;
 }
 
 - (void)initAppWIthComplete:(void (^)(BOOL, NSError *))handler {
-    if (!self.accountManager) {
-        self.accountManager = [[AccountManager alloc] init];
-    }
+   [self.accountManager loadCurrentAccuntWithComplete:handler];
+}
 
-    if (!self.locationManager) {
-        self.locationManager = [[LocationManager alloc] init];
-    }
-    
-    [self.accountManager loadCurrentAccuntWithComplete:handler];
+- (AccountManager *)accountManager {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _accountManager = [[AccountManager alloc] init];
+    });
+    return _accountManager;
 }
 
 - (LocationManager *)locationManager {
@@ -51,5 +52,8 @@
     return _locationManager;
 }
 
+- (void)dealloc {
+    NSLog(@"app manager dealloced");
+}
 
 @end

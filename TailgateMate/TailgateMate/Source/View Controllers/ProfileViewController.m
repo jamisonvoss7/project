@@ -38,6 +38,16 @@
     self.navbarView.leftButton.text = @"Close";
     self.navbarView.rightButton.text = @"Edit";
     
+    UITapGestureRecognizer *closeTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(leftButtonAction:)];
+    closeTap.numberOfTapsRequired = 1;
+    [self.navbarView.leftButton addGestureRecognizer:closeTap];
+    
+    UITapGestureRecognizer *editTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(rightButtonAction:)];
+    editTap.numberOfTapsRequired = 1;
+    [self.navbarView.rightButton addGestureRecognizer:editTap];
+    
     [self.view addSubview:self.navbarView];
     
     CGSize size = self.containerView.contentSize;
@@ -69,8 +79,23 @@
                               forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)rightButtonAction:(UITapGestureRecognizer *)sender {
+    if (self.isEditiing) {
+        [self save];
+    } else {
+        [self startEditing];
+    }
+}
 
-- (void)startEditing:(UIButton *)sender {
+- (void)leftButtonAction:(UITapGestureRecognizer *)sender {
+    if (self.isEditiing) {
+        [self doneEditing];
+    } else {
+        [self.baseDelegate dismissViewController:self];
+    }
+}
+
+- (void)startEditing {
     CGPoint point = self.containerView.contentOffset;
     point.x = self.view.frame.size.width;
     [self.containerView setContentOffset:point animated:YES];
@@ -78,38 +103,34 @@
     self.navbarView.leftButton.text = @"Back";
     self.navbarView.rightButton.text = @"Save";
     self.navbarView.titleLabel.text = @"Edit Profile";
+    
+    self.isEditiing = YES;
 }
 
-- (void)save:(UIButton *)sender {
+- (void)save {
     Account *account = [[Account alloc] init];
-    account.firstName = self.editView.firstNameField.text;
-    account.lastName = self.editView.lastNameField.text;
     account.emailAddress = self.editView.emailField.text;
+    account.displayName = self.editView.nameField.text;
     
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     [manager saveAccount:account withComplete:^(BOOL success, NSError *error) {
         [self.profileView reload];
         [self.editView reload];
         
-        CGPoint point = self.containerView.contentOffset;
-        point.x = 0;
-        [self.containerView setContentOffset:point animated:YES];
-        
-        self.profileView.hidden = NO;
-        self.editView.hidden = YES;
+        [self doneEditing];
     }];
 }
 
-- (void)cancel:(UIButton *)sender {
-    self.profileView.hidden = NO;
-    self.editView.hidden = YES;
+- (void)doneEditing {
+    CGPoint point = self.containerView.contentOffset;
+    point.x = 0;
+    [self.containerView setContentOffset:point animated:YES];
+    
+    self.navbarView.titleLabel.text = @"Profile";
+    self.navbarView.leftButton.text = @"Close";
+    self.navbarView.rightButton.text = @"Edit";
 
-    [self.profileView reload];
-    [self.editView reload];
-}
-
-- (void)close:(UIButton *)sender {
-    [self.baseDelegate dismissViewController:self];
+    self.isEditiing = NO;
 }
 
 - (void)signOutHandler:(UIButton *)sender {
@@ -118,9 +139,6 @@
     [self.baseDelegate dismissViewController:self];
 }
 
-- (void)closeView:(UITapGestureRecognizer *)sender {
-    [self.baseDelegate dismissViewController:self];
-}
 
 - (void)showContacts:(UITapGestureRecognizer *)sender {
     AddContactsViewController *vc = [[AddContactsViewController alloc] init];

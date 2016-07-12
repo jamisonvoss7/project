@@ -18,11 +18,9 @@ static NSString * const kDEFAULTS_ACCOUNT_ID_KEY = @"accountUID";
 }
 
 - (void)setAccountUID:(NSString *)accountUID {
-    if (accountUID.length > 0) {
-        NSData *data = [accountUID dataUsingEncoding:NSUTF32StringEncoding];
-        [self setObject:data forKey:kDEFAULTS_ACCOUNT_ID_KEY];
-        [self synchronize];
-    }
+    NSData *data = [accountUID dataUsingEncoding:NSUTF32StringEncoding];
+    [self setObject:data forKey:kDEFAULTS_ACCOUNT_ID_KEY];
+    [self synchronize];
 }
 
 @end

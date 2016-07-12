@@ -10,7 +10,7 @@
 
 @implementation Thing
 
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data {
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data {
     Thing *instance = [[Thing alloc] init];
 
     instance.name = data.value[@"name"];

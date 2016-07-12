@@ -10,8 +10,7 @@
 
 @interface ProfileEditView : UIView
 
-@property (nonatomic, weak) IBOutlet UITextField *firstNameField;
-@property (nonatomic, weak) IBOutlet UITextField *lastNameField;
+@property (nonatomic, weak) IBOutlet UITextField *nameField;
 @property (nonatomic, weak) IBOutlet UITextField *emailField;
 
 + (instancetype)instanceFromDefaultNib;

@@ -10,6 +10,7 @@
 #import "HomeMapViewController.h"
 #import "ProfileViewController.h"
 #import "AddTailgateViewController.h"
+#import "LoginViewController.h"
 
 @interface LandingViewController ()
 
@@ -45,6 +46,7 @@
     self.profileButton.layer.borderWidth = 3.0f;
     self.profileButton.layer.borderColor = [[UIColor whiteColor] CGColor];
 
+    
     self.createTailgateView.layer.cornerRadius = 15.0f;
     self.createTailgateView.layer.borderWidth = 3.0f;
     self.createTailgateView.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -52,6 +54,18 @@
     self.viewMapView.layer.cornerRadius = 15.0f;
     self.viewMapView.layer.borderWidth = 3.0f;
     self.viewMapView.layer.borderColor = [[UIColor whiteColor] CGColor];    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    AccountManager *manager = [AppManager sharedInstance].accountManager;
+    
+    if (manager.isAuthenticated) {
+        [self.profileButton setTitle:@"View Account" forState:UIControlStateNormal];
+    } else {
+        [self.profileButton setTitle:@"Sign Up" forState:UIControlStateNormal];
+    }
 }
 
 - (void)hostTapHandler:(UITapGestureRecognizer *)sender {
@@ -65,8 +79,15 @@
 }
 
 - (void)viewProfile:(UIButton *)sender {
-    ProfileViewController *vc = [[ProfileViewController alloc] init];
-    [self.baseDelegate addViewController:vc];
+    AccountManager *manager = [AppManager sharedInstance].accountManager;
+    
+    if (manager.isAuthenticated) {
+        ProfileViewController *vc = [[ProfileViewController alloc] init];
+        [self.baseDelegate addViewController:vc];
+    } else {
+        LoginViewController *vc = [[LoginViewController alloc] init];
+        [self.baseDelegate addViewController:vc];
+    }
 }
 
 @end

@@ -8,10 +8,20 @@
 
 @interface AccountService : FireBaseServiceProvider
 
-- (void)loadAllAccounts;
-- (void)loadAccountForkey:(NSString *)uid withComplete:(void (^)(Account *account, NSError *error))handler;
-- (void)authenticateWithUserCredentialsHelper:(UserCredentials *)credentials withCompletion:(void (^)(Account *account, NSError *error))handler;
-- (void)createAccount:(Account *)account withComplete:(void (^)(BOOL success, NSError *error))handler;
-- (void)saveAccount:(Account *)account withComplete:(void (^)(BOOL success, NSError *error))handler;
+- (void)loadAccountForkey:(NSString *)uid
+             withComplete:(void (^)(Account *account, NSError *error))handler;
+
+- (void)authenticateWithNewUserCredentials:(UserCredentials *)credentials
+                            withCompletion:(void (^)(NSString *uid, NSError *error))handler;
+
+- (void)authenticateWithUserCredentials:(UserCredentials *)credentials
+                         withCompletion:(void (^)(NSString *uid, NSError *error))handler;
+
+- (void)createAccount:(Account *)account
+         withComplete:(void (^)(BOOL success, NSError *error))handler;
+
+- (void)saveAccount:(Account *)account
+       withComplete:(void (^)(BOOL success, NSError *error))handler;
+
 
 @end

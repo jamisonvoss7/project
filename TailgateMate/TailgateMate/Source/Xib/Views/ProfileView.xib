@@ -35,7 +35,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="contactsButton" destination="JGV-Sd-W3L" id="cu5-BD-Xf5"/>
-                <outlet property="firstNameLabel" destination="vpF-UE-KZr" id="Fwo-up-bun"/>
+                <outlet property="nameLabel" destination="vpF-UE-KZr" id="XFW-Ax-AEI"/>
                 <outlet property="profileImageView" destination="oa0-xj-x2v" id="YOa-az-RKe"/>
                 <outlet property="tailgatesButton" destination="kpr-gZ-f38" id="d47-F6-SAm"/>
             </connections>

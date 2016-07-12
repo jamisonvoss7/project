@@ -1,0 +1,11 @@
+
+platform :ios, '9.0'
+
+target 'TailgateMate' do
+ 
+ pod 'Firebase', '>= 2.5.1'
+ pod 'Firebase/Storage'
+ pod 'Firebase/Database'
+ pod 'Firebase/Auth'
+
+end

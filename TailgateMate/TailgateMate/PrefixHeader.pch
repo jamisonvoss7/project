@@ -10,12 +10,17 @@
 #define PrefixHeader_pch
 
 #import <UIKit/UIKit.h>
-#import <Firebase/Firebase.h>
+
+//#import <Firebase/Firebase.h>
+@import Firebase;
+@import FirebaseAuth;
+
 #import "AppManager.h"
 
 #import "Account.h"
 #import "AccountType.h"
 #import "UserCredentials.h"
+#import "Contact.h"
 #import "Location.h"
 #import "ParkingLot.h"
 #import "NSUserDefaults+Additions.h"

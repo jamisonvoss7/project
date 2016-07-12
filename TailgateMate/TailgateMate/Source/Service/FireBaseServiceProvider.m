@@ -9,25 +9,25 @@
 
 @implementation FireBaseServiceProvider
 
-- (void)setData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *, Firebase *))handler {
-    Firebase *baseRef = [AppManager sharedInstance].firebaseRef;
+- (void)setData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler {
+    FIRDatabaseReference *baseRef = [AppManager sharedInstance].firedatabasebaseRef;
     
-    baseRef = [baseRef childByAppendingPath:path];
+    baseRef = [baseRef child:path];
     [baseRef setValue:[data dictionaryRepresentation] withCompletionBlock:handler];
 }
 
-- (void)updateData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *, Firebase *))handler {
-    Firebase *baseRef = [AppManager sharedInstance].firebaseRef;
+- (void)updateData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler {
+    FIRDatabaseReference *baseRef = [AppManager sharedInstance].firedatabasebaseRef;
     
-    baseRef = [baseRef childByAppendingPath:path];
+    baseRef = [baseRef child:path];
     [baseRef updateChildValues:[data dictionaryRepresentation] withCompletionBlock:handler];
 }
 
-- (void)observeDateAtPath:(NSString *)paht withCompletion:(void (^)(FDataSnapshot *))handler {
-    Firebase *baseRef = [AppManager sharedInstance].firebaseRef;
+- (void)observeDateAtPath:(NSString *)path withCompletion:(void (^)(FIRDataSnapshot *))handler {
+    FIRDatabaseReference *baseRef = [AppManager sharedInstance].firedatabasebaseRef;
     
-    baseRef = [baseRef childByAppendingPath:paht];
-    [baseRef observeSingleEventOfType:FEventTypeValue
+    baseRef = [baseRef child:path];
+    [baseRef observeSingleEventOfType:FIRDataEventTypeValue
                             withBlock:handler];
 }
 @end

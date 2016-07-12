@@ -8,6 +8,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "AccountService.h"
+@import FirebaseAuth;
 
 @interface AccountManager ()
 @property (nonatomic, readwrite) Account *profileAccount;
@@ -23,10 +24,8 @@
     if (uid.length == 0) {
         handler(YES, nil);
     } else {
-        Account *account = [[Account alloc] init];
-        account.uid = uid;
-        [self loadProfileAccountWithAccount:account
-                             withCompletion:handler];
+        [self loadProfileAccountWithAccountForId:uid
+                                  withCompletion:handler];
     }
 
 }
@@ -37,41 +36,49 @@
         [service createAccount:account
                   withComplete:^(BOOL success, NSError *error) {
                       if (success) {
-                          [self loadProfileAccountWithAccount:account withCompletion:handler];
+                          [self loadProfileAccountWithAccountForId:account.uid
+                                               withCompletion:handler];
                       } else {
                           handler(NO, nil);
                       }
                   }];
     } else if (account.type == ACCOUNTTYPE_EMAIL) {
-        [service createAccount:account
-                  withComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [self loadProfileAccountWithAccount:account withCompletion:handler];
-                      } else {
-                          handler(NO, nil);
-                      }
-                  }];
+        [service authenticateWithNewUserCredentials:account.credentials
+                                     withCompletion:^(NSString *uid, NSError *error) {
+                                            if (uid.length > 0) {
+                                                account.uid = uid;
+                                                [service createAccount:account
+                                                          withComplete:^(BOOL success, NSError *error) {
+                                                              if (success) {
+                                                                  [self loadProfileAccountWithAccountForId:uid
+                                                                                       withCompletion:handler];
+                                                              } else {
+                                                                  handler(NO, nil);
+                                                              }
+                                                          }];
+                                            } else {
+                                                handler(NO, error);
+                                            }
+                                        }];
     }
 }
 
 - (void)authenticateWithUserCredentials:(UserCredentials *)credentials withCompletion:(void (^)(BOOL, NSError *))handler {
     AccountService *service = [[AccountService alloc] init];
-    [service authenticateWithUserCredentialsHelper:credentials
-                                    withCompletion:^(Account *account, NSError *error) {
-                                        if (account) {
-                                            [self loadProfileAccountWithAccount:account withCompletion:handler];
-                                        } else {
-                                            handler(NO, error);
-                                        }
-                                    }];
+    [service authenticateWithUserCredentials:credentials
+                              withCompletion:^(NSString *uid, NSError *error) {
+                                  if (uid.length) {
+                                      [self loadProfileAccountWithAccountForId:uid withCompletion:handler];
+                                  } else {
+                                      handler(NO, error);
+                                  }
+                              }];
 }
 
 
 - (void)signInWithFacebookFromViewController:(UIViewController *)vc withCompletion:(void (^)(BOOL success, NSError *error))handler {
-    Firebase *ref = [AppManager sharedInstance].firebaseRef;
-    
     FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
-    [facebookLogin logInWithReadPermissions:@[@"email"]
+    [facebookLogin logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
                          fromViewController:vc
                                     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                         if (error) {
@@ -80,25 +87,32 @@
                                             NSLog(@"Facebook login got cancelled.");
                                         } else {
                                             NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
-                                            [ref authWithOAuthProvider:@"facebook" token:accessToken
-                                                   withCompletionBlock:^(NSError *error, FAuthData *authData) {
-                                                       Account *account = [self createAccountFromFaceBookAuthData:authData];
-                                                       [self loadProfileAccountWithAccount:account
-                                                                            withCompletion:^(BOOL success, NSError *error) {
-                                                                                if (success) {
-                                                                                    handler(YES, nil);
-                                                                                } else {
-                                                                                    [self authenticateWithNewAccount:[self createAccountFromFaceBookAuthData:authData]
-                                                                                                      withCompletion:handler];
+                                            FIRAuthCredential *credential = [FIRFacebookAuthProvider credentialWithAccessToken:accessToken];
+                                          
+                                            [[FIRAuth auth] signInWithCredential:credential
+                                                                      completion:^(FIRUser *user, NSError *error) {
+                                                                          Account *account = [self createAccountFromFaceBookAuthData:user];
+                                                                          [self loadProfileAccountWithAccountForId:account.uid
+                                                                                               withCompletion:^(BOOL success, NSError *error) {
+                                                                                                   if (success) {
+                                                                                                       handler(YES, nil);
+                                                                                                   } else {
+                                                                                                       [self authenticateWithNewAccount:[self createAccountFromFaceBookAuthData:user]
+                                                                                                                         withCompletion:handler];
 
-                                                                                }
-                                                                            }];
+                                                                                                   }
+                                                                                               }];
                                                     }];
                                         }
                                     }];
 }
 
 - (void)signOut {
+    if (self.profileAccount.type == ACCOUNTTYPE_FACEBOOK) {
+        FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
+        [facebookLogin logOut];
+    }
+    
     self.profileAccount = nil;
     self.authenticatedAccount = nil;
     [self saveAccountID:@""];
@@ -120,10 +134,9 @@
     }
 }
 
-- (void)loadProfileAccountWithAccount:(Account *)account withCompletion:(void (^)(BOOL success, NSError *error))handler {
-    
+- (void)loadProfileAccountWithAccountForId:(NSString *)uid withCompletion:(void (^)(BOOL success, NSError *error))handler {
     AccountService *service = [[AccountService alloc] init];
-    [service loadAccountForkey:account.uid
+    [service loadAccountForkey:uid
                   withComplete:^(Account *account, NSError *error) {
                       if (account && !error) {
                           self.authenticatedAccount = account;
@@ -141,16 +154,15 @@
                   }];
 }
 
-- (Account *)createAccountFromFaceBookAuthData:(FAuthData *)data {
+- (Account *)createAccountFromFaceBookAuthData:(FIRUser *)data {
     Account *newAccount = [[Account alloc] init];
     
-    NSDictionary *profile = [data.providerData objectForKey:@"cachedUserProfile"];
+    id<FIRUserInfo> profile = [data.providerData firstObject];
     
-    
-    newAccount.firstName = [profile objectForKey:@"first_name"];
-    newAccount.lastName = [profile objectForKey:@"last_name"];
-    newAccount.emailAddress = [profile objectForKey:@"email"];
-    newAccount.uid = data.uid;
+    newAccount.displayName = [profile displayName];
+    newAccount.emailAddress = [profile email];
+    newAccount.photoUrl = [[profile photoURL] absoluteString];
+    newAccount.uid = [profile uid];
     newAccount.type = ACCOUNTTYPE_FACEBOOK;
     
     return newAccount;
@@ -173,5 +185,9 @@
 - (void)removeAccountId {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setAccountUID:@""];
+}
+
+- (void)dealloc {
+    NSLog(@"account manager dealloced");
 }
 @end

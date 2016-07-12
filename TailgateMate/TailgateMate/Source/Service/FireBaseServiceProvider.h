@@ -9,12 +9,12 @@
 @interface FireBaseServiceProvider : NSObject
 
 // Post
-- (void)setData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, Firebase *ref))handler;
+- (void)setData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler;
 
 // Put
-- (void)updateData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, Firebase *ref))handler;
+- (void)updateData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler;
 
 // Get
-- (void)observeDateAtPath:(NSString *)paht withCompletion:(void (^)(FDataSnapshot *data))handler;
+- (void)observeDateAtPath:(NSString *)path withCompletion:(void (^)(FIRDataSnapshot *data))handler;
 
 @end

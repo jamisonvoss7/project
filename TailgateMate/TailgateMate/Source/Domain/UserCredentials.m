@@ -10,10 +10,17 @@
 
 @implementation UserCredentials
 
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data {
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data {
     UserCredentials *userCredentials = [[UserCredentials alloc] init];
     userCredentials.userName = data.value[@"userName"];
     userCredentials.password = data.value[@"password"];
+    return userCredentials;
+}
+
++ (instancetype)instacneFromDictionary:(NSDictionary *)dictionary {
+    UserCredentials *userCredentials = [[UserCredentials alloc] init];
+    userCredentials.userName = dictionary[@"userName"];
+    userCredentials.password = dictionary[@"password"];
     return userCredentials;
 }
 

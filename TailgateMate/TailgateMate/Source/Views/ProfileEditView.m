@@ -26,9 +26,12 @@
 - (void)reload {
     Account *account = [AppManager sharedInstance].accountManager.profileAccount;
   
-    self.firstNameField.text = account.firstName;
-    self.lastNameField.text = account.lastName;
-    self.emailField.text = account.emailAddress;
+    self.nameField.text = account.displayName;
+    if (account.type == ACCOUNTTYPE_FACEBOOK) {
+        self.emailField.text = account.emailAddress;
+    } else {
+        self.emailField.text = account.credentials.userName;
+    }
 }
 
 @end

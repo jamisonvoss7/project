@@ -10,7 +10,7 @@
 
 @implementation ParkingLot
 
-+ (instancetype)instanceFromDate:(FDataSnapshot *)data {
++ (instancetype)instanceFromDate:(FIRDataSnapshot *)data {
     ParkingLot *parkingLot = [[ParkingLot alloc] init];
     
     parkingLot.lotName = data.value[@"lotName"];
