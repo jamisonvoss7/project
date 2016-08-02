@@ -20,6 +20,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    self.emailField.hidden = YES;
+    
+    Account *account = [AppManager sharedInstance].accountManager.profileAccount;    
+    if ([[account.type description] isEqualToString:[ACCOUNTTYPE_EMAIL description]]) {
+        self.emailField.hidden = NO;
+    }
+    
     [self reload];
 }
 
@@ -27,11 +34,10 @@
     Account *account = [AppManager sharedInstance].accountManager.profileAccount;
   
     self.nameField.text = account.displayName;
-    if (account.type == ACCOUNTTYPE_FACEBOOK) {
-        self.emailField.text = account.emailAddress;
-    } else {
-        self.emailField.text = account.credentials.userName;
-    }
+    self.emailField.text = account.emailAddress;
+    self.phoneNumberField.text = account.phoneNumber;
+    self.userNameField.text = account.userName;
+    
 }
 
 @end

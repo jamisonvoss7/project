@@ -26,6 +26,21 @@
 - (void)reload {
     Account *account = [AppManager sharedInstance].accountManager.profileAccount;
     
+    NSURL *url = [NSURL URLWithString:account.photoUrl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[UIImage alloc] initWithData:data];
+
+    CGPoint point = self.profileImageView.center;
+
+    CGRect frame = self.profileImageView.frame;
+    frame.size.height = img.size.height;
+    frame.size.width = img.size.width;
+    self.profileImageView.frame = frame;
+    
+    self.profileImageView.center = point;
+    
+    self.profileImageView.image = img;
+    
     self.nameLabel.text = account.displayName;
 }
 

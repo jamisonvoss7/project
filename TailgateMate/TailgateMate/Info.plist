@@ -34,16 +34,16 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb141644702857245</string>
+				<string>fb1127854283942704</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>8</string>
 	<key>FacebookAppID</key>
-	<string>141644702857245</string>
+	<string>1127854283942704</string>
 	<key>FacebookDisplayName</key>
-	<string>Tailgate Mate</string>
+	<string>Pregame</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

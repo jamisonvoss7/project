@@ -12,6 +12,8 @@
 
 @property (nonatomic, weak) IBOutlet UITextField *nameField;
 @property (nonatomic, weak) IBOutlet UITextField *emailField;
+@property (nonatomic, weak) IBOutlet UITextField *phoneNumberField;
+@property (nonatomic, weak) IBOutlet UITextField *userNameField;
 
 + (instancetype)instanceFromDefaultNib;
 - (void)reload;

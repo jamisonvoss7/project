@@ -54,7 +54,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
-    [service getAllTailgateParties:^(NSArray *parties, NSError *error) {
+  
+    [service getTailgatePartiesInvitedTo:^(NSArray *parties, NSError *error) {
         [self processParties:parties];
     }];
 }

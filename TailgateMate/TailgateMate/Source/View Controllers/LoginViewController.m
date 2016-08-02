@@ -7,6 +7,7 @@
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
 #import "SignInViewController.h"
+#import "AddUserNameAndPhoneViewController.h"
 
 @interface LoginViewController ()
 
@@ -66,7 +67,15 @@
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     [manager signInWithFacebookFromViewController:self
                                    withCompletion:^(BOOL success, NSError *error) {
-                                       [self.baseDelegate dismissViewController:self];
+                                       if (success) {
+                                           if ([AppManager sharedInstance].accountManager.profileAccount.userName.length == 0) {
+                                               AddUserNameAndPhoneViewController *vc = [[AddUserNameAndPhoneViewController alloc] init];
+                                               vc.authDelegate = self;
+                                               [self.baseDelegate addViewController:vc];
+                                           } else {
+                                               [self.baseDelegate dismissViewController:self];
+                                           }
+                                       }
                                    }];
 }
 
@@ -79,12 +88,7 @@
 - (void)signInButtonTapped:(UIButton *)sender {
     SignInViewController *vc = [[SignInViewController alloc] init];
     vc.authDelegate = self;
-
-    [self presentViewController:vc
-                     animated:YES
-                   completion:^{
-    
-                   }];
+    [self.baseDelegate addViewController:vc];
 }
 
 - (void)skipButtonTapped:(UIButton *)sender {

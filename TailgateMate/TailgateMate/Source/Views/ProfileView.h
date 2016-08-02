@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *profileImageView;
 
 @property (nonatomic, weak) IBOutlet UIButton *contactsButton;
+@property (nonatomic, weak) IBOutlet UIButton *addContactsButton;
 @property (nonatomic, weak) IBOutlet UIButton *tailgatesButton;
 
 + (instancetype)instanceFromDefaultNib;

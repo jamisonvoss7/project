@@ -8,14 +8,52 @@
 
 #import "AddTailgateInvitesView.h"
 
-@implementation AddTailgateInvitesView
+@interface AddTailgateInvitesView ()
+@property (nonatomic) NSArray *availableContact;
+@end
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+@implementation AddTailgateInvitesView 
+
++ (instancetype)instanceWithDefaultNib {
+    UINib *nib = [UINib nibWithNibName:@"AddTailgateInvitesView" bundle:[NSBundle mainBundle]];
+    return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }
-*/
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.availableContact = [AppManager sharedInstance].accountManager.profileAccount.contacts;
+    self.invitees = [[NSMutableArray alloc] initWithCapacity:self.availableContact.count];
+    
+    [self.tableView reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.availableContact.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Contact *contact = [self.availableContact objectAtIndex:indexPath.row];
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    cell.textLabel.text = contact.displayName;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Contact *contact = [self.availableContact objectAtIndex:indexPath.row];
+    [self.invitees addObject:contact];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.invitees removeObjectAtIndex:indexPath.row];
+}
 
 @end

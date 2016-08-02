@@ -8,6 +8,14 @@
 
 #import "FirebaseEnum.h"
 
+#define CONTACTTYPE_PHONE [ContactType _PHONE]
+#define CONTACTTYPE_EMAIL [ContactType _EMAIL]
+#define CONTACTTYPE_SOCIAL [ContactType _SOCIAL]
+
 @interface ContactType : FirebaseEnum
+
++ (ContactType *)_PHONE;
++ (ContactType *)_EMAIL;
++ (ContactType *)_SOCIAL;
 
 @end

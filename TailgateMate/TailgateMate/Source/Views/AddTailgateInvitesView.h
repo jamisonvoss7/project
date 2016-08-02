@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddTailgateInvitesView : UIView
+@interface AddTailgateInvitesView : UIView <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic) NSMutableArray *invitees;
+
++ (instancetype)instanceWithDefaultNib;
 
 @end

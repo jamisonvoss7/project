@@ -7,6 +7,8 @@
 //
 
 #import "AddUserNameAndPhoneViewController.h"
+#import "AddContactsViewController.h"
+#import "AccountService.h"
 
 @interface AddUserNameAndPhoneViewController ()
 
@@ -16,22 +18,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.addButton addTarget:self
+                          action:@selector(addDetails:)
+                forControlEvents:UIControlEventTouchUpInside];
+    
+    self.addButton.layer.cornerRadius = 15.0f;
+    self.addButton.layer.borderWidth = 3.0f;
+    self.addButton.layer.borderColor = [[UIColor whiteColor] CGColor];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)addDetails:(UIButton *)sender {
+    Account *currentAccount = [AppManager sharedInstance].accountManager.profileAccount;
+    currentAccount.userName = self.userNameField.text;
+    currentAccount.phoneNumber = self.phoneNumberField.text;
+    
+    AccountManager *manager = [AppManager sharedInstance].accountManager;
+    AccountService *service = [[AccountService alloc] init];
+    [service checkUserNameAvailability:self.userNameField.text
+                          withComplete:^(BOOL available, NSError *error) {
+                              if (available) {
+                                  [manager saveAccount:currentAccount
+                                          withComplete:^(BOOL success, NSError *error) {
+                                              if (success) {
+                                                  AddContactsViewController *vc = [[AddContactsViewController alloc] init];
+                                                  vc.authDelegate = self.authDelegate;
+                                                  [self.baseDelegate addViewController:vc];
+                                              }
+                                          }];
+                              } else {
+                                  // report error
+                              }
+                          }];
+  
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

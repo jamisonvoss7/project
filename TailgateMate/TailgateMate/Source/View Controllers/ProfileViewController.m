@@ -11,6 +11,7 @@
 #import "ProfileEditView.h"
 #import "NavbarView.h"
 #import "AddContactsViewController.h"
+#import "ContactsViewControler.h"
 
 @interface ProfileViewController ()
 @property (nonatomic) ProfileView *profileView;
@@ -74,6 +75,10 @@
                            action:@selector(signOutHandler:)
                  forControlEvents:UIControlEventTouchUpInside];
     
+    [self.profileView.addContactsButton addTarget:self
+                                           action:@selector(showAddContacts:)
+                                 forControlEvents:UIControlEventTouchUpInside];
+    
     [self.profileView.contactsButton addTarget:self
                                         action:@selector(showContacts:)
                               forControlEvents:UIControlEventTouchUpInside];
@@ -108,17 +113,49 @@
 }
 
 - (void)save {
-    Account *account = [[Account alloc] init];
-    account.emailAddress = self.editView.emailField.text;
-    account.displayName = self.editView.nameField.text;
-    
     AccountManager *manager = [AppManager sharedInstance].accountManager;
-    [manager saveAccount:account withComplete:^(BOOL success, NSError *error) {
-        [self.profileView reload];
-        [self.editView reload];
+    if (manager.profileAccount.type == ACCOUNTTYPE_EMAIL) {
+        if (![self.editView.emailField.text isEqualToString:manager.profileAccount.emailAddress]) {
+            [manager updateEmail:self.editView.emailField.text
+                    withComplete:^(BOOL success, NSError *error) {
+                        Account *profileAccount = [AppManager sharedInstance].accountManager.profileAccount;
+                        profileAccount.displayName = self.editView.nameField.text;
+                        profileAccount.phoneNumber = self.editView.phoneNumberField.text;
+                        
+                        [manager saveAccount:profileAccount
+                                withComplete:^(BOOL success, NSError *error) {
+                                    [self.profileView reload];
+                                    [self.editView reload];
+                    
+                                    [self doneEditing];
+                                }];
+                    }];
+        } else {
+            Account *profileAccount = [AppManager sharedInstance].accountManager.profileAccount;
+            profileAccount.displayName = self.editView.nameField.text;
+            profileAccount.phoneNumber = self.editView.phoneNumberField.text;
+            
+            [manager saveAccount:profileAccount
+                    withComplete:^(BOOL success, NSError *error) {
+                        [self.profileView reload];
+                        [self.editView reload];
+                        
+                        [self doneEditing];
+                    }];
+        }
+    } else {
+        Account *profileAccount = [AppManager sharedInstance].accountManager.profileAccount;
+        profileAccount.displayName = self.editView.nameField.text;
+        profileAccount.phoneNumber = self.editView.phoneNumberField.text;
         
-        [self doneEditing];
-    }];
+        [manager saveAccount:profileAccount
+                withComplete:^(BOOL success, NSError *error) {
+                    [self.profileView reload];
+                    [self.editView reload];
+                    
+                    [self doneEditing];
+                }];
+    }
 }
 
 - (void)doneEditing {
@@ -140,8 +177,13 @@
 }
 
 
-- (void)showContacts:(UITapGestureRecognizer *)sender {
+- (void)showAddContacts:(UIButton *)sender {
     AddContactsViewController *vc = [[AddContactsViewController alloc] init];
+    [self.baseDelegate addViewController:vc];
+}
+
+- (void)showContacts:(UIButton *)sender {
+    ContactsViewControler *vc = [[ContactsViewControler alloc] init];
     [self.baseDelegate addViewController:vc];
 }
 

@@ -52,8 +52,4 @@
     return _locationManager;
 }
 
-- (void)dealloc {
-    NSLog(@"app manager dealloced");
-}
-
 @end

@@ -23,5 +23,12 @@
 - (void)saveAccount:(Account *)account
        withComplete:(void (^)(BOOL success, NSError *error))handler;
 
+- (void)updateEmail:(NSString *)email
+       withComplete:(void (^)(BOOL success, NSError *error))handler;
 
+- (void)loadAccountFromPhoneNumber:(NSString *)phoneNumber
+                      withComplete:(void (^)(Account *account, NSError *error))handler;
+
+- (void)checkUserNameAvailability:(NSString *)userName
+                     withComplete:(void (^)(BOOL available, NSError *error))handler;
 @end

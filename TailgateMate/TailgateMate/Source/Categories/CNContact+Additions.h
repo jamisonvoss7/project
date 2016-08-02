@@ -10,4 +10,6 @@
 
 @interface CNContact (Additions)
 
+- (NSString *)phoneNumberString;
+
 @end

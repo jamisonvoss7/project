@@ -10,4 +10,6 @@
 
 @interface Account (Additions)
 
+- (NSString *)encodeEmailAddress;
+
 @end

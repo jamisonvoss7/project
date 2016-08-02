@@ -10,4 +10,6 @@
 
 @interface Invite : FirebaseObject
 
+@property (nonatomic, copy) NSString *tailgateId;
+
 @end

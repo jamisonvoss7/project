@@ -38,19 +38,20 @@
     user.userName = self.emailField.text;
     user.password = self.passwordField.text;
     
-    account.credentials = user;
     account.type = ACCOUNTTYPE_EMAIL;
     account.uid = [NSUUID UUID].UUIDString;
-
+    account.emailAddress = self.emailField.text;
+    account.userName = self.userNameField.text;
+    
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     
     [manager authenticateWithNewAccount:account
+                     andUserCredentials:user
                          withCompletion:^(BOOL authenticated, NSError *error) {
                              if (authenticated) {
-                                 [self.baseDelegate dismissViewController:self];
-                                 [self.authDelegate didAuthenticate];
-//                                 AddContactsViewController *vc = [[AddContactsViewController alloc] init];
-//                                 [self.baseDelegate addViewController:vc];
+                                 AddContactsViewController *vc = [[AddContactsViewController alloc] init];
+                                 vc.authDelegate = self.authDelegate;
+                                 [self.baseDelegate addViewController:vc];
                              }
                          }];
 }

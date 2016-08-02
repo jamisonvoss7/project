@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface ContactsViewControler : BaseViewController
+@interface ContactsViewControler : BaseViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end

@@ -12,6 +12,7 @@
                 <outlet property="passwordField" destination="Haf-eX-Y6v" id="a8e-ah-KKD"/>
                 <outlet property="phoneNumberField" destination="hYT-1P-SAR" id="F83-FE-rXU"/>
                 <outlet property="signUpButton" destination="bkh-Q0-gtm" id="q2J-40-JnE"/>
+                <outlet property="userNameField" destination="1Z5-Ym-mnW" id="4rU-yg-gJ3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kkn-oI-Pyv"/>
             </connections>
         </placeholder>
@@ -32,14 +33,20 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                 </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" id="1Z5-Ym-mnW">
+                    <rect key="frame" x="49" y="153" width="222" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" id="Haf-eX-Y6v">
-                    <rect key="frame" x="49" y="195" width="222" height="30"/>
+                    <rect key="frame" x="49" y="235" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bkh-Q0-gtm">
-                    <rect key="frame" x="49" y="256" width="222" height="53"/>
+                    <rect key="frame" x="49" y="296" width="222" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.094117647058823528" green="0.25882352941176467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Sign up"/>
@@ -52,7 +59,7 @@
                     </state>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone #" textAlignment="natural" minimumFontSize="17" id="hYT-1P-SAR">
-                    <rect key="frame" x="49" y="153" width="222" height="30"/>
+                    <rect key="frame" x="49" y="193" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>

@@ -11,8 +11,10 @@
 @interface Contact : FirebaseObject
 
 @property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, copy) NSString *displayName;
+@property (nonatomic, copy) NSString *emailAddress;
 @property (nonatomic, copy) NSString *userName;
-@property (nonatomic, copy) NSString *firstName;
-@property (nonatomic, copy) NSString *lastName;
+
+@property (nonatomic) ContactType *contactType;
 
 @end

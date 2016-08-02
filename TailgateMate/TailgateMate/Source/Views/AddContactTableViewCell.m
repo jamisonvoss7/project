@@ -1,8 +1,6 @@
 //
 //  AddContactTableViewCell.m
-//  TailgateMate
 //
-//  Created by Jamison Voss on 7/15/16.
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
@@ -10,15 +8,16 @@
 
 @implementation AddContactTableViewCell
 
++ (instancetype)instanceWithDefaultNib {
+    UINib *nib = [UINib nibWithNibName:@"AddContactTableViewCell" bundle:[NSBundle mainBundle]];
+    return [[nib instantiateWithOwner:nil options:nil] lastObject];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
+
 
 @end

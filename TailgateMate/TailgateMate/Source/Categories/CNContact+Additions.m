@@ -10,4 +10,17 @@
 
 @implementation CNContact (Additions)
 
+- (NSString *)phoneNumberString {
+     for (CNLabeledValue *val in self.phoneNumbers) {
+        if ([val.label containsString:@"Mobile"]) {
+            CNPhoneNumber *number = val.value;
+            return number.stringValue;
+        }
+    }
+    
+    CNLabeledValue *val = [self.phoneNumbers firstObject];
+    CNPhoneNumber *number = val.value;
+    return number.stringValue;
+}
+
 @end

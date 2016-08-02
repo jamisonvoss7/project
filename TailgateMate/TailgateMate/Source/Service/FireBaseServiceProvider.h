@@ -10,11 +10,17 @@
 
 // Post
 - (void)setData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler;
+- (void)setArrayData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler;
 
 // Put
 - (void)updateData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler;
+- (void)updateArrayData:(id)data forPath:(NSString *)path withCompletion:(void (^)(NSError *error, FIRDatabaseReference *ref))handler;
 
 // Get
-- (void)observeDateAtPath:(NSString *)path withCompletion:(void (^)(FIRDataSnapshot *data))handler;
+- (void)observeDataAtPath:(NSString *)path withCompletion:(void (^)(FIRDataSnapshot *data))handler;
 
+// Get with params
+- (void)observeDataAtPath:(NSString *)path
+                andParams:(NSDictionary *)dict
+           withCompletion:(void (^)(FIRDataSnapshot *data))handler;
 @end

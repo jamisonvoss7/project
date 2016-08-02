@@ -8,6 +8,8 @@
 #import "AddTailgateDetailsView.h"
 #import "AddTailgateMapView.h"
 #import "AddTailgateSuppliesView.h"
+#import "AddTailgateInvitesView.h"
+
 #import "TailgatePartyServiceProvider.h"
 #import "NavbarView.h"
 
@@ -16,6 +18,7 @@
 @property (nonatomic) AddTailgateMapView *mapView;
 @property (nonatomic) AddTailgateSuppliesView *suppliesView;
 @property (nonatomic) AddTailgateSuppliesView *neededSuppliesView;
+@property (nonatomic) AddTailgateInvitesView *invitesView;
 @property (nonatomic) NSArray *defaultSupplies;
 @property (nonatomic) NavbarView *navbar;
 @end
@@ -52,16 +55,20 @@
     baseFrame.origin.x = self.view.frame.size.width * 3;
     self.neededSuppliesView.frame = baseFrame;
     
+    self.invitesView = [AddTailgateInvitesView instanceWithDefaultNib];
+    baseFrame.origin.x = self.view.frame.size.width * 4;
+    self.invitesView.frame = baseFrame;
+    
     [self.scrollview addSubview:self.detailView];
     [self.scrollview addSubview:self.mapView];
     [self.scrollview addSubview:self.suppliesView];
     [self.scrollview addSubview:self.neededSuppliesView];
+    [self.scrollview addSubview:self.invitesView];
     
     [self.suppliesView setTailgateSupplies:[self defaultSupplies]];
     [self.neededSuppliesView setTailgateSupplies:[self defaultSupplies]];
     
     self.scrollview.delegate = self;
-    
 
     self.navbar = [NavbarView instanceFromDefaultNib];
     CGRect frame = self.navbar.frame;
@@ -126,19 +133,21 @@
         self.navbar.rightButton.text = @"Next";
    
         self.navbar.titleLabel.text = @"Tailgate Details";
-    } else if (index == 1 || index == 2 ) {
+    } else if (index == 1 || index == 2 || index == 3) {
         self.navbar.leftButton.text = @"Back";
         self.navbar.rightButton.text = @"Next";
         if (index == 1) {
             self.navbar.titleLabel.text = @"Tailgate Location";
-        } else {
+        } else if (index == 2) {
             self.navbar.titleLabel.text = @"Tailgate Supplies";
+        } else {
+            self.navbar.titleLabel.text = @"Tailgate Needs";
         }
     } else {
         self.navbar.leftButton.text = @"Back";
         self.navbar.rightButton.text = @"Add";
         
-        self.navbar.titleLabel.text = @"Tailgate Needs";
+        self.navbar.titleLabel.text = @"Invite Friends";
     }
 }
 
@@ -157,6 +166,7 @@
     
     party.supplies = self.suppliesView.selectedSupplies;
     party.needs = self.neededSuppliesView.selectedSupplies;
+    party.guests = self.invitesView.invitees;
     
     return party;
 }
@@ -172,7 +182,7 @@
 
 - (void)rightTapHandler:(UITapGestureRecognizer *)tap {
     CGFloat index = self.scrollview.contentOffset.x / self.view.frame.size.width;
-    if (index == 3) {
+    if (index == 4) {
         [self addTailgate];
     } else {
         [self scrollRight];

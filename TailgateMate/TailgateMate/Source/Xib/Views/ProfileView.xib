@@ -24,17 +24,23 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JGV-Sd-W3L">
                     <rect key="frame" x="110" y="212" width="101" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Contacts"/>
+                    <state key="normal" title="Mates"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kpr-gZ-f38">
-                    <rect key="frame" x="110" y="250" width="101" height="30"/>
+                    <rect key="frame" x="110" y="297" width="101" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Tailgates"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8l-Dk-fdq">
+                    <rect key="frame" x="110" y="255" width="101" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Add Mates"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="contactsButton" destination="JGV-Sd-W3L" id="cu5-BD-Xf5"/>
+                <outlet property="addContactsButton" destination="W8l-Dk-fdq" id="9dN-yn-YTU"/>
+                <outlet property="contactsButton" destination="JGV-Sd-W3L" id="MTv-ZA-Gop"/>
                 <outlet property="nameLabel" destination="vpF-UE-KZr" id="XFW-Ax-AEI"/>
                 <outlet property="profileImageView" destination="oa0-xj-x2v" id="YOa-az-RKe"/>
                 <outlet property="tailgatesButton" destination="kpr-gZ-f38" id="d47-F6-SAm"/>

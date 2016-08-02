@@ -15,7 +15,7 @@
 - (void)loadAccountForkey:(NSString *)uid withComplete:(void (^)(Account *account, NSError *error))handler {
     NSString *path = [NSString stringWithFormat:@"accounts/%@", uid];
     
-    [super observeDateAtPath:path
+    [super observeDataAtPath:path
               withCompletion:^(FIRDataSnapshot *data) {
                   if (data.exists) {
                       Account *account = [Account instanceFromDate:data];
@@ -83,5 +83,51 @@
            handler(NO, error);
        }
    }];
+}
+
+- (void)updateEmail:(NSString *)email
+       withComplete:(void (^)(BOOL, NSError *))handler {
+    FIRUser *user = [FIRAuth auth].currentUser;
+    
+    [user updateEmail:email
+           completion:^(NSError * _Nullable error) {
+               handler(!error, error);
+           }];
+}
+
+- (void)loadAccountFromPhoneNumber:(NSString *)phoneNumber
+                      withComplete:(void (^)(Account *, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"accounts"];
+    
+    NSDictionary *dict = @{@"phoneNumber":phoneNumber};
+    
+    [super observeDataAtPath:path
+                   andParams:dict
+              withCompletion:^(FIRDataSnapshot *data) {
+                  if (data.exists) {
+                      NSArray *array = [Account arrayFromData:data];
+                      Account *account = [array firstObject];
+                      handler(account, nil);
+                  } else {
+                      handler(nil, nil);
+                  }
+              }];
+}
+
+- (void)checkUserNameAvailability:(NSString *)userName
+                     withComplete:(void (^)(BOOL, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"accounts"];
+    
+    NSDictionary *dict = @{@"userName":userName};
+    
+    [super observeDataAtPath:path
+                   andParams:dict
+              withCompletion:^(FIRDataSnapshot *data) {
+                  if (data.exists) {
+                      handler(NO, nil);
+                  } else {
+                      handler(YES, nil);
+                  }
+              }];
 }
 @end

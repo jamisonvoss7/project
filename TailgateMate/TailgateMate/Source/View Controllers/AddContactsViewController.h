@@ -8,8 +8,11 @@
 //
 
 #import "BaseViewController.h"
+#import "AuthenticationDelegate.h"
 
 @interface AddContactsViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) id<AuthenticationDelegate> authDelegate;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 

@@ -8,6 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		739D0BEB371318B8F4C82F0C /* libPods-TailgateMate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38E32563CCCF33DAA3B423F /* libPods-TailgateMate.a */; };
+		EF01D7801D397F450058A500 /* Batch.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D77F1D397F450058A500 /* Batch.m */; };
+		EF01D7831D39DB470058A500 /* AddContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7821D39DB470058A500 /* AddContactTableViewCell.m */; };
+		EF01D7851D39DB6B0058A500 /* AddContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF01D7841D39DB6B0058A500 /* AddContactTableViewCell.xib */; };
+		EF01D7881D39DF930058A500 /* AddContactTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7871D39DF930058A500 /* AddContactTableHeaderView.m */; };
+		EF01D78A1D39E0160058A500 /* AddContactTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF01D7891D39E0160058A500 /* AddContactTableHeaderView.xib */; };
+		EF01D78C1D3AA8B40058A500 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF01D78B1D3AA8B40058A500 /* MessageUI.framework */; };
+		EF01D78F1D3AB80A0058A500 /* CNContact+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D78E1D3AB80A0058A500 /* CNContact+Additions.m */; };
+		EF01D7921D3AD5890058A500 /* ContactsViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7911D3AD5890058A500 /* ContactsViewControler.m */; };
+		EF01D7941D3AE9870058A500 /* ContactsViewControler.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF01D7931D3AE9870058A500 /* ContactsViewControler.xib */; };
+		EF01D7971D3AF6D40058A500 /* AddTailgateInvitesView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7961D3AF6D40058A500 /* AddTailgateInvitesView.m */; };
+		EF01D7991D3BF4B10058A500 /* AddTailgateInvitesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF01D7981D3BF4B10058A500 /* AddTailgateInvitesView.xib */; };
+		EF01D79C1D4E8C990058A500 /* GuestsServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D79B1D4E8C990058A500 /* GuestsServiceProvider.m */; };
+		EF01D79F1D4E92690058A500 /* Invite.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D79E1D4E92690058A500 /* Invite.m */; };
+		EF01D7A21D4EB4470058A500 /* ContactType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7A11D4EB4470058A500 /* ContactType.m */; };
+		EF01D7A81D4ED3B30058A500 /* Account+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7A71D4ED3B30058A500 /* Account+Additions.m */; };
+		EF01D7AB1D4EE8FD0058A500 /* AddUserNameAndPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7AA1D4EE8FD0058A500 /* AddUserNameAndPhoneViewController.m */; };
+		EF01D7AD1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib */; };
 		EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAD1D08DBE200551CDA /* Burgers.png */; };
 		EF0B5EB71D08DBE200551CDA /* Burgers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */; };
 		EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */; };
@@ -131,6 +148,34 @@
 		62723DCA303C9686A2580BC4 /* Pods-TailgateMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TailgateMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TailgateMate/Pods-TailgateMate.release.xcconfig"; sourceTree = "<group>"; };
 		B38E32563CCCF33DAA3B423F /* libPods-TailgateMate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TailgateMate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF00C6561D24AC2B0073B091 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = TailgateMate/Libraries/Firebase.framework; sourceTree = "<group>"; };
+		EF01D77E1D397F450058A500 /* Batch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Batch.h; sourceTree = "<group>"; };
+		EF01D77F1D397F450058A500 /* Batch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Batch.m; sourceTree = "<group>"; };
+		EF01D7811D39DB470058A500 /* AddContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactTableViewCell.h; sourceTree = "<group>"; };
+		EF01D7821D39DB470058A500 /* AddContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactTableViewCell.m; sourceTree = "<group>"; };
+		EF01D7841D39DB6B0058A500 /* AddContactTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactTableViewCell.xib; sourceTree = "<group>"; };
+		EF01D7861D39DF930058A500 /* AddContactTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactTableHeaderView.h; sourceTree = "<group>"; };
+		EF01D7871D39DF930058A500 /* AddContactTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactTableHeaderView.m; sourceTree = "<group>"; };
+		EF01D7891D39E0160058A500 /* AddContactTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactTableHeaderView.xib; sourceTree = "<group>"; };
+		EF01D78B1D3AA8B40058A500 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EF01D78D1D3AB80A0058A500 /* CNContact+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CNContact+Additions.h"; sourceTree = "<group>"; };
+		EF01D78E1D3AB80A0058A500 /* CNContact+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CNContact+Additions.m"; sourceTree = "<group>"; };
+		EF01D7901D3AD5890058A500 /* ContactsViewControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewControler.h; sourceTree = "<group>"; };
+		EF01D7911D3AD5890058A500 /* ContactsViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewControler.m; sourceTree = "<group>"; };
+		EF01D7931D3AE9870058A500 /* ContactsViewControler.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewControler.xib; sourceTree = "<group>"; };
+		EF01D7951D3AF6D40058A500 /* AddTailgateInvitesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTailgateInvitesView.h; sourceTree = "<group>"; };
+		EF01D7961D3AF6D40058A500 /* AddTailgateInvitesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTailgateInvitesView.m; sourceTree = "<group>"; };
+		EF01D7981D3BF4B10058A500 /* AddTailgateInvitesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTailgateInvitesView.xib; sourceTree = "<group>"; };
+		EF01D79A1D4E8C990058A500 /* GuestsServiceProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestsServiceProvider.h; sourceTree = "<group>"; };
+		EF01D79B1D4E8C990058A500 /* GuestsServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestsServiceProvider.m; sourceTree = "<group>"; };
+		EF01D79D1D4E92690058A500 /* Invite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invite.h; sourceTree = "<group>"; };
+		EF01D79E1D4E92690058A500 /* Invite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invite.m; sourceTree = "<group>"; };
+		EF01D7A01D4EB4470058A500 /* ContactType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactType.h; sourceTree = "<group>"; };
+		EF01D7A11D4EB4470058A500 /* ContactType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactType.m; sourceTree = "<group>"; };
+		EF01D7A61D4ED3B30058A500 /* Account+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+Additions.h"; sourceTree = "<group>"; };
+		EF01D7A71D4ED3B30058A500 /* Account+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Account+Additions.m"; sourceTree = "<group>"; };
+		EF01D7A91D4EE8FD0058A500 /* AddUserNameAndPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserNameAndPhoneViewController.h; sourceTree = "<group>"; };
+		EF01D7AA1D4EE8FD0058A500 /* AddUserNameAndPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserNameAndPhoneViewController.m; sourceTree = "<group>"; };
+		EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddUserNameAndPhoneViewController.xib; sourceTree = "<group>"; };
 		EF0B5EAD1D08DBE200551CDA /* Burgers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Burgers.png; sourceTree = "<group>"; };
 		EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@2x.png"; sourceTree = "<group>"; };
 		EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@3x.png"; sourceTree = "<group>"; };
@@ -291,6 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF01D78C1D3AA8B40058A500 /* MessageUI.framework in Frameworks */,
 				EF0B5EC91D1EE7EB00551CDA /* Contacts.framework in Frameworks */,
 				EF4C7BB81CA8F8D8004A6CF3 /* MapKit.framework in Frameworks */,
 				EFBF8DE31C5B196A0075DE38 /* libc++.tbd in Frameworks */,
@@ -333,6 +379,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF01D77D1D397F450058A500 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EF01D77E1D397F450058A500 /* Batch.h */,
+				EF01D77F1D397F450058A500 /* Batch.m */,
+			);
+			name = Utils;
+			path = TailgateMate/Source/Utils;
+			sourceTree = SOURCE_ROOT;
+		};
 		EF0B5EAC1D08DBE200551CDA /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +412,10 @@
 				EF0B5EC31D1C9BDC00551CDA /* AddContactsViewController.m */,
 				EF135F4C1CBB413300C80753 /* AddTailgateViewController.h */,
 				EF135F4D1CBB413300C80753 /* AddTailgateViewController.m */,
+				EF01D7A91D4EE8FD0058A500 /* AddUserNameAndPhoneViewController.h */,
+				EF01D7AA1D4EE8FD0058A500 /* AddUserNameAndPhoneViewController.m */,
+				EF01D7901D3AD5890058A500 /* ContactsViewControler.h */,
+				EF01D7911D3AD5890058A500 /* ContactsViewControler.m */,
 				EF0B5EC51D1C9CCD00551CDA /* BaseViewController.h */,
 				EF0B5EC61D1C9CCD00551CDA /* BaseViewController.m */,
 				EF135F501CBB413300C80753 /* HomeMapViewController.h */,
@@ -383,13 +443,15 @@
 			children = (
 				EF135F651CBB424600C80753 /* AddTailgateViewController.xib */,
 				EF0B5ED01D1F10B800551CDA /* AddContactsViewController.xib */,
-				EF43C28D1CDAC15200BA1C7F /* TailgateViewController.xib */,
+				EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib */,
+				EF01D7931D3AE9870058A500 /* ContactsViewControler.xib */,
 				EF135F661CBB424600C80753 /* HomeMapViewController.xib */,
 				EF84EF881CEEA434006459DA /* LandingViewController.xib */,
 				EF135F671CBB424600C80753 /* LoginViewController.xib */,
 				EF135F681CBB424600C80753 /* ProfileViewController.xib */,
 				EF135F691CBB424600C80753 /* SignInViewController.xib */,
 				EF135F6A1CBB424600C80753 /* SignUpViewController.xib */,
+				EF43C28D1CDAC15200BA1C7F /* TailgateViewController.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -397,9 +459,12 @@
 		EF135F6B1CBB424600C80753 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF01D7841D39DB6B0058A500 /* AddContactTableViewCell.xib */,
+				EF01D7891D39E0160058A500 /* AddContactTableHeaderView.xib */,
 				EF135F761CBB425E00C80753 /* AddTailgateDetailsView.xib */,
 				EF135F811CBE7ED800C80753 /* AddTailgateMapView.xib */,
 				EF135F941CC159A000C80753 /* AddTailgateSuppliesView.xib */,
+				EF01D7981D3BF4B10058A500 /* AddTailgateInvitesView.xib */,
 				EF43C2921CE8EB3A00BA1C7F /* NavbarView.xib */,
 				EF135F6C1CBB424600C80753 /* ProfileEditView.xib */,
 				EF135F6D1CBB424600C80753 /* ProfileView.xib */,
@@ -492,6 +557,7 @@
 				EF73F7781BC36D7500FA9DBA /* Domain */,
 				EF4C7BA71CA89A50004A6CF3 /* Managers */,
 				EFBF8DEE1C6AB3AD0075DE38 /* Service */,
+				EF01D77D1D397F450058A500 /* Utils */,
 				EF135F4B1CBB413300C80753 /* View Controllers */,
 				EF73F7791BC36D7500FA9DBA /* Views */,
 				EF73F77C1BC36D7500FA9DBA /* Xib */,
@@ -523,6 +589,10 @@
 				EF0B5ECB1D1EF0A700551CDA /* AccountType.m */,
 				EFEB1AFE1D28F5A8006299CD /* Contact.h */,
 				EFEB1AFF1D28F5A8006299CD /* Contact.m */,
+				EF01D7A01D4EB4470058A500 /* ContactType.h */,
+				EF01D7A11D4EB4470058A500 /* ContactType.m */,
+				EF01D79D1D4E92690058A500 /* Invite.h */,
+				EF01D79E1D4E92690058A500 /* Invite.m */,
 				EF73F7811BC372FE00FA9DBA /* Location.h */,
 				EF73F7821BC372FE00FA9DBA /* Location.m */,
 				EF4C7BBE1CAB40DD004A6CF3 /* ParkingLot.h */,
@@ -548,12 +618,18 @@
 		EF73F7791BC36D7500FA9DBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF01D7811D39DB470058A500 /* AddContactTableViewCell.h */,
+				EF01D7821D39DB470058A500 /* AddContactTableViewCell.m */,
+				EF01D7861D39DF930058A500 /* AddContactTableHeaderView.h */,
+				EF01D7871D39DF930058A500 /* AddContactTableHeaderView.m */,
 				EF135F611CBB41F500C80753 /* AddTailgateDetailsView.h */,
 				EF135F621CBB41F500C80753 /* AddTailgateDetailsView.m */,
 				EF135F7E1CBE7D5200C80753 /* AddTailgateMapView.h */,
 				EF135F7F1CBE7D5200C80753 /* AddTailgateMapView.m */,
 				EF135F911CC1598A00C80753 /* AddTailgateSuppliesView.h */,
 				EF135F921CC1598A00C80753 /* AddTailgateSuppliesView.m */,
+				EF01D7951D3AF6D40058A500 /* AddTailgateInvitesView.h */,
+				EF01D7961D3AF6D40058A500 /* AddTailgateInvitesView.m */,
 				EF43C28F1CE8E9F100BA1C7F /* NavbarView.h */,
 				EF43C2901CE8E9F100BA1C7F /* NavbarView.m */,
 				EF90AE971CB19C7900883032 /* ProfileView.h */,
@@ -584,6 +660,10 @@
 		EF90AE9F1CB5C60C00883032 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				EF01D7A61D4ED3B30058A500 /* Account+Additions.h */,
+				EF01D7A71D4ED3B30058A500 /* Account+Additions.m */,
+				EF01D78D1D3AB80A0058A500 /* CNContact+Additions.h */,
+				EF01D78E1D3AB80A0058A500 /* CNContact+Additions.m */,
 				EF90AEA01CB5C62300883032 /* NSUserDefaults+Additions.h */,
 				EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */,
 			);
@@ -599,6 +679,8 @@
 				EF135FA21CC28BDC00C80753 /* TailgatePartyServiceProvider.m */,
 				EFBF8DF51C6C15200075DE38 /* FireBaseServiceProvider.h */,
 				EFBF8DF61C6C15200075DE38 /* FireBaseServiceProvider.m */,
+				EF01D79A1D4E8C990058A500 /* GuestsServiceProvider.h */,
+				EF01D79B1D4E8C990058A500 /* GuestsServiceProvider.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -606,6 +688,7 @@
 		EFEAC8301BC7591A0074B1C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF01D78B1D3AA8B40058A500 /* MessageUI.framework */,
 				EF00C6561D24AC2B0073B091 /* Firebase.framework */,
 				EF0B5EC81D1EE7EB00551CDA /* Contacts.framework */,
 				EF4C7BB71CA8F8D8004A6CF3 /* MapKit.framework */,
@@ -708,9 +791,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF01D7851D39DB6B0058A500 /* AddContactTableViewCell.xib in Resources */,
 				EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */,
 				EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */,
 				EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */,
+				EF01D7941D3AE9870058A500 /* ContactsViewControler.xib in Resources */,
 				EF73F76A1BC36B9100FA9DBA /* Assets.xcassets in Resources */,
 				EF135F951CC159A000C80753 /* AddTailgateSuppliesView.xib in Resources */,
 				EF84EF841CEE92E3006459DA /* JackTrice.gpx in Resources */,
@@ -722,6 +807,9 @@
 				EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */,
 				EF135F711CBB424600C80753 /* ProfileViewController.xib in Resources */,
 				EF135F751CBB424600C80753 /* ProfileView.xib in Resources */,
+				EF01D7991D3BF4B10058A500 /* AddTailgateInvitesView.xib in Resources */,
+				EF01D78A1D39E0160058A500 /* AddContactTableHeaderView.xib in Resources */,
+				EF01D7AD1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib in Resources */,
 				EF0B5EB91D08DBE200551CDA /* Cups.png in Resources */,
 				EF135F8E1CC1497400C80753 /* red-flag-hi.png in Resources */,
 				EF135F771CBB425E00C80753 /* AddTailgateDetailsView.xib in Resources */,
@@ -811,15 +899,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF01D7A81D4ED3B30058A500 /* Account+Additions.m in Sources */,
+				EF01D7831D39DB470058A500 /* AddContactTableViewCell.m in Sources */,
 				EF135F931CC1598A00C80753 /* AddTailgateSuppliesView.m in Sources */,
 				EF135F5D1CBB413300C80753 /* LoginViewController.m in Sources */,
 				EF90AE991CB19C7900883032 /* ProfileView.m in Sources */,
 				EF135F5F1CBB413300C80753 /* SignInViewController.m in Sources */,
 				EF135F5E1CBB413300C80753 /* ProfileViewController.m in Sources */,
+				EF01D7971D3AF6D40058A500 /* AddTailgateInvitesView.m in Sources */,
 				EF135F981CC16B4800C80753 /* TailgateSupplyButton.m in Sources */,
 				EF135F601CBB413300C80753 /* SignUpViewController.m in Sources */,
 				EF73F79E1BC3759900FA9DBA /* TailgateParty.m in Sources */,
 				EF135FA31CC28BDC00C80753 /* TailgatePartyServiceProvider.m in Sources */,
+				EF01D7921D3AD5890058A500 /* ContactsViewControler.m in Sources */,
 				EF135F851CBE863F00C80753 /* LocationManager.m in Sources */,
 				EF135F631CBB41F500C80753 /* AddTailgateDetailsView.m in Sources */,
 				EF135F9B1CC16B5900C80753 /* TailgateSupplyRow.m in Sources */,
@@ -836,17 +928,24 @@
 				EFBF8DF11C6AB3BE0075DE38 /* AccountService.m in Sources */,
 				EF0B5ECC1D1EF0A700551CDA /* AccountType.m in Sources */,
 				EF4C7BC01CAB40DD004A6CF3 /* ParkingLot.m in Sources */,
+				EF01D79C1D4E8C990058A500 /* GuestsServiceProvider.m in Sources */,
 				EF3C11BA1C8E70770069DAE4 /* UserCredentials.m in Sources */,
+				EF01D7AB1D4EE8FD0058A500 /* AddUserNameAndPhoneViewController.m in Sources */,
 				EF84EF871CEEA20E006459DA /* LandingViewController.m in Sources */,
+				EF01D7801D397F450058A500 /* Batch.m in Sources */,
+				EF01D7881D39DF930058A500 /* AddContactTableHeaderView.m in Sources */,
 				EF90AE9C1CB19C8D00883032 /* ProfileEditView.m in Sources */,
 				EF135F7A1CBC842A00C80753 /* SupplyType.m in Sources */,
 				EFBF8DF71C6C15200075DE38 /* FireBaseServiceProvider.m in Sources */,
+				EF01D7A21D4EB4470058A500 /* ContactType.m in Sources */,
 				EF135F5B1CBB413300C80753 /* RootViewController.m in Sources */,
 				EF135F5C1CBB413300C80753 /* HomeMapViewController.m in Sources */,
+				EF01D79F1D4E92690058A500 /* Invite.m in Sources */,
 				EF73F7831BC372FE00FA9DBA /* Location.m in Sources */,
 				EF73F7981BC3745600FA9DBA /* Stadium.m in Sources */,
 				EFBF8DED1C6AB1D80075DE38 /* Account.m in Sources */,
 				EFBF8DFA1C6C1D360075DE38 /* FirebaseObject.m in Sources */,
+				EF01D78F1D3AB80A0058A500 /* CNContact+Additions.m in Sources */,
 				EF135F4A1CBB185500C80753 /* Thing.m in Sources */,
 				EF73F75F1BC36B9100FA9DBA /* main.m in Sources */,
 				EF0B5EC41D1C9BDC00551CDA /* AddContactsViewController.m in Sources */,
@@ -960,7 +1059,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.TailgateMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.pregame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -986,7 +1085,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.TailgateMate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamisonvoss.pregame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

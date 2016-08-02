@@ -12,23 +12,18 @@
 
 + (instancetype)instanceFromDate:(FIRDataSnapshot *)data {
     Account *account = [[Account alloc] init];
-    
-    NSLog(@"%@", data.value);
-    
+        
     account.displayName = data.value[@"displayName"];
     account.emailAddress = data.value[@"emailAddress"];
     account.phoneNumber = data.value[@"phoneNumber"];
+    account.userName = data.value[@"userName"];
     account.photoId = data.value[@"photoId"];
     account.photoUrl = data.value[@"photoUrl"];
-    account.type = [[AccountType alloc] initWithString:data.value[@"typt"]];
+    account.type = [[AccountType alloc] initWithString:data.value[@"type"]];
     account.uid = data.value[@"uid"];
-
-    if (data.value[@"userCredentials"]) {
-        account.credentials = [UserCredentials instacneFromDictionary:data.value[@"userCredentials"]];
-    }
     
     if (data.value[@"contacts"]) {
-        account.contacts = [Contact arrayFromData:data.value[@"contacts"]];
+        account.contacts = [Contact arrayFromArray:data.value[@"contacts"]];
     }
     
     if (data.value[@"pastParties"]) {
@@ -50,17 +45,11 @@
     if (self.emailAddress.length > 0) {
         dictionary[@"emailAddress"] = self.emailAddress;
     }
-    if (self.phoneNumber.length > 0) {
-        dictionary[@"phoneNumber"] = self.phoneNumber;
-    }
     if (self.uid.length > 0) {
         dictionary[@"uid"] = self.uid;
     }
     if (self.type) {
         dictionary[@"type"] = [self.type description];
-    }
-    if (self.credentials) {
-        dictionary[@"userCredentials"] = [self.credentials dictionaryRepresentation];
     }
     if (self.contacts.count > 0) {
         dictionary[@"contacts"] = [Contact dictionaryFromArray:self.contacts];
@@ -76,6 +65,9 @@
     }
     if (self.photoId.length > 0) {
         dictionary[@"photoId"] = self.photoId;
+    }
+    if (self.userName.length > 0) {
+        dictionary[@"userName"] = self.userName;
     }
     
     return dictionary;

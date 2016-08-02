@@ -1,8 +1,6 @@
 //
 //  AddContactTableHeaderView.m
-//  TailgateMate
 //
-//  Created by Jamison Voss on 7/15/16.
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
@@ -10,12 +8,13 @@
 
 @implementation AddContactTableHeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++ (instancetype)instanceWithDefaultNib {
+    UINib *nib = [UINib nibWithNibName:@"AddContactTableHeaderView" bundle:[NSBundle mainBundle]];
+    return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }
-*/
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
 
 @end

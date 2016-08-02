@@ -22,7 +22,7 @@
     NSString *uid = [defaults accountUID];
     
     if (uid.length == 0) {
-        handler(YES, nil);
+        handler(NO, nil);
     } else {
         [self loadProfileAccountWithAccountForId:uid
                                   withCompletion:handler];
@@ -30,7 +30,10 @@
 
 }
 
-- (void)authenticateWithNewAccount:(Account *)account withCompletion:(void (^)(BOOL, NSError *))handler {
+- (void)authenticateWithNewAccount:(Account *)account
+                andUserCredentials:(UserCredentials *)credentials
+                    withCompletion:(void (^)(BOOL, NSError *))handler {
+   
     AccountService *service = [[AccountService alloc] init];
     if (account.type == ACCOUNTTYPE_FACEBOOK) {
         [service createAccount:account
@@ -43,7 +46,7 @@
                       }
                   }];
     } else if (account.type == ACCOUNTTYPE_EMAIL) {
-        [service authenticateWithNewUserCredentials:account.credentials
+        [service authenticateWithNewUserCredentials:credentials
                                      withCompletion:^(NSString *uid, NSError *error) {
                                             if (uid.length > 0) {
                                                 account.uid = uid;
@@ -82,9 +85,9 @@
                          fromViewController:vc
                                     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                         if (error) {
-                                            NSLog(@"Facebook login failed. Error: %@", error);
+
                                         } else if (result.isCancelled) {
-                                            NSLog(@"Facebook login got cancelled.");
+
                                         } else {
                                             NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
                                             FIRAuthCredential *credential = [FIRFacebookAuthProvider credentialWithAccessToken:accessToken];
@@ -97,7 +100,7 @@
                                                                                                    if (success) {
                                                                                                        handler(YES, nil);
                                                                                                    } else {
-                                                                                                       [self authenticateWithNewAccount:[self createAccountFromFaceBookAuthData:user]
+                                                                                                       [self authenticateWithNewAccount:[self createAccountFromFaceBookAuthData:user] andUserCredentials:nil
                                                                                                                          withCompletion:handler];
 
                                                                                                    }
@@ -126,12 +129,32 @@
             withComplete:handler];
 }
 
+- (void)addUserName:(NSString *)userName
+       withComplete:(void (^)(BOOL, NSError *))handler {
+    
+}
+
 - (BOOL)isAuthenticated {
     if (self.authenticatedAccount) {
         return YES;
     } else {
         return NO;
     }
+}
+
+- (void)updateEmail:(NSString *)email withComplete:(void (^)(BOOL, NSError *))handler {
+    AccountService *service = [[AccountService alloc] init];
+    [service updateEmail:email withComplete:^(BOOL success, NSError *error) {
+        if (success) {
+            Account *account = self.profileAccount;
+            account.emailAddress = email;
+            [service saveAccount:account
+                    withComplete:^(BOOL success, NSError *error) {
+                        [self loadProfileAccountWithAccountForId:account.uid
+                                                  withCompletion:handler];
+                    }];
+        }
+    }];
 }
 
 - (void)loadProfileAccountWithAccountForId:(NSString *)uid withCompletion:(void (^)(BOOL success, NSError *error))handler {
@@ -187,7 +210,4 @@
     [defaults setAccountUID:@""];
 }
 
-- (void)dealloc {
-    NSLog(@"account manager dealloced");
-}
 @end

@@ -18,8 +18,9 @@
     instance.personCount = data.value[@"personCount"];
     instance.parkingLot = [ParkingLot instacneFromDictionary:data.value[@"parkingLot"]];
     instance.uid = data.value[@"uid"];
-    instance.supplies = [TailgateSupply arrayFromArray:data.value[@"supplies"]];
-    instance.needs = [TailgateSupply arrayFromArray:data.value[@"needs"]];
+    instance.supplies = [TailgateSupply arrayFromData:data.value[@"supplies"]];
+    instance.needs = [TailgateSupply arrayFromData:data.value[@"needs"]];
+    instance.guests = [Contact arrayFromData:data.value[@"guests"]];
     
     return instance;
 }
@@ -55,6 +56,9 @@
     }
     if (self.needs.count > 0) {
         dictionary[@"needs"] = [TailgateSupply dictionaryFromArray:self.needs];
+    }
+    if (self.guests.count > 0) {
+        dictionary[@"guests"] = [Contact dictionaryFromArray:self.guests];
     }
     
     return dictionary;

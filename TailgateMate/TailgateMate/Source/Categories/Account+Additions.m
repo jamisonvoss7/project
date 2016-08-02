@@ -10,4 +10,10 @@
 
 @implementation Account (Additions)
 
+- (NSString *)encodeEmailAddress {
+    NSString *email = self.emailAddress;
+    email = [email stringByReplacingOccurrencesOfString:@"@" withString:@"%40"];
+    return email;
+}
+
 @end

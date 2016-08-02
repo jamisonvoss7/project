@@ -17,5 +17,6 @@
 @property (nonatomic) ParkingLot *parkingLot;
 @property (nonatomic) NSArray *supplies;
 @property (nonatomic) NSArray *needs;
+@property (nonatomic) NSArray *guests;
 
 @end

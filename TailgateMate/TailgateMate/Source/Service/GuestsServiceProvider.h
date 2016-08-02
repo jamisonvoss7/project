@@ -10,4 +10,8 @@
 
 @interface GuestsServiceProvider : FireBaseServiceProvider
 
+- (void)inviteGuests:(NSArray *)guests
+     toTailgateParty:(TailgateParty *)party
+        withComplete:(void (^)(BOOL success, NSError *error))handler;
+
 @end

@@ -16,9 +16,10 @@
 @import FirebaseAuth;
 
 #import "AppManager.h"
-
+#import "ContactType.h"
 #import "Account.h"
 #import "AccountType.h"
+#import "Batch.h"
 #import "UserCredentials.h"
 #import "Contact.h"
 #import "Location.h"
@@ -27,6 +28,7 @@
 #import "SupplyType.h"
 #import "TailgateSupply.h"
 #import "TailgateParty.h"
+#import "Invite.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
