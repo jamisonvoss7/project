@@ -22,7 +22,9 @@
     
     self.emailField.hidden = YES;
     
-    Account *account = [AppManager sharedInstance].accountManager.profileAccount;    
+    self.backgroundColor = [UIColor lightGrayColor];
+
+    Account *account = [AppManager sharedInstance].accountManager.profileAccount;
     if ([[account.type description] isEqualToString:[ACCOUNTTYPE_EMAIL description]]) {
         self.emailField.hidden = NO;
     }

@@ -116,6 +116,12 @@
 		EFBF8DF41C6C13B70075DE38 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF31C6C13B70075DE38 /* AppManager.m */; };
 		EFBF8DF71C6C15200075DE38 /* FireBaseServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF61C6C15200075DE38 /* FireBaseServiceProvider.m */; };
 		EFBF8DFA1C6C1D360075DE38 /* FirebaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF91C6C1D360075DE38 /* FirebaseObject.m */; };
+		EFE4A6BD1D51837700587C29 /* drinks.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B71D51837700587C29 /* drinks.png */; };
+		EFE4A6BE1D51837700587C29 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B81D51837700587C29 /* food.png */; };
+		EFE4A6BF1D51837700587C29 /* games.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B91D51837700587C29 /* games.png */; };
+		EFE4A6C01D51837700587C29 /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6BA1D51837700587C29 /* other.png */; };
+		EFE4A6C31D51840500587C29 /* back_drop.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6C11D51840500587C29 /* back_drop.png */; };
+		EFE4A6C41D51840500587C29 /* default_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6C21D51840500587C29 /* default_profile.png */; };
 		EFEAC83B1BC75A760074B1C2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC8351BC75A760074B1C2 /* AudioToolbox.framework */; };
 		EFEAC83C1BC75A760074B1C2 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC8361BC75A760074B1C2 /* libsqlite3.0.tbd */; };
 		EFEAC83D1BC75A760074B1C2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC8371BC75A760074B1C2 /* libz.tbd */; };
@@ -315,6 +321,12 @@
 		EFBF8DF61C6C15200075DE38 /* FireBaseServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireBaseServiceProvider.m; sourceTree = "<group>"; };
 		EFBF8DF81C6C1D360075DE38 /* FirebaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseObject.h; sourceTree = "<group>"; };
 		EFBF8DF91C6C1D360075DE38 /* FirebaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseObject.m; sourceTree = "<group>"; };
+		EFE4A6B71D51837700587C29 /* drinks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drinks.png; sourceTree = "<group>"; };
+		EFE4A6B81D51837700587C29 /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
+		EFE4A6B91D51837700587C29 /* games.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = games.png; sourceTree = "<group>"; };
+		EFE4A6BA1D51837700587C29 /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
+		EFE4A6C11D51840500587C29 /* back_drop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_drop.png; sourceTree = "<group>"; };
+		EFE4A6C21D51840500587C29 /* default_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_profile.png; sourceTree = "<group>"; };
 		EFEAC8351BC75A760074B1C2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EFEAC8361BC75A760074B1C2 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		EFEAC8371BC75A760074B1C2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -480,6 +492,12 @@
 			children = (
 				EF0B5EAC1D08DBE200551CDA /* Icons */,
 				EF135F8D1CC1497400C80753 /* red-flag-hi.png */,
+				EFE4A6C11D51840500587C29 /* back_drop.png */,
+				EFE4A6C21D51840500587C29 /* default_profile.png */,
+				EFE4A6B71D51837700587C29 /* drinks.png */,
+				EFE4A6B81D51837700587C29 /* food.png */,
+				EFE4A6B91D51837700587C29 /* games.png */,
+				EFE4A6BA1D51837700587C29 /* other.png */,
 				EF135F8F1CC152FB00C80753 /* RedFlag.png */,
 			);
 			path = Images;
@@ -791,10 +809,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE4A6BD1D51837700587C29 /* drinks.png in Resources */,
+				EFE4A6BF1D51837700587C29 /* games.png in Resources */,
 				EF01D7851D39DB6B0058A500 /* AddContactTableViewCell.xib in Resources */,
 				EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */,
 				EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */,
 				EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */,
+				EFE4A6C01D51837700587C29 /* other.png in Resources */,
 				EF01D7941D3AE9870058A500 /* ContactsViewControler.xib in Resources */,
 				EF73F76A1BC36B9100FA9DBA /* Assets.xcassets in Resources */,
 				EF135F951CC159A000C80753 /* AddTailgateSuppliesView.xib in Resources */,
@@ -805,6 +826,7 @@
 				EF0B5EBA1D08DBE200551CDA /* Cups@2x.png in Resources */,
 				EF135F6E1CBB424600C80753 /* AddTailgateViewController.xib in Resources */,
 				EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */,
+				EFE4A6C41D51840500587C29 /* default_profile.png in Resources */,
 				EF135F711CBB424600C80753 /* ProfileViewController.xib in Resources */,
 				EF135F751CBB424600C80753 /* ProfileView.xib in Resources */,
 				EF01D7991D3BF4B10058A500 /* AddTailgateInvitesView.xib in Resources */,
@@ -816,12 +838,14 @@
 				EF135F721CBB424600C80753 /* SignInViewController.xib in Resources */,
 				EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */,
 				EF135F821CBE7ED800C80753 /* AddTailgateMapView.xib in Resources */,
+				EFE4A6BE1D51837700587C29 /* food.png in Resources */,
 				EF135F741CBB424600C80753 /* ProfileEditView.xib in Resources */,
 				EF0B5EBE1D08DBE200551CDA /* Grill@3x.png in Resources */,
 				EF135F9E1CC16EE000C80753 /* TailgateSupplyButton.xib in Resources */,
 				EF43C2931CE8EB3A00BA1C7F /* NavbarView.xib in Resources */,
 				EF0B5ED11D1F10B800551CDA /* AddContactsViewController.xib in Resources */,
 				EF7AF9EF1D1FA6EA00D58E0A /* GoogleService-Info.plist in Resources */,
+				EFE4A6C31D51840500587C29 /* back_drop.png in Resources */,
 				EF0B5EBD1D08DBE200551CDA /* Grill@2x.png in Resources */,
 				EF135FA01CC18B1600C80753 /* TailgateSupplyRow.xib in Resources */,
 				EF0B5EBB1D08DBE200551CDA /* Cups@3x.png in Resources */,
