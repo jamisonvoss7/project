@@ -55,25 +55,26 @@
                     <color key="backgroundColor" red="0.094117647058823528" green="0.25882352941176467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Sign up"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T8a-0g-fr0">
-                    <rect key="frame" x="25" y="516" width="84" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Back Button">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone #" textAlignment="natural" minimumFontSize="17" id="hYT-1P-SAR">
                     <rect key="frame" x="49" y="295" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T8a-0g-fr0">
+                    <rect key="frame" x="8" y="493" width="67" height="67"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="back_button.png">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="355" y="217"/>
         </view>
     </objects>
     <resources>
+        <image name="back_button.png" width="228" height="225"/>
         <image name="back_drop.png" width="1050" height="1868"/>
     </resources>
 </document>

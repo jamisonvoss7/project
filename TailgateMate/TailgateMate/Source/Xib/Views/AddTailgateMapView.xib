@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -25,19 +25,17 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="allowsTilting" value="NO"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedFlag.png" id="YVP-Wu-VXa">
-                    <rect key="frame" x="120" y="212" width="80" height="144"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YVP-Wu-VXa">
+                    <rect key="frame" x="120" y="209" width="80" height="150"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="mapview" destination="Z3H-E9-9sJ" id="M3L-Ud-rd3"/>
+                <outlet property="pinView" destination="YVP-Wu-VXa" id="dSK-Tf-iHN"/>
             </connections>
             <point key="canvasLocation" x="361" y="217"/>
         </view>
     </objects>
-    <resources>
-        <image name="RedFlag.png" width="80" height="144"/>
-    </resources>
 </document>

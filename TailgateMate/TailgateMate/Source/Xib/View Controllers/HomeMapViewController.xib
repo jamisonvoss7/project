@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -44,40 +44,60 @@
                     <rect key="frame" x="0.0" y="513" width="320" height="55"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gcq-3J-ETB">
+                        <view contentMode="scaleToFill" id="zhV-1v-x8c">
                             <rect key="frame" x="0.0" y="0.0" width="80" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.74711914062499996" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Back">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dcq-Yq-TP6">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="duJ-SV-2ne">
                             <rect key="frame" x="80" y="0.0" width="80" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.74711914062499996" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Search">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bLG-l1-ew4">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="NG8-56-E78">
                             <rect key="frame" x="160" y="0.0" width="80" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.74711914062499996" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Add">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="dNc-Bc-s7p">
+                            <rect key="frame" x="240" y="0.0" width="80" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dcq-Yq-TP6">
+                            <rect key="frame" x="172" y="0.0" width="55" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Search" image="search_icon.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ugB-up-kli">
-                            <rect key="frame" x="240" y="0.0" width="80" height="55"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bLG-l1-ew4">
+                            <rect key="frame" x="92" y="0.0" width="55" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.74711914062499996" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Filter">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="plus_icon.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ugB-up-kli">
+                            <rect key="frame" x="253" y="0.0" width="55" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Filter" image="filter_bars.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gcq-3J-ETB">
+                            <rect key="frame" x="13" y="0.0" width="55" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="back_button.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.74535701357085127" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -95,4 +115,10 @@
             <point key="canvasLocation" x="398" y="176"/>
         </view>
     </objects>
+    <resources>
+        <image name="back_button.png" width="228" height="225"/>
+        <image name="filter_bars.png" width="276" height="225"/>
+        <image name="plus_icon.png" width="60" height="60"/>
+        <image name="search_icon.png" width="228" height="224"/>
+    </resources>
 </document>

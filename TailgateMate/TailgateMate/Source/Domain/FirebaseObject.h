@@ -18,5 +18,7 @@
 
 - (NSDictionary *)dictionaryRepresentation;
 
++ (NSString *)dateToDateString:(NSDate *)date;
++ (NSDate *)dateFromDateString:(NSString *)dateString;
 
 @end

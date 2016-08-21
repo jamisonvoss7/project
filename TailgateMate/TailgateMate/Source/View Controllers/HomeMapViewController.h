@@ -7,9 +7,10 @@
 #import <UIKit/UIKit.h>
 #import <Mapbox/Mapbox.h>
 
+#import "TailgatePartyFilterView.h"
 #import "BaseViewController.h"
 
-@interface HomeMapViewController : BaseViewController <MGLMapViewDelegate>
+@interface HomeMapViewController : BaseViewController <MGLMapViewDelegate, TailgatePartyFilterViewDelegateProtocol>
 
 @property (nonatomic, weak) IBOutlet MGLMapView *mapView;
 

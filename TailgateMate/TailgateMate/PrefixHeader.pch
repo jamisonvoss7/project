@@ -27,8 +27,12 @@
 #import "NSUserDefaults+Additions.h"
 #import "SupplyType.h"
 #import "TailgateSupply.h"
+#import "TailgatePartyType.h"
 #import "TailgateParty.h"
 #import "Invite.h"
+#import "TimelineItemType.h"
+#import "TimeLineItem.h"
+#import "TailgatePartyFanType.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

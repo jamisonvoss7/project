@@ -45,6 +45,39 @@
     }];
 }
 
+- (void)getUserTailgateParties:(void (^)(NSArray *, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"tailgateParties"];
+    NSDictionary *dict = @{@"hostUserName": [AppManager sharedInstance].accountManager.profileAccount.userName};
+    
+    [super observeDataAtPath:path
+                   andParams:dict
+              withCompletion:^(FIRDataSnapshot *data) {
+                  if (data.exists) {
+                      NSArray *parties = [TailgateParty arrayFromData:data];
+                      Batch *batch = [Batch create];
+                      NSMutableArray *allParties = [[NSMutableArray alloc] initWithCapacity:parties.count];
+                      
+                      for (TailgateParty *party in parties) {
+                          [batch addBatchBlock:^(Batch *batch) {
+                              [self getTailgatePartyFullForId:party.uid
+                                                 withComplete:^(TailgateParty *party, NSError *error) {
+                                                     if (party && !error) {
+                                                         [allParties addObject:party];
+                                                     }
+                                                     [batch complete:error];
+                                                 }];
+                          }];
+                      }
+                      
+                      [batch executeWithComplete:^(NSError *error) {
+                          handler(allParties, error);
+                      }];
+                  } else {
+                      handler(nil, nil);
+                  }
+              }];
+}
+
 - (void)getTailgatePartiesFromIds:(NSArray *)ids
                      withComplete:(void (^)(NSArray *, NSError *))handler {
     Batch *batch = [Batch create];
@@ -81,6 +114,38 @@
     
 }
 
+- (void)getPublicTailgateParties:(void (^)(NSArray *, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"tailgateParties"];
+    NSDictionary *dict = @{@"type": [TAILGATEPARTYTYPE_PUBLIC description]};
+    
+    [super observeDataAtPath:path
+                   andParams:dict
+              withCompletion:^(FIRDataSnapshot *data) {
+                  if (data.exists) {
+                      NSArray *parties = [TailgateParty arrayFromData:data];
+                      Batch *batch = [Batch create];
+                      NSMutableArray *allParties = [[NSMutableArray alloc] initWithCapacity:parties.count];
+                      
+                      for (TailgateParty *party in parties) {
+                          [batch addBatchBlock:^(Batch *batch) {
+                              [self getTailgatePartyFullForId:party.uid
+                                                 withComplete:^(TailgateParty *party, NSError *error) {
+                                                     if (party && !error) {
+                                                         [allParties addObject:party];
+                                                     }
+                                                     [batch complete:error];
+                                                 }];
+                          }];
+                      }
+                      
+                      [batch executeWithComplete:^(NSError *error) {
+                          handler(allParties, error);
+                      }];
+                  } else {
+                      handler(nil, nil);
+                  }
+              }];
+}
 
 - (void)getGuestsForTailgate:(NSString *)tailgateId
                 withComplete:(void (^)(NSArray *guests, NSError *error))handler {
@@ -97,35 +162,50 @@
               }];
 }
 
-- (void)getSuppliesForTailgate:(NSString *)tailgateId
-                  withComplete:(void (^)(NSArray *supplies, NSError *error))handler {
-    NSString *path = [NSString stringWithFormat:@"supplies/%@", tailgateId];
+- (void)getTimeLineForTailgate:(NSString *)tailgateId
+                  withComplete:(void (^)(NSArray *, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"timeline/%@", tailgateId];
     
     [super observeDataAtPath:path
               withCompletion:^(FIRDataSnapshot *data) {
                   if (data) {
-                      NSArray *supplies = [TailgateSupply arrayFromData:data];
-                      handler(supplies, nil);
+                      NSArray *timeline = [TimelineItem arrayFromData:data];
+                      handler(timeline, nil);
                   } else {
                       handler(nil, nil);
                   }
               }];
 }
 
-- (void)getNeedsForTailgate:(NSString *)tailgateId
-               withComplete:(void (^)(NSArray *needs, NSError *error))handler {
-    NSString *path = [NSString stringWithFormat:@"needs/%@", tailgateId];
-    
-    [super observeDataAtPath:path
-              withCompletion:^(FIRDataSnapshot *data) {
-                  if (data) {
-                      NSArray *needs = [TailgateSupply arrayFromData:data];
-                      handler(needs, nil);
-                  } else {
-                      handler(nil, nil);
-                  }
-              }];
-}
+//- (void)getSuppliesForTailgate:(NSString *)tailgateId
+//                  withComplete:(void (^)(NSArray *supplies, NSError *error))handler {
+//    NSString *path = [NSString stringWithFormat:@"supplies/%@", tailgateId];
+//    
+//    [super observeDataAtPath:path
+//              withCompletion:^(FIRDataSnapshot *data) {
+//                  if (data) {
+//                      NSArray *supplies = [TailgateSupply arrayFromData:data];
+//                      handler(supplies, nil);
+//                  } else {
+//                      handler(nil, nil);
+//                  }
+//              }];
+//}
+//
+//- (void)getNeedsForTailgate:(NSString *)tailgateId
+//               withComplete:(void (^)(NSArray *needs, NSError *error))handler {
+//    NSString *path = [NSString stringWithFormat:@"needs/%@", tailgateId];
+//    
+//    [super observeDataAtPath:path
+//              withCompletion:^(FIRDataSnapshot *data) {
+//                  if (data) {
+//                      NSArray *needs = [TailgateSupply arrayFromData:data];
+//                      handler(needs, nil);
+//                  } else {
+//                      handler(nil, nil);
+//                  }
+//              }];
+//}
 
 - (void)batchRequestForFullTailgate:(TailgateParty *)party
                        withComplete:(void (^)(TailgateParty *tailgate, NSError *))handler {
@@ -142,24 +222,34 @@
     }];
     
     [batch addBatchBlock:^(Batch *batch) {
-        [self getSuppliesForTailgate:party.uid
-                        withComplete:^(NSArray *supplies, NSError *error) {
-                            if (supplies.count > 0) {
-                                party.supplies = supplies;
-                            }
-                            [batch complete:error];
-                        }];
+       [self getTimeLineForTailgate:party.uid
+                       withComplete:^(NSArray *timeline, NSError *error) {
+                           if (timeline.count > 0) {
+                               party.timeline = timeline;
+                           }
+                           [batch complete:error];
+                       }];
     }];
     
-    [batch addBatchBlock:^(Batch *batch) {
-        [self getNeedsForTailgate:party.uid
-                     withComplete:^(NSArray *needs, NSError *error) {
-                         if (needs.count > 0) {
-                             party.needs = needs;
-                         }
-                         [batch complete:error];
-                     }];
-    }];
+//    [batch addBatchBlock:^(Batch *batch) {
+//        [self getSuppliesForTailgate:party.uid
+//                        withComplete:^(NSArray *supplies, NSError *error) {
+//                            if (supplies.count > 0) {
+//                                party.supplies = supplies;
+//                            }
+//                            [batch complete:error];
+//                        }];
+//    }];
+//    
+//    [batch addBatchBlock:^(Batch *batch) {
+//        [self getNeedsForTailgate:party.uid
+//                     withComplete:^(NSArray *needs, NSError *error) {
+//                         if (needs.count > 0) {
+//                             party.needs = needs;
+//                         }
+//                         [batch complete:error];
+//                     }];
+//    }];
     
     [batch executeWithComplete:^(NSError *error) {
         handler(party, error);
@@ -214,37 +304,37 @@
        }];
 }
 
-- (void)updateTailgateParty:(NSString *)tailgateId
-               withSupplies:(NSArray *)supplies
-               withComplete:(void (^)(BOOL success, NSError *))handler {
-    NSString *path = [NSString stringWithFormat:@"supplies/%@", tailgateId];
-    
-    [super updateData:[TailgateSupply dictionaryFromArray:supplies]
-              forPath:path
-       withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
-           if (ref && !error) {
-               handler(YES, nil);
-           } else {
-               handler(NO, error);
-           }
-       }];
-}
+//- (void)updateTailgateParty:(NSString *)tailgateId
+//               withSupplies:(NSArray *)supplies
+//               withComplete:(void (^)(BOOL success, NSError *))handler {
+//    NSString *path = [NSString stringWithFormat:@"supplies/%@", tailgateId];
+//    
+//    [super updateData:[TailgateSupply dictionaryFromArray:supplies]
+//              forPath:path
+//       withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
+//           if (ref && !error) {
+//               handler(YES, nil);
+//           } else {
+//               handler(NO, error);
+//           }
+//       }];
+//}
 
-- (void)updateTailgateParty:(NSString *)tailgateId
-                  withNeeds:(NSArray *)needs
-               withComplete:(void (^)(BOOL success, NSError *))handler {
-    NSString *path = [NSString stringWithFormat:@"needs/%@", tailgateId];
-    
-    [super updateData:[TailgateSupply dictionaryFromArray:needs]
-              forPath:path
-       withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
-           if (ref && !error) {
-               handler(YES, nil);
-           } else {
-               handler(NO, error);
-           }
-       }];
-}
+//- (void)updateTailgateParty:(NSString *)tailgateId
+//                  withNeeds:(NSArray *)needs
+//               withComplete:(void (^)(BOOL success, NSError *))handler {
+//    NSString *path = [NSString stringWithFormat:@"needs/%@", tailgateId];
+//    
+//    [super updateData:[TailgateSupply dictionaryFromArray:needs]
+//              forPath:path
+//       withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
+//           if (ref && !error) {
+//               handler(YES, nil);
+//           } else {
+//               handler(NO, error);
+//           }
+//       }];
+//}
 
 - (void)batchUpdateTailgateParty:(TailgateParty *)party
                     withComplete:(void (^)(BOOL success, NSError *error))handler {
@@ -258,21 +348,21 @@
                      }];
     }];
     
-    [batch addBatchBlock:^(Batch *batch) {
-        [self updateTailgateParty:party.uid
-                     withSupplies:party.supplies
-                     withComplete:^(BOOL success, NSError *error) {
-                         [batch complete:error];
-                     }];
-    }];
-    
-    [batch addBatchBlock:^(Batch *batch) {
-        [self updateTailgateParty:party.uid
-                        withNeeds:party.needs
-                     withComplete:^(BOOL success, NSError *error) {
-                         [batch complete:error];
-                     }];
-    }];
+//    [batch addBatchBlock:^(Batch *batch) {
+//        [self updateTailgateParty:party.uid
+//                     withSupplies:party.supplies
+//                     withComplete:^(BOOL success, NSError *error) {
+//                         [batch complete:error];
+//                     }];
+//    }];
+//    
+//    [batch addBatchBlock:^(Batch *batch) {
+//        [self updateTailgateParty:party.uid
+//                        withNeeds:party.needs
+//                     withComplete:^(BOOL success, NSError *error) {
+//                         [batch complete:error];
+//                     }];
+//    }];
     
     [batch executeWithComplete:^(NSError *error) {
         handler(!error, error);
@@ -293,25 +383,34 @@
              }];
     }];
     
-    // supplies
     [batch addBatchBlock:^(Batch *batch) {
-        NSString *suppliesPath = [NSString stringWithFormat:@"supplies/%@", party.uid];
-        [super setArrayData:[TailgateSupply dictionaryFromArray:party.supplies]
-               forPath:suppliesPath
-        withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
-            [batch complete:error];
-        }];
-    }];
-    
-    // needs
-    [batch addBatchBlock:^(Batch *batch) {
-        NSString *needsPath = [NSString stringWithFormat:@"needs/%@", party.uid];
-        [super setArrayData:[TailgateSupply dictionaryFromArray:party.needs]
-                    forPath:needsPath
+        NSString *timelinePath = [NSString stringWithFormat:@"timeline/%@", party.uid];
+        [super setArrayData:[TimelineItem dictionaryFromArray:party.timeline]
+                    forPath:timelinePath
              withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
                  [batch complete:error];
              }];
     }];
+    
+    // supplies
+//    [batch addBatchBlock:^(Batch *batch) {
+//        NSString *suppliesPath = [NSString stringWithFormat:@"supplies/%@", party.uid];
+//        [super setArrayData:[TailgateSupply dictionaryFromArray:party.supplies]
+//               forPath:suppliesPath
+//        withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
+//            [batch complete:error];
+//        }];
+//    }];
+//    
+//    // needs
+//    [batch addBatchBlock:^(Batch *batch) {
+//        NSString *needsPath = [NSString stringWithFormat:@"needs/%@", party.uid];
+//        [super setArrayData:[TailgateSupply dictionaryFromArray:party.needs]
+//                    forPath:needsPath
+//             withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
+//                 [batch complete:error];
+//             }];
+//    }];
     
     // Invites
     [batch addBatchBlock:^(Batch *batch) {
@@ -325,8 +424,9 @@
 
     [batch executeWithComplete:^(NSError *error) {
         party.guests = nil;
-        party.supplies = nil;
-        party.needs = nil;
+        party.timeline = nil;
+//        party.supplies = nil;
+//        party.needs = nil;
         
         NSString *path = [NSString stringWithFormat:@"tailgateParties/%@", party.uid];
         [super setData:party forPath:path withCompletion:^(NSError *error, FIRDatabaseReference *ref) {

@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798553.967091"
+            filePath = "TailgateMate/Source/Xib/Views/AddTimelineItemViewController.m"
+            timestampString = "493270322.12606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-getTailgatePartiesInvitedTo:"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-onPost:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798555.743404"
+            filePath = "TailgateMate/Source/Xib/Views/AddTimelineItemViewController.m"
+            timestampString = "493270324.264816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-getTailgatePartiesInvitedTo:"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-onPost:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798579.372997"
+            filePath = "TailgateMate/Source/Xib/Views/AddTimelineItemViewController.m"
+            timestampString = "493270952.493326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-getTailgatePartiesFromIds:withComplete:"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-onPost:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,44 +57,156 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798589.770099"
+            filePath = "TailgateMate/Source/Service/TimelineServiceProvider.m"
+            timestampString = "493270964.001257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-getTailgatePartiesFromIds:withComplete:"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-saveImage:atId:forPartyTimeline:withCompletion:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/Service/FirebaseStorageServiceProvider.m"
+            timestampString = "493270970.185237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-saveData:atPath:withContentType:withCompletion:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/Service/TimelineServiceProvider.m"
+            timestampString = "493271421.619977"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "-addTimelineItem:toTailgateParty:withComplete:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/Domain/FirebaseObject.m"
+            timestampString = "493271572.854505"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "+dictionaryFromArray:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493430329.117429"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-showFilterView"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__71-[TailgatePartyServiceProvider getTailgatePartiesFromIds:withComplete:]_block_invoke"
+                  symbolName = "-[HomeMapViewController showFilterView]"
                   moduleName = "TailgateMate"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-                  timestampString = "491799326.688668"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493349328.628681"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "79">
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "41">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__71-[TailgatePartyServiceProvider getTailgatePartiesFromIds:withComplete:]_block_invoke_2"
+                  symbolName = "__39-[HomeMapViewController showFilterView]_block_invoke"
                   moduleName = "TailgateMate"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-                  timestampString = "491799326.688788"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493349328.628872"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "75">
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493430329.117429"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "-hideFilterView"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HomeMapViewController hideFilterView]"
+                  moduleName = "TailgateMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493349328.629768"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "41">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[HomeMapViewController hideFilterView]_block_invoke"
+                  moduleName = "TailgateMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493349328.629914"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -105,13 +217,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798592.359802"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493430329.117429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-getTailgatePartiesFromIds:withComplete:"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "-filterPartiesForFanType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798603.837482"
+            filePath = "TailgateMate/Source/View Controllers/PromotionsViewController.m"
+            timestampString = "493393876.78401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-getTailgatePartyFullForId:withComplete:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-tableView:viewForFooterInSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,125 +249,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798609.56518"
+            filePath = "TailgateMate/Source/Views/Tailgate/View Tailgate/TimelineItemImageTableCell.m"
+            timestampString = "493430456.929384"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "-batchRequestForFullTailgate:withComplete:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798612.868834"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-batchRequestForFullTailgate:withComplete:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798614.436686"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "-batchRequestForFullTailgate:withComplete:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798617.588759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-batchRequestForFullTailgate:withComplete:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TailgatePartyServiceProvider batchRequestForFullTailgate:withComplete:]"
-                  moduleName = "TailgateMate"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-                  timestampString = "491799326.692128"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "138">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__73-[TailgatePartyServiceProvider batchRequestForFullTailgate:withComplete:]_block_invoke"
-                  moduleName = "TailgateMate"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-                  timestampString = "491799326.692243"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798653.671298"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-getTailgatePartyFullForId:withComplete:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/Service/TailgatePartyServiceProvider.m"
-            timestampString = "491798658.467149"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-getTailgatePartyFullForId:withComplete:"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "-loadImageForItem:andParty:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

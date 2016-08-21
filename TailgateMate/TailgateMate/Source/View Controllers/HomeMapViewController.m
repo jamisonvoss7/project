@@ -9,13 +9,25 @@
 #import "AddTailgateViewController.h"
 #import "ProfileViewController.h"
 #import "TailgatePartyServiceProvider.h"
-#import "TailgateViewController.h"
+#import "TailgatePartyViewController.h"
 #import "TailgateMBPointAnnotation.h"
+#import "PinProvider.h"
+#import "Batch.h"
+#import "TailgatePartyFilterView.h"
+#import "PromotionsViewController.h"
 
-@interface HomeMapViewController ()
+@interface HomeMapViewController () 
 @property (nonatomic) CLLocation *initialLocationToUse;
 @property (nonatomic) NSArray *parties;
+@property (nonatomic) NSArray *visibleParties;
 @property (nonatomic) NSMutableDictionary *partyAnnotations;
+@property (nonatomic) UIImage *redFilledPin;
+@property (nonatomic) UIImage *redEmptyPin;
+@property (nonatomic) UIImage *blueFilledPin;
+@property (nonatomic) UIImage *blueEmptyPin;
+@property (nonatomic) UIImage *blackFilledPin;
+@property (nonatomic) UIImage *blackEmptyPin;
+@property (nonatomic) TailgatePartyFilterView *filterView;
 @end
 
 @implementation HomeMapViewController
@@ -24,6 +36,9 @@
     [super viewDidLoad];
     
     self.mapView.delegate = self;
+    
+    self.visibleParties = [[NSArray alloc] init];
+    self.partyAnnotations = [[NSMutableDictionary alloc] init];
     
     // If the user turned off location services, don't ask.
     if ([LocationManager isLocationServicesEnabled]
@@ -53,10 +68,56 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    self.filterView = [TailgatePartyFilterView instanceWithDefaultNib];
+    CGRect frame = self.filterView.frame;
+    frame.origin.x = self.view.frame.size.width - frame.size.width;
+    frame.origin.y = self.filterButton.superview.frame.origin.y - frame.size.height;
+    self.filterView.frame = frame;
+    
+    self.filterView.hidden = YES;
+    [self.view addSubview:self.filterView];
+
+    self.filterView.delegate = self;
+    
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
   
-    [service getTailgatePartiesInvitedTo:^(NSArray *parties, NSError *error) {
-        [self processParties:parties];
+    NSMutableArray *allParties = [[NSMutableArray alloc ] init];
+    Batch *batch = [Batch create];
+    
+    [batch addBatchBlock:^(Batch *batch) {
+        [service getTailgatePartiesInvitedTo:^(NSArray *parties, NSError *error) {
+            if (parties.count > 0) {
+                [allParties addObjectsFromArray:parties];
+            }
+            [batch complete:error];
+        }];
+    }];
+    
+    if ([AppManager sharedInstance].accountManager.isAuthenticated) {
+        [batch addBatchBlock:^(Batch *batch) {
+            [service getUserTailgateParties:^(NSArray *array, NSError *error) {
+                if (array.count) {
+                    [allParties addObjectsFromArray:array];
+                }
+                [batch complete:error];
+            }];
+        }];
+    }
+    
+    [batch addBatchBlock:^(Batch *batch) {
+        [service getPublicTailgateParties:^(NSArray *parties, NSError *error) {
+            if (parties.count) {
+                [allParties addObjectsFromArray:parties];
+            }
+            [batch complete:error];
+        }];
+    }];
+    
+    [batch executeWithComplete:^(NSError *error) {
+        self.parties = [NSArray arrayWithArray:allParties];
+        [self filterPartiesForFanType:self.filterView.currentType];
+        [self processParties:self.visibleParties];
     }];
 }
 
@@ -78,13 +139,12 @@
     MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"flag"];
     
     // If the ‘pisa’ annotation image hasn‘t been set yet, initialize it here
-    if ( ! annotationImage)
-    {
-        // Leaning Tower of Pisa by Stefan Spieler from the Noun Project
-        UIImage *image = [UIImage imageNamed:@"RedFlag"];
+    if ( ! annotationImage) {
+        TailgateMBPointAnnotation *tailgateAnnotaction = (TailgateMBPointAnnotation *)annotation;
+        UIImage *image = [PinProvider imageForTailgateParty:tailgateAnnotaction.party];
         
         // Initialize the ‘pisa’ annotation image with the UIImage we just loaded
-        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"flag"];
+        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:[PinProvider nameForPinForTailgateParty:tailgateAnnotaction.party]];
     }
     
     return annotationImage;
@@ -95,8 +155,14 @@
     NSString *uid = tgAnnotation.uid;
     TailgateParty *party = [[self partiesKeyedById:self.parties] objectForKey:uid];
     
-    TailgateViewController *vc = [[TailgateViewController alloc] initWithTailgate:party];
-    [self.baseDelegate addViewController:vc];
+    TailgatePartyViewController *vc = [[TailgatePartyViewController alloc] initWIthTailgateParty:party];
+    [self.baseDelegate presentViewControllerInNavigation:vc];
+}
+
+- (void)filderDidUpateToType:(TailgatePartyFanType *)type {
+    [self hideFilterView];
+    [self filterPartiesForFanType:type];
+    [self processParties:self.visibleParties];
 }
 
 // Private Methods
@@ -126,20 +192,19 @@
             annocation.title = party.name;
             annocation.subtitle = party.parkingLot.lotName;
             annocation.uid = party.uid;
+            annocation.party = party;
             
             [self.mapView addAnnotation:annocation];
             
             self.partyAnnotations[party.uid] = annocation;
         }
     }
-    
-    self.parties = newParties;
 }
 
 - (void)addTailgateAction:(UIButton *)sender {
     AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
     
-    [self.baseDelegate addViewController:vc];
+    [self.baseDelegate presentViewController:vc];
 }
 
 - (void)goBackAction:(UIButton *)sender {
@@ -147,11 +212,16 @@
 }
 
 - (void)filterAction:(UIButton *)sender {
-    
+    if (self.filterView.hidden) {
+        [self showFilterView];
+    } else {
+        [self hideFilterView];
+    }
 }
 
 - (void)searchAction:(UIButton *)sender {
-    
+    PromotionsViewController *vc = [[PromotionsViewController alloc] init];
+    [self.baseDelegate presentViewControllerInNavigation:vc];
 }
 
 - (CLLocation *)checkForBackUpLocation {
@@ -185,6 +255,34 @@
     }
     
     return [NSDictionary dictionaryWithDictionary:dict];
+}
+
+- (void)showFilterView {
+    [UIView animateWithDuration:.25 animations:^{
+        self.filterView.hidden = NO;
+    }];
+}
+
+- (void)hideFilterView {
+    [UIView animateWithDuration:.25 animations:^{
+        self.filterView.hidden = YES;
+    }];
+}
+
+- (void)filterPartiesForFanType:(TailgatePartyFanType *)type {
+    if (type) {
+        NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:self.parties.count];
+    
+        for (TailgateParty *party in self.parties) {
+            if (party.fanType == type) {
+                [array addObject:party];
+            }
+        }
+    
+        self.visibleParties = [NSArray arrayWithArray:array];
+    } else{
+        self.visibleParties = self.parties;
+    }
 }
 
 @end

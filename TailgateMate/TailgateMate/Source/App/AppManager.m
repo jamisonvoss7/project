@@ -10,6 +10,7 @@
 
 @interface AppManager ()
 @property (nonatomic, readwrite) FIRDatabaseReference *firedatabasebaseRef;
+@property (nonatomic, readwrite) FIRStorageReference *firebaseStorageRef;
 @property (nonatomic, readwrite) AccountManager *accountManager;
 @property (nonatomic, readwrite) LocationManager *locationManager;
 @end
@@ -28,6 +29,7 @@
 - (id)init {
     if (self = [super init]) {
         self.firedatabasebaseRef = [[FIRDatabase database] reference];
+        self.firebaseStorageRef = [[FIRStorage storage] referenceForURL:@"gs://firebase-tailgatemate.appspot.com"];
     }
     return self;
 }

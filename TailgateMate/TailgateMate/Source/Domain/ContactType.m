@@ -31,21 +31,21 @@ static ContactType *contacttype_social;
 }
 
 + (ContactType *)_PHONE {
-    if (contacttype_phone) {
+    if (!contacttype_phone) {
         contacttype_phone = [[super alloc] initWithString:@"PHONE"];
     }
     return contacttype_phone;
 }
 
 + (ContactType *)_EMAIL {
-    if (contacttype_email) {
+    if (!contacttype_email) {
         contacttype_email = [[super alloc] initWithString:@"EMAIL"];
     }
     return contacttype_email;
 }
 
 + (ContactType *)_SOCIAL {
-    if (contacttype_social) {
+    if (!contacttype_social) {
         contacttype_social = [[super alloc] initWithString:@"SOCIAL"];
     }
     return contacttype_social;

@@ -9,6 +9,7 @@
 @protocol BaseViewControllerDelegate <NSObject>
 
 - (void)dismissViewController:(UIViewController *)viewController;
-- (void)addViewController:(UIViewController *)viewController;
+- (void)presentViewController:(UIViewController *)viewController;
+- (void)presentViewControllerInNavigation:(UIViewController *)viewController;
 
 @end

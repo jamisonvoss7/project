@@ -42,10 +42,10 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="To1-bD-Q4S">
-                    <rect key="frame" x="34" y="509" width="84" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="To1-bD-Q4S">
+                    <rect key="frame" x="8" y="493" width="67" height="67"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Back Button">
+                    <state key="normal" image="back_button.png">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
@@ -55,6 +55,7 @@
         </view>
     </objects>
     <resources>
+        <image name="back_button.png" width="228" height="225"/>
         <image name="back_drop.png" width="1050" height="1868"/>
     </resources>
 </document>

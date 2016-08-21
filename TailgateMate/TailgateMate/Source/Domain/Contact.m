@@ -16,8 +16,9 @@
     instance.displayName = data.value[@"displayName"];
     instance.emailAddress = data.value[@"emailAddress"];
     instance.phoneNumber = data.value[@"phoneNumber"];
-    instance.contactType = [[ContactType alloc] initWithString:data.value[@"contactType"]];
+    instance.contactType = [ContactType findByString:data.value[@"contactType"]];
     instance.userName = data.value[@"userName"];
+    instance.imageURL = data.value[@"imageURL"];
     
     return instance;
 }
@@ -28,8 +29,9 @@
     instance.displayName = dictionary[@"displayName"];
     instance.emailAddress = dictionary[@"emailAddress"];
     instance.phoneNumber = dictionary[@"phoneNumber"];
-    instance.contactType = [[ContactType alloc] initWithString:dictionary[@"contactType"]];
+    instance.contactType = [ContactType findByString:dictionary[@"contactType"]];
     instance.userName = dictionary[@"userName"];
+    instance.imageURL = dictionary[@"imageURL"];
 
     return instance;
 }
@@ -55,6 +57,10 @@
     
     if (self.userName.length > 0) {
         dict[@"userName"] = self.userName;
+    }
+    
+    if (self.imageURL.length > 0) {
+        dict[@"imageURL"] = self.imageURL;
     }
     
     return [NSDictionary dictionaryWithDictionary:dict];

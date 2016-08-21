@@ -12,6 +12,7 @@
 @interface AppManager : NSObject
 
 @property (nonatomic, readonly) FIRDatabaseReference *firedatabasebaseRef;
+@property (nonatomic, readonly) FIRStorageReference *firebaseStorageRef;
 @property (nonatomic, readonly) AccountManager *accountManager;
 @property (nonatomic, readonly) LocationManager *locationManager;
 

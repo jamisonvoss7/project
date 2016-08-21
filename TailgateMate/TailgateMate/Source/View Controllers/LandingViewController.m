@@ -70,12 +70,12 @@
 
 - (void)hostTapHandler:(UITapGestureRecognizer *)sender {
     AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
-    [self.baseDelegate addViewController:vc];
+    [self.baseDelegate presentViewController:vc];
 }
 
 - (void)viewTapHandler:(UITapGestureRecognizer *)sender {
     HomeMapViewController *vc = [[HomeMapViewController alloc] init];
-    [self.baseDelegate addViewController:vc];
+    [self.baseDelegate presentViewController:vc];
 }
 
 - (void)viewProfile:(UIButton *)sender {
@@ -83,10 +83,10 @@
     
     if (manager.isAuthenticated) {
         ProfileViewController *vc = [[ProfileViewController alloc] init];
-        [self.baseDelegate addViewController:vc];
+        [self.baseDelegate presentViewController:vc];
     } else {
         LoginViewController *vc = [[LoginViewController alloc] init];
-        [self.baseDelegate addViewController:vc];
+        [self.baseDelegate presentViewController:vc];
     }
 }
 

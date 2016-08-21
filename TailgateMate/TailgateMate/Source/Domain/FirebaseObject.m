@@ -5,6 +5,7 @@
 //
 
 #import "FirebaseObject.h"
+#import "NSDate+Additions.h"
 
 @implementation FirebaseObject
 
@@ -57,5 +58,12 @@
     return [[NSDictionary alloc] init];
 }
 
++ (NSString *)dateToDateString:(NSDate *)date {
+    return [NSDate formattedStringFromDate:date];
+}
+
++ (NSDate *)dateFromDateString:(NSString *)dateString {
+    return [NSDate dateFromFormattedString:dateString];
+}
 
 @end

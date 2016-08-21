@@ -16,21 +16,27 @@
 
 - (void)getTailgatePartiesInvitedTo:(void (^)(NSArray *parties, NSError *error))handler;
 
+- (void)getUserTailgateParties:(void (^)(NSArray *array, NSError *error))handler;
+
 - (void)getTailgatePartiesFromIds:(NSArray *)ids
                      withComplete:(void (^)(NSArray *parties, NSError *error))handler;
 
 - (void)getTailgatePartyFullForId:(NSString *)tailgateId
                      withComplete:(void (^)(TailgateParty *party, NSError *error))handler;
 
+- (void)getPublicTailgateParties:(void (^)(NSArray *parties, NSError *error))handler;
 
 - (void)getGuestsForTailgate:(NSString *)tailgateId
                 withComplete:(void (^)(NSArray *guests, NSError *error))handler;
 
-- (void)getSuppliesForTailgate:(NSString *)tailgateId
-                  withComplete:(void (^)(NSArray *supplies, NSError *error))handler;
+- (void)getTimeLineForTailgate:(NSString *)tailgateId
+                  withComplete:(void (^)(NSArray *timeline, NSError *error))handler;
 
-- (void)getNeedsForTailgate:(NSString *)tailgateId
-               withComplete:(void (^)(NSArray *needs, NSError *error))handler;
+//- (void)getSuppliesForTailgate:(NSString *)tailgateId
+//                  withComplete:(void (^)(NSArray *supplies, NSError *error))handler;
+//
+//- (void)getNeedsForTailgate:(NSString *)tailgateId
+//               withComplete:(void (^)(NSArray *needs, NSError *error))handler;
 
 // Add
 - (void)addTailgateParty:(TailgateParty *)party
@@ -48,12 +54,16 @@
                  withGuests:(NSArray *)guests
                withComplete:(void (^)(BOOL success, NSError *error))handler;
 
-- (void)updateTailgateParty:(NSString *)tailgateId
-               withSupplies:(NSArray *)supplies
-               withComplete:(void (^)(BOOL success, NSError *error))handler;
+- (void)updateTimeLineForParty:(NSString *)tailgateId
+                  withTimeLine:(NSArray *)timeLine
+                  withComplete:(void (^)(BOOL success, NSError *error))handler;
 
-- (void)updateTailgateParty:(NSString *)tailgateId
-                  withNeeds:(NSArray *)needs
-               withComplete:(void (^)(BOOL success, NSError *error))handler;
+//- (void)updateTailgateParty:(NSString *)tailgateId
+//               withSupplies:(NSArray *)supplies
+//               withComplete:(void (^)(BOOL success, NSError *error))handler;
+//
+//- (void)updateTailgateParty:(NSString *)tailgateId
+//                  withNeeds:(NSArray *)needs
+//               withComplete:(void (^)(BOOL success, NSError *error))handler;
 
 @end

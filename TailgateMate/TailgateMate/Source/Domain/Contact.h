@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *displayName;
 @property (nonatomic, copy) NSString *emailAddress;
 @property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *imageURL;
 
 @property (nonatomic) ContactType *contactType;
 

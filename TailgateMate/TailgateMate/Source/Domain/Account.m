@@ -19,7 +19,7 @@
     account.userName = data.value[@"userName"];
     account.photoId = data.value[@"photoId"];
     account.photoUrl = data.value[@"photoUrl"];
-    account.type = [[AccountType alloc] initWithString:data.value[@"type"]];
+    account.type = [AccountType findByString:data.value[@"type"]];
     account.uid = data.value[@"uid"];
     
     if (data.value[@"contacts"]) {
