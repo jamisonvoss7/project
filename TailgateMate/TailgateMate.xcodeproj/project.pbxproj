@@ -183,6 +183,8 @@
 		EFEAC8501BC7626D0074B1C2 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC84A1BC7626D0074B1C2 /* FBSDKMessengerShareKit.framework */; };
 		EFEAC8511BC7626D0074B1C2 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAC84B1BC7626D0074B1C2 /* FBSDKShareKit.framework */; };
 		EFEB1B001D28F5A8006299CD /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEB1AFF1D28F5A8006299CD /* Contact.m */; };
+		EFFEBC9E1D6A42600008CF55 /* TableImageCacher.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFEBC9D1D6A42600008CF55 /* TableImageCacher.m */; };
+		EFFEBCA11D6A5F340008CF55 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFEBCA01D6A5F340008CF55 /* UIView+Toast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -461,6 +463,10 @@
 		EFEAC84B1BC7626D0074B1C2 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = TailgateMate/Libraries/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		EFEB1AFE1D28F5A8006299CD /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		EFEB1AFF1D28F5A8006299CD /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		EFFEBC9C1D6A42600008CF55 /* TableImageCacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableImageCacher.h; sourceTree = "<group>"; };
+		EFFEBC9D1D6A42600008CF55 /* TableImageCacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableImageCacher.m; sourceTree = "<group>"; };
+		EFFEBC9F1D6A5F340008CF55 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		EFFEBCA01D6A5F340008CF55 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		F8EEDBC025944BC8F0B65D52 /* Pods-TailgateMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TailgateMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TailgateMate/Pods-TailgateMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -519,6 +525,8 @@
 				EF01D77F1D397F450058A500 /* Batch.m */,
 				EF5AD90E1D60161E00DDEAF1 /* PinProvider.h */,
 				EF5AD90F1D60161E00DDEAF1 /* PinProvider.m */,
+				EFFEBC9C1D6A42600008CF55 /* TableImageCacher.h */,
+				EFFEBC9D1D6A42600008CF55 /* TableImageCacher.m */,
 			);
 			name = Utils;
 			path = TailgateMate/Source/Utils;
@@ -943,6 +951,8 @@
 				EF5AD93B1D66C63300DDEAF1 /* TailgateParty+Additions.m */,
 				EF5AD9301D66B6F100DDEAF1 /* UIView+Loading.h */,
 				EF5AD9311D66B6F100DDEAF1 /* UIView+Loading.m */,
+				EFFEBC9F1D6A5F340008CF55 /* UIView+Toast.h */,
+				EFFEBCA01D6A5F340008CF55 /* UIView+Toast.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1222,9 +1232,11 @@
 				EF5AD8FD1D5E54BE00DDEAF1 /* ContactTableViewCell.m in Sources */,
 				EF135F851CBE863F00C80753 /* LocationManager.m in Sources */,
 				EF5AD89B1D5D6AB300DDEAF1 /* ContactsViewControler.m in Sources */,
+				EFFEBCA11D6A5F340008CF55 /* UIView+Toast.m in Sources */,
 				EF5AD8F91D5E54BE00DDEAF1 /* AddTailgateDetailsView.m in Sources */,
 				EF5AD9181D62A9E400DDEAF1 /* TimelineItemCreationTableCell.m in Sources */,
 				EF5AD8DC1D5E546300DDEAF1 /* ProfileView.m in Sources */,
+				EFFEBC9E1D6A42600008CF55 /* TableImageCacher.m in Sources */,
 				EF73F7A21BC37AFA00FA9DBA /* TailgateSupply.m in Sources */,
 				EF5AD8A11D5D6AB300DDEAF1 /* SignInViewController.m in Sources */,
 				EF5AD8DB1D5E546300DDEAF1 /* ProfileEditView.m in Sources */,

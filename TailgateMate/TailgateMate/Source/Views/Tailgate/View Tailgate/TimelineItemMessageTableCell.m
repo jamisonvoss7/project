@@ -43,6 +43,10 @@
 }
 
 - (void)populateWithTimelineItem:(TimelineItem *)item {
+    self.messageLabel.text = @"";
+    self.timeLabel.text = @"";
+    self.nameLabel.text = @"";
+    
     self.nameLabel.text = item.userDisplayName;
     self.messageLabel.text = item.message;
     

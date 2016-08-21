@@ -12,11 +12,13 @@
 #import "AddTimelineItemViewController.h"
 #import "TailgatePartyServiceProvider.h"
 #import "TimelineItemImageTableCell.h"
+#import "TableImageCacher.h"
 
-@interface TailgatePartyTimeLineViewController ()
+@interface TailgatePartyTimeLineViewController () <TableImageCacherDelegate>
 @property (nonatomic) TailgateParty *tailgateParty;
 @property (nonatomic) NSArray *timeline;
 @property (nonatomic) AddTimelineItemViewController *addItemView;
+@property (nonatomic) TableImageCacher *cacher;
 @end
 
 @implementation TailgatePartyTimeLineViewController
@@ -31,6 +33,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.cacher = [[TableImageCacher alloc] initForTable:self.tableView
+                                                delegate:self];
     
     self.timeline = [[NSArray alloc] init];
     
@@ -70,9 +75,13 @@
     
     if (item.type == TIMELINEITEMTYPE_IMAGE) {
         TimelineItemImageTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timelineImageCell"];
+     
         if (!cell) {
             cell = [TimelineItemImageTableCell instanceWithDefaultNib];
         }
+
+        NSString *path = [NSString stringWithFormat:@"timelines/%@/images/%@", self.tailgateParty.uid, item.photoId];
+        [cell popluateWithImage:[self.cacher lazyLoadImageAtPath:path onIndexPath:indexPath]];
         
         [cell populateWithItem:item andTailgateParty:self.tailgateParty];
         
@@ -118,6 +127,19 @@
     }
   
     [self.baseDelegate presentViewController:self.addItemView];
+}
+
+- (void)tableImageCacher:(TableImageCacher *)loader finishedLoadingImage:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath {
+    TimelineItemImageTableCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell popluateWithImage:image];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [self.cacher loadVisibleAssets];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self.cacher loadVisibleAssets];
 }
 
 @end

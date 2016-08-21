@@ -49,8 +49,12 @@
 }
 
 - (void)populateWithItem:(TimelineItem *)item andTailgateParty:(TailgateParty *)party {
-    [self loadImageForItem:item andParty:party];
+    self.messageLabel.text = @"";
+    self.timeLabel.text = @"";
+    self.nameLabel.text = @"";
     
+    [self.itemImageView showActivityIndicator];
+
     self.nameLabel.text = item.userDisplayName;
    
     if ([item.tiemStamp withinOneMinute]) {
@@ -106,15 +110,11 @@
     }
 }
 
-- (void)loadImageForItem:(TimelineItem *)item andParty:(TailgateParty *)party {
-    TimelineServiceProvider *service = [[TimelineServiceProvider alloc] init];
-    [service getImageFromImageId:item.photoId
-                      andPartyId:party.uid
-                  withCompletion:^(NSData *data, NSError *error) {
-                      if (data.length > 0) {
-                          self.itemImageView.image = [UIImage imageWithData:data];
-                      }
-                  }];
+- (void)popluateWithImage:(UIImage *)image {
+    if (image) {
+        [self.itemImageView hideActivityIndicator];
+    }
+    self.itemImageView.image = image;
 }
 
 @end

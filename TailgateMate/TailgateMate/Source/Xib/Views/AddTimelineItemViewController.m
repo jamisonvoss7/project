@@ -34,10 +34,15 @@
     
     [self.postButton addTarget:self action:@selector(onPost:) forControlEvents:UIControlEventTouchUpInside];
     
+    UITapGestureRecognizer *doneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard)];
+    doneTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:doneTap];
 }
 
 
 - (void)imageTapHandler:(UITapGestureRecognizer *)sender {
+    [self closeKeyboard];
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"Take a Photo"
@@ -93,6 +98,8 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 }
 
 - (void)onPost:(UIButton *)sender {
+    [self.view showActivityIndicatorWithCurtain:YES];
+    
     TimelineItem *newItem = [[TimelineItem alloc] init];
     newItem.message = self.textView.text;
     newItem.type = self.selectedImage ? TIMELINEITEMTYPE_IMAGE : TIMELINEITEMTYPE_MESSAGE;
@@ -115,7 +122,10 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
                                                  if (success) {
                                                      [self.baseDelegate dismissViewController:self];
                                                  }
+                                                 [self.view hideActivityIndicator];
                                              }];
+                     } else {
+                         [self.view hideActivityIndicator];
                      }
                  }];
     } else {
@@ -125,8 +135,13 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
                                 if (success) {
                                     [self.baseDelegate dismissViewController:self];
                                 }
+                                [self.view hideActivityIndicator];
+
                             }];
     }
-    
+}
+
+- (void)closeKeyboard {
+    [self.textView resignFirstResponder];
 }
 @end

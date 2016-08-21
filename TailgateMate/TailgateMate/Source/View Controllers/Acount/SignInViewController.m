@@ -27,6 +27,8 @@
 }
 
 - (void)signInButtonTapped:(UIButton *)sender {
+    [self.view showActivityIndicatorWithCurtain:YES];
+    
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     
     UserCredentials *user = [[UserCredentials alloc] init];
@@ -35,6 +37,8 @@
     
     [manager authenticateWithUserCredentials:user
                               withCompletion:^(BOOL authenticated, NSError *error) {
+                                  [self.view hideActivityIndicator];
+                                  
                                   if (authenticated) {
                                       [self.baseDelegate dismissViewController:self];
                                       [self.authDelegate didAuthenticate];

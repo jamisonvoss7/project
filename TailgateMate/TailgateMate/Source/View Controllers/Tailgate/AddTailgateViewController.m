@@ -105,10 +105,21 @@
 
 - (void)addTailgate {
     TailgateParty *party = [self buildTailgateParty];
+
+    if (party.name.length == 0) {
+        [self.view makeToast:@"Make sure to name your party"
+                    duration:3.0
+                    position:CSToastPositionTop];
+        return;
+    }
+    
+    [self.view showActivityIndicatorWithCurtain:YES];
+    
     party.uid = [NSUUID UUID].UUIDString;
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
     [service addTailgateParty:party
                  withComplete:^(BOOL succcess, NSError *error) {
+                     [self.view hideActivityIndicator];
                      if (succcess) {
                          [self.baseDelegate dismissViewController:self];
                      }

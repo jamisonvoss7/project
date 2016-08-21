@@ -29,6 +29,8 @@
 }
 
 - (void)signUpButtonTapped:(UIButton *)sender {
+    [self.view showActivityIndicatorWithCurtain:YES];
+    
     Account *account = [[Account alloc] init];
     
     account.displayName = self.nameField.text;
@@ -48,6 +50,8 @@
     [manager authenticateWithNewAccount:account
                      andUserCredentials:user
                          withCompletion:^(BOOL authenticated, NSError *error) {
+                            [self.view hideActivityIndicator];
+                            
                              if (authenticated) {
                                  AddContactsViewController *vc = [[AddContactsViewController alloc] init];
                                  vc.authDelegate = self.authDelegate;

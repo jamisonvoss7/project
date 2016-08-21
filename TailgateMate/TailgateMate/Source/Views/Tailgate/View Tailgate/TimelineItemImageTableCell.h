@@ -23,5 +23,6 @@
 + (CGFloat)heightForItem:(TimelineItem *)item;
 
 - (void)populateWithItem:(TimelineItem *)item andTailgateParty:(TailgateParty *)party;
+- (void)popluateWithImage:(UIImage *)image;
 
 @end

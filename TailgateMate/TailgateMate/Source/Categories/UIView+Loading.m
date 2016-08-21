@@ -110,16 +110,32 @@ static char kUIViewPropertyIndicatorContainerViewKey;
     }
     
     // The container circle view
-    UIView *circleView = [[UIView alloc] initWithFrame:CGRectMake(0.0
+    UIView *boxView = [[UIView alloc] initWithFrame:CGRectMake(0.0
                                                                   , 0.0
-                                                                  , CGRectGetWidth(activityView.bounds) + 15
-                                                                  , CGRectGetHeight(activityView.bounds) + 15)];
+                                                                  , CGRectGetWidth(activityView.bounds) + 30
+                                                                  , CGRectGetHeight(activityView.bounds) + 30)];
     
-    circleView.layer.cornerRadius = CGRectGetHeight(circleView.bounds) / 2;
-    circleView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    boxView.layer.cornerRadius = 5.0f;
+    boxView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     
-    activityView.center = circleView.center;
-    [circleView addSubview:activityView];
+    CGPoint center = activityView.center;
+    center.x = boxView.center.x;
+    center.y = .75 * boxView.center.y;
+    activityView.center = center;
+    
+    [boxView addSubview:activityView];
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0,
+                                                               activityView.center.y + activityView.frame.size.height * .5,
+                                                               boxView.frame.size.width,
+                                                               15)];
+    
+    label.font = [UIFont systemFontOfSize:12.0f];
+    label.textColor = [UIColor whiteColor];
+    label.text = @"loading";
+    label.textAlignment = NSTextAlignmentCenter;
+    
+    [boxView addSubview:label];
     
     CGPoint (^activityIndicatorCenter)(UIView*) = ^CGPoint (UIView *containerView) {
         if (position.x < MAXFLOAT && position.y < MAXFLOAT) {
@@ -134,19 +150,19 @@ static char kUIViewPropertyIndicatorContainerViewKey;
         UIView* curtainView = [[UIView alloc] initWithFrame: self.bounds];
         curtainView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
         
-        circleView.center = activityIndicatorCenter(curtainView);
-        [curtainView addSubview:circleView];
+        boxView.center = activityIndicatorCenter(curtainView);
+        [curtainView addSubview:boxView];
         [self addSubview:curtainView];
         
         [self setActivityCurtainView:curtainView];
     } else {
-        circleView.center = activityIndicatorCenter(self);
-        [self addSubview:circleView];
+        boxView.center = activityIndicatorCenter(self);
+        [self addSubview:boxView];
     }
     [activityView startAnimating];
     
     [self setActivityIndicatorView:activityView];
-    [self setActivityIndicatorContainerView:circleView];
+    [self setActivityIndicatorContainerView:boxView];
 }
 
 - (void)hideActivityIndicator {
