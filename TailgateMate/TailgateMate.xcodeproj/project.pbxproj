@@ -157,6 +157,10 @@
 		EFBF8DF41C6C13B70075DE38 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF31C6C13B70075DE38 /* AppManager.m */; };
 		EFBF8DF71C6C15200075DE38 /* FireBaseServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF61C6C15200075DE38 /* FireBaseServiceProvider.m */; };
 		EFBF8DFA1C6C1D360075DE38 /* FirebaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF91C6C1D360075DE38 /* FirebaseObject.m */; };
+		EFE094291D6D579900094A9B /* EditTailgateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE094281D6D579900094A9B /* EditTailgateViewController.m */; };
+		EFE0942B1D6D6E2800094A9B /* EditTailgateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */; };
+		EFE094301D6E65F100094A9B /* PhoneVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE0942F1D6E65F100094A9B /* PhoneVerificationViewController.m */; };
+		EFE094321D6E661300094A9B /* PhoneVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE094311D6E661300094A9B /* PhoneVerificationViewController.xib */; };
 		EFE4A6BD1D51837700587C29 /* drinks.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B71D51837700587C29 /* drinks.png */; };
 		EFE4A6BE1D51837700587C29 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B81D51837700587C29 /* food.png */; };
 		EFE4A6BF1D51837700587C29 /* games.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B91D51837700587C29 /* games.png */; };
@@ -436,6 +440,13 @@
 		EFBF8DF61C6C15200075DE38 /* FireBaseServiceProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireBaseServiceProvider.m; sourceTree = "<group>"; };
 		EFBF8DF81C6C1D360075DE38 /* FirebaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseObject.h; sourceTree = "<group>"; };
 		EFBF8DF91C6C1D360075DE38 /* FirebaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseObject.m; sourceTree = "<group>"; };
+		EFE094271D6D579900094A9B /* EditTailgateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTailgateViewController.h; sourceTree = "<group>"; };
+		EFE094281D6D579900094A9B /* EditTailgateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTailgateViewController.m; sourceTree = "<group>"; };
+		EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditTailgateViewController.xib; sourceTree = "<group>"; };
+		EFE0942E1D6E65F100094A9B /* PhoneVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneVerificationViewController.h; sourceTree = "<group>"; };
+		EFE0942F1D6E65F100094A9B /* PhoneVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneVerificationViewController.m; sourceTree = "<group>"; };
+		EFE094311D6E661300094A9B /* PhoneVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneVerificationViewController.xib; sourceTree = "<group>"; };
+		EFE094331D6E6AE400094A9B /* SinchVerification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SinchVerification.framework; path = Pods/SinchVerification/SinchVerification.framework; sourceTree = "<group>"; };
 		EFE4A6B71D51837700587C29 /* drinks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drinks.png; sourceTree = "<group>"; };
 		EFE4A6B81D51837700587C29 /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
 		EFE4A6B91D51837700587C29 /* games.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = games.png; sourceTree = "<group>"; };
@@ -570,10 +581,12 @@
 				EF135F651CBB424600C80753 /* AddTailgateViewController.xib */,
 				EF0B5ED01D1F10B800551CDA /* AddContactsViewController.xib */,
 				EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib */,
+				EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */,
 				EF01D7931D3AE9870058A500 /* ContactsViewControler.xib */,
 				EF135F661CBB424600C80753 /* HomeMapViewController.xib */,
 				EF84EF881CEEA434006459DA /* LandingViewController.xib */,
 				EF135F671CBB424600C80753 /* LoginViewController.xib */,
+				EFE094311D6E661300094A9B /* PhoneVerificationViewController.xib */,
 				EF135F681CBB424600C80753 /* ProfileViewController.xib */,
 				EF5AD94E1D6893B800DDEAF1 /* PromotionsViewController.xib */,
 				EF135F691CBB424600C80753 /* SignInViewController.xib */,
@@ -684,6 +697,8 @@
 			children = (
 				EF5AD8871D5D6AB300DDEAF1 /* AddTailgateViewController.h */,
 				EF5AD8881D5D6AB300DDEAF1 /* AddTailgateViewController.m */,
+				EFE094271D6D579900094A9B /* EditTailgateViewController.h */,
+				EFE094281D6D579900094A9B /* EditTailgateViewController.m */,
 				EF5AD8891D5D6AB300DDEAF1 /* ContactsViewControler.h */,
 				EF5AD88A1D5D6AB300DDEAF1 /* ContactsViewControler.m */,
 				EF5AD8A91D5D6BFF00DDEAF1 /* TailgatePartyViewController.h */,
@@ -705,6 +720,8 @@
 				EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.m */,
 				EF5AD8921D5D6AB300DDEAF1 /* LoginViewController.h */,
 				EF5AD8931D5D6AB300DDEAF1 /* LoginViewController.m */,
+				EFE0942E1D6E65F100094A9B /* PhoneVerificationViewController.h */,
+				EFE0942F1D6E65F100094A9B /* PhoneVerificationViewController.m */,
 				EF5AD8941D5D6AB300DDEAF1 /* ProfileViewController.h */,
 				EF5AD8951D5D6AB300DDEAF1 /* ProfileViewController.m */,
 				EF5AD8961D5D6AB300DDEAF1 /* SignInViewController.h */,
@@ -981,6 +998,7 @@
 		EFEAC8301BC7591A0074B1C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFE094331D6E6AE400094A9B /* SinchVerification.framework */,
 				EF01D78B1D3AA8B40058A500 /* MessageUI.framework */,
 				EF00C6561D24AC2B0073B091 /* Firebase.framework */,
 				EF0B5EC81D1EE7EB00551CDA /* Contacts.framework */,
@@ -1103,6 +1121,7 @@
 				EF135F951CC159A000C80753 /* AddTailgateSuppliesView.xib in Resources */,
 				EFE4A6D21D53746800587C29 /* plus_icon.png in Resources */,
 				EF84EF841CEE92E3006459DA /* JackTrice.gpx in Resources */,
+				EFE0942B1D6D6E2800094A9B /* EditTailgateViewController.xib in Resources */,
 				EF0B5EBC1D08DBE200551CDA /* Grill.png in Resources */,
 				EF5AD90A1D60123D00DDEAF1 /* BlackEmptyPin.png in Resources */,
 				EF5AD9481D66CCF900DDEAF1 /* PurpleFullFilterPin.png in Resources */,
@@ -1128,6 +1147,7 @@
 				EFE4A6D71D540BE800587C29 /* RedEmptyPin.png in Resources */,
 				EFE4A6CE1D52D55300587C29 /* search_icon.png in Resources */,
 				EF5AD91F1D62B3F400DDEAF1 /* AddTimelineItemViewController.xib in Resources */,
+				EFE094321D6E661300094A9B /* PhoneVerificationViewController.xib in Resources */,
 				EF135F771CBB425E00C80753 /* AddTailgateDetailsView.xib in Resources */,
 				EF5AD90D1D60123D00DDEAF1 /* PurpleFullPin.png in Resources */,
 				EF135F721CBB424600C80753 /* SignInViewController.xib in Resources */,
@@ -1232,6 +1252,7 @@
 				EF5AD8FD1D5E54BE00DDEAF1 /* ContactTableViewCell.m in Sources */,
 				EF135F851CBE863F00C80753 /* LocationManager.m in Sources */,
 				EF5AD89B1D5D6AB300DDEAF1 /* ContactsViewControler.m in Sources */,
+				EFE094291D6D579900094A9B /* EditTailgateViewController.m in Sources */,
 				EFFEBCA11D6A5F340008CF55 /* UIView+Toast.m in Sources */,
 				EF5AD8F91D5E54BE00DDEAF1 /* AddTailgateDetailsView.m in Sources */,
 				EF5AD9181D62A9E400DDEAF1 /* TimelineItemCreationTableCell.m in Sources */,
@@ -1241,6 +1262,7 @@
 				EF5AD8A11D5D6AB300DDEAF1 /* SignInViewController.m in Sources */,
 				EF5AD8DB1D5E546300DDEAF1 /* ProfileEditView.m in Sources */,
 				EF90AEA21CB5C62300883032 /* NSUserDefaults+Additions.m in Sources */,
+				EFE094301D6E65F100094A9B /* PhoneVerificationViewController.m in Sources */,
 				EF5AD9101D60161E00DDEAF1 /* PinProvider.m in Sources */,
 				EF4C7BAD1CA89C00004A6CF3 /* AccountManager.m in Sources */,
 				EF5AD8B91D5E48E400DDEAF1 /* NSDate+Additions.m in Sources */,
@@ -1403,6 +1425,8 @@
 					"TailgateMate/Libraries/**",
 					"$(inherited)",
 					"$(PROJECT_DIR)/TailgateMate/Libraries",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/SinchVerification",
 				);
 				GCC_PREFIX_HEADER = TailgateMate/PrefixHeader.pch;
 				INFOPLIST_FILE = TailgateMate/Info.plist;
@@ -1429,6 +1453,8 @@
 					"TailgateMate/Libraries/**",
 					"$(inherited)",
 					"$(PROJECT_DIR)/TailgateMate/Libraries",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/SinchVerification",
 				);
 				GCC_PREFIX_HEADER = TailgateMate/PrefixHeader.pch;
 				INFOPLIST_FILE = TailgateMate/Info.plist;

@@ -9,10 +9,6 @@
 #import "AddTailgateMapView.h"
 #import "PinProvider.h"
 
-@interface AddTailgateMapView ()
-@property (nonatomic) CLLocation *initialLocationToUse;
-@end
-
 @implementation AddTailgateMapView
 
 + (instancetype)instanceFromDefaultNib {
@@ -25,7 +21,6 @@
     self.mapview.delegate = self;
     
     self.pinView.image = [UIImage imageNamed:@"RedFullPin"];
-    
     // If the user turned off location services, don't ask.
     if ([LocationManager isLocationServicesEnabled]
         && [LocationManager isLocationServicesAuthorized]){

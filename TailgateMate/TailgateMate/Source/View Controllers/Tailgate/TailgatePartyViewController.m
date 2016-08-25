@@ -9,6 +9,7 @@
 #import "TailgatePartyViewController.h"
 #import "TailgatePartyInfoViewController.h"
 #import "TailgatePartyTimeLineViewController.h"
+#import "EditTailgateViewController.h"
 
 @interface TailgatePartyViewController () <TabPagerDataSource, TabPagerDelegate>
 @property (nonatomic) TailgateParty *tailgateParty;
@@ -39,7 +40,7 @@
                                                                             action:@selector(goBack)];
     self.title = self.tailgateParty.name;
     
-    if ([self.tailgateParty.hostUserName isEqualToString:[AppManager sharedInstance].accountManager.profileAccount.userName]) {
+    if (![self.tailgateParty.hostUserName isEqualToString:[AppManager sharedInstance].accountManager.profileAccount.userName]) {
         self.navigationItem.rightBarButtonItem = nil;
     } else {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
@@ -86,7 +87,9 @@
 }
 
 - (void)editParty {
-    
+    EditTailgateViewController *vc = [[EditTailgateViewController alloc] init];
+    vc.party = self.tailgateParty;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

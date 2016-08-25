@@ -20,6 +20,7 @@
 
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
+@property (nonatomic) NSDateFormatter *dateFormatter;
 
 + (instancetype)instanceFromDefaultNib;
 - (void)closeKeyboard;

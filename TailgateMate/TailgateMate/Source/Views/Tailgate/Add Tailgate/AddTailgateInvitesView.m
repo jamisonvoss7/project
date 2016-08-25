@@ -26,7 +26,10 @@
     self.tableView.dataSource = self;
     
     self.availableContact = [AppManager sharedInstance].accountManager.profileAccount.contacts;
-    self.invitees = [[NSMutableArray alloc] initWithCapacity:self.availableContact.count];
+    
+    if (!self.invitees) {
+        self.invitees = [[NSMutableArray alloc] initWithCapacity:self.availableContact.count];
+    }
     
     [self.tableView reloadData];
 }
@@ -43,6 +46,11 @@
     Contact *contact = [self.availableContact objectAtIndex:indexPath.row];
     
     UITableViewCell *cell = [[UITableViewCell alloc] init];
+    
+    if ([self.invitees containsObject:contact]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
     cell.textLabel.text = contact.displayName;
     return cell;
 }

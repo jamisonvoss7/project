@@ -13,12 +13,13 @@
 #import "TailgateMBPointAnnotation.h"
 #import "PinProvider.h"
 #import "TailgateParty+Additions.h"
+#import "TailgatePartyServiceProvider.H"
 
 @interface TailgatePartyInfoViewController ()
 @property (nonatomic) TailgateParty *tailgateParty;
 @property (nonatomic) TailgateSupplySlider *havesSlider;
 @property (nonatomic) TailgateSupplySlider *needsSlider;
-//@property (nonatomic) NavbarView *navbar;
+@property (nonatomic) TailgateMBPointAnnotation *annotation;
 @end
 
 @implementation TailgatePartyInfoViewController
@@ -39,10 +40,6 @@
     
     self.mapView.delegate = self;
     TailgateParty *party = self.tailgateParty;
-    
-    self.mapView.showsUserLocation = YES;
-    CLLocationCoordinate2D point = CLLocationCoordinate2DMake([party.parkingLot.location.lat floatValue], [party.parkingLot.location.lon floatValue]);
-    [self.mapView setCenterCoordinate:point animated:YES];
     
     
     self.titleLabel.text = self.tailgateParty.name;
@@ -98,16 +95,38 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    TailgateParty *party = self.tailgateParty;
+        
+    TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
+    [service getTailgatePartyFullForId:self.tailgateParty.uid
+                          withComplete:^(TailgateParty *party, NSError *error) {
+                              if (party) {
+                                  self.tailgateParty = party;
+                                  if (!self.annotation || [self.annotation.party isDifferentThanParty:party]) {
+                                      [self.mapView removeAnnotation:self.annotation];
+                                    
+                                      self.mapView.showsUserLocation = YES;
+                                      CLLocationCoordinate2D point = CLLocationCoordinate2DMake([party.parkingLot.location.lat floatValue],
+                                                                                                [party.parkingLot.location.lon floatValue]);
+                                      [self.mapView setCenterCoordinate:point animated:YES];
+
+                                      TailgateParty *party = self.tailgateParty;
+                              
+                                      TailgateMBPointAnnotation *annocation = [[TailgateMBPointAnnotation alloc] init];
+                                      annocation.coordinate = CLLocationCoordinate2DMake(party.parkingLot.location.lat.doubleValue, party.parkingLot.location.lon.doubleValue);
+                                      annocation.title = party.name;
+                                      annocation.subtitle = party.parkingLot.lotName;
+                                      annocation.uid = party.uid;
+                                      annocation.party = party;
+                              
+                                      self.annotation = annocation;
+                              
+                                      [self.mapView addAnnotation:annocation];
+                                  }
+                              } else {
+                                  [self showErrorToast:@"Problems occured while getting the tailgate party"];
+                              }
+                          }];
     
-    TailgateMBPointAnnotation *annocation = [[TailgateMBPointAnnotation alloc] init];
-    annocation.coordinate = CLLocationCoordinate2DMake(party.parkingLot.location.lat.doubleValue, party.parkingLot.location.lon.doubleValue);
-    annocation.title = party.name;
-    annocation.subtitle = party.parkingLot.lotName;
-    annocation.uid = party.uid;
-    annocation.party = party;
-    
-    [self.mapView addAnnotation:annocation];
 }
 
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {

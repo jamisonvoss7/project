@@ -24,6 +24,8 @@
     instance.fanType = [TailgatePartyFanType findByString:data.value[@"fanType"]];
     instance.type = [TailgatePartyType findByString:data.value[@"type"]];
     instance.hostUserName = data.value[@"hostUserName"];
+    instance.startDate = [FirebaseObject dateFromDateString:data.value[@"startDate"]];
+    instance.endDate = [FirebaseObject dateFromDateString:data.value[@"endDate"]];
     
     return instance;
 }
@@ -69,7 +71,13 @@
     if (self.hostUserName) {
         dictionary[@"hostUserName"] = self.hostUserName;
     }
-    
+    if (self.startDate) {
+        dictionary[@"startDate"] = [FirebaseObject dateToDateString:self.startDate];
+    }
+    if (self.endDate) {
+        dictionary[@"endDate"] = [FirebaseObject dateToDateString:self.endDate];
+    }
+
     dictionary[@"fanType"] = [self.fanType description];
     
     return dictionary;

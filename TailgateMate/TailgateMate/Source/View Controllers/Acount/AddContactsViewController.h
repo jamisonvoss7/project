@@ -12,8 +12,8 @@
 
 @interface AddContactsViewController : BaseViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak) id<AuthenticationDelegate> authDelegate;
-
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+- (void)onDismissHandler:(void (^)())handler;
 
 @end

@@ -279,11 +279,11 @@
 - (void)updateTailgatePartyFull:(TailgateParty *)party withComplete:(void (^)(BOOL, NSError *))handler {
     NSString *path = [NSString stringWithFormat:@"tailgateParties/%@", party.uid];
     
-    [super updateData:[party dictionaryRepresentation]
+    [super updateData:party
               forPath:path
        withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
            if (ref && !error) {
-
+               [self batchUpdateTailgateParty:party withComplete:handler];
            }
        }];
 }
@@ -291,18 +291,19 @@
 - (void)updateTailgateParty:(NSString *)tailgateId
                  withGuests:(NSArray *)guests
                withComplete:(void (^)(BOOL success, NSError *error))handler {
-    NSString *path = [NSString stringWithFormat:@"guest/%@", tailgateId];
+    NSString  *path = [NSString stringWithFormat:@"guest/%@", tailgateId];
     
-    [super updateData:[Contact dictionaryFromArray:guests]
-              forPath:path
-       withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
-           if (ref && !error) {
-               handler(YES, nil);
-           } else {
-               handler(NO, error);
-           }
-       }];
+    [super updateArrayData:[Contact dictionaryFromArray:guests]
+                   forPath:path
+            withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
+                if (ref && !error) {
+                    handler(YES, nil);
+                } else {
+                    handler(NO, error);
+                }
+            }];
 }
+
 
 //- (void)updateTailgateParty:(NSString *)tailgateId
 //               withSupplies:(NSArray *)supplies
@@ -347,6 +348,16 @@
                          [batch complete:error];
                      }];
     }];
+    
+    [batch addBatchBlock:^(Batch *batch) {
+        GuestsServiceProvider *provider = [[GuestsServiceProvider alloc] init];
+        [provider inviteGuests:party.guests
+               toTailgateParty:party
+                  withComplete:^(BOOL success, NSError *error) {
+                      [batch complete:error];
+                  }];
+    }];
+
     
 //    [batch addBatchBlock:^(Batch *batch) {
 //        [self updateTailgateParty:party.uid

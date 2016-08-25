@@ -20,4 +20,23 @@
     }
 }
 
+- (BOOL)isDifferentThanParty:(TailgateParty *)party {
+    if (party.parkingLot.location.lat != self.parkingLot.location.lat) {
+        return YES;
+    }
+    
+    if (party.parkingLot.location.lon != self.parkingLot.location.lon) {
+        return YES;
+    }
+    
+    if (party.fanType != self.fanType) {
+        return YES;
+    }
+    
+    if (party.type != self.type) {
+        return YES;
+    }
+    
+    return NO;
+}
 @end

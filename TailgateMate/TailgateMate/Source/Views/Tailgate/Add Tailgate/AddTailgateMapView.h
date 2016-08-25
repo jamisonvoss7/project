@@ -14,6 +14,8 @@
 @property (nonatomic, weak) IBOutlet MGLMapView *mapview;
 @property (nonatomic, weak) IBOutlet UIImageView *pinView;
 
+@property (nonatomic) CLLocation *initialLocationToUse;
+
 + (instancetype)instanceFromDefaultNib;
 
 @end

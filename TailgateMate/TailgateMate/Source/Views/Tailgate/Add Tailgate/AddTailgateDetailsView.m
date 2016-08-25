@@ -12,11 +12,10 @@
 NSInteger const AddTailgateDetailSecondInADay = 86400;
 NSString * const AddTailgateDetailDateFormat = @"M/d h:mm a";
 
-@interface AddTailgateDetailsView () <UITextFieldDelegate>
+@interface AddTailgateDetailsView () <UITextFieldDelegate, UITextViewDelegate>
 @property (nonatomic) DatePickerView *datePickerView;
 @property (nonatomic, assign) BOOL editingStartDate;
 @property (nonatomic, assign) BOOL editingEndDate;
-@property (nonatomic) NSDateFormatter *dateFormatter;
 @end
 
 @implementation AddTailgateDetailsView
@@ -36,6 +35,7 @@ NSString * const AddTailgateDetailDateFormat = @"M/d h:mm a";
     self.lotNumberTextView.delegate = self;
     self.endDateField.delegate = self;
     self.startDateField.delegate = self;
+    self.descriptionTextView.delegate = self;
     
     self.datePickerView = [DatePickerView instanceWithDefaultNib];
     CGRect frame = self.frame;
@@ -45,6 +45,11 @@ NSString * const AddTailgateDetailDateFormat = @"M/d h:mm a";
     self.datePickerView.greyView.alpha = 0;
     
     [self addSubview:self.datePickerView];
+    
+    UITapGestureRecognizer *backgroundTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                    action:@selector(closeKeyboard)];
+    backgroundTap.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:backgroundTap];
     
     [self.datePickerView.cancelButton setTarget:self];
     [self.datePickerView.cancelButton setAction:@selector(cancelDatePicking:)];
@@ -68,6 +73,19 @@ NSString * const AddTailgateDetailDateFormat = @"M/d h:mm a";
         return NO;
     }
     return YES;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if (textView == self.descriptionTextView) {
+        [self animateViewUpForTextBox];
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (textView == self.descriptionTextView) {
+        [self animateViewDownForTextBox];
+    }
 }
 
 - (void)editStartDate {
@@ -142,5 +160,21 @@ NSString * const AddTailgateDetailDateFormat = @"M/d h:mm a";
                          
                          self.datePickerView.greyView.alpha = 0;
                      }];
+}
+
+- (void)animateViewUpForTextBox {
+    [UIView animateWithDuration:.25 animations:^{
+        CGRect frame = self.frame;
+        frame.origin.y = frame.origin.y - 200;
+        self.frame = frame;
+    }];
+}
+
+- (void)animateViewDownForTextBox {
+    [UIView animateWithDuration:.25 animations:^{
+        CGRect frame = self.frame;
+        frame.origin.y = frame.origin.y + 200;
+        self.frame = frame;
+    }];
 }
 @end

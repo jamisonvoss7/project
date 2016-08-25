@@ -24,6 +24,11 @@
     self.signInButton.layer.cornerRadius = 15.0f;
     self.signInButton.layer.borderWidth = 3.0f;
     self.signInButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(closeKeyboard)];
+    tap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)signInButtonTapped:(UIButton *)sender {
@@ -39,9 +44,16 @@
                               withCompletion:^(BOOL authenticated, NSError *error) {
                                   [self.view hideActivityIndicator];
                                   
-                                  if (authenticated) {
+                                  if (authenticated && !error) {
                                       [self.baseDelegate dismissViewController:self];
                                       [self.authDelegate didAuthenticate];
+                                  } else {
+                                      if (error.code == 17009 ||
+                                          error.code == 17011) {
+                                          [self showErrorToast:@"This email/passord combination doesn't exist"];
+                                      } else {
+                                          [self showToast:@"An error occurred"];
+                                      }
                                   }
                               }];
 }
@@ -50,4 +62,8 @@
     [self.baseDelegate dismissViewController:self];
 }
 
+- (void)closeKeyboard {
+    [self.emailField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
+}
 @end

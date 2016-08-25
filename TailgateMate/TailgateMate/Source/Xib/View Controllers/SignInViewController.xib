@@ -35,7 +35,7 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="agM-rY-tPt">
-                    <rect key="frame" x="49" y="317" width="222" height="53"/>
+                    <rect key="frame" x="49" y="291" width="222" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.094117647058823528" green="0.25882352941176467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Sign in">

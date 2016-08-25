@@ -11,5 +11,6 @@
 @interface TailgateParty (Additions)
 
 - (NSString *)stringForFanType;
+- (BOOL)isDifferentThanParty:(TailgateParty *)party;
 
 @end

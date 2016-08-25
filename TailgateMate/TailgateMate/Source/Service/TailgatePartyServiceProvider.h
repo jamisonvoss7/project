@@ -54,9 +54,6 @@
                  withGuests:(NSArray *)guests
                withComplete:(void (^)(BOOL success, NSError *error))handler;
 
-- (void)updateTimeLineForParty:(NSString *)tailgateId
-                  withTimeLine:(NSArray *)timeLine
-                  withComplete:(void (^)(BOOL success, NSError *error))handler;
 
 //- (void)updateTailgateParty:(NSString *)tailgateId
 //               withSupplies:(NSArray *)supplies

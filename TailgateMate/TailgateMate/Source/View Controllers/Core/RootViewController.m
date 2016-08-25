@@ -7,6 +7,7 @@
 #import "RootViewController.h"
 #import "LoginViewController.h"
 #import "LandingViewController.h"
+#import "AddUserNameAndPhoneViewController.h"
 
 @interface PresentationNavigationController : UINavigationController
 
@@ -31,6 +32,7 @@
 @interface RootViewController ()
 @property (nonatomic) LandingViewController *landingViewController;
 @property (nonatomic) LoginViewController *loginViewController;
+@property (nonatomic) AddUserNameAndPhoneViewController *addUserNameViewController;
 @property (nonatomic) UIViewController *currentViewController;
 @property (nonatomic) UINavigationController *currentNavigationViewController;
 @end
@@ -43,13 +45,29 @@
     self.view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"back_drop"]];
     
     self.landingViewController = [[LandingViewController alloc] init];
-    
     self.loginViewController = [[LoginViewController alloc] init];
+    self.addUserNameViewController = [[AddUserNameAndPhoneViewController alloc] init];
 }
 
 - (void)startup {
-    if ([AppManager sharedInstance].accountManager.isAuthenticated ||
-        [[NSUserDefaults standardUserDefaults] boolForKey:@"hasSkipped"]) {
+    AccountManager *manager = [AppManager sharedInstance].accountManager;
+    if (manager.isAuthenticated) {
+        if (manager.profileAccount.userName.length != 0) {
+            self.currentViewController = self.landingViewController;
+            [self presentViewController:self.landingViewController
+                               animated:NO
+                             completion:nil];
+        } else {
+            [self presentViewController:self.landingViewController
+                               animated:NO
+                             completion:^{
+                                 self.currentViewController = self.addUserNameViewController;
+                                 [self.landingViewController presentViewController:self.addUserNameViewController
+                                                                          animated:YES
+                                                                        completion:nil];
+                             }];
+        }
+    } else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"hasSkipped"]) {
         self.currentViewController = self.landingViewController;
         [self presentViewController:self.landingViewController
                            animated:NO
@@ -65,6 +83,31 @@
                                                                  completion:nil];
                          }];
 
+    }
+}
+
+- (void)setBackToMainViewController {
+    [self.currentViewController dismissViewControllerAnimated:YES completion:^{
+        self.currentViewController = self.loginViewController;
+    
+        [self presentViewController:self.landingViewController
+                       animated:NO
+                     completion:nil];
+    }];
+}
+
+- (void)dismissViewController:(UIViewController *)viewController WithComplete:(void (^)(void))handler {
+    if ([self.currentViewController isKindOfClass:PresentationNavigationController.class]) {
+        PresentationNavigationController *nav = (PresentationNavigationController *)self.currentViewController;
+        if (nav.viewControllers.count > 1) {
+            [nav popViewControllerAnimated:YES];
+        } else {
+            self.currentViewController = viewController.presentingViewController;
+            [viewController dismissViewControllerAnimated:YES completion:handler];
+        }
+    } else {
+        self.currentViewController = viewController.presentingViewController;
+        [viewController dismissViewControllerAnimated:YES completion:handler];
     }
 }
 

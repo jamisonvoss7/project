@@ -15,6 +15,7 @@
 #import "Batch.h"
 #import "TailgatePartyFilterView.h"
 #import "PromotionsViewController.h"
+#import "TailgateParty+Additions.h"
 
 @interface HomeMapViewController () 
 @property (nonatomic) CLLocation *initialLocationToUse;
@@ -197,6 +198,23 @@
             [self.mapView addAnnotation:annocation];
             
             self.partyAnnotations[party.uid] = annocation;
+        } else {
+            TailgateMBPointAnnotation *annocation = self.partyAnnotations[party.uid];
+            TailgateParty *oldParty = annocation.party;
+            if ([oldParty isDifferentThanParty:party]) {
+                [self.mapView removeAnnotation:annocation];
+                
+                TailgateMBPointAnnotation *newAnnocation = [[TailgateMBPointAnnotation alloc] init];
+                newAnnocation.coordinate = CLLocationCoordinate2DMake(party.parkingLot.location.lat.doubleValue, party.parkingLot.location.lon.doubleValue);
+                newAnnocation.title = party.name;
+                newAnnocation.subtitle = party.parkingLot.lotName;
+                newAnnocation.uid = party.uid;
+                newAnnocation.party = party;
+
+                [self.mapView addAnnotation:newAnnocation];
+                
+                self.partyAnnotations[party.uid] = newAnnocation;
+            }
         }
     }
 }

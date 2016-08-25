@@ -116,6 +116,9 @@
         [facebookLogin logOut];
     }
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:NO forKey:@"hasSkipped"];
+    
     self.profileAccount = nil;
     self.authenticatedAccount = nil;
     [self saveAccountID:@""];

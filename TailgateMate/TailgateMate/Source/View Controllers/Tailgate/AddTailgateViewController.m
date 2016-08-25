@@ -5,22 +5,10 @@
 //
 
 #import "AddTailgateViewController.h"
-#import "AddTailgateDetailsView.h"
-#import "AddTailgateMapView.h"
-//#import "AddTailgateSuppliesView.h"
-#import "AddTailgateInvitesView.h"
 
-#import "TailgatePartyServiceProvider.h"
-#import "NavbarView.h"
 
 @interface AddTailgateViewController () <UIScrollViewDelegate>
-@property (nonatomic) AddTailgateDetailsView *detailView;
-@property (nonatomic) AddTailgateMapView *mapView;
-//@property (nonatomic) AddTailgateSuppliesView *suppliesView;
-//@property (nonatomic) AddTailgateSuppliesView *neededSuppliesView;
-@property (nonatomic) AddTailgateInvitesView *invitesView;
 @property (nonatomic) NSArray *defaultSupplies;
-@property (nonatomic) NavbarView *navbar;
 @end
 
 @implementation AddTailgateViewController
@@ -107,9 +95,20 @@
     TailgateParty *party = [self buildTailgateParty];
 
     if (party.name.length == 0) {
-        [self.view makeToast:@"Make sure to name your party"
-                    duration:3.0
-                    position:CSToastPositionTop];
+        [self showToast:@"Make sure to name your tailgate"];
+        return;
+    }
+    if (party.startDate == nil) {
+        [self showToast:@"Make sure to set a start time for your tailgate"];
+        return;
+    }
+    if (party.endDate == nil) {
+        [self showToast:@"Make sure to set an end time for your tailgate"];
+        return;
+    }
+    if (!party.parkingLot.location.lat &&
+        !party.parkingLot.location.lon) {
+        [self showToast:@"Make sure to set a location for your tailgate"];
         return;
     }
     
@@ -122,6 +121,8 @@
                      [self.view hideActivityIndicator];
                      if (succcess) {
                          [self.baseDelegate dismissViewController:self];
+                     } else {
+                         [self showErrorToast:@"A problem occurred while creating your tailgate"];
                      }
                  }];
 }

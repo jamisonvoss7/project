@@ -22,6 +22,7 @@
 @property (nonatomic) NSArray *invitableContacts;
 @property (nonatomic) NSArray *accounts;
 @property (nonatomic) NSArray *currentContacts;
+@property (nonatomic, copy) void (^closeHandler)(void);
 @end
 
 @implementation AddContactsViewController
@@ -90,6 +91,10 @@
             });
         }
     }];
+}
+
+- (void)onDismissHandler:(void (^)())handler {
+    self.closeHandler = handler;
 }
 
 - (void)bootStrapData {
@@ -205,6 +210,10 @@
 
 - (void)closeView:(UITapGestureRecognizer *)sender {
     [self.baseDelegate dismissViewController:self];
+
+    if (self.closeHandler) {
+        self.closeHandler();
+    }
 }
 
 - (void)addContactAtIndexPath:(NSIndexPath *)indexPath andTableCell:(AddContactTableViewCell *)cell {

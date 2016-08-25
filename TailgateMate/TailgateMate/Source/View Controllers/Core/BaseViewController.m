@@ -25,4 +25,13 @@
     return delegate;
 }
 
+- (void)showErrorToast:(NSString *)message {
+    NSString *errorMessage = [NSString stringWithFormat:@"ERROR: %@", message];
+    [self.view makeToast:errorMessage duration:2.0 position:CSToastPositionCenter];
+}
+
+- (void)showToast:(NSString *)message {
+    [self.view makeToast:message duration:2.0 position:CSToastPositionCenter];
+}
+
 @end

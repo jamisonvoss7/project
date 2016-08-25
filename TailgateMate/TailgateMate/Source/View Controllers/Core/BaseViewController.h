@@ -13,4 +13,7 @@
 
 @property (nonatomic, weak) id<BaseViewControllerDelegate> baseDelegate;
 
+- (void)showErrorToast:(NSString *)message;
+- (void)showToast:(NSString *)message;
+
 @end
