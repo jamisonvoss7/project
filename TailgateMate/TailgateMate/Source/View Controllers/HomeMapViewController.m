@@ -5,7 +5,6 @@
 //
 
 #import "HomeMapViewController.h"
-#import "LoginViewController.h"
 #import "AddTailgateViewController.h"
 #import "ProfileViewController.h"
 #import "TailgatePartyServiceProvider.h"
@@ -17,7 +16,7 @@
 #import "PromotionsViewController.h"
 #import "TailgateParty+Additions.h"
 
-@interface HomeMapViewController () 
+@interface HomeMapViewController () <GADBannerViewDelegate>
 @property (nonatomic) CLLocation *initialLocationToUse;
 @property (nonatomic) NSArray *parties;
 @property (nonatomic) NSArray *visibleParties;
@@ -37,6 +36,11 @@
     [super viewDidLoad];
     
     self.mapView.delegate = self;
+    
+    self.bannerView.adUnitID = @"ca-app-pub-9454622519784206/3692751173";
+    self.bannerView.rootViewController = self;
+    self.bannerView.delegate = self;
+    [self.bannerView loadRequest:[GADRequest request]];
     
     self.visibleParties = [[NSArray alloc] init];
     self.partyAnnotations = [[NSMutableDictionary alloc] init];
@@ -168,10 +172,10 @@
 
 // Private Methods
 
-//- (void)setInitialLocationToUse:(CLLocation *)initialLocationToUse {
-//    _initialLocationToUse = initialLocationToUse;
-//    [self.mapview setCenterCoordinate:initialLocationToUse.coordinate animated:YES];
-//}
+- (void)setInitialLocationToUse:(CLLocation *)initialLocationToUse {
+    _initialLocationToUse = initialLocationToUse;
+    [self.mapView setCenterCoordinate:initialLocationToUse.coordinate animated:NO];
+}
 
 - (void)processParties:(NSArray *)newParties {
     NSDictionary *newPartiesDict = [self partiesKeyedById:newParties];
@@ -303,4 +307,7 @@
     }
 }
 
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    bannerView.hidden = NO;
+}
 @end

@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="92I-aN-J5k">
-                    <rect key="frame" x="0.0" y="43" width="320" height="501"/>
+                    <rect key="frame" x="0.0" y="43" width="320" height="498"/>
                     <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujc-lP-7UN">
@@ -29,7 +29,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="92I-aN-J5k" secondAttribute="trailing" id="8tB-GR-j2H"/>
                 <constraint firstItem="92I-aN-J5k" firstAttribute="top" secondItem="ujc-lP-7UN" secondAttribute="bottom" constant="1" id="H1s-wR-xA1"/>
-                <constraint firstAttribute="bottom" secondItem="92I-aN-J5k" secondAttribute="bottom" constant="24" id="KxA-9i-wdP"/>
+                <constraint firstAttribute="bottom" secondItem="92I-aN-J5k" secondAttribute="bottom" constant="27" id="KxA-9i-wdP"/>
                 <constraint firstItem="ujc-lP-7UN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="N4B-PI-H1v"/>
                 <constraint firstItem="ujc-lP-7UN" firstAttribute="centerX" secondItem="92I-aN-J5k" secondAttribute="centerX" id="NZD-H6-euD"/>
                 <constraint firstItem="ujc-lP-7UN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="77" id="a5G-wK-fud"/>

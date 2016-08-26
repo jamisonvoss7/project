@@ -66,6 +66,15 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
 
 @implementation UIView (Toast)
 
+- (void)showErrorToast:(NSString *)message {
+    NSString *errorMessage = [NSString stringWithFormat:@"ERROR: %@", message];
+    [self makeToast:errorMessage duration:2.0 position:CSToastPositionCenter];
+}
+
+- (void)showAToast:(NSString *)message {
+    [self makeToast:message duration:2.0 position:CSToastPositionCenter];
+}
+
 #pragma mark - Make Toast Methods
 
 - (void)makeToast:(NSString *)message {

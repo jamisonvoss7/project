@@ -93,10 +93,16 @@
                         <segment title="Public"/>
                     </segments>
                 </segmentedControl>
+                <view contentMode="scaleToFill" id="xyO-t5-V1D" customClass="GADBannerView">
+                    <rect key="frame" x="0.0" y="404" width="320" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="availabilitySegmentControl" destination="Bsj-OU-DSZ" id="17J-mK-RL7"/>
+                <outlet property="bannerView" destination="xyO-t5-V1D" id="D3o-LF-9zo"/>
                 <outlet property="descriptionTextView" destination="TQI-AZ-qtG" id="91D-mp-od9"/>
                 <outlet property="endDateField" destination="bHK-4N-F6Y" id="FDx-71-XOO"/>
                 <outlet property="lotNumberTextView" destination="kaR-oP-rCT" id="0Vh-i2-9iz"/>

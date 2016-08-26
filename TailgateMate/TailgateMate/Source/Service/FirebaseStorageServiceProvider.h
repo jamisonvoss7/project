@@ -16,6 +16,7 @@
   withCompletion:(void (^)(BOOL success, NSError *error))handler;
 
 - (void)getDataAtPath:(NSString *)path
+      withContentType:(NSString *)contentType
        withCompletion:(void (^)(NSData *data, NSError *error))handler;
 
 @end

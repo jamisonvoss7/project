@@ -29,7 +29,7 @@
 - (id)init {
     if (self = [super init]) {
         self.firedatabasebaseRef = [[FIRDatabase database] reference];
-        self.firebaseStorageRef = [[FIRStorage storage] referenceForURL:@"gs://firebase-tailgatemate.appspot.com"];
+        self.firebaseStorageRef = [[FIRStorage storage] referenceForURL:@"gs://pregame-c4f13.appspot.com"];
     }
     return self;
 }

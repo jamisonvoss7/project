@@ -15,7 +15,7 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *contactsButton;
 @property (nonatomic, weak) IBOutlet UIButton *addContactsButton;
-@property (nonatomic, weak) IBOutlet UIButton *tailgatesButton;
+@property (nonatomic, weak) IBOutlet UIView *imageClickReceiver;
 
 + (instancetype)instanceFromDefaultNib;
 - (void)reload;

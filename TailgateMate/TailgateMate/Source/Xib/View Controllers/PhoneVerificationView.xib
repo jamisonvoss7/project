@@ -4,55 +4,46 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhoneVerificationViewController">
-            <connections>
-                <outlet property="codeField" destination="y9n-c9-HL5" id="b1V-sW-nB8"/>
-                <outlet property="resendCodeButton" destination="a6g-4Q-99R" id="kJM-yG-9yV"/>
-                <outlet property="verifyButton" destination="Ylr-1b-2cO" id="iNw-6N-P9T"/>
-                <outlet property="view" destination="iN0-l3-epB" id="4A2-A3-Txt"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PhoneVerificationView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_drop.png" id="bTh-EI-DhF">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ylr-1b-2cO">
-                    <rect key="frame" x="49" y="232" width="222" height="53"/>
+                    <rect key="frame" x="49" y="207" width="222" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.25882352939999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Verify"/>
                     <connections>
-                        <action selector="sendVerification:" destination="-1" eventType="touchUpInside" id="LLF-Nf-203"/>
+                        <action selector="sendVerification:" destination="iN0-l3-epB" eventType="touchUpInside" id="oAY-ZL-1a7"/>
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter code here" textAlignment="center" minimumFontSize="17" id="y9n-c9-HL5">
-                    <rect key="frame" x="49" y="194" width="222" height="30"/>
+                    <rect key="frame" x="49" y="155" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a6g-4Q-99R">
-                    <rect key="frame" x="49" y="467" width="222" height="53"/>
+                    <rect key="frame" x="49" y="271" width="222" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.094117647060000004" green="0.25882352939999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Send another code"/>
                     <connections>
-                        <action selector="resendCode:" destination="-1" eventType="touchUpInside" id="fP8-Cs-pIq"/>
+                        <action selector="resendCode:" destination="iN0-l3-epB" eventType="touchUpInside" id="iAg-8z-CjY"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="codeField" destination="y9n-c9-HL5" id="IWN-GY-o8v"/>
+                <outlet property="resendCodeButton" destination="a6g-4Q-99R" id="yYw-fd-Thm"/>
+                <outlet property="verifyButton" destination="Ylr-1b-2cO" id="Gbd-S8-tHE"/>
+            </connections>
             <point key="canvasLocation" x="510" y="236"/>
         </view>
     </objects>
-    <resources>
-        <image name="back_drop.png" width="1050" height="1868"/>
-    </resources>
 </document>

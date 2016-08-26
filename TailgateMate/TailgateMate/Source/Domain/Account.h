@@ -19,8 +19,6 @@
 @property (nonatomic, copy) NSString *photoId;
 @property (nonatomic, copy) NSString *photoUrl;
 
-@property (nonatomic, assign) BOOL phoneNumberVerified;
-
 @property (nonatomic) AccountType *type;
 
 @property (nonatomic) NSArray /* Contacts */ *contacts;

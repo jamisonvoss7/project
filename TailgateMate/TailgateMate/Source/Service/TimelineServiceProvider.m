@@ -38,7 +38,7 @@
 
 - (void)getImageFromImageId:(NSString *)imageId
                  andPartyId:(NSString *)partyId
-             withCompletion:(void (^)(NSData *, NSError *))handler {
+             withCompletion:(void (^)(UIImage *, NSError *))handler {
     NSString *path = [NSString stringWithFormat:@"timelines/%@/images/%@", partyId, imageId];
     
     ImageServiceProvider *imageService = [[ImageServiceProvider alloc] init];

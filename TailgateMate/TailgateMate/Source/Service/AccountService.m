@@ -130,4 +130,23 @@
                   }
               }];
 }
+
+- (void)removeOtherAccountsPhoneNumber:(NSString *)phoneNumber withComplete:(void (^)(BOOL, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"accounts"];
+    
+    NSDictionary *dict = @{@"phoneNumber":phoneNumber};
+    
+    [super observeDataAtPath:path
+                   andParams:dict
+              withCompletion:^(FIRDataSnapshot *data) {
+                  if (data.exists) {
+                      Account *account = [[Account arrayFromData:data] firstObject];
+                      account.phoneNumber = nil;
+                      [self saveAccount:account
+                           withComplete:handler];
+                  } else {
+                      handler(YES, nil);
+                  }
+              }];
+}
 @end

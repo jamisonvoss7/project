@@ -20,7 +20,16 @@
      withCompletion:handler];
 }
 
-- (void)getImageFromPath:(NSString *)path withCompletion:(void (^)(NSData *, NSError *))handler {
-    [super getDataAtPath:path withCompletion:handler];
+- (void)getImageFromPath:(NSString *)path withCompletion:(void (^)(UIImage *, NSError *))handler {
+    [super getDataAtPath:path
+         withContentType:@"image/png"
+          withCompletion:^(NSData *data, NSError *error) {
+              if (data.length > 0) {
+                  UIImage *image = [UIImage imageWithData:data];
+                  handler(image, nil);
+              } else {
+                  handler(nil, error);
+              }
+    }];
 }
 @end

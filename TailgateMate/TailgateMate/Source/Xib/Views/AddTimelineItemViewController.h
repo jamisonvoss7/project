@@ -17,4 +17,5 @@
 
 - (instancetype)initWithTailgateParty:(TailgateParty *)party;
 
+
 @end

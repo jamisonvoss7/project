@@ -4,19 +4,23 @@
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "SignUpViewController.h"
-#import "AddContactsViewController.h"
+#import "SignUpView.h"
 #import "AccountService.h"
-#import "PhoneVerificationViewController.h"
 
-@interface SignUpViewController () <UITextFieldDelegate>
+@interface SignUpView () <UITextFieldDelegate>
 @property (nonatomic, assign) BOOL up;
 @end
 
-@implementation SignUpViewController
+@implementation SignUpView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
++ (instancetype)instanceWithDefaultNib {
+    UINib *nib = [UINib nibWithNibName:@"SignUpView"
+                                bundle:[NSBundle mainBundle]];
+    return [[nib instantiateWithOwner:nil options:nil] lastObject];
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
     [self.signUpButton addTarget:self
                           action:@selector(signUpButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
@@ -40,7 +44,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(closeKeyboard)];
     tap.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:tap];
+    [self addGestureRecognizer:tap];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -54,34 +58,34 @@
 }
 
 - (void)signUpButtonTapped:(UIButton *)sender {
+    [self closeKeyboard];
     [self animateViewDownForTextBox];
     
     if (self.nameField.text.length == 0) {
-        [self showErrorToast:@"No name was provided"];
+        [self makeToast:@"Error: No name was provided" duration:2.0 position:CSToastPositionCenter];
         return;
     }
     
     if (self.emailField.text.length == 0) {
-        [self showErrorToast:@"No email was specified"];
+        [self makeToast:@"Error: No email was specified" duration:2.0 position:CSToastPositionCenter];
         return;
     }
     
     if (self.userNameField.text.length == 0) {
-        [self showErrorToast:@"No username was provided"];
+        [self makeToast:@"Error: No username was provided" duration:2.0 position:CSToastPositionCenter];
         return;
     }
     
     if (self.passwordField.text.length == 0) {
-        [self showErrorToast:@"No password was specified"];
+        [self makeToast:@"Error: No password was specified" duration:2.0 position:CSToastPositionCenter];
         return;
     }
     
-    [self.view showActivityIndicatorWithCurtain:YES];
+    [self showActivityIndicatorWithCurtain:YES];
     
     Account *account = [[Account alloc] init];
     
     account.displayName = self.nameField.text;
-    account.phoneNumber = self.phoneNumberField.text;
     
     UserCredentials *user = [[UserCredentials alloc] init];
     user.userName = self.emailField.text;
@@ -97,37 +101,36 @@
     [service checkUserNameAvailability:account.userName
                           withComplete:^(BOOL available, NSError *error) {
                               if (!available) {
-                                  [self.view hideActivityIndicator];
+                                  [self hideActivityIndicator];
 
-                                  [self showErrorToast:@"This username is taken"];
-                                   
+                                  [self makeToast:@"Error: This username is taken"
+                                         duration:2.0
+                                         position:CSToastPositionCenter];
                               } else {
                                   [manager authenticateWithNewAccount:account
                                                    andUserCredentials:user
                                                        withCompletion:^(BOOL authenticated, NSError *error) {
-                                                           [self.view hideActivityIndicator];
+                                                           [self hideActivityIndicator];
 
                                                            if (authenticated && !error) {
-
-                                                               if (account.phoneNumber.length > 0) {
-                                                                   PhoneVerificationViewController *phoneVC = [[PhoneVerificationViewController alloc] initWithPhonenumber:account.phoneNumber];
-                                                               
+                                                               if (self.phoneNumberField.text.length > 0) {
+                                                                   [self.flowDelegate showNextFlowStep:FlowStepVerifyPhone withObject:self.phoneNumberField.text];
+                                                               } else {
+                                                                   [self.flowDelegate showNextFlowStep:FlowStepAddContacts withObject:nil];
                                                                }
-                            
-                                                               AddContactsViewController *vc = [[AddContactsViewController alloc] init];
-                                                               [vc onDismissHandler:^{
-                                                                   [self.baseDelegate dismissViewController:self WithComplete:^{
-                                                                       [self.authDelegate didAuthenticate];
-                                                                   }];
-                                                               }];
-                                                               [self.baseDelegate presentViewController:vc];
                                                            } else {
                                                                if (error.code == 17007) {
-                                                                   [self showErrorToast:@"This email address is already in use"];
+                                                                   [self makeToast:@"Error: This email address is already in use"
+                                                                          duration:2.0
+                                                                          position:CSToastPositionCenter];
                                                                } else if (error.code == 17026) {
-                                                                   [self showErrorToast:@"The password must be at least 6 characters"];
+                                                                   [self makeToast:@"Error: The password must be at least 6 characters"
+                                                                          duration:2.0
+                                                                          position:CSToastPositionCenter];
                                                                } else {
-                                                                   [self showToast:@"An error occurred"];
+                                                                   [self makeToast:@"An error occurred"
+                                                                          duration:2.0
+                                                                          position:CSToastPositionCenter];
                                                                }
                                                            }
                                                        }];
@@ -148,7 +151,8 @@
 }
 
 - (void)goBack:(UIButton *)sender {
-    [self.baseDelegate dismissViewController:self];
+    [self closeKeyboard];
+    [self.flowDelegate flowManagerGoBack];
 }
 
 - (void)animateViewUpForTextBox {
@@ -157,9 +161,9 @@
     }
     
     [UIView animateWithDuration:.25 animations:^{
-        CGRect frame = self.view.frame;
-        frame.origin.y = frame.origin.y - 100;
-        self.view.frame = frame;
+        CGRect frame = self.frame;
+        frame.origin.y = frame.origin.y - 150;
+        self.frame = frame;
     } completion:^(BOOL finished) {
         self.up = YES;
     }];
@@ -171,9 +175,9 @@
     }
     
     [UIView animateWithDuration:.25 animations:^{
-        CGRect frame = self.view.frame;
-        frame.origin.y = frame.origin.y + 100;
-        self.view.frame = frame;
+        CGRect frame = self.frame;
+        frame.origin.y = frame.origin.y + 150;
+        self.frame = frame;
     } completion:^(BOOL finished) {
         self.up = NO;
     }];

@@ -27,10 +27,14 @@
 }
 
 - (void)getDataAtPath:(NSString *)path
+      withContentType:(NSString *)contentType
        withCompletion:(void (^)(NSData *, NSError *))handler {
   
     FIRStorageReference *ref = [AppManager sharedInstance].firebaseStorageRef;
     ref = [ref child:path];
+    
+    FIRStorageMetadata *metaDate = [[FIRStorageMetadata alloc] init];
+    metaDate.contentType = contentType;
 
     [ref dataWithMaxSize:INT_MAX completion:handler];
 }

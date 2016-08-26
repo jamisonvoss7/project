@@ -14,7 +14,7 @@
 #import "TimelineItemImageTableCell.h"
 #import "TableImageCacher.h"
 
-@interface TailgatePartyTimeLineViewController () <TableImageCacherDelegate>
+@interface TailgatePartyTimeLineViewController () <TableImageCacherDelegate, GADBannerViewDelegate>
 @property (nonatomic) TailgateParty *tailgateParty;
 @property (nonatomic) NSArray *timeline;
 @property (nonatomic) AddTimelineItemViewController *addItemView;
@@ -36,7 +36,8 @@
     
     self.cacher = [[TableImageCacher alloc] initForTable:self.tableView
                                                 delegate:self];
-    
+
+
     self.timeline = [[NSArray alloc] init];
     
     self.tableView.delegate = self;
@@ -122,11 +123,8 @@
 }
 
 - (void)presentAddItemView {
-    if (!self.addItemView) {
-        self.addItemView = [[AddTimelineItemViewController alloc] initWithTailgateParty:self.tailgateParty];
-    }
-  
-    [self.baseDelegate presentViewController:self.addItemView];
+    AddTimelineItemViewController *vc = [[AddTimelineItemViewController alloc] initWithTailgateParty:self.tailgateParty];
+    [self.baseDelegate presentViewController:vc];
 }
 
 - (void)tableImageCacher:(TableImageCacher *)loader finishedLoadingImage:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath {

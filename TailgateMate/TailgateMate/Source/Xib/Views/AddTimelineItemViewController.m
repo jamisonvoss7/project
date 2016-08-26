@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapHandler:)];
     tap.numberOfTapsRequired = 1;
     [self.imageClickReceiver addGestureRecognizer:tap];
@@ -38,7 +38,6 @@
     doneTap.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:doneTap];
 }
-
 
 - (void)imageTapHandler:(UITapGestureRecognizer *)sender {
     [self closeKeyboard];
@@ -144,4 +143,6 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 - (void)closeKeyboard {
     [self.textView resignFirstResponder];
 }
+
+
 @end

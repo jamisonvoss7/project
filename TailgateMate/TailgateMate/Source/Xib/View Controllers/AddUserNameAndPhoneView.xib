@@ -4,23 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddUserNameAndPhoneViewController">
-            <connections>
-                <outlet property="addButton" destination="nHn-Zd-l5w" id="N0V-eQ-8qn"/>
-                <outlet property="phoneNumberField" destination="QGP-U5-KtI" id="fjt-Y1-UfE"/>
-                <outlet property="userNameField" destination="fMA-ud-sZ1" id="EhS-m8-30y"/>
-                <outlet property="view" destination="Yc2-tq-AGt" id="aAA-3v-PmE"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Yc2-tq-AGt">
+        <view contentMode="scaleToFill" id="Yc2-tq-AGt" customClass="AddUserNameAndPhoneView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_drop.png" id="cnO-zc-Way">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" id="fMA-ud-sZ1">
                     <rect key="frame" x="49" y="182" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -55,10 +44,12 @@
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="addButton" destination="nHn-Zd-l5w" id="ha0-ii-Qdx"/>
+                <outlet property="phoneNumberField" destination="QGP-U5-KtI" id="Bmm-Zl-A3Z"/>
+                <outlet property="userNameField" destination="fMA-ud-sZ1" id="fsP-et-V6T"/>
+            </connections>
             <point key="canvasLocation" x="356" y="221"/>
         </view>
     </objects>
-    <resources>
-        <image name="back_drop.png" width="1050" height="1868"/>
-    </resources>
 </document>

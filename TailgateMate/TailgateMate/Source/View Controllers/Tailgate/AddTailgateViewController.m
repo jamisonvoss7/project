@@ -7,7 +7,7 @@
 #import "AddTailgateViewController.h"
 
 
-@interface AddTailgateViewController () <UIScrollViewDelegate>
+@interface AddTailgateViewController () <UIScrollViewDelegate, GADBannerViewDelegate>
 @property (nonatomic) NSArray *defaultSupplies;
 @end
 
@@ -30,6 +30,12 @@
 
     self.detailView = [AddTailgateDetailsView instanceFromDefaultNib];
     self.detailView.frame = baseFrame;
+    
+    self.detailView.bannerView.adUnitID = @"ca-app-pub-9454622519784206/3553150379";
+    self.detailView.bannerView.delegate = self;
+    self.detailView.bannerView.rootViewController = self;
+    [self.detailView.bannerView loadRequest:[GADRequest request]];
+
     
     self.mapView = [AddTailgateMapView instanceFromDefaultNib];
     baseFrame.origin.x = self.view.frame.size.width;
@@ -222,5 +228,8 @@
     }
 }
 
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    bannerView.hidden = NO;
+}
 
 @end

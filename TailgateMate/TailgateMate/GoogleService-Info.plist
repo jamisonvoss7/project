@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+        <string>ca-app-pub-3940256099942544/2934735716</string>
+        <key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+        <string>ca-app-pub-3940256099942544/4411468910</string>
+        <key>CLIENT_ID</key>
+        <string>419908269975-ig9akp2mp7k99opap146ul93ect8bjh6.apps.googleusercontent.com</string>
+        <key>REVERSED_CLIENT_ID</key>
+        <string>com.googleusercontent.apps.419908269975-ig9akp2mp7k99opap146ul93ect8bjh6</string>
+        <key>API_KEY</key>
+        <string>AIzaSyCuFypX1r1B6MI8khJ8kwEijFFZtUkEba8</string>
+        <key>GCM_SENDER_ID</key>
+        <string>419908269975</string>
+        <key>PLIST_VERSION</key>
+        <string>1</string>
+        <key>BUNDLE_ID</key>
+        <string>com.jamisonvoss.pregame</string>
+        <key>PROJECT_ID</key>
+        <string>pregame-c4f13</string>
+        <key>STORAGE_BUCKET</key>
+        <string>pregame-c4f13.appspot.com</string>
+        <key>IS_ADS_ENABLED</key>
+        <true/>
+        <key>IS_ANALYTICS_ENABLED</key>
+        <false/>
+        <key>IS_APPINVITE_ENABLED</key>
+        <false/>
+        <key>IS_GCM_ENABLED</key>
+        <true/>
+        <key>IS_SIGNIN_ENABLED</key>
+        <true/>
+        <key>GOOGLE_APP_ID</key>
+        <string>1:419908269975:ios:ee71e0a8561f4524</string>
+        <key>DATABASE_URL</key>
+        <string>https://pregame-c4f13.firebaseio.com</string>
+    </dict>
+</plist>

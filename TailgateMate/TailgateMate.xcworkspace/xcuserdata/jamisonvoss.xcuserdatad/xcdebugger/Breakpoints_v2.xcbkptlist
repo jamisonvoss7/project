@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/View Controllers/Acount/LoginViewController.m"
-            timestampString = "493524079.118313"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493893490.149564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-didAuthenticate"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,109 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/View Controllers/Acount/SignInViewController.m"
-            timestampString = "493704245.405799"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493893491.349796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-signInButtonTapped:"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HomeMapViewController viewDidLoad]"
+                  moduleName = "TailgateMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493893724.036343"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "804">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[HomeMapViewController viewDidLoad]_block_invoke"
+                  moduleName = "TailgateMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493893724.036532"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493893495.022022"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HomeMapViewController viewDidLoad]"
+                  moduleName = "TailgateMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493893724.037281"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[HomeMapViewController viewDidLoad]_block_invoke.152"
+                  moduleName = "TailgateMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jamisonvoss/Documents/projects/project/TailgateMate/TailgateMate/Source/View%20Controllers/HomeMapViewController.m"
+                  timestampString = "493893724.037409"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493893495.907875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/View Controllers/Tailgate/EditTailgateViewController.m"
-            timestampString = "493711925.271856"
+            filePath = "TailgateMate/Source/View Controllers/HomeMapViewController.m"
+            timestampString = "493893545.455634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "-viewDidAppear:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +153,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TailgateMate/Source/View Controllers/Tailgate/TailgatePartyInfoViewController.m"
-            timestampString = "493715507.154259"
+            filePath = "TailgateMate/Source/Managers/LocationManager.m"
+            timestampString = "493893628.180937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-viewDidAppear:"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "-invokeUpdateLocationBlockHandlersForLocation:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TailgateMate/Source/Managers/LocationManager.m"
+            timestampString = "493893635.332809"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-startUpdatingLocation"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

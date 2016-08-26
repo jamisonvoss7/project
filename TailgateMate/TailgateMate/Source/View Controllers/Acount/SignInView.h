@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AuthenticationDelegate.h"
-#import "BaseViewController.h"
+#import "AccountFlowManagementViewController.h"
 
-@interface SignInViewController : BaseViewController
+@interface SignInView : UIView
 
-@property (nonatomic, weak) id<AuthenticationDelegate> authDelegate;
+@property (nonatomic, weak) id<AccountFlowDelegate> flowDelegate;
 
 @property (nonatomic, weak) IBOutlet UITextField *emailField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordField;
 @property (nonatomic, weak) IBOutlet UIButton *signInButton;
 @property (nonatomic, weak) IBOutlet UIButton *backButton;
+
++ (instancetype)instanceWithDefaultNib;
 
 @end

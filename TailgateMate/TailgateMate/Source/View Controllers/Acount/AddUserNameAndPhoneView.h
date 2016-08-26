@@ -6,15 +6,16 @@
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "BaseViewController.h"
-#import "AuthenticationDelegate.h"
+#import "AccountFlowManagementViewController.h"
 
-@interface AddUserNameAndPhoneViewController : BaseViewController
+@interface AddUserNameAndPhoneView : UIView
 
-@property (nonatomic, weak) id<AuthenticationDelegate> authDelegate;
+@property (nonatomic, weak) id<AccountFlowDelegate> flowDelegate;
 
 @property (nonatomic, weak) IBOutlet UITextField *userNameField;
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberField;
 @property (nonatomic, weak) IBOutlet UIButton *addButton;
+
++ (instancetype)instanceWithDefualtNib;
 
 @end

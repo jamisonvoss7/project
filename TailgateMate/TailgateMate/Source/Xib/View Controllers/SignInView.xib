@@ -4,24 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController">
-            <connections>
-                <outlet property="backButton" destination="To1-bD-Q4S" id="oGf-cr-IEd"/>
-                <outlet property="emailField" destination="U80-uq-gQr" id="G3L-r7-wwm"/>
-                <outlet property="passwordField" destination="5Rp-tx-vJ8" id="Ugx-ze-52n"/>
-                <outlet property="signInButton" destination="agM-rY-tPt" id="lZI-GK-bRx"/>
-                <outlet property="view" destination="iN0-l3-epB" id="Hn1-OC-kJt"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SignInView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_drop.png" id="RlC-Fc-CrH">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" id="U80-uq-gQr">
                     <rect key="frame" x="49" y="197" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,11 +39,16 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="backButton" destination="To1-bD-Q4S" id="CQn-6R-fP0"/>
+                <outlet property="emailField" destination="U80-uq-gQr" id="ADy-VI-CEO"/>
+                <outlet property="passwordField" destination="5Rp-tx-vJ8" id="RLQ-0H-Ap0"/>
+                <outlet property="signInButton" destination="agM-rY-tPt" id="EKQ-AG-Pft"/>
+            </connections>
             <point key="canvasLocation" x="355" y="217"/>
         </view>
     </objects>
     <resources>
         <image name="back_button.png" width="228" height="225"/>
-        <image name="back_drop.png" width="1050" height="1868"/>
     </resources>
 </document>

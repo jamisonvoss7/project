@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProfileViewController.h"
 
-@interface ProfileEditView : UIView
+@interface ProfileEditView : UIView <UITextFieldDelegate>
+
+@property (nonatomic, weak) id<ProfileEditDelegateProtocol> profileDelegate;
 
 @property (nonatomic, weak) IBOutlet UITextField *nameField;
 @property (nonatomic, weak) IBOutlet UITextField *emailField;
@@ -17,5 +20,6 @@
 
 + (instancetype)instanceFromDefaultNib;
 - (void)reload;
+- (void)closeKeyboards;
 
 @end

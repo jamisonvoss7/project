@@ -23,6 +23,8 @@
     
     [FIRApp configure];
 
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-9454622519784206~2216017976"];
+
     if (!self.window) {
         self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     }

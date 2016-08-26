@@ -119,13 +119,13 @@
 }
 
 - (void)executeAssetRequest:(LazyAssetRequest *)request
-                 completion:(void(^)(NSData *data, NSError *error))handler {
+                 completion:(void(^)(UIImage *image, NSError *error))handler {
     
     ImageServiceProvider *service = [[ImageServiceProvider alloc] init];
     if (request.path) {
         [service getImageFromPath:request.path
-                   withCompletion:^(NSData *data, NSError *error) {
-                       handler(data, error);
+                   withCompletion:^(UIImage *image, NSError *error) {
+                       handler(image, error);
                    }];
     } else {
         NSLog(@"Unable to lazy fetch asset image. Asset URL and ID are nil.");
@@ -138,9 +138,9 @@
     }
     
     [self.tableAssetsDownloading setObject:request forKey:indexPath];
-    [self executeAssetRequest:request completion:^(NSData *data, NSError *error) {
+    [self executeAssetRequest:request completion:^(UIImage *newImage, NSError *error) {
         if (!error) {
-            __block UIImage *image = [UIImage imageWithData:data];
+            __block UIImage *image = newImage;
             if ([self.delegate respondsToSelector:@selector(tableImageCacher:willCache:forIndexPath:)]) {
                 __weak TableImageCacher *this = self;
                 

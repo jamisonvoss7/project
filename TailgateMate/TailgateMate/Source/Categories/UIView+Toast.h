@@ -16,6 +16,9 @@ extern const NSString * CSToastPositionBottom;
 
 @interface UIView (Toast)
 
+- (void)showErrorToast:(NSString *)message;
+- (void)showAToast:(NSString *)message;
+
 /**
  Creates and presents a new toast view with a message and displays it with the
  default duration and position. Styled using the shared style.

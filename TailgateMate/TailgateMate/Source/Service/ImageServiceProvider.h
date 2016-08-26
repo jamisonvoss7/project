@@ -16,7 +16,7 @@
    withCompletion:(void (^)(BOOL success, NSError *error))handler;
 
 - (void)getImageFromPath:(NSString *)path
-          withCompletion:(void (^)(NSData *data, NSError *error))handler;
+          withCompletion:(void (^)(UIImage *image, NSError *error))handler;
 
 
 @end

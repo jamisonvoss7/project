@@ -6,19 +6,22 @@
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "AccountFlowManagementViewController.h"
+#import "ProfileViewController.h"
 
-@interface PhoneVerificationViewController : BaseViewController
+@interface PhoneVerificationView : UIView
 
+@property (nonatomic, weak) id<AccountFlowDelegate> flowDelegate;
+@property (nonatomic, weak) id<ProfileEditDelegateProtocol> profileDelegate;
 @property (nonatomic, weak) IBOutlet UIButton *verifyButton;
 @property (nonatomic, weak) IBOutlet UIButton *resendCodeButton;
 @property (nonatomic, weak) IBOutlet UITextField *codeField;
 
-- (instancetype)initWithPhonenumber:(NSString *)phonenumber;
+@property (nonatomic) NSString *phoneNumber;
+
++ (instancetype)instanceWithDefaultNib;
 
 - (IBAction)sendVerification:(id)sender;
 - (IBAction)resendCode:(id)sender;
-
-- (void)onDone:(void (^)(void))handler;
 
 @end

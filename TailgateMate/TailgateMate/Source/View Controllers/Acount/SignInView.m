@@ -6,13 +6,18 @@
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "SignInViewController.h"
+#import "SignInView.h"
 #import "AccountService.h"
 
-@implementation SignInViewController
+@implementation SignInView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
++ (instancetype)instanceWithDefaultNib {
+    UINib *nib = [UINib nibWithNibName:@"SignInView" bundle:[NSBundle mainBundle]];
+    return [[nib instantiateWithOwner:nil options:nil] lastObject];
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
     [self.signInButton addTarget:self
                           action:@selector(signInButtonTapped:)
                 forControlEvents:UIControlEventTouchUpInside];
@@ -28,11 +33,13 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(closeKeyboard)];
     tap.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:tap];
+    [self addGestureRecognizer:tap];
 }
 
 - (void)signInButtonTapped:(UIButton *)sender {
-    [self.view showActivityIndicatorWithCurtain:YES];
+    [self closeKeyboard];
+    
+    [self showActivityIndicatorWithCurtain:YES];
     
     AccountManager *manager = [AppManager sharedInstance].accountManager;
     
@@ -42,24 +49,24 @@
     
     [manager authenticateWithUserCredentials:user
                               withCompletion:^(BOOL authenticated, NSError *error) {
-                                  [self.view hideActivityIndicator];
+                                  [self hideActivityIndicator];
                                   
                                   if (authenticated && !error) {
-                                      [self.baseDelegate dismissViewController:self];
-                                      [self.authDelegate didAuthenticate];
+                                      [self.flowDelegate showNextFlowStep:FlowStepDone withObject:nil];
                                   } else {
                                       if (error.code == 17009 ||
                                           error.code == 17011) {
                                           [self showErrorToast:@"This email/passord combination doesn't exist"];
                                       } else {
-                                          [self showToast:@"An error occurred"];
+                                          [self showAToast:@"An error occurred"];
                                       }
                                   }
                               }];
 }
 
 - (void)goBack:(UIButton *)sender {
-    [self.baseDelegate dismissViewController:self];
+    [self closeKeyboard];
+    [self.flowDelegate flowManagerGoBack];
 }
 
 - (void)closeKeyboard {

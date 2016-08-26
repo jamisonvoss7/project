@@ -21,5 +21,5 @@
 
 - (void)getImageFromImageId:(NSString *)imageId
                  andPartyId:(NSString *)party
-             withCompletion:(void (^)(NSData *data, NSError *error))handler;
+             withCompletion:(void (^)(UIImage *image, NSError *error))handler;
 @end

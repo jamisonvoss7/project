@@ -156,6 +156,8 @@
                         [self loadProfileAccountWithAccountForId:account.uid
                                                   withCompletion:handler];
                     }];
+        } else {
+            handler(NO, error);
         }
     }];
 }

@@ -20,35 +20,32 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JGV-Sd-W3L">
                     <rect key="frame" x="110" y="212" width="100" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Mates"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kpr-gZ-f38">
-                    <rect key="frame" x="110" y="297" width="100" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Tailgates"/>
+                    <state key="normal" title="Contacts"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8l-Dk-fdq">
                     <rect key="frame" x="110" y="255" width="100" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Add Mates"/>
+                    <state key="normal" title="Find Contacts"/>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile.png" id="oa0-xj-x2v">
+                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oa0-xj-x2v">
                     <rect key="frame" x="100" y="28" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <view contentMode="scaleToFill" id="CM0-Q2-fAb">
+                    <rect key="frame" x="100" y="28" width="120" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="addContactsButton" destination="W8l-Dk-fdq" id="9dN-yn-YTU"/>
                 <outlet property="contactsButton" destination="JGV-Sd-W3L" id="MTv-ZA-Gop"/>
+                <outlet property="imageClickReceiver" destination="CM0-Q2-fAb" id="37Y-Xl-2H8"/>
                 <outlet property="nameLabel" destination="vpF-UE-KZr" id="XFW-Ax-AEI"/>
                 <outlet property="profileImageView" destination="oa0-xj-x2v" id="YOa-az-RKe"/>
-                <outlet property="tailgatesButton" destination="kpr-gZ-f38" id="d47-F6-SAm"/>
             </connections>
             <point key="canvasLocation" x="355" y="217"/>
         </view>
     </objects>
-    <resources>
-        <image name="default_profile.png" width="342" height="341"/>
-    </resources>
 </document>

@@ -5,15 +5,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AuthenticationDelegate.h"
-#import "BaseViewController.h"
+#import "AccountFlowManagementViewController.h"
 
-@interface LoginViewController : BaseViewController <AuthenticationDelegate>
+@interface LoginView : UIView
+
+@property (nonatomic, weak) id<AccountFlowDelegate> flowDelegate;
 
 @property (nonatomic, weak) IBOutlet UIButton *facebbokButton;
-@property (nonatomic, weak) IBOutlet UIButton *twitterButton;
 @property (nonatomic, weak) IBOutlet UIButton *emailButton;
 @property (nonatomic, weak) IBOutlet UIButton *basicAccountButton;
 @property (nonatomic, weak) IBOutlet UIButton *skipButton;
+@property (nonatomic, weak) IBOutlet UIButton *backButton;
+
++ (instancetype)instanceWithDefaultNib;
 
 @end

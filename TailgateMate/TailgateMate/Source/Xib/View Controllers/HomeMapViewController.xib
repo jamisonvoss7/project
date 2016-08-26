@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="addButton" destination="bLG-l1-ew4" id="Wi8-2X-eox"/>
                 <outlet property="backButton" destination="Gcq-3J-ETB" id="Ppn-Hz-LcW"/>
+                <outlet property="bannerView" destination="0Dk-6z-agk" id="thZ-XL-R1x"/>
                 <outlet property="filterButton" destination="ugB-up-kli" id="6he-A7-SuW"/>
                 <outlet property="mapView" destination="xAL-23-3cj" id="Ai4-0J-OjU"/>
                 <outlet property="searchButton" destination="dcq-Yq-TP6" id="jNi-7L-9Oz"/>
@@ -20,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="xAL-23-3cj" customClass="MGLMapView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="515"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="465"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>
@@ -99,8 +100,13 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.74535701357085127" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" id="0Dk-6z-agk" customClass="GADBannerView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="latitude">
                     <real key="value" value="42.014382613289001"/>

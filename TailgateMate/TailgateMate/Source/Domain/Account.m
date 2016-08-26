@@ -21,7 +21,6 @@
     account.photoUrl = data.value[@"photoUrl"];
     account.type = [AccountType findByString:data.value[@"type"]];
     account.uid = data.value[@"uid"];
-    account.phoneNumberVerified = [data.value[@"phoneNumberVerified"] boolValue];
     if (data.value[@"contacts"]) {
         account.contacts = [Contact arrayFromArray:data.value[@"contacts"]];
     }
@@ -69,7 +68,9 @@
     if (self.userName.length > 0) {
         dictionary[@"userName"] = self.userName;
     }
-    dictionary[@"phoneNumberVerified"] = [NSNumber numberWithBool:self.phoneNumberVerified];
+    if (self.phoneNumber.length > 0) {
+        dictionary[@"phoneNumber"] = self.phoneNumber;
+    }
     
     return dictionary;
 }

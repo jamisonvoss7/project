@@ -4,77 +4,70 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController">
-            <connections>
-                <outlet property="backbutton" destination="T8a-0g-fr0" id="kiE-TA-uH3"/>
-                <outlet property="emailField" destination="q5J-V2-Bid" id="ope-rH-Ygc"/>
-                <outlet property="nameField" destination="G1h-Wo-cbo" id="3c5-bf-DrJ"/>
-                <outlet property="passwordField" destination="Haf-eX-Y6v" id="a8e-ah-KKD"/>
-                <outlet property="phoneNumberField" destination="hYT-1P-SAR" id="F83-FE-rXU"/>
-                <outlet property="signUpButton" destination="bkh-Q0-gtm" id="q2J-40-JnE"/>
-                <outlet property="userNameField" destination="1Z5-Ym-mnW" id="4rU-yg-gJ3"/>
-                <outlet property="view" destination="iN0-l3-epB" id="kkn-oI-Pyv"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="SignUpView" customClass="SignUpView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_drop.png" id="j5b-04-v7T">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T8a-0g-fr0">
+                    <rect key="frame" x="8" y="493" width="67" height="67"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <state key="normal" image="back_button.png">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your name" textAlignment="natural" minimumFontSize="17" id="G1h-Wo-cbo">
-                    <rect key="frame" x="49" y="171" width="222" height="30"/>
+                    <rect key="frame" x="49" y="178" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" id="q5J-V2-Bid">
-                    <rect key="frame" x="49" y="213" width="222" height="30"/>
+                    <rect key="frame" x="49" y="220" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" id="1Z5-Ym-mnW">
-                    <rect key="frame" x="49" y="255" width="222" height="30"/>
+                    <rect key="frame" x="49" y="262" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" id="Haf-eX-Y6v">
-                    <rect key="frame" x="49" y="337" width="222" height="30"/>
+                    <rect key="frame" x="49" y="344" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bkh-Q0-gtm">
-                    <rect key="frame" x="49" y="398" width="222" height="53"/>
+                    <rect key="frame" x="49" y="405" width="222" height="53"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.094117647058823528" green="0.25882352941176467" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Sign up"/>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone #" textAlignment="natural" minimumFontSize="17" id="hYT-1P-SAR">
-                    <rect key="frame" x="49" y="295" width="222" height="30"/>
+                    <rect key="frame" x="49" y="302" width="222" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T8a-0g-fr0">
-                    <rect key="frame" x="8" y="493" width="67" height="67"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="back_button.png">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="backbutton" destination="T8a-0g-fr0" id="jeO-gH-sKp"/>
+                <outlet property="emailField" destination="q5J-V2-Bid" id="8yQ-5Q-1fL"/>
+                <outlet property="nameField" destination="G1h-Wo-cbo" id="8sy-jO-8hP"/>
+                <outlet property="passwordField" destination="Haf-eX-Y6v" id="rHD-xG-iTv"/>
+                <outlet property="phoneNumberField" destination="hYT-1P-SAR" id="dYT-O1-jpg"/>
+                <outlet property="signUpButton" destination="bkh-Q0-gtm" id="gWe-lM-sPf"/>
+                <outlet property="userNameField" destination="1Z5-Ym-mnW" id="UTV-lz-md0"/>
+            </connections>
             <point key="canvasLocation" x="355" y="217"/>
         </view>
     </objects>
     <resources>
         <image name="back_button.png" width="228" height="225"/>
-        <image name="back_drop.png" width="1050" height="1868"/>
     </resources>
 </document>

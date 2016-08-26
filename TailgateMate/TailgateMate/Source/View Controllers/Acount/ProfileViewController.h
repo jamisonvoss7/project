@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "AccountFlowManagementViewController.h"
 
-@interface ProfileViewController : BaseViewController
+@protocol ProfileEditDelegateProtocol <NSObject>
+- (void)updateEmail:(NSString *)email;
+- (void)updateUserName:(NSString *)username;
+- (void)updatePhoneNumber:(NSString *)phoneNumber;
+- (void)updateName:(NSString *)name;
+- (void)finishUpdatingPhone;
+@optional
+- (void)updatePassword:(NSString *)password;
+@end
+
+@interface ProfileViewController : BaseViewController <ProfileEditDelegateProtocol>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *containerView;
 @property (nonatomic, weak) IBOutlet UIButton *signoutButton;

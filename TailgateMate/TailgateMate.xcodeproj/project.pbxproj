@@ -19,7 +19,7 @@
 		EF01D79F1D4E92690058A500 /* Invite.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D79E1D4E92690058A500 /* Invite.m */; };
 		EF01D7A21D4EB4470058A500 /* ContactType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7A11D4EB4470058A500 /* ContactType.m */; };
 		EF01D7A81D4ED3B30058A500 /* Account+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF01D7A71D4ED3B30058A500 /* Account+Additions.m */; };
-		EF01D7AD1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib */; };
+		EF01D7AD1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib */; };
 		EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAD1D08DBE200551CDA /* Burgers.png */; };
 		EF0B5EB71D08DBE200551CDA /* Burgers@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */; };
 		EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */; };
@@ -32,15 +32,15 @@
 		EF0B5EC91D1EE7EB00551CDA /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0B5EC81D1EE7EB00551CDA /* Contacts.framework */; };
 		EF0B5ECC1D1EF0A700551CDA /* AccountType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0B5ECB1D1EF0A700551CDA /* AccountType.m */; };
 		EF0B5ECF1D1EF86500551CDA /* TailgatePartyType.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0B5ECE1D1EF86500551CDA /* TailgatePartyType.m */; };
-		EF0B5ED11D1F10B800551CDA /* AddContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5ED01D1F10B800551CDA /* AddContactsViewController.xib */; };
+		EF0B5ED11D1F10B800551CDA /* AddContactsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF0B5ED01D1F10B800551CDA /* AddContactsView.xib */; };
 		EF135F4A1CBB185500C80753 /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F491CBB185500C80753 /* Thing.m */; };
 		EF135F5C1CBB413300C80753 /* HomeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF135F511CBB413300C80753 /* HomeMapViewController.m */; };
 		EF135F6E1CBB424600C80753 /* AddTailgateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F651CBB424600C80753 /* AddTailgateViewController.xib */; };
 		EF135F6F1CBB424600C80753 /* HomeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F661CBB424600C80753 /* HomeMapViewController.xib */; };
-		EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F671CBB424600C80753 /* LoginViewController.xib */; };
+		EF135F701CBB424600C80753 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F671CBB424600C80753 /* LoginView.xib */; };
 		EF135F711CBB424600C80753 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F681CBB424600C80753 /* ProfileViewController.xib */; };
-		EF135F721CBB424600C80753 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F691CBB424600C80753 /* SignInViewController.xib */; };
-		EF135F731CBB424600C80753 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F6A1CBB424600C80753 /* SignUpViewController.xib */; };
+		EF135F721CBB424600C80753 /* SignInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F691CBB424600C80753 /* SignInView.xib */; };
+		EF135F731CBB424600C80753 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F6A1CBB424600C80753 /* SignUpView.xib */; };
 		EF135F741CBB424600C80753 /* ProfileEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F6C1CBB424600C80753 /* ProfileEditView.xib */; };
 		EF135F751CBB424600C80753 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F6D1CBB424600C80753 /* ProfileView.xib */; };
 		EF135F771CBB425E00C80753 /* AddTailgateDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF135F761CBB425E00C80753 /* AddTailgateDetailsView.xib */; };
@@ -67,12 +67,12 @@
 		EF5AD89A1D5D6AB300DDEAF1 /* AddTailgateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8881D5D6AB300DDEAF1 /* AddTailgateViewController.m */; };
 		EF5AD89B1D5D6AB300DDEAF1 /* ContactsViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD88A1D5D6AB300DDEAF1 /* ContactsViewControler.m */; };
 		EF5AD89C1D5D6AB300DDEAF1 /* TailgatePartyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD88C1D5D6AB300DDEAF1 /* TailgatePartyInfoViewController.m */; };
-		EF5AD89D1D5D6AB300DDEAF1 /* AddContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD88F1D5D6AB300DDEAF1 /* AddContactsViewController.m */; };
-		EF5AD89E1D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.m */; };
-		EF5AD89F1D5D6AB300DDEAF1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8931D5D6AB300DDEAF1 /* LoginViewController.m */; };
+		EF5AD89D1D5D6AB300DDEAF1 /* AddContactsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD88F1D5D6AB300DDEAF1 /* AddContactsView.m */; };
+		EF5AD89E1D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.m */; };
+		EF5AD89F1D5D6AB300DDEAF1 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8931D5D6AB300DDEAF1 /* LoginView.m */; };
 		EF5AD8A01D5D6AB300DDEAF1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8951D5D6AB300DDEAF1 /* ProfileViewController.m */; };
-		EF5AD8A11D5D6AB300DDEAF1 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8971D5D6AB300DDEAF1 /* SignInViewController.m */; };
-		EF5AD8A21D5D6AB300DDEAF1 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8991D5D6AB300DDEAF1 /* SignUpViewController.m */; };
+		EF5AD8A11D5D6AB300DDEAF1 /* SignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8971D5D6AB300DDEAF1 /* SignInView.m */; };
+		EF5AD8A21D5D6AB300DDEAF1 /* SignUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8991D5D6AB300DDEAF1 /* SignUpView.m */; };
 		EF5AD8A71D5D6BDC00DDEAF1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8A41D5D6BDC00DDEAF1 /* BaseViewController.m */; };
 		EF5AD8A81D5D6BDC00DDEAF1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8A61D5D6BDC00DDEAF1 /* RootViewController.m */; };
 		EF5AD8AB1D5D6BFF00DDEAF1 /* TailgatePartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5AD8AA1D5D6BFF00DDEAF1 /* TailgatePartyViewController.m */; };
@@ -145,11 +145,11 @@
 		EF73F7981BC3745600FA9DBA /* Stadium.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F7971BC3745600FA9DBA /* Stadium.m */; };
 		EF73F79E1BC3759900FA9DBA /* TailgateParty.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F79D1BC3759900FA9DBA /* TailgateParty.m */; };
 		EF73F7A21BC37AFA00FA9DBA /* TailgateSupply.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73F7A11BC37AFA00FA9DBA /* TailgateSupply.m */; };
-		EF7AF9EF1D1FA6EA00D58E0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF7AF9EE1D1FA6EA00D58E0A /* GoogleService-Info.plist */; };
 		EF84EF841CEE92E3006459DA /* JackTrice.gpx in Resources */ = {isa = PBXBuildFile; fileRef = EF84EF831CEE92E3006459DA /* JackTrice.gpx */; };
 		EF84EF871CEEA20E006459DA /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF84EF861CEEA20E006459DA /* LandingViewController.m */; };
 		EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF84EF881CEEA434006459DA /* LandingViewController.xib */; };
 		EF90AEA21CB5C62300883032 /* NSUserDefaults+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */; };
+		EFB53D1D1D7014F100564AA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFB53D1C1D7014F100564AA3 /* GoogleService-Info.plist */; };
 		EFBF8DE11C5B194F0075DE38 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF8DE01C5B194F0075DE38 /* libicucore.tbd */; };
 		EFBF8DE31C5B196A0075DE38 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF8DE21C5B196A0075DE38 /* libc++.tbd */; };
 		EFBF8DED1C6AB1D80075DE38 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DEC1C6AB1D80075DE38 /* Account.m */; };
@@ -159,8 +159,10 @@
 		EFBF8DFA1C6C1D360075DE38 /* FirebaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DF91C6C1D360075DE38 /* FirebaseObject.m */; };
 		EFE094291D6D579900094A9B /* EditTailgateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE094281D6D579900094A9B /* EditTailgateViewController.m */; };
 		EFE0942B1D6D6E2800094A9B /* EditTailgateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */; };
-		EFE094301D6E65F100094A9B /* PhoneVerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE0942F1D6E65F100094A9B /* PhoneVerificationViewController.m */; };
-		EFE094321D6E661300094A9B /* PhoneVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE094311D6E661300094A9B /* PhoneVerificationViewController.xib */; };
+		EFE094301D6E65F100094A9B /* PhoneVerificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE0942F1D6E65F100094A9B /* PhoneVerificationView.m */; };
+		EFE094321D6E661300094A9B /* PhoneVerificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE094311D6E661300094A9B /* PhoneVerificationView.xib */; };
+		EFE094371D6E7CF800094A9B /* AccountFlowManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE094361D6E7CF800094A9B /* AccountFlowManagementViewController.m */; };
+		EFE094391D6E7D0F00094A9B /* AccountFlowManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE094381D6E7D0F00094A9B /* AccountFlowManagementViewController.xib */; };
 		EFE4A6BD1D51837700587C29 /* drinks.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B71D51837700587C29 /* drinks.png */; };
 		EFE4A6BE1D51837700587C29 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B81D51837700587C29 /* food.png */; };
 		EFE4A6BF1D51837700587C29 /* games.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A6B91D51837700587C29 /* games.png */; };
@@ -226,7 +228,7 @@
 		EF01D7A11D4EB4470058A500 /* ContactType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactType.m; sourceTree = "<group>"; };
 		EF01D7A61D4ED3B30058A500 /* Account+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+Additions.h"; sourceTree = "<group>"; };
 		EF01D7A71D4ED3B30058A500 /* Account+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Account+Additions.m"; sourceTree = "<group>"; };
-		EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddUserNameAndPhoneViewController.xib; sourceTree = "<group>"; };
+		EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddUserNameAndPhoneView.xib; sourceTree = "<group>"; };
 		EF0B5EAD1D08DBE200551CDA /* Burgers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Burgers.png; sourceTree = "<group>"; };
 		EF0B5EAE1D08DBE200551CDA /* Burgers@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@2x.png"; sourceTree = "<group>"; };
 		EF0B5EAF1D08DBE200551CDA /* Burgers@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burgers@3x.png"; sourceTree = "<group>"; };
@@ -241,17 +243,17 @@
 		EF0B5ECB1D1EF0A700551CDA /* AccountType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountType.m; sourceTree = "<group>"; };
 		EF0B5ECD1D1EF86500551CDA /* TailgatePartyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgatePartyType.h; sourceTree = "<group>"; };
 		EF0B5ECE1D1EF86500551CDA /* TailgatePartyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgatePartyType.m; sourceTree = "<group>"; };
-		EF0B5ED01D1F10B800551CDA /* AddContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactsViewController.xib; sourceTree = "<group>"; };
+		EF0B5ED01D1F10B800551CDA /* AddContactsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactsView.xib; sourceTree = "<group>"; };
 		EF135F481CBB185500C80753 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
 		EF135F491CBB185500C80753 /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
 		EF135F501CBB413300C80753 /* HomeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMapViewController.h; sourceTree = "<group>"; };
 		EF135F511CBB413300C80753 /* HomeMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMapViewController.m; sourceTree = "<group>"; };
 		EF135F651CBB424600C80753 /* AddTailgateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTailgateViewController.xib; sourceTree = "<group>"; };
 		EF135F661CBB424600C80753 /* HomeMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeMapViewController.xib; sourceTree = "<group>"; };
-		EF135F671CBB424600C80753 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		EF135F671CBB424600C80753 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		EF135F681CBB424600C80753 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		EF135F691CBB424600C80753 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
-		EF135F6A1CBB424600C80753 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		EF135F691CBB424600C80753 /* SignInView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInView.xib; sourceTree = "<group>"; };
+		EF135F6A1CBB424600C80753 /* SignUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		EF135F6C1CBB424600C80753 /* ProfileEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileEditView.xib; sourceTree = "<group>"; };
 		EF135F6D1CBB424600C80753 /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		EF135F761CBB425E00C80753 /* AddTailgateDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTailgateDetailsView.xib; sourceTree = "<group>"; };
@@ -292,18 +294,18 @@
 		EF5AD88A1D5D6AB300DDEAF1 /* ContactsViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewControler.m; sourceTree = "<group>"; };
 		EF5AD88B1D5D6AB300DDEAF1 /* TailgatePartyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgatePartyInfoViewController.h; sourceTree = "<group>"; };
 		EF5AD88C1D5D6AB300DDEAF1 /* TailgatePartyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgatePartyInfoViewController.m; sourceTree = "<group>"; };
-		EF5AD88E1D5D6AB300DDEAF1 /* AddContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactsViewController.h; sourceTree = "<group>"; };
-		EF5AD88F1D5D6AB300DDEAF1 /* AddContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactsViewController.m; sourceTree = "<group>"; };
-		EF5AD8901D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserNameAndPhoneViewController.h; sourceTree = "<group>"; };
-		EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserNameAndPhoneViewController.m; sourceTree = "<group>"; };
-		EF5AD8921D5D6AB300DDEAF1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		EF5AD8931D5D6AB300DDEAF1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EF5AD88E1D5D6AB300DDEAF1 /* AddContactsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactsView.h; sourceTree = "<group>"; };
+		EF5AD88F1D5D6AB300DDEAF1 /* AddContactsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactsView.m; sourceTree = "<group>"; };
+		EF5AD8901D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddUserNameAndPhoneView.h; sourceTree = "<group>"; };
+		EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddUserNameAndPhoneView.m; sourceTree = "<group>"; };
+		EF5AD8921D5D6AB300DDEAF1 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		EF5AD8931D5D6AB300DDEAF1 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		EF5AD8941D5D6AB300DDEAF1 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		EF5AD8951D5D6AB300DDEAF1 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		EF5AD8961D5D6AB300DDEAF1 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
-		EF5AD8971D5D6AB300DDEAF1 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
-		EF5AD8981D5D6AB300DDEAF1 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		EF5AD8991D5D6AB300DDEAF1 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		EF5AD8961D5D6AB300DDEAF1 /* SignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInView.h; sourceTree = "<group>"; };
+		EF5AD8971D5D6AB300DDEAF1 /* SignInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInView.m; sourceTree = "<group>"; };
+		EF5AD8981D5D6AB300DDEAF1 /* SignUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpView.h; sourceTree = "<group>"; };
+		EF5AD8991D5D6AB300DDEAF1 /* SignUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpView.m; sourceTree = "<group>"; };
 		EF5AD8A31D5D6BDC00DDEAF1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		EF5AD8A41D5D6BDC00DDEAF1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		EF5AD8A51D5D6BDC00DDEAF1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -420,13 +422,13 @@
 		EF73F79F1BC3767D00FA9DBA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EF73F7A01BC37AFA00FA9DBA /* TailgateSupply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupply.h; sourceTree = "<group>"; };
 		EF73F7A11BC37AFA00FA9DBA /* TailgateSupply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateSupply.m; sourceTree = "<group>"; };
-		EF7AF9EE1D1FA6EA00D58E0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF84EF831CEE92E3006459DA /* JackTrice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JackTrice.gpx; sourceTree = "<group>"; };
 		EF84EF851CEEA20E006459DA /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		EF84EF861CEEA20E006459DA /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		EF84EF881CEEA434006459DA /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		EF90AEA01CB5C62300883032 /* NSUserDefaults+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Additions.h"; sourceTree = "<group>"; };
 		EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Additions.m"; sourceTree = "<group>"; };
+		EFB53D1C1D7014F100564AA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFBF8DE01C5B194F0075DE38 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		EFBF8DE21C5B196A0075DE38 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		EFBF8DE41C5B25EA0075DE38 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
@@ -443,10 +445,13 @@
 		EFE094271D6D579900094A9B /* EditTailgateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTailgateViewController.h; sourceTree = "<group>"; };
 		EFE094281D6D579900094A9B /* EditTailgateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTailgateViewController.m; sourceTree = "<group>"; };
 		EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditTailgateViewController.xib; sourceTree = "<group>"; };
-		EFE0942E1D6E65F100094A9B /* PhoneVerificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneVerificationViewController.h; sourceTree = "<group>"; };
-		EFE0942F1D6E65F100094A9B /* PhoneVerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneVerificationViewController.m; sourceTree = "<group>"; };
-		EFE094311D6E661300094A9B /* PhoneVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneVerificationViewController.xib; sourceTree = "<group>"; };
+		EFE0942E1D6E65F100094A9B /* PhoneVerificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneVerificationView.h; sourceTree = "<group>"; };
+		EFE0942F1D6E65F100094A9B /* PhoneVerificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneVerificationView.m; sourceTree = "<group>"; };
+		EFE094311D6E661300094A9B /* PhoneVerificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneVerificationView.xib; sourceTree = "<group>"; };
 		EFE094331D6E6AE400094A9B /* SinchVerification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SinchVerification.framework; path = Pods/SinchVerification/SinchVerification.framework; sourceTree = "<group>"; };
+		EFE094351D6E7CF800094A9B /* AccountFlowManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountFlowManagementViewController.h; sourceTree = "<group>"; };
+		EFE094361D6E7CF800094A9B /* AccountFlowManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountFlowManagementViewController.m; sourceTree = "<group>"; };
+		EFE094381D6E7D0F00094A9B /* AccountFlowManagementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountFlowManagementViewController.xib; sourceTree = "<group>"; };
 		EFE4A6B71D51837700587C29 /* drinks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drinks.png; sourceTree = "<group>"; };
 		EFE4A6B81D51837700587C29 /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
 		EFE4A6B91D51837700587C29 /* games.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = games.png; sourceTree = "<group>"; };
@@ -579,18 +584,19 @@
 			isa = PBXGroup;
 			children = (
 				EF135F651CBB424600C80753 /* AddTailgateViewController.xib */,
-				EF0B5ED01D1F10B800551CDA /* AddContactsViewController.xib */,
-				EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib */,
+				EFE094381D6E7D0F00094A9B /* AccountFlowManagementViewController.xib */,
+				EF0B5ED01D1F10B800551CDA /* AddContactsView.xib */,
+				EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib */,
 				EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */,
 				EF01D7931D3AE9870058A500 /* ContactsViewControler.xib */,
 				EF135F661CBB424600C80753 /* HomeMapViewController.xib */,
 				EF84EF881CEEA434006459DA /* LandingViewController.xib */,
-				EF135F671CBB424600C80753 /* LoginViewController.xib */,
-				EFE094311D6E661300094A9B /* PhoneVerificationViewController.xib */,
+				EF135F671CBB424600C80753 /* LoginView.xib */,
+				EFE094311D6E661300094A9B /* PhoneVerificationView.xib */,
 				EF135F681CBB424600C80753 /* ProfileViewController.xib */,
 				EF5AD94E1D6893B800DDEAF1 /* PromotionsViewController.xib */,
-				EF135F691CBB424600C80753 /* SignInViewController.xib */,
-				EF135F6A1CBB424600C80753 /* SignUpViewController.xib */,
+				EF135F691CBB424600C80753 /* SignInView.xib */,
+				EF135F6A1CBB424600C80753 /* SignUpView.xib */,
 				EF43C28D1CDAC15200BA1C7F /* TailgatePartyInfoViewController.xib */,
 				EF5AD8AF1D5D6FF700DDEAF1 /* TailgatePartyTimeLineViewController.xib */,
 			);
@@ -714,20 +720,22 @@
 		EF5AD88D1D5D6AB300DDEAF1 /* Acount */ = {
 			isa = PBXGroup;
 			children = (
-				EF5AD88E1D5D6AB300DDEAF1 /* AddContactsViewController.h */,
-				EF5AD88F1D5D6AB300DDEAF1 /* AddContactsViewController.m */,
-				EF5AD8901D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.h */,
-				EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.m */,
-				EF5AD8921D5D6AB300DDEAF1 /* LoginViewController.h */,
-				EF5AD8931D5D6AB300DDEAF1 /* LoginViewController.m */,
-				EFE0942E1D6E65F100094A9B /* PhoneVerificationViewController.h */,
-				EFE0942F1D6E65F100094A9B /* PhoneVerificationViewController.m */,
+				EFE094351D6E7CF800094A9B /* AccountFlowManagementViewController.h */,
+				EFE094361D6E7CF800094A9B /* AccountFlowManagementViewController.m */,
+				EF5AD88E1D5D6AB300DDEAF1 /* AddContactsView.h */,
+				EF5AD88F1D5D6AB300DDEAF1 /* AddContactsView.m */,
+				EF5AD8901D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.h */,
+				EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.m */,
+				EF5AD8921D5D6AB300DDEAF1 /* LoginView.h */,
+				EF5AD8931D5D6AB300DDEAF1 /* LoginView.m */,
+				EFE0942E1D6E65F100094A9B /* PhoneVerificationView.h */,
+				EFE0942F1D6E65F100094A9B /* PhoneVerificationView.m */,
 				EF5AD8941D5D6AB300DDEAF1 /* ProfileViewController.h */,
 				EF5AD8951D5D6AB300DDEAF1 /* ProfileViewController.m */,
-				EF5AD8961D5D6AB300DDEAF1 /* SignInViewController.h */,
-				EF5AD8971D5D6AB300DDEAF1 /* SignInViewController.m */,
-				EF5AD8981D5D6AB300DDEAF1 /* SignUpViewController.h */,
-				EF5AD8991D5D6AB300DDEAF1 /* SignUpViewController.m */,
+				EF5AD8961D5D6AB300DDEAF1 /* SignInView.h */,
+				EF5AD8971D5D6AB300DDEAF1 /* SignInView.m */,
+				EF5AD8981D5D6AB300DDEAF1 /* SignUpView.h */,
+				EF5AD8991D5D6AB300DDEAF1 /* SignUpView.m */,
 			);
 			path = Acount;
 			sourceTree = "<group>";
@@ -841,10 +849,10 @@
 		EF73F75C1BC36B9100FA9DBA /* TailgateMate */ = {
 			isa = PBXGroup;
 			children = (
+				EFB53D1C1D7014F100564AA3 /* GoogleService-Info.plist */,
 				EF73F7741BC36D7500FA9DBA /* Source */,
 				EF73F7691BC36B9100FA9DBA /* Assets.xcassets */,
 				EF73F76E1BC36B9100FA9DBA /* Info.plist */,
-				EF7AF9EE1D1FA6EA00D58E0A /* GoogleService-Info.plist */,
 				EF135F8C1CC1497400C80753 /* Images */,
 				EF73F75D1BC36B9100FA9DBA /* Supporting Files */,
 			);
@@ -1103,6 +1111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE4A6BD1D51837700587C29 /* drinks.png in Resources */,
+				EFE094391D6E7D0F00094A9B /* AccountFlowManagementViewController.xib in Resources */,
 				EFE4A6BF1D51837700587C29 /* games.png in Resources */,
 				EF5AD94F1D6893B800DDEAF1 /* PromotionsViewController.xib in Resources */,
 				EF5AD94A1D66CCF900DDEAF1 /* RedFullFilterPin.png in Resources */,
@@ -1113,7 +1122,7 @@
 				EF0B5EB81D08DBE200551CDA /* Burgers@3x.png in Resources */,
 				EF5AD9491D66CCF900DDEAF1 /* RedEmptyFilterPin.png in Resources */,
 				EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */,
-				EF135F701CBB424600C80753 /* LoginViewController.xib in Resources */,
+				EF135F701CBB424600C80753 /* LoginView.xib in Resources */,
 				EFE4A6C01D51837700587C29 /* other.png in Resources */,
 				EF01D7941D3AE9870058A500 /* ContactsViewControler.xib in Resources */,
 				EF5AD9211D639DC300DDEAF1 /* AddItemDefaultImage.png in Resources */,
@@ -1127,7 +1136,7 @@
 				EF5AD9481D66CCF900DDEAF1 /* PurpleFullFilterPin.png in Resources */,
 				EF5AD93E1D66CA2E00DDEAF1 /* TailgatePartyFilterView.xib in Resources */,
 				EF0B5EB71D08DBE200551CDA /* Burgers@2x.png in Resources */,
-				EF135F731CBB424600C80753 /* SignUpViewController.xib in Resources */,
+				EF135F731CBB424600C80753 /* SignUpView.xib in Resources */,
 				EF5AD9461D66CCF900DDEAF1 /* BlackFullFilterPin.png in Resources */,
 				EF5AD92F1D655F9300DDEAF1 /* TimelineItemImageTableCell.xib in Resources */,
 				EF0B5EBA1D08DBE200551CDA /* Cups@2x.png in Resources */,
@@ -1142,15 +1151,15 @@
 				EF01D7991D3BF4B10058A500 /* AddTailgateInvitesView.xib in Resources */,
 				EFE4A6D81D540BE800587C29 /* RedFullPin.png in Resources */,
 				EF01D78A1D39E0160058A500 /* AddContactTableHeaderView.xib in Resources */,
-				EF01D7AD1D4EEB1A0058A500 /* AddUserNameAndPhoneViewController.xib in Resources */,
+				EF01D7AD1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib in Resources */,
 				EF0B5EB91D08DBE200551CDA /* Cups.png in Resources */,
 				EFE4A6D71D540BE800587C29 /* RedEmptyPin.png in Resources */,
 				EFE4A6CE1D52D55300587C29 /* search_icon.png in Resources */,
 				EF5AD91F1D62B3F400DDEAF1 /* AddTimelineItemViewController.xib in Resources */,
-				EFE094321D6E661300094A9B /* PhoneVerificationViewController.xib in Resources */,
+				EFE094321D6E661300094A9B /* PhoneVerificationView.xib in Resources */,
 				EF135F771CBB425E00C80753 /* AddTailgateDetailsView.xib in Resources */,
 				EF5AD90D1D60123D00DDEAF1 /* PurpleFullPin.png in Resources */,
-				EF135F721CBB424600C80753 /* SignInViewController.xib in Resources */,
+				EF135F721CBB424600C80753 /* SignInView.xib in Resources */,
 				EF5AD9541D68967000DDEAF1 /* PromotionsFooterView.xib in Resources */,
 				EF5AD8B01D5D6FF700DDEAF1 /* TailgatePartyTimeLineViewController.xib in Resources */,
 				EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */,
@@ -1161,12 +1170,12 @@
 				EF5AD9451D66CCF900DDEAF1 /* BlackEmptyFilterPin.png in Resources */,
 				EF135F9E1CC16EE000C80753 /* TailgateSupplyButton.xib in Resources */,
 				EF43C2931CE8EB3A00BA1C7F /* NavbarView.xib in Resources */,
-				EF0B5ED11D1F10B800551CDA /* AddContactsViewController.xib in Resources */,
-				EF7AF9EF1D1FA6EA00D58E0A /* GoogleService-Info.plist in Resources */,
+				EF0B5ED11D1F10B800551CDA /* AddContactsView.xib in Resources */,
 				EFE4A6CB1D52D55300587C29 /* filter_bars.png in Resources */,
 				EFE4A6C31D51840500587C29 /* back_drop.png in Resources */,
 				EF5AD90B1D60123D00DDEAF1 /* BlackFullPin.png in Resources */,
 				EF0B5EBD1D08DBE200551CDA /* Grill@2x.png in Resources */,
+				EFB53D1D1D7014F100564AA3 /* GoogleService-Info.plist in Resources */,
 				EF5AD9151D612E4500DDEAF1 /* DatePickerView.xib in Resources */,
 				EFE4A6DD1D5D359A00587C29 /* ContactTableViewCell.xib in Resources */,
 				EF135FA01CC18B1600C80753 /* TailgateSupplyRow.xib in Resources */,
@@ -1247,7 +1256,7 @@
 				EF5AD9271D63A95A00DDEAF1 /* ImageServiceProvider.m in Sources */,
 				EF01D7A81D4ED3B30058A500 /* Account+Additions.m in Sources */,
 				EF73F79E1BC3759900FA9DBA /* TailgateParty.m in Sources */,
-				EF5AD89D1D5D6AB300DDEAF1 /* AddContactsViewController.m in Sources */,
+				EF5AD89D1D5D6AB300DDEAF1 /* AddContactsView.m in Sources */,
 				EF135FA31CC28BDC00C80753 /* TailgatePartyServiceProvider.m in Sources */,
 				EF5AD8FD1D5E54BE00DDEAF1 /* ContactTableViewCell.m in Sources */,
 				EF135F851CBE863F00C80753 /* LocationManager.m in Sources */,
@@ -1259,10 +1268,10 @@
 				EF5AD8DC1D5E546300DDEAF1 /* ProfileView.m in Sources */,
 				EFFEBC9E1D6A42600008CF55 /* TableImageCacher.m in Sources */,
 				EF73F7A21BC37AFA00FA9DBA /* TailgateSupply.m in Sources */,
-				EF5AD8A11D5D6AB300DDEAF1 /* SignInViewController.m in Sources */,
+				EF5AD8A11D5D6AB300DDEAF1 /* SignInView.m in Sources */,
 				EF5AD8DB1D5E546300DDEAF1 /* ProfileEditView.m in Sources */,
 				EF90AEA21CB5C62300883032 /* NSUserDefaults+Additions.m in Sources */,
-				EFE094301D6E65F100094A9B /* PhoneVerificationViewController.m in Sources */,
+				EFE094301D6E65F100094A9B /* PhoneVerificationView.m in Sources */,
 				EF5AD9101D60161E00DDEAF1 /* PinProvider.m in Sources */,
 				EF4C7BAD1CA89C00004A6CF3 /* AccountManager.m in Sources */,
 				EF5AD8B91D5E48E400DDEAF1 /* NSDate+Additions.m in Sources */,
@@ -1279,7 +1288,7 @@
 				EF4C7BC01CAB40DD004A6CF3 /* ParkingLot.m in Sources */,
 				EF01D79C1D4E8C990058A500 /* GuestsServiceProvider.m in Sources */,
 				EF5AD8AB1D5D6BFF00DDEAF1 /* TailgatePartyViewController.m in Sources */,
-				EF5AD89F1D5D6AB300DDEAF1 /* LoginViewController.m in Sources */,
+				EF5AD89F1D5D6AB300DDEAF1 /* LoginView.m in Sources */,
 				EF5AD8FB1D5E54BE00DDEAF1 /* AddTailgateMapView.m in Sources */,
 				EF5AD92D1D655DAE00DDEAF1 /* TimelineItemImageTableCell.m in Sources */,
 				EF3C11BA1C8E70770069DAE4 /* UserCredentials.m in Sources */,
@@ -1296,7 +1305,7 @@
 				EF135F5C1CBB413300C80753 /* HomeMapViewController.m in Sources */,
 				EF01D79F1D4E92690058A500 /* Invite.m in Sources */,
 				EF73F7831BC372FE00FA9DBA /* Location.m in Sources */,
-				EF5AD89E1D5D6AB300DDEAF1 /* AddUserNameAndPhoneViewController.m in Sources */,
+				EF5AD89E1D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.m in Sources */,
 				EF73F7981BC3745600FA9DBA /* Stadium.m in Sources */,
 				EF5AD89C1D5D6AB300DDEAF1 /* TailgatePartyInfoViewController.m in Sources */,
 				EFBF8DED1C6AB1D80075DE38 /* Account.m in Sources */,
@@ -1313,6 +1322,7 @@
 				EF5AD89A1D5D6AB300DDEAF1 /* AddTailgateViewController.m in Sources */,
 				EF5AD8A81D5D6BDC00DDEAF1 /* RootViewController.m in Sources */,
 				EF5AD9001D5E54BE00DDEAF1 /* TailgateSupplySlider.m in Sources */,
+				EFE094371D6E7CF800094A9B /* AccountFlowManagementViewController.m in Sources */,
 				EF5AD8AE1D5D6FA200DDEAF1 /* TailgatePartyTimeLineViewController.m in Sources */,
 				EF5AD9321D66B6F100DDEAF1 /* UIView+Loading.m in Sources */,
 				EF5AD93C1D66C63300DDEAF1 /* TailgateParty+Additions.m in Sources */,
@@ -1321,7 +1331,7 @@
 				EF73F75F1BC36B9100FA9DBA /* main.m in Sources */,
 				EF135F7D1CBC85B100C80753 /* FirebaseEnum.m in Sources */,
 				EFEB1B001D28F5A8006299CD /* Contact.m in Sources */,
-				EF5AD8A21D5D6AB300DDEAF1 /* SignUpViewController.m in Sources */,
+				EF5AD8A21D5D6AB300DDEAF1 /* SignUpView.m in Sources */,
 				EF5AD9131D612DB900DDEAF1 /* DatePickerView.m in Sources */,
 				EF0B5ECF1D1EF86500551CDA /* TailgatePartyType.m in Sources */,
 				EF5AD8FF1D5E54BE00DDEAF1 /* TailgateSupplyRow.m in Sources */,

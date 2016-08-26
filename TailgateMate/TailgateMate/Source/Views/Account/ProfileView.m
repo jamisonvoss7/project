@@ -7,6 +7,7 @@
 //
 
 #import "ProfileView.h"
+#import "ImageServiceProvider.h"
 
 @implementation ProfileView
 
@@ -18,28 +19,36 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    self.backgroundColor = [UIColor lightGrayColor];
     [self reload];
 }
 
 - (void)reload {
     Account *account = [AppManager sharedInstance].accountManager.profileAccount;
     
-    NSURL *url = [NSURL URLWithString:account.photoUrl];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] initWithData:data];
+    if (account.photoId) {
+        [self.profileImageView showActivityIndicatorWithCurtain:YES];
+        
+        NSString *path = [NSString stringWithFormat:@"%@/%@", account.uid, account.photoId];
+        
+        ImageServiceProvider *service = [[ImageServiceProvider alloc] init];
+        [service getImageFromPath:path
+                   withCompletion:^(UIImage *image, NSError *error) {
+                       [self.profileImageView hideActivityIndicator];
+                       self.profileImageView.image = image;
+                   }];
+    } else if (account.photoUrl) {
+        [self.profileImageView showActivityIndicatorWithCurtain:YES];
+        
+        NSURL *url = [NSURL URLWithString:account.photoUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *img = [[UIImage alloc] initWithData:data];
 
-    CGPoint point = self.profileImageView.center;
-
-    CGRect frame = self.profileImageView.frame;
-    frame.size.height = img.size.height;
-    frame.size.width = img.size.width;
-    self.profileImageView.frame = frame;
-    
-    self.profileImageView.center = point;
-    
-    self.profileImageView.image = img;
+        self.profileImageView.image = img;
+        
+        [self.profileImageView hideActivityIndicator];
+    } else {
+        self.profileImageView.image = [UIImage imageNamed:@"default_profile"];
+    }
     
     self.nameLabel.text = account.displayName;
 }

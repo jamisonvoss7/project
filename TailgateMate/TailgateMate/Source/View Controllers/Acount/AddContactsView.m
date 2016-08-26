@@ -6,7 +6,7 @@
 //  Copyright © 2016 Jamison Voss. All rights reserved.
 //
 
-#import "AddContactsViewController.h"
+#import "AddContactsView.h"
 #import <Contacts/Contacts.h>
 #import "NavbarView.h"
 #import "AccountService.h"
@@ -15,32 +15,30 @@
 #import <MessageUI/MessageUI.h>
 #import "CNContact+Additions.H"
 
-@interface AddContactsViewController () <MFMessageComposeViewControllerDelegate>
+@interface AddContactsView () <MFMessageComposeViewControllerDelegate>
 @property (nonatomic) NavbarView *navbarView;
 @property (nonatomic) NSArray *availableContacts;
 @property (nonatomic) NSArray *addableContacts;
 @property (nonatomic) NSArray *invitableContacts;
 @property (nonatomic) NSArray *accounts;
 @property (nonatomic) NSArray *currentContacts;
-@property (nonatomic, copy) void (^closeHandler)(void);
 @end
 
-@implementation AddContactsViewController
+@implementation AddContactsView
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
++ (instancetype)instanceWithDefaultNib {
+    UINib *nib = [UINib nibWithNibName:@"AddContactsView"
+                                bundle:[NSBundle mainBundle]];
+    return [[nib instantiateWithOwner:nil options:nil] lastObject];
+}
 
-    self.navbarView = [NavbarView instanceFromDefaultNib];
-    self.navbarView.titleLabel.text = @"Add Contacts";
-    self.navbarView.leftButton.text = @"Close";
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
+
+- (void)becomesVisible {
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(closeView:)];
-    tap.numberOfTapsRequired = 1;
-    [self.navbarView.leftButton addGestureRecognizer:tap];
     
-    [self.view addSubview:self.navbarView];
-
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -54,7 +52,7 @@
     if (status == CNAuthorizationStatusDenied || status == CNAuthorizationStatusRestricted) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"This app previously was refused permissions to contacts; Please go to settings and grant permission to this app so it can use contacts" preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-        [self presentViewController:alert animated:TRUE completion:nil];
+        [self.flowDelegate presentAViewController:alert];
         return;
     }
     
@@ -93,8 +91,24 @@
     }];
 }
 
-- (void)onDismissHandler:(void (^)())handler {
-    self.closeHandler = handler;
+- (void)setFlowDelegate:(id<AccountFlowDelegate>)flowDelegate {
+    _flowDelegate = flowDelegate;
+    
+    self.navbarView = [NavbarView instanceFromDefaultNib];
+    self.navbarView.titleLabel.text = @"Add Contacts";
+    self.navbarView.rightButton.text = @"Done";
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(closeView:)];
+    tap.numberOfTapsRequired = 1;
+    [self.navbarView.rightButton addGestureRecognizer:tap];
+    
+    [self addSubview:self.navbarView];
+    
+    CGRect frame = self.tableView.frame;
+    frame.size.height = frame.size.height - self.navbarView.frame.size.height;
+    frame.origin.y = self.navbarView.frame.size.height;
+    self.tableView.frame = frame;
 }
 
 - (void)bootStrapData {
@@ -107,7 +121,8 @@
     AccountService *service = [[AccountService alloc] init];
     
     for (CNContact *contact in self.availableContacts) {
-        if (![self.currentContacts containsObject:[contact phoneNumberString]]) {
+        if (![self.currentContacts containsObject:[contact phoneNumberString]] &&
+            [contact phoneNumberString].length > 0) {
             [batch addBatchBlock:^(Batch *batch) {
                 [service loadAccountFromPhoneNumber:[contact phoneNumberString]
                                        withComplete:^(Account *account, NSError *error) {
@@ -209,11 +224,7 @@
 }
 
 - (void)closeView:(UITapGestureRecognizer *)sender {
-    [self.baseDelegate dismissViewController:self];
-
-    if (self.closeHandler) {
-        self.closeHandler();
-    }
+    [self.flowDelegate showNextFlowStep:FlowStepDone withObject:nil];
 }
 
 - (void)addContactAtIndexPath:(NSIndexPath *)indexPath andTableCell:(AddContactTableViewCell *)cell {
@@ -256,7 +267,7 @@
                                                               handler:^(UIAlertAction * action) {}];
         
         [alert addAction:defaultAction];
-        [self presentViewController:alert animated:YES completion:nil];
+        [self.flowDelegate presentAViewController:alert];
         return;
     }
     
@@ -271,7 +282,7 @@
     [messageController setBody:message];
     
     // Present message view controller on screen
-    [self presentViewController:messageController animated:YES completion:nil];
+    [self.flowDelegate presentAViewController:messageController];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result {
@@ -288,7 +299,7 @@
                                                                   handler:^(UIAlertAction * action) {}];
             
             [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
+            [self.flowDelegate presentAViewController:alert];
         }
             
         case MessageComposeResultSent:
@@ -297,8 +308,6 @@
         default:
             break;
     }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)setupCurrentContacts {

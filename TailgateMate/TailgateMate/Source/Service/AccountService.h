@@ -31,4 +31,8 @@
 
 - (void)checkUserNameAvailability:(NSString *)userName
                      withComplete:(void (^)(BOOL available, NSError *error))handler;
+
+- (void)removeOtherAccountsPhoneNumber:(NSString *)phoneNumber
+                          withComplete:(void (^)(BOOL success, NSError *error))handler;
+
 @end

@@ -10,7 +10,7 @@
 #import "HomeMapViewController.h"
 #import "ProfileViewController.h"
 #import "AddTailgateViewController.h"
-#import "LoginViewController.h"
+#import "AccountFlowManagementViewController.h"
 
 @interface LandingViewController ()
 
@@ -69,8 +69,18 @@
 }
 
 - (void)hostTapHandler:(UITapGestureRecognizer *)sender {
-    AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
-    [self.baseDelegate presentViewController:vc];
+    if ([[AppManager sharedInstance].accountManager isAuthenticated]) {
+        AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
+        [self.baseDelegate presentViewController:vc];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                       message:@"Please create an account or sign in to host a tailgate."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)viewTapHandler:(UITapGestureRecognizer *)sender {
@@ -85,7 +95,7 @@
         ProfileViewController *vc = [[ProfileViewController alloc] init];
         [self.baseDelegate presentViewController:vc];
     } else {
-        LoginViewController *vc = [[LoginViewController alloc] init];
+        AccountFlowManagementViewController *vc = [[AccountFlowManagementViewController alloc] init];
         [self.baseDelegate presentViewController:vc];
     }
 }

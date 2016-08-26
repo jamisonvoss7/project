@@ -4,28 +4,21 @@
 //  Copyright © 2015 Jamison Voss. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "SignUpViewController.h"
-#import "SignInViewController.h"
-#import "AddUserNameAndPhoneViewController.h"
+#import "LoginView.h"
 
-@interface LoginViewController ()
+@interface LoginView ()
 
 @end
 
-@implementation LoginViewController
+@implementation LoginView
 
-- (id)init {
-    self = [super initWithNibName:@"LoginViewController"
-                           bundle:[NSBundle mainBundle]];
-    if (self) {
-        
-    }
-    return self;
++ (instancetype)instanceWithDefaultNib {
+    UINib *nib = [UINib nibWithNibName:@"LoginView" bundle:[NSBundle mainBundle]];
+    return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)awakeFromNib {
+    [super awakeFromNib];
     [self.facebbokButton addTarget:self
                             action:@selector(facebookButtonAction:)
                   forControlEvents:UIControlEventTouchUpInside];
@@ -35,28 +28,32 @@
                forControlEvents:UIControlEventTouchUpInside];
     
     [self.basicAccountButton addTarget:self
-                                action:@selector(signUpBUttonTapped:)
+                                action:@selector(signUpButtonTapped:)
                       forControlEvents:UIControlEventTouchUpInside];
     
     [self.skipButton addTarget:self
                         action:@selector(skipButtonTapped:)
               forControlEvents:UIControlEventTouchUpInside];
     
+    [self.backButton addTarget:self
+                        action:@selector(backButtonTapped:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pastFirstLaunch"]) {
+        self.backButton.hidden = YES;
+    }
     
     self.facebbokButton.layer.cornerRadius = 15.0f;
-    self.twitterButton.layer.cornerRadius = 15.0f;
     self.emailButton.layer.cornerRadius = 15.0f;
     self.basicAccountButton.layer.cornerRadius = 15.0f;
     self.skipButton.layer.cornerRadius = 15.0f;
     
     self.facebbokButton.layer.borderWidth = 3.0f;
-    self.twitterButton.layer.borderWidth = 3.0f;
     self.emailButton.layer.borderWidth = 3.0f;
     self.basicAccountButton.layer.borderWidth = 3.0f;
     self.skipButton.layer.borderWidth = 3.0f;
     
     self.facebbokButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.twitterButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.emailButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.basicAccountButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.skipButton.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -65,45 +62,39 @@
 
 - (void)facebookButtonAction:(UIButton *)sender {
     AccountManager *manager = [AppManager sharedInstance].accountManager;
-    [manager signInWithFacebookFromViewController:self
+    BaseViewController *vc = (BaseViewController *)self.flowDelegate;
+    
+    [self.flowDelegate beginFlowOfType:FlowTypeFacebook];
+    
+    [manager signInWithFacebookFromViewController:vc
                                    withCompletion:^(BOOL success, NSError *error) {
                                        if (success) {
                                            if ([AppManager sharedInstance].accountManager.profileAccount.userName.length == 0) {
-                                               AddUserNameAndPhoneViewController *vc = [[AddUserNameAndPhoneViewController alloc] init];
-                                               vc.authDelegate = self;
-                                               [self.baseDelegate presentViewController:vc];
+                                               [self.flowDelegate showNextFlowStep:FlowStepAddUserName withObject:nil];
                                            } else {
-                                               [self.baseDelegate dismissViewController:self];
+                                               [self.flowDelegate showNextFlowStep:FlowStepDone withObject:nil];
                                            }
+                                       } else {
+                                           [self makeToast:@"An error occurred"];
                                        }
                                    }];
 }
 
-- (void)signUpBUttonTapped:(UIButton *)sender {
-    SignUpViewController *vc = [[SignUpViewController alloc] init];
-    vc.authDelegate = self;
-    [self.baseDelegate presentViewController:vc];
+- (void)signUpButtonTapped:(UIButton *)sender {
+    [self.flowDelegate beginFlowOfType:FlowTypeSignUp];
 }
 
 - (void)signInButtonTapped:(UIButton *)sender {
-    SignInViewController *vc = [[SignInViewController alloc] init];
-    vc.authDelegate = self;
-    [self.baseDelegate presentViewController:vc];
+    [self.flowDelegate beginFlowOfType:FlowTypeSignIn];
 }
 
 - (void)skipButtonTapped:(UIButton *)sender {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:YES forKey:@"hasSkipped"];
-    
-    [self.baseDelegate dismissViewController:self];
+    [self.flowDelegate beginFlowOfType:FlowTypeSkip];
 }
 
-- (void)didAuthenticate {
-    [self.baseDelegate dismissViewController:self];
+- (void)backButtonTapped:(UIButton *)sender {
+    [self.flowDelegate showNextFlowStep:FlowStepDone withObject:nil];
 }
 
-- (void)failedToAuthenticate {
-    
-}
 
 @end
