@@ -19,10 +19,13 @@
 @property (nonatomic, weak) IBOutlet UIView *line2;
 @property (nonatomic, weak) IBOutlet UIView *line3;
 
+@property (nonatomic, weak) IBOutlet UIButton *flagButton;
+
 + (instancetype)instanceWithDefaultNib;
 + (CGFloat)heightForItem:(TimelineItem *)item;
 
 - (void)populateWithItem:(TimelineItem *)item andTailgateParty:(TailgateParty *)party;
 - (void)popluateWithImage:(UIImage *)image;
+- (void)hasBeenFlagged:(void (^)(TimelineItem *item))handler;
 
 @end

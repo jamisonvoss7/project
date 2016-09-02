@@ -29,6 +29,9 @@
 - (void)loadAccountFromPhoneNumber:(NSString *)phoneNumber
                       withComplete:(void (^)(Account *account, NSError *error))handler;
 
+- (void)loadAccountFromUsername:(NSString *)userName
+                   withComplete:(void (^)(Account *account, NSError *error))handler;
+
 - (void)checkUserNameAvailability:(NSString *)userName
                      withComplete:(void (^)(BOOL available, NSError *error))handler;
 

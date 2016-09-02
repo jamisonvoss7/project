@@ -19,6 +19,7 @@
     instance.contactType = [ContactType findByString:data.value[@"contactType"]];
     instance.userName = data.value[@"userName"];
     instance.imageURL = data.value[@"imageURL"];
+    instance.imageId = data.value[@"imageId"];
     
     return instance;
 }
@@ -32,6 +33,7 @@
     instance.contactType = [ContactType findByString:dictionary[@"contactType"]];
     instance.userName = dictionary[@"userName"];
     instance.imageURL = dictionary[@"imageURL"];
+    instance.imageId = dictionary[@"imageId"];
 
     return instance;
 }
@@ -61,6 +63,10 @@
     
     if (self.imageURL.length > 0) {
         dict[@"imageURL"] = self.imageURL;
+    }
+    
+    if (self.imageId.length > 0) {
+        dict[@"imageId"] = self.imageId;
     }
     
     return [NSDictionary dictionaryWithDictionary:dict];

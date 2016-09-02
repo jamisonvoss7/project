@@ -44,7 +44,10 @@
     
     baseRef = [baseRef child:path];
     [baseRef observeSingleEventOfType:FIRDataEventTypeValue
-                            withBlock:handler];
+                            withBlock:handler
+                      withCancelBlock:^(NSError * _Nonnull error) {
+                                NSLog(@"%@", error);
+                            }];
 }
 
 - (void)observeDataAtPath:(NSString *)path andParams:(NSDictionary *)dict withCompletion:(void (^)(FIRDataSnapshot *))handler {
@@ -56,7 +59,10 @@
     NSString *key = [[dict allKeys] firstObject];
     
     [[[baseRef queryOrderedByChild:key] queryEqualToValue:value] observeSingleEventOfType:FIRDataEventTypeValue
-                                                                                withBlock:handler];
+                                                                                withBlock:handler
+                                                                          withCancelBlock:^(NSError * _Nonnull error) {
+                                                                                    NSLog(@"%@", error);
+                                                                                }];
     
 }
 @end

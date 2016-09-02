@@ -15,6 +15,7 @@
 @property (nonatomic, readonly) FIRStorageReference *firebaseStorageRef;
 @property (nonatomic, readonly) AccountManager *accountManager;
 @property (nonatomic, readonly) LocationManager *locationManager;
+@property (nonatomic, readonly) NSString *appStoreLink;
 
 + (AppManager *)sharedInstance;
 - (void)initAppWIthComplete:(void (^)(BOOL success, NSError *error))handler;

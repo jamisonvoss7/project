@@ -23,6 +23,7 @@
 @property (nonatomic) TailgatePartyFanType *fanType;
 @property (nonatomic) TailgatePartyType *type;
 @property (nonatomic, copy) NSString *hostUserName;
+@property (nonatomic, copy) NSString *hostDisplayName;
 @property (nonatomic) NSDate *startDate;
 @property (nonatomic) NSDate *endDate;
 @property (nonatomic) NSArray *timeline;

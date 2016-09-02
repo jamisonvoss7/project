@@ -13,6 +13,7 @@
 #import "TailgatePartyServiceProvider.h"
 #import "TimelineItemImageTableCell.h"
 #import "TableImageCacher.h"
+#import "TimelineServiceProvider.h"
 
 @interface TailgatePartyTimeLineViewController () <TableImageCacherDelegate, GADBannerViewDelegate>
 @property (nonatomic) TailgateParty *tailgateParty;
@@ -86,6 +87,10 @@
         
         [cell populateWithItem:item andTailgateParty:self.tailgateParty];
         
+        [cell hasBeenFlagged:^(TimelineItem *item) {
+            [self flagItem:item];
+        }];
+        
         return cell;
     } else if (item.type == TIMELINEITEMTYPE_MESSAGE) {
         TimelineItemMessageTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timelineMessageCell"];
@@ -95,6 +100,10 @@
         
         [cell populateWithTimelineItem:item];
         
+        [cell hasBeenFlagged:^(TimelineItem *item) {
+            [self flagItem:item];
+        }];
+
         return cell;
     } else if (item.type == TIMELINEITEMTYPE_CREATION) {
         TimelineItemCreationTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"timelineCreationCell"];
@@ -123,8 +132,18 @@
 }
 
 - (void)presentAddItemView {
-    AddTimelineItemViewController *vc = [[AddTimelineItemViewController alloc] initWithTailgateParty:self.tailgateParty];
-    [self.baseDelegate presentViewController:vc];
+    if ([AppManager sharedInstance].accountManager.isAuthenticated) {
+        AddTimelineItemViewController *vc = [[AddTimelineItemViewController alloc] initWithTailgateParty:self.tailgateParty];
+        [self.baseDelegate presentViewController:vc];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                       message:@"Please create an account or sign in to post on a tailgate."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)tableImageCacher:(TableImageCacher *)loader finishedLoadingImage:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath {
@@ -138,6 +157,24 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self.cacher loadVisibleAssets];
+}
+
+- (void)flagItem:(TimelineItem *)item {
+    [self.view showActivityIndicatorWithCurtain:YES];
+    
+    TimelineServiceProvider *service = [[TimelineServiceProvider alloc] init];
+    [service flagTimelineItem:item
+              toTailgateParty:self.tailgateParty
+                 withComplete:^(BOOL success, NSError *error) {
+                     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
+                     [service getTimeLineForTailgate:self.tailgateParty.uid
+                                        withComplete:^(NSArray *timeline, NSError *error) {
+                                            [self.view hideActivityIndicator];
+                                            
+                                            self.timeline = [NSArray arrayWithArray:timeline];
+                                            [self.tableView reloadData];
+                                        }];
+                 }];
 }
 
 @end

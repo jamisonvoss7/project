@@ -22,4 +22,9 @@
 - (void)getImageFromImageId:(NSString *)imageId
                  andPartyId:(NSString *)party
              withCompletion:(void (^)(UIImage *image, NSError *error))handler;
+
+- (void)flagTimelineItem:(TimelineItem *)item
+         toTailgateParty:(TailgateParty *)party
+            withComplete:(void (^)(BOOL success, NSError *error))handler;
+
 @end

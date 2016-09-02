@@ -59,6 +59,12 @@
 		EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C28B1CDAC05B00BA1C7F /* TailgateSupplySlider.xib */; };
 		EF43C28E1CDAC15200BA1C7F /* TailgatePartyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C28D1CDAC15200BA1C7F /* TailgatePartyInfoViewController.xib */; };
 		EF43C2931CE8EB3A00BA1C7F /* NavbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF43C2921CE8EB3A00BA1C7F /* NavbarView.xib */; };
+		EF47A17F1D70DC69005FF2DC /* UIImage+Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = EF47A17E1D70DC69005FF2DC /* UIImage+Orientation.m */; };
+		EF47A1821D715147005FF2DC /* AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = EF47A1811D715147005FF2DC /* AppService.m */; };
+		EF47A1851D7159E4005FF2DC /* AddContactFromUserNameVIewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF47A1841D7159E3005FF2DC /* AddContactFromUserNameVIewController.m */; };
+		EF47A1871D715A01005FF2DC /* AddContactFromUserNameVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF47A1861D715A01005FF2DC /* AddContactFromUserNameVIewController.xib */; };
+		EF47A18A1D715D13005FF2DC /* ContactCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF47A1891D715D13005FF2DC /* ContactCardView.m */; };
+		EF47A18C1D715E2C005FF2DC /* ContactCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF47A18B1D715E2C005FF2DC /* ContactCardView.xib */; };
 		EF4C7BAD1CA89C00004A6CF3 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4C7BAC1CA89C00004A6CF3 /* AccountManager.m */; };
 		EF4C7BB81CA8F8D8004A6CF3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4C7BB71CA8F8D8004A6CF3 /* MapKit.framework */; };
 		EF4C7BC01CAB40DD004A6CF3 /* ParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4C7BBF1CAB40DD004A6CF3 /* ParkingLot.m */; };
@@ -277,6 +283,16 @@
 		EF43C28B1CDAC05B00BA1C7F /* TailgateSupplySlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TailgateSupplySlider.xib; sourceTree = "<group>"; };
 		EF43C28D1CDAC15200BA1C7F /* TailgatePartyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TailgatePartyInfoViewController.xib; sourceTree = "<group>"; };
 		EF43C2921CE8EB3A00BA1C7F /* NavbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavbarView.xib; sourceTree = "<group>"; };
+		EF47A17D1D70DC69005FF2DC /* UIImage+Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Orientation.h"; sourceTree = "<group>"; };
+		EF47A17E1D70DC69005FF2DC /* UIImage+Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Orientation.m"; sourceTree = "<group>"; };
+		EF47A1801D715147005FF2DC /* AppService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppService.h; sourceTree = "<group>"; };
+		EF47A1811D715147005FF2DC /* AppService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppService.m; sourceTree = "<group>"; };
+		EF47A1831D7159E3005FF2DC /* AddContactFromUserNameVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactFromUserNameVIewController.h; sourceTree = "<group>"; };
+		EF47A1841D7159E3005FF2DC /* AddContactFromUserNameVIewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactFromUserNameVIewController.m; sourceTree = "<group>"; };
+		EF47A1861D715A01005FF2DC /* AddContactFromUserNameVIewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactFromUserNameVIewController.xib; sourceTree = "<group>"; };
+		EF47A1881D715D13005FF2DC /* ContactCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCardView.h; sourceTree = "<group>"; };
+		EF47A1891D715D13005FF2DC /* ContactCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCardView.m; sourceTree = "<group>"; };
+		EF47A18B1D715E2C005FF2DC /* ContactCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCardView.xib; sourceTree = "<group>"; };
 		EF4C7BAB1CA89C00004A6CF3 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		EF4C7BAC1CA89C00004A6CF3 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		EF4C7BB51CA8E28E004A6CF3 /* AuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationDelegate.h; sourceTree = "<group>"; };
@@ -587,6 +603,7 @@
 				EFE094381D6E7D0F00094A9B /* AccountFlowManagementViewController.xib */,
 				EF0B5ED01D1F10B800551CDA /* AddContactsView.xib */,
 				EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib */,
+				EF47A1861D715A01005FF2DC /* AddContactFromUserNameVIewController.xib */,
 				EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */,
 				EF01D7931D3AE9870058A500 /* ContactsViewControler.xib */,
 				EF135F661CBB424600C80753 /* HomeMapViewController.xib */,
@@ -614,6 +631,7 @@
 				EF01D7981D3BF4B10058A500 /* AddTailgateInvitesView.xib */,
 				EF5AD91E1D62B3F400DDEAF1 /* AddTimelineItemViewController.xib */,
 				EFE4A6DC1D5D359A00587C29 /* ContactTableViewCell.xib */,
+				EF47A18B1D715E2C005FF2DC /* ContactCardView.xib */,
 				EF5AD9141D612E4500DDEAF1 /* DatePickerView.xib */,
 				EF43C2921CE8EB3A00BA1C7F /* NavbarView.xib */,
 				EFE4A6D31D537ADD00587C29 /* PartyFilterView.xib */,
@@ -726,6 +744,8 @@
 				EF5AD88F1D5D6AB300DDEAF1 /* AddContactsView.m */,
 				EF5AD8901D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.h */,
 				EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.m */,
+				EF47A1831D7159E3005FF2DC /* AddContactFromUserNameVIewController.h */,
+				EF47A1841D7159E3005FF2DC /* AddContactFromUserNameVIewController.m */,
 				EF5AD8921D5D6AB300DDEAF1 /* LoginView.h */,
 				EF5AD8931D5D6AB300DDEAF1 /* LoginView.m */,
 				EFE0942E1D6E65F100094A9B /* PhoneVerificationView.h */,
@@ -747,6 +767,8 @@
 				EF5AD8BC1D5E546300DDEAF1 /* AddContactTableHeaderView.m */,
 				EF5AD8BD1D5E546300DDEAF1 /* AddContactTableViewCell.h */,
 				EF5AD8BE1D5E546300DDEAF1 /* AddContactTableViewCell.m */,
+				EF47A1881D715D13005FF2DC /* ContactCardView.h */,
+				EF47A1891D715D13005FF2DC /* ContactCardView.m */,
 				EF5AD8BF1D5E546300DDEAF1 /* ProfileEditView.h */,
 				EF5AD8C01D5E546300DDEAF1 /* ProfileEditView.m */,
 				EF5AD8C11D5E546300DDEAF1 /* ProfileView.h */,
@@ -974,6 +996,8 @@
 				EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */,
 				EF5AD93A1D66C63300DDEAF1 /* TailgateParty+Additions.h */,
 				EF5AD93B1D66C63300DDEAF1 /* TailgateParty+Additions.m */,
+				EF47A17D1D70DC69005FF2DC /* UIImage+Orientation.h */,
+				EF47A17E1D70DC69005FF2DC /* UIImage+Orientation.m */,
 				EF5AD9301D66B6F100DDEAF1 /* UIView+Loading.h */,
 				EF5AD9311D66B6F100DDEAF1 /* UIView+Loading.m */,
 				EFFEBC9F1D6A5F340008CF55 /* UIView+Toast.h */,
@@ -987,6 +1011,8 @@
 			children = (
 				EFBF8DEF1C6AB3BE0075DE38 /* AccountService.h */,
 				EFBF8DF01C6AB3BE0075DE38 /* AccountService.m */,
+				EF47A1801D715147005FF2DC /* AppService.h */,
+				EF47A1811D715147005FF2DC /* AppService.m */,
 				EFBF8DF51C6C15200075DE38 /* FireBaseServiceProvider.h */,
 				EFBF8DF61C6C15200075DE38 /* FireBaseServiceProvider.m */,
 				EF5AD9221D63A75500DDEAF1 /* FirebaseStorageServiceProvider.h */,
@@ -1139,6 +1165,7 @@
 				EF135F731CBB424600C80753 /* SignUpView.xib in Resources */,
 				EF5AD9461D66CCF900DDEAF1 /* BlackFullFilterPin.png in Resources */,
 				EF5AD92F1D655F9300DDEAF1 /* TimelineItemImageTableCell.xib in Resources */,
+				EF47A18C1D715E2C005FF2DC /* ContactCardView.xib in Resources */,
 				EF0B5EBA1D08DBE200551CDA /* Cups@2x.png in Resources */,
 				EF135F6E1CBB424600C80753 /* AddTailgateViewController.xib in Resources */,
 				EF43C28C1CDAC05B00BA1C7F /* TailgateSupplySlider.xib in Resources */,
@@ -1154,6 +1181,7 @@
 				EF01D7AD1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib in Resources */,
 				EF0B5EB91D08DBE200551CDA /* Cups.png in Resources */,
 				EFE4A6D71D540BE800587C29 /* RedEmptyPin.png in Resources */,
+				EF47A1871D715A01005FF2DC /* AddContactFromUserNameVIewController.xib in Resources */,
 				EFE4A6CE1D52D55300587C29 /* search_icon.png in Resources */,
 				EF5AD91F1D62B3F400DDEAF1 /* AddTimelineItemViewController.xib in Resources */,
 				EFE094321D6E661300094A9B /* PhoneVerificationView.xib in Resources */,
@@ -1258,6 +1286,7 @@
 				EF73F79E1BC3759900FA9DBA /* TailgateParty.m in Sources */,
 				EF5AD89D1D5D6AB300DDEAF1 /* AddContactsView.m in Sources */,
 				EF135FA31CC28BDC00C80753 /* TailgatePartyServiceProvider.m in Sources */,
+				EF47A18A1D715D13005FF2DC /* ContactCardView.m in Sources */,
 				EF5AD8FD1D5E54BE00DDEAF1 /* ContactTableViewCell.m in Sources */,
 				EF135F851CBE863F00C80753 /* LocationManager.m in Sources */,
 				EF5AD89B1D5D6AB300DDEAF1 /* ContactsViewControler.m in Sources */,
@@ -1277,6 +1306,7 @@
 				EF5AD8B91D5E48E400DDEAF1 /* NSDate+Additions.m in Sources */,
 				EF5AD8E31D5E546300DDEAF1 /* TailgateMBPointAnnotation.m in Sources */,
 				EF5AD8A71D5D6BDC00DDEAF1 /* BaseViewController.m in Sources */,
+				EF47A17F1D70DC69005FF2DC /* UIImage+Orientation.m in Sources */,
 				EF73F77D1BC36D7500FA9DBA /* AppDelegate.m in Sources */,
 				EF5AD92A1D63AB5100DDEAF1 /* TimelineServiceProvider.m in Sources */,
 				EF5AD8DD1D5E546300DDEAF1 /* NavbarView.m in Sources */,
@@ -1285,6 +1315,7 @@
 				EFBF8DF41C6C13B70075DE38 /* AppManager.m in Sources */,
 				EFBF8DF11C6AB3BE0075DE38 /* AccountService.m in Sources */,
 				EF0B5ECC1D1EF0A700551CDA /* AccountType.m in Sources */,
+				EF47A1851D7159E4005FF2DC /* AddContactFromUserNameVIewController.m in Sources */,
 				EF4C7BC01CAB40DD004A6CF3 /* ParkingLot.m in Sources */,
 				EF01D79C1D4E8C990058A500 /* GuestsServiceProvider.m in Sources */,
 				EF5AD8AB1D5D6BFF00DDEAF1 /* TailgatePartyViewController.m in Sources */,
@@ -1328,6 +1359,7 @@
 				EF5AD93C1D66C63300DDEAF1 /* TailgateParty+Additions.m in Sources */,
 				EF135F4A1CBB185500C80753 /* Thing.m in Sources */,
 				EF5AD8FA1D5E54BE00DDEAF1 /* AddTailgateInvitesView.m in Sources */,
+				EF47A1821D715147005FF2DC /* AppService.m in Sources */,
 				EF73F75F1BC36B9100FA9DBA /* main.m in Sources */,
 				EF135F7D1CBC85B100C80753 /* FirebaseEnum.m in Sources */,
 				EFEB1B001D28F5A8006299CD /* Contact.m in Sources */,

@@ -7,12 +7,15 @@
 //
 
 #import "ImageServiceProvider.h"
+#import "UIImage+Orientation.h"
 
 @implementation ImageServiceProvider
 
 - (void)saveImage:(UIImage *)image
            atPath:(NSString *)path
    withCompletion:(void (^)(BOOL, NSError *))handler {
+    
+    image = [image fixOrientation];
     
     [super saveData:UIImagePNGRepresentation(image)
              atPath:path

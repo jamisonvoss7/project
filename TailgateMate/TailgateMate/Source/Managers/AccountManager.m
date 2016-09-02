@@ -190,7 +190,7 @@
     newAccount.displayName = [profile displayName];
     newAccount.emailAddress = [profile email];
     newAccount.photoUrl = [[profile photoURL] absoluteString];
-    newAccount.uid = [profile uid];
+    newAccount.uid = [[FIRAuth auth] currentUser].uid;
     newAccount.type = ACCOUNTTYPE_FACEBOOK;
     
     return newAccount;

@@ -15,6 +15,7 @@
 #import "AccountService.h"
 #import "AddContactsView.h"
 #import "ImageServiceProvider.h"
+#import "AddContactFromUserNameVIewController.h"
 
 @interface ProfileViewController () <UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) ProfileView *profileView;
@@ -82,6 +83,7 @@
     
     frame = self.addContactsView.frame;
     frame.origin.x = self.view.frame.size.width * 3.0f;
+    frame.size.height = self.containerView.frame.size.height;
     self.addContactsView.frame = frame;
     
     [self.containerView addSubview:self.profileView];
@@ -106,9 +108,19 @@
                                         action:@selector(showContacts:)
                               forControlEvents:UIControlEventTouchUpInside];
     
+    [self.profileView.addUserNameButton addTarget:self
+                                           action:@selector(showAddUserNameView:)
+                                 forControlEvents:UIControlEventTouchUpInside];
+    
     UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapHandler:)];
     imageTap.numberOfTapsRequired = 1;
     [self.profileView.imageClickReceiver addGestureRecognizer:imageTap];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[AppManager sharedInstance].accountManager loadCurrentAccuntWithComplete:^(BOOL success, NSError *error) {
+        
+    }];
 }
 
 - (void)rightButtonAction:(UITapGestureRecognizer *)sender {
@@ -122,6 +134,7 @@
 - (void)leftButtonAction:(UITapGestureRecognizer *)sender {
     if (self.isEditiing) {
         [self.editView closeKeyboards];
+        self.signoutButton.hidden = NO;
         [self doneEditing];
     } else {
         [self.baseDelegate dismissViewController:self];
@@ -246,6 +259,12 @@
     [self scrollLeft];
 }
 
+- (void)presentAViewController:(UIViewController *)controller {
+    [self presentViewController:controller
+                       animated:YES
+                     completion:nil];
+}
+
 - (void)doneEditing {
     CGPoint point = self.containerView.contentOffset;
     point.x = 0;
@@ -270,7 +289,11 @@
     point.x = 3 * self.view.frame.size.width;
     [self.containerView setContentOffset:point];
     
-    [self.addContactsView becomesVisible]
+    self.addContactsView.profileDelegate = self;
+    
+    [self.addContactsView becomesVisible];
+    
+    self.signoutButton.hidden = YES;
     
     self.navbarView.leftButton.text = @"Back";
     self.navbarView.rightButton.text = @"";
@@ -281,6 +304,11 @@
 
 - (void)showContacts:(UIButton *)sender {
     ContactsViewControler *vc = [[ContactsViewControler alloc] init];
+    [self.baseDelegate presentViewController:vc];
+}
+
+- (void)showAddUserNameView:(UIButton *)sender {
+    AddContactFromUserNameVIewController *vc = [[AddContactFromUserNameVIewController alloc] init];
     [self.baseDelegate presentViewController:vc];
 }
 
@@ -379,7 +407,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
             AccountManager *manager = [AppManager sharedInstance].accountManager;
 
             NSString *uid = [NSUUID UUID].UUIDString;
-            NSString *path = [NSString stringWithFormat:@"%@/%@", manager.profileAccount.uid, uid];
+            NSString *path = [NSString stringWithFormat:@"%@/%@", manager.profileAccount.userName, uid];
             
 
             ImageServiceProvider *service = [[ImageServiceProvider alloc] init];

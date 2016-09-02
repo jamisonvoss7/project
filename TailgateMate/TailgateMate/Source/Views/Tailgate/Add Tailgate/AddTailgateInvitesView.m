@@ -31,6 +31,8 @@
         self.invitees = [[NSMutableArray alloc] initWithCapacity:self.availableContact.count];
     }
     
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+
     [self.tableView reloadData];
 }
 
@@ -39,29 +41,47 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.availableContact.count;
+    if (self.availableContact.count > 0) {
+        return self.availableContact.count;
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Contact *contact = [self.availableContact objectAtIndex:indexPath.row];
+    if (self.availableContact.count > 0) {
+        Contact *contact = [self.availableContact objectAtIndex:indexPath.row];
     
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
     
-    if ([self.invitees containsObject:contact]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        if ([self.invitees containsObject:contact]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+        cell.textLabel.text = contact.displayName;
+        return cell;
+    } else {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
+        cell.textLabel.text = @"Add some contacts from your profile page";
+        return cell;
     }
-    
-    cell.textLabel.text = contact.displayName;
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Contact *contact = [self.availableContact objectAtIndex:indexPath.row];
-    [self.invitees addObject:contact];
+    if (self.availableContact.count > 0) {
+        Contact *contact = [self.availableContact objectAtIndex:indexPath.row];
+        if ([self.invitees containsObject:contact]) {
+            [self.invitees removeObject:contact];
+        } else {
+            [self.invitees addObject:contact];
+        }
+        [self.tableView reloadData];
+    }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.invitees removeObjectAtIndex:indexPath.row];
-}
 
 @end

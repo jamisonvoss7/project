@@ -37,14 +37,14 @@
                         <rect key="frame" x="19" y="10" width="283" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i4A-ec-IFf">
                         <rect key="frame" x="19" y="229" width="283" height="55"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hZ7-eT-yQj">
@@ -52,16 +52,24 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7jh-sf-AKo">
-                        <rect key="frame" x="19" y="293" width="283" height="15"/>
+                        <rect key="frame" x="19" y="293" width="209" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VAX-wU-bXQ">
+                        <rect key="frame" x="264" y="288" width="46" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Flag">
+                            <color key="titleColor" red="1" green="0.11932818553227964" blue="0.14896101705311082" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <connections>
+                <outlet property="flagButton" destination="VAX-wU-bXQ" id="mk5-EE-VJE"/>
                 <outlet property="itemImageView" destination="hZ7-eT-yQj" id="dLg-1l-b9Z"/>
                 <outlet property="line1" destination="3AK-ro-QWx" id="ihA-GA-0Md"/>
                 <outlet property="line2" destination="ZQj-df-Kjs" id="tiz-7Q-XMq"/>
@@ -70,7 +78,7 @@
                 <outlet property="nameLabel" destination="haV-nd-isD" id="gx8-xL-mgM"/>
                 <outlet property="timeLabel" destination="7jh-sf-AKo" id="Bnm-8Y-pK0"/>
             </connections>
-            <point key="canvasLocation" x="503" y="253"/>
+            <point key="canvasLocation" x="503" y="252.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -15,5 +15,6 @@
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic) NSDate *tiemStamp;
 @property (nonatomic) TimelineItemType *type;
+@property (nonatomic) NSNumber *flagCount;
 
 @end

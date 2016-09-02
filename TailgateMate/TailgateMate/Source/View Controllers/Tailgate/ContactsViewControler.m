@@ -30,6 +30,8 @@
 
     [self.view addSubview:self.navbarView];
     
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -41,18 +43,31 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.contacts.count;
+    if (self.contacts.count > 0) {
+        return self.contacts.count;
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    if (self.contacts.count > 0) {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
   
-    Contact *contact = [self.contacts objectAtIndex:indexPath.row];
-    cell.textLabel.text = contact.displayName;
+        Contact *contact = [self.contacts objectAtIndex:indexPath.row];
+        cell.textLabel.text = contact.displayName;
+        [cell.textLabel setFont:[UIFont systemFontOfSize:15.0f]];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    return cell;
+        return cell;
+    } else {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        cell.textLabel.text = @"You haven't added any contacts";        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.font = [UIFont systemFontOfSize:15.0f];
+        return cell;
+    }
 }
 
 - (void)closeView:(UITapGestureRecognizer *)sender {

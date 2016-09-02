@@ -20,7 +20,7 @@
 @property (nonatomic) NSArray *availableContacts;
 @property (nonatomic) NSArray *addableContacts;
 @property (nonatomic) NSArray *invitableContacts;
-@property (nonatomic) NSArray *accounts;
+@property (nonatomic) NSMutableDictionary *accountsDict;
 @property (nonatomic) NSArray *currentContacts;
 @end
 
@@ -37,15 +37,14 @@
 }
 
 - (void)becomesVisible {
-    
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
     self.availableContacts = [[NSArray alloc] init];
     self.addableContacts = [[NSArray alloc] init];
     self.invitableContacts = [[NSArray alloc] init];
-    self.accounts = [[NSArray alloc] init];
+    self.accountsDict = [[NSMutableDictionary alloc] init];
+  
     [self setupCurrentContacts];
     
     CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
@@ -116,19 +115,21 @@
     
     NSMutableArray *addableContacts = [[NSMutableArray alloc] initWithCapacity:self.availableContacts.count];
     NSMutableArray *invitableContacts = [[NSMutableArray alloc] initWithCapacity:self.availableContacts.count];
-    NSMutableArray *accounts = [[NSMutableArray alloc] initWithCapacity:self.availableContacts.count];
+    NSMutableDictionary *accounts = [[NSMutableDictionary alloc] initWithCapacity:self.availableContacts.count];
     
     AccountService *service = [[AccountService alloc] init];
     
     for (CNContact *contact in self.availableContacts) {
         if (![self.currentContacts containsObject:[contact phoneNumberString]] &&
-            [contact phoneNumberString].length > 0) {
+            [contact phoneNumberString].length > 0 &&
+            ![[contact phoneNumberString] isEqualToString:[AppManager sharedInstance].accountManager.profileAccount.phoneNumber]) {
+       
             [batch addBatchBlock:^(Batch *batch) {
                 [service loadAccountFromPhoneNumber:[contact phoneNumberString]
                                        withComplete:^(Account *account, NSError *error) {
                                            if (account) {
                                                [addableContacts addObject:contact];
-                                               [accounts addObject:account];
+                                               [accounts setObject:account forKey:contact];
                                            } else {
                                                [invitableContacts addObject:contact];
                                            }
@@ -139,9 +140,52 @@
     }
         
     [batch executeWithComplete:^(NSError *error) {
-        self.addableContacts = addableContacts;
-        self.invitableContacts = invitableContacts;
-        self.accounts = accounts;
+        self.addableContacts = [addableContacts sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            CNContact *contact1 = (CNContact *)obj1;
+            CNContact *contact2 = (CNContact *)obj2;
+            
+            NSString *firstName1 = contact1.givenName.length > 0 ? contact1.givenName : contact1.middleName;
+            NSString *firstName2 = contact2.givenName.length > 0 ? contact2.givenName : contact2.middleName;
+          
+            if (firstName1.length == 0 && contact1.organizationName.length > 0) {
+                firstName1 = contact1.organizationName;
+            }
+         
+            if (firstName2.length == 0 && contact2.organizationName.length > 0) {
+                firstName2 = contact2.organizationName;
+            }
+            
+            if ([firstName1 isEqualToString:firstName2]) {
+                return [contact1.familyName compare:contact2.familyName];
+            } else {
+                return [firstName1 compare:firstName2];
+            }
+        }];
+       
+        self.invitableContacts = [invitableContacts sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            CNContact *contact1 = (CNContact *)obj1;
+            CNContact *contact2 = (CNContact *)obj2;
+            
+            NSString *firstName1 = contact1.givenName.length > 0 ? contact1.givenName : contact1.middleName;
+            NSString *firstName2 = contact2.givenName.length > 0 ? contact2.givenName : contact2.middleName;
+            
+            if (firstName1.length == 0 && contact1.organizationName.length > 0) {
+                firstName1 = contact1.organizationName;
+            }
+            
+            if (firstName2.length == 0 && contact2.organizationName.length > 0) {
+                firstName2 = contact2.organizationName;
+            }
+            
+            if ([firstName1 isEqualToString:firstName2]) {
+                return [contact1.familyName compare:contact2.familyName];
+            } else {
+                return [firstName1 compare:firstName2];
+            }
+        }];;
+      
+        self.accountsDict = accounts;
+
         [self.tableView reloadData];
     }];
 }
@@ -157,10 +201,10 @@
         if (section == 0) {
             view.textLabel.text = @"Tailgaters";
         } else {
-            view.textLabel.text = @"Sally's";
+            view.textLabel.text = @"Invite";
         }
     } else {
-        view.textLabel.text = @"Sally's";
+        view.textLabel.text = @"Invite";
     }
     return view;
 }
@@ -193,12 +237,12 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     CNContact *contact;
-    [cell.actionButton setTitle:@"Invite" forState:UIControlStateNormal];
-    
+    cell.actionLabel.text = @"Invite";
+     
     if (self.addableContacts.count > 0) {
         if (indexPath.section == 0) {
             contact = [self.addableContacts objectAtIndex:indexPath.row];
-            [cell.actionButton setTitle:@"Add" forState:UIControlStateNormal];
+            cell.actionLabel.text = @"Add";
         } else {
             contact = [self.invitableContacts objectAtIndex:indexPath.row];
         }
@@ -206,7 +250,13 @@
         contact = [self.invitableContacts objectAtIndex:indexPath.row];
     }
   
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", contact.givenName, contact.familyName];
+    NSString *firstName1 = contact.givenName.length > 0 ? contact.givenName : contact.middleName;
+    
+    if (firstName1.length == 0 && contact.organizationName.length > 0) {
+        firstName1 = contact.organizationName;
+    }
+    
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName1, contact.familyName];
 
     return cell;
 }
@@ -228,18 +278,23 @@
 }
 
 - (void)addContactAtIndexPath:(NSIndexPath *)indexPath andTableCell:(AddContactTableViewCell *)cell {
-    cell.actionButton.userInteractionEnabled = NO;
-    
     Account *account = [AppManager sharedInstance].accountManager.profileAccount;
     NSMutableArray *contacts = [NSMutableArray arrayWithArray:account.contacts];
+   
+    CNContact *cnContact = [self.addableContacts objectAtIndex:indexPath.row];
+    if ([self.currentContacts containsObject:[cnContact phoneNumberString]]) {
+        return;
+    }
     
-    Account *accountToAdd = [self.accounts objectAtIndex:indexPath.row];
+    Account *accountToAdd = [self.accountsDict objectForKey:cnContact];
     
     Contact *newContact = [[Contact alloc] init];
     newContact.displayName = accountToAdd.displayName;
     newContact.emailAddress = accountToAdd.emailAddress;
     newContact.phoneNumber = accountToAdd.phoneNumber;
     newContact.userName = accountToAdd.userName;
+    newContact.imageId = accountToAdd.photoId;
+    newContact.imageURL = accountToAdd.photoUrl;
     
     [contacts addObject:newContact];
     account.contacts = contacts;
@@ -248,9 +303,10 @@
     [service saveAccount:account
             withComplete:^(BOOL success, NSError *error) {
                 if (success) {
-                    [cell.actionButton setTitle:@"Added" forState:UIControlStateNormal];
-                } else {
-                    cell.actionButton.userInteractionEnabled = YES;
+                    NSMutableArray *update = [[NSMutableArray alloc] initWithArray:self.currentContacts];
+                    [update addObject:newContact.phoneNumber];
+                    self.currentContacts = [NSArray arrayWithArray:update];
+                    cell.actionLabel.text = @"Added";
                 }
             }];
 }
@@ -267,14 +323,18 @@
                                                               handler:^(UIAlertAction * action) {}];
         
         [alert addAction:defaultAction];
-        [self.flowDelegate presentAViewController:alert];
+        if (self.flowDelegate) {
+            [self.flowDelegate presentAViewController:alert];
+        } else {
+            [self.profileDelegate presentAViewController:alert];
+        }
         return;
     }
     
     Account *profile = [AppManager sharedInstance].accountManager.profileAccount;
     
     NSArray *recipents = @[[contactToInvite phoneNumberString]];
-    NSString *message = [NSString stringWithFormat:@"%@ wants to you join Tailgate Mate (app store link)", profile.displayName];
+    NSString *message = [NSString stringWithFormat:@"%@ wants to you join Pregame! %@ ", profile.displayName, [AppManager sharedInstance].appStoreLink];
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;
@@ -282,12 +342,17 @@
     [messageController setBody:message];
     
     // Present message view controller on screen
-    [self.flowDelegate presentAViewController:messageController];
+    if (self.flowDelegate) {
+        [self.flowDelegate presentAViewController:messageController];
+    } else {
+        [self.profileDelegate presentAViewController:messageController];
+    }
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result {
     switch (result) {
         case MessageComposeResultCancelled:
+            [controller dismissViewControllerAnimated:NO completion:nil];
             break;
             
         case MessageComposeResultFailed: {
@@ -300,9 +365,11 @@
             
             [alert addAction:defaultAction];
             [self.flowDelegate presentAViewController:alert];
+            break;
         }
             
         case MessageComposeResultSent:
+            [controller dismissViewControllerAnimated:NO completion:nil];
             break;
             
         default:
@@ -315,7 +382,9 @@
     NSMutableArray *numbers = [[NSMutableArray alloc] init];
     
     for (Contact *contact in contacts) {
-        [numbers addObject:contact.phoneNumber];
+        if (contact.phoneNumber.length > 0) {
+            [numbers addObject:contact.phoneNumber];
+        }
     }
     
     self.currentContacts = [NSArray arrayWithArray:numbers];

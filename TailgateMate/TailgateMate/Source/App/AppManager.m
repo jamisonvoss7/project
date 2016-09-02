@@ -7,12 +7,15 @@
 #import "AppManager.h"
 #import "FireBaseServiceProvider.h"
 #import "Thing.h"
+#import "Batch.h"
+#import "AppService.h"
 
 @interface AppManager ()
 @property (nonatomic, readwrite) FIRDatabaseReference *firedatabasebaseRef;
 @property (nonatomic, readwrite) FIRStorageReference *firebaseStorageRef;
 @property (nonatomic, readwrite) AccountManager *accountManager;
 @property (nonatomic, readwrite) LocationManager *locationManager;
+@property (nonatomic, readwrite) NSString *appStoreLink;
 @end
 
 @implementation AppManager
@@ -35,7 +38,25 @@
 }
 
 - (void)initAppWIthComplete:(void (^)(BOOL, NSError *))handler {
-   [self.accountManager loadCurrentAccuntWithComplete:handler];
+    Batch *batch = [Batch create];
+   
+    [batch addBatchBlock:^(Batch *batch) {
+        [self.accountManager loadCurrentAccuntWithComplete:^(BOOL success, NSError *error) {
+            [batch complete:error];
+        }];
+    }];
+    
+    [batch addBatchBlock:^(Batch *batch) {
+        AppService *service = [[AppService alloc] init];
+        [service getAppStoreLineWithCompletion:^(NSString *link, NSError *error) {
+            self.appStoreLink = link;
+            [batch complete:error];
+        }];
+    }];
+    
+    [batch executeWithComplete:^(NSError *error) {
+        handler(!error, error);
+    }];
 }
 
 - (AccountManager *)accountManager {

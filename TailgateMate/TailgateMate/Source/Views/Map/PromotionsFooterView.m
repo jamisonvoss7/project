@@ -20,7 +20,7 @@
 }
 
 - (void)awakeFromNib {
-    self.messageLabel.text = @"If you'd like to post a flyer or promotion here, contact us at pregame@gmail.com";
+    self.messageLabel.text = @"If you'd like to post a flyer or promotion here, contact us at taylornees.pregame@gmail.com";
 }
 
 @end

@@ -14,13 +14,28 @@
      for (CNLabeledValue *val in self.phoneNumbers) {
         if ([val.label containsString:@"Mobile"]) {
             CNPhoneNumber *number = val.value;
-            return number.stringValue;
+            return [self doctorString:number.stringValue];
         }
     }
     
     CNLabeledValue *val = [self.phoneNumbers firstObject];
     CNPhoneNumber *number = val.value;
-    return number.stringValue;
+    return [self doctorString:number.stringValue];
+}
+
+- (NSString *)doctorString:(NSString *)number {
+    number = [number stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    number = [number stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    number = [number stringByReplacingOccurrencesOfString:@")" withString:@""];
+    number = [number stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    number = [number stringByReplacingOccurrencesOfString:@"\\s"
+                                               withString:@""
+                                                  options:NSRegularExpressionSearch
+                                                    range:NSMakeRange(0, number.length)];
+    
+    //myNewString will be @"thisisatest"
+
+    return number;
 }
 
 @end

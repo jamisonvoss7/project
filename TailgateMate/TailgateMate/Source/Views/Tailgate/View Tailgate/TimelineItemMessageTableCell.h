@@ -15,10 +15,12 @@
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UIView *line1;
 @property (nonatomic, weak) IBOutlet UIView *line2;
+@property (nonatomic, weak) IBOutlet UIButton *flagButton;
 
 + (instancetype)instanceWithDefaultNib;
 + (CGFloat)heightForItem:(TimelineItem *)item;
 
 - (void)populateWithTimelineItem:(TimelineItem *)item;
+- (void)hasBeenFlagged:(void (^)(TimelineItem *item))handler;
 
 @end

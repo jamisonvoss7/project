@@ -19,6 +19,19 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.contactsButton.layer.cornerRadius = 15.0f;
+    self.addContactsButton.layer.cornerRadius = 15.0f;
+    self.addUserNameButton.layer.cornerRadius = 15.0f;
+    
+    self.contactsButton.layer.borderWidth = 3.0f;
+    self.addContactsButton.layer.borderWidth = 3.0f;
+    self.addUserNameButton.layer.borderWidth = 3.0f;
+    
+    self.contactsButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.addContactsButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.addUserNameButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
     [self reload];
 }
 
@@ -28,7 +41,7 @@
     if (account.photoId) {
         [self.profileImageView showActivityIndicatorWithCurtain:YES];
         
-        NSString *path = [NSString stringWithFormat:@"%@/%@", account.uid, account.photoId];
+        NSString *path = [NSString stringWithFormat:@"%@/%@", account.userName, account.photoId];
         
         ImageServiceProvider *service = [[ImageServiceProvider alloc] init];
         [service getImageFromPath:path

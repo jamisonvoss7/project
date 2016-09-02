@@ -16,6 +16,15 @@
                     <view contentMode="scaleToFill" id="VSA-oR-hox">
                         <rect key="frame" x="10" y="5" width="300" height="130"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wSg-K4-7QL">
+                                <rect key="frame" x="254" y="100" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Flag">
+                                    <color key="titleColor" red="1" green="0.1193281855" blue="0.14896101710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" id="fAW-R9-pON">
@@ -32,34 +41,35 @@
                         <rect key="frame" x="19" y="10" width="282" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KFA-XO-SWL">
                         <rect key="frame" x="19" y="40" width="282" height="55"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zuO-vd-WhU">
-                        <rect key="frame" x="19" y="113" width="282" height="15"/>
+                        <rect key="frame" x="19" y="113" width="233" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <connections>
+                <outlet property="flagButton" destination="wSg-K4-7QL" id="xwf-of-tMA"/>
                 <outlet property="line1" destination="fAW-R9-pON" id="tkN-eH-RFb"/>
                 <outlet property="line2" destination="Dvt-q2-t8o" id="zdm-Rg-HNn"/>
                 <outlet property="messageLabel" destination="KFA-XO-SWL" id="ynh-cO-DuJ"/>
                 <outlet property="nameLabel" destination="kKz-3K-f3Y" id="sxh-oi-6B0"/>
                 <outlet property="timeLabel" destination="zuO-vd-WhU" id="EzH-fN-yJK"/>
             </connections>
-            <point key="canvasLocation" x="585" y="202"/>
+            <point key="canvasLocation" x="585" y="201.5"/>
         </tableViewCell>
     </objects>
 </document>

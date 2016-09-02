@@ -18,6 +18,7 @@
     instance.message = data.value[@"message"];
     instance.tiemStamp = [FirebaseObject dateFromDateString:data.value[@"timeStamp"]];
     instance.type = [TimelineItemType findByString:data.value[@"type"]];
+    instance.flagCount = data.value[@"flagCount"];
     
     return instance;
 }
@@ -30,6 +31,7 @@
     instance.message = dictionary[@"message"];
     instance.tiemStamp = [FirebaseObject dateFromDateString:dictionary[@"timeStamp"]];
     instance.type = [TimelineItemType findByString:dictionary[@"type"]];
+    instance.flagCount = dictionary[@"flagCount"];
     
     return instance;
 
@@ -58,7 +60,39 @@
         dictionary[@"type"] = [self.type description];
     }
     
+    if (self.flagCount) {
+        dictionary[@"flagCount"] = self.flagCount;
+    }
+    
     return [NSDictionary dictionaryWithDictionary:dictionary];
+}
+
+- (BOOL)isEqual:(id)object {
+    TimelineItem *item = object;
+    
+    if (item.userDisplayName && self.userDisplayName) {
+        if (![item.userDisplayName isEqualToString:self.userDisplayName]) {
+            return NO;
+        }
+    }
+   
+    if (item.photoId && self.photoId) {
+        if (![item.photoId isEqualToString:self.photoId]) {
+            return NO;
+        }
+    }
+    
+    if (item.message && self.message) {
+        if (![item.message isEqualToString:self.message]) {
+            return NO;
+        }
+    }
+    
+    if (item.type != self.type) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

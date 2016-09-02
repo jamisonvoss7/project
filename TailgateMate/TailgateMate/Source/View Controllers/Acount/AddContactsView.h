@@ -8,10 +8,12 @@
 //
 
 #import "AccountFlowManagementViewController.h"
+#import "ProfileViewController.h"
 
 @interface AddContactsView : UIView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) id<AccountFlowDelegate> flowDelegate;
+@property (nonatomic, weak) id<ProfileEditDelegateProtocol> profileDelegate;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 

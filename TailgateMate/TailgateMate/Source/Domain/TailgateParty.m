@@ -26,6 +26,7 @@
     instance.hostUserName = data.value[@"hostUserName"];
     instance.startDate = [FirebaseObject dateFromDateString:data.value[@"startDate"]];
     instance.endDate = [FirebaseObject dateFromDateString:data.value[@"endDate"]];
+    instance.hostDisplayName = data.value[@"hostDisplayName"];
     
     return instance;
 }
@@ -76,6 +77,9 @@
     }
     if (self.endDate) {
         dictionary[@"endDate"] = [FirebaseObject dateToDateString:self.endDate];
+    }
+    if (self.hostDisplayName) {
+        dictionary[@"hostDisplayName"] = self.hostDisplayName;
     }
 
     dictionary[@"fanType"] = [self.fanType description];

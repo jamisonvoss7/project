@@ -16,6 +16,7 @@
 - (void)updatePhoneNumber:(NSString *)phoneNumber;
 - (void)updateName:(NSString *)name;
 - (void)finishUpdatingPhone;
+- (void)presentAViewController:(UIViewController *)viewController;
 @optional
 - (void)updatePassword:(NSString *)password;
 @end

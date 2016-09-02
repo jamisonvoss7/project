@@ -15,6 +15,7 @@
 #import "TailgatePartyFilterView.h"
 #import "PromotionsViewController.h"
 #import "TailgateParty+Additions.h"
+#import "NSDate+Additions.h"
 
 @interface HomeMapViewController () <GADBannerViewDelegate>
 @property (nonatomic) CLLocation *initialLocationToUse;
@@ -73,17 +74,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    self.filterView = [TailgatePartyFilterView instanceWithDefaultNib];
-    CGRect frame = self.filterView.frame;
-    frame.origin.x = self.view.frame.size.width - frame.size.width;
-    frame.origin.y = self.filterButton.superview.frame.origin.y - frame.size.height;
-    self.filterView.frame = frame;
+    if (!self.filterView) {
+        self.filterView = [TailgatePartyFilterView instanceWithDefaultNib];
+        CGRect frame = self.filterView.frame;
+        frame.origin.x = self.view.frame.size.width - frame.size.width;
+        frame.origin.y = self.filterButton.superview.frame.origin.y - frame.size.height;
+        self.filterView.frame = frame;
     
-    self.filterView.hidden = YES;
-    [self.view addSubview:self.filterView];
-
-    self.filterView.delegate = self;
+        self.filterView.hidden = YES;
+        [self.view addSubview:self.filterView];
+        self.filterView.delegate = self;
+    }
     
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
   
@@ -132,6 +133,7 @@
 
 // Map Delegate Methods
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
+    [self hideFilterView];
     return YES;
 }
 
@@ -178,6 +180,8 @@
 }
 
 - (void)processParties:(NSArray *)newParties {
+    newParties = [self removeOldParties:newParties];
+    
     NSDictionary *newPartiesDict = [self partiesKeyedById:newParties];
     NSMutableDictionary *oldPartiesDict = [NSMutableDictionary dictionaryWithDictionary:[self partiesKeyedById:self.parties]];
     
@@ -188,6 +192,7 @@
     for (NSString *key in oldPartiesDict.allKeys) {
         MGLPointAnnotation *annotation = [self.partyAnnotations objectForKey:key];
         [self.mapView removeAnnotation:annotation];
+        [self.partyAnnotations removeObjectForKey:key];
     }
     
     for (TailgateParty *party in newParties) {
@@ -195,7 +200,7 @@
             TailgateMBPointAnnotation *annocation = [[TailgateMBPointAnnotation alloc] init];
             annocation.coordinate = CLLocationCoordinate2DMake(party.parkingLot.location.lat.doubleValue, party.parkingLot.location.lon.doubleValue);
             annocation.title = party.name;
-            annocation.subtitle = party.parkingLot.lotName;
+            annocation.subtitle = party.hostDisplayName;
             annocation.uid = party.uid;
             annocation.party = party;
             
@@ -211,7 +216,7 @@
                 TailgateMBPointAnnotation *newAnnocation = [[TailgateMBPointAnnotation alloc] init];
                 newAnnocation.coordinate = CLLocationCoordinate2DMake(party.parkingLot.location.lat.doubleValue, party.parkingLot.location.lon.doubleValue);
                 newAnnocation.title = party.name;
-                newAnnocation.subtitle = party.parkingLot.lotName;
+                newAnnocation.subtitle = party.hostDisplayName;
                 newAnnocation.uid = party.uid;
                 newAnnocation.party = party;
 
@@ -224,9 +229,19 @@
 }
 
 - (void)addTailgateAction:(UIButton *)sender {
-    AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
+    if ([AppManager sharedInstance].accountManager.isAuthenticated) {
+        AddTailgateViewController *vc = [[AddTailgateViewController alloc] init];
     
-    [self.baseDelegate presentViewController:vc];
+        [self.baseDelegate presentViewController:vc];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                       message:@"Please create an account or sign in to host a tailgate."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)goBackAction:(UIButton *)sender {
@@ -309,5 +324,17 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
     bannerView.hidden = NO;
+}
+
+- (NSArray *)removeOldParties:(NSArray *)parties {
+    NSMutableArray *currentParties = [[NSMutableArray alloc] initWithCapacity:parties.count];
+    
+    for (TailgateParty *party in parties) {
+        if (![party.endDate isDateTimeInPast]) {
+            [currentParties addObject:party];
+        }
+    }
+    
+    return [NSArray arrayWithArray:currentParties];
 }
 @end

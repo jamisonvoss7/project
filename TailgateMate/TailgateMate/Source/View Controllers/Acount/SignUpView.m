@@ -59,7 +59,6 @@
 
 - (void)signUpButtonTapped:(UIButton *)sender {
     [self closeKeyboard];
-    [self animateViewDownForTextBox];
     
     if (self.nameField.text.length == 0) {
         [self makeToast:@"Error: No name was provided" duration:2.0 position:CSToastPositionCenter];

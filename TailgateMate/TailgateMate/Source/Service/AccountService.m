@@ -59,6 +59,8 @@
 - (void)createAccount:(Account *)account withComplete:(void (^)(BOOL, NSError *))handler {
     NSString *path = [NSString stringWithFormat:@"accounts/%@", account.uid];
 
+    NSLog(@"%@", [FIRAuth auth].currentUser.uid);
+    
     [self setData:account
           forPath:path
    withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
@@ -100,6 +102,25 @@
     NSString *path = [NSString stringWithFormat:@"accounts"];
     
     NSDictionary *dict = @{@"phoneNumber":phoneNumber};
+    
+    [super observeDataAtPath:path
+                   andParams:dict
+              withCompletion:^(FIRDataSnapshot *data) {
+                  if (data.exists) {
+                      NSArray *array = [Account arrayFromData:data];
+                      Account *account = [array firstObject];
+                      handler(account, nil);
+                  } else {
+                      handler(nil, nil);
+                  }
+              }];
+}
+
+- (void)loadAccountFromUsername:(NSString *)userName
+                   withComplete:(void (^)(Account *, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"accounts"];
+    
+    NSDictionary *dict = @{@"userName":userName};
     
     [super observeDataAtPath:path
                    andParams:dict

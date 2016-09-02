@@ -10,6 +10,11 @@
 #import "TimelineServiceProvider.h"
 #import "NSDate+Additions.h"
 
+@interface TimelineItemImageTableCell ()
+@property (nonatomic) TimelineItem *item;
+@property (nonatomic, copy) void (^flagHandler)(TimelineItem *item);
+@end
+
 @implementation TimelineItemImageTableCell
 
 + (instancetype)instanceWithDefaultNib {
@@ -45,10 +50,20 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    [self.flagButton addTarget:self
+                        action:@selector(flagTapHandler:)
+              forControlEvents:UIControlEventTouchUpInside];
+    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
+- (void)hasBeenFlagged:(void (^)(TimelineItem *))handler {
+    self.flagHandler = handler;
+}
+
 - (void)populateWithItem:(TimelineItem *)item andTailgateParty:(TailgateParty *)party {
+    self.item = item;
+    
     self.messageLabel.text = @"";
     self.timeLabel.text = @"";
     self.nameLabel.text = @"";
@@ -96,6 +111,10 @@
         frame = self.timeLabel.frame;
         frame.origin.y = self.line3.frame.origin.y + self.line3.frame.size.height + 5.0f;
         self.timeLabel.frame = frame;
+        
+        CGPoint center = self.flagButton.center;
+        center.y = self.timeLabel.center.y;
+        self.flagButton.center = center;
     } else {
         self.messageLabel.hidden = YES;
         self.line2.hidden = YES;
@@ -107,6 +126,10 @@
         frame = self.timeLabel.frame;
         frame.origin.y = self.line3.frame.origin.y + self.line3.frame.size.height + 5.0f;
         self.timeLabel.frame = frame;
+        
+        CGPoint center = self.flagButton.center;
+        center.y = self.timeLabel.center.y;
+        self.flagButton.center = center;
     }
 }
 
@@ -115,6 +138,12 @@
         [self.itemImageView hideActivityIndicator];
     }
     self.itemImageView.image = image;
+}
+
+- (void)flagTapHandler:(UIButton *)sender {
+    if (self.flagHandler) {
+        self.flagHandler(self.item);
+    }
 }
 
 @end

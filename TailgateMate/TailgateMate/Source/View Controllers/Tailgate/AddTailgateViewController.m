@@ -180,6 +180,7 @@
     party.guests = self.invitesView.invitees;
     
     party.hostUserName = [AppManager sharedInstance].accountManager.profileAccount.userName;
+    party.hostDisplayName = [AppManager sharedInstance].accountManager.profileAccount.displayName;
     
     TimelineItem *firstItem = [[TimelineItem alloc] init];
     firstItem.userDisplayName = [AppManager sharedInstance].accountManager.profileAccount.displayName;

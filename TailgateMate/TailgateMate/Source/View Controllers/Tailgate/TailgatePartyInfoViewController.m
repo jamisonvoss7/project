@@ -39,11 +39,9 @@
     self.invitedTableView.dataSource = self;
     
     self.mapView.delegate = self;
-    TailgateParty *party = self.tailgateParty;
     
-    
-    self.titleLabel.text = self.tailgateParty.name;
-    self.lotNumberLabel.text = self.tailgateParty.parkingLot.lotName;
+    self.titleLabel.text = [NSString stringWithFormat:@"HOST: %@", self.tailgateParty.hostDisplayName];
+    self.lotNumberLabel.text = [NSString stringWithFormat:@"LOT: %@", self.tailgateParty.parkingLot.lotName];
     
     self.partyDesignationLabel.text = [self.tailgateParty stringForFanType];;
     
@@ -95,7 +93,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-        
+    
+    CGRect frame = self.scrollView.frame;
+    frame.size.height = self.view.frame.size.height;
+    self.scrollView.frame = frame;
+    
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
     [service getTailgatePartyFullForId:self.tailgateParty.uid
                           withComplete:^(TailgateParty *party, NSError *error) {

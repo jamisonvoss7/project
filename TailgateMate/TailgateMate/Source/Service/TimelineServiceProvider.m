@@ -45,4 +45,43 @@
     [imageService getImageFromPath:path
                     withCompletion:handler];
 }
+
+- (void)flagTimelineItem:(TimelineItem *)item toTailgateParty:(TailgateParty *)party withComplete:(void (^)(BOOL, NSError *))handler {
+    NSString *path = [NSString stringWithFormat:@"timeline/%@", party.uid];
+    
+    NSInteger count = item.flagCount.integerValue;
+    count++;
+    
+    NSMutableArray *array = [NSMutableArray arrayWithArray:party.timeline];
+  
+    item.flagCount = [NSNumber numberWithInteger:count];
+    NSInteger index = [self indexOfItem:item inArray:array];
+
+    if (count >= 5) {
+        [array removeObjectAtIndex:index];
+    } else {
+        if (index >= 0) {
+            [array replaceObjectAtIndex:index withObject:item];
+        } else {
+            handler(NO, nil);
+        }
+    }
+    
+    [self setArrayData:[FirebaseObject dictionaryFromArray:array]
+               forPath:path
+        withCompletion:^(NSError *error, FIRDatabaseReference *ref) {
+            handler(!error, error);
+        }];
+}
+
+- (NSInteger)indexOfItem:(TimelineItem *)item inArray:(NSArray *)array {
+    NSInteger cur = 0;
+    for (TimelineItem *timelineItem in array) {
+        if ([timelineItem isEqual:item]) {
+            return cur;
+        }
+        cur++;
+    }
+    return -1;
+}
 @end

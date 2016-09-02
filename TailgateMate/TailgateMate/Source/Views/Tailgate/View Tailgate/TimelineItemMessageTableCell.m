@@ -9,6 +9,11 @@
 #import "TimelineItemMessageTableCell.h"
 #import "NSDate+Additions.h"
 
+@interface TimelineItemMessageTableCell ()
+@property (nonatomic) TimelineItem *item;
+@property (nonatomic, copy) void (^flagHandler)(TimelineItem *item);
+@end
+
 @implementation TimelineItemMessageTableCell
 
 + (instancetype)instanceWithDefaultNib {
@@ -42,7 +47,13 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
+- (void)hasBeenFlagged:(void (^)(TimelineItem *))handler{
+    self.flagHandler = handler;
+}
+
 - (void)populateWithTimelineItem:(TimelineItem *)item {
+    self.item = item;
+    
     self.messageLabel.text = @"";
     self.timeLabel.text = @"";
     self.nameLabel.text = @"";
@@ -83,6 +94,16 @@
     frame = self.timeLabel.frame;
     frame.origin.y = self.line2.frame.origin.y + self.line2.frame.size.height + 5.0f;
     self.timeLabel.frame = frame;
+    
+    CGPoint center = self.flagButton.center;
+    center.y = self.timeLabel.center.y;
+    self.flagButton.center = center;
+}
+
+- (void)flagTapHandler:(UIButton *)sender {
+    if (self.flagHandler) {
+        self.flagHandler(self.item);
+    }
 }
 
 @end

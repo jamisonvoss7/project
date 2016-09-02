@@ -12,9 +12,9 @@
 
 - (NSString *)stringForFanType {
     if (self.fanType == TAILGATEPARTYFANTYPE_HOME) {
-        return @"Home";
+        return @"Home fans";
     } else if (self.fanType == TAILGATEPARTYFANTYPE_AWAY) {
-        return @"Away";
+        return @"Away fans";
     } else {
         return @"All fans";
     }

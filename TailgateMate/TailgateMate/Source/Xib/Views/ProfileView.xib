@@ -17,16 +17,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JGV-Sd-W3L">
-                    <rect key="frame" x="110" y="212" width="100" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Contacts"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W8l-Dk-fdq">
-                    <rect key="frame" x="110" y="255" width="100" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Find Contacts"/>
-                </button>
                 <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oa0-xj-x2v">
                     <rect key="frame" x="100" y="28" width="120" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,11 +26,36 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E6W-fz-68b">
+                    <rect key="frame" x="32" y="213" width="257" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.095507603080000003" green="0.25761191709999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Contacts">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nY0-q0-CQS">
+                    <rect key="frame" x="32" y="288" width="257" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.095507603080000003" green="0.25761191709999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Find Contacts in address book">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NRw-dO-4ag">
+                    <rect key="frame" x="32" y="363" width="257" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.095507603080000003" green="0.25761191709999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Search for username">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.93000000000000005" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="addContactsButton" destination="W8l-Dk-fdq" id="9dN-yn-YTU"/>
-                <outlet property="contactsButton" destination="JGV-Sd-W3L" id="MTv-ZA-Gop"/>
+                <outlet property="addContactsButton" destination="nY0-q0-CQS" id="kuN-5n-bfx"/>
+                <outlet property="addUserNameButton" destination="NRw-dO-4ag" id="MzO-vv-SOt"/>
+                <outlet property="contactsButton" destination="E6W-fz-68b" id="wOe-dx-QFo"/>
                 <outlet property="imageClickReceiver" destination="CM0-Q2-fAb" id="37Y-Xl-2H8"/>
                 <outlet property="nameLabel" destination="vpF-UE-KZr" id="XFW-Ax-AEI"/>
                 <outlet property="profileImageView" destination="oa0-xj-x2v" id="YOa-az-RKe"/>
