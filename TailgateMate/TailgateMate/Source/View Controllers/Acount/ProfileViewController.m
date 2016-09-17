@@ -13,9 +13,9 @@
 #import "ContactsViewControler.h"
 #import "PhoneVerificationView.h"
 #import "AccountService.h"
-#import "AddContactsView.h"
 #import "ImageServiceProvider.h"
 #import "AddContactFromUserNameVIewController.h"
+#import "AddContactsViewController.h"
 
 @interface ProfileViewController () <UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) ProfileView *profileView;
@@ -26,7 +26,6 @@
 @property (nonatomic) NSMutableArray *pages;
 @property (nonatomic, assign) NSInteger pageCursor;
 @property (nonatomic) PhoneVerificationView *phoneVerificcationView;
-@property (nonatomic) AddContactsView *addContactsView;
 @property (nonatomic) UIAlertController *passwordInput;
 @end
 
@@ -71,7 +70,6 @@
     self.profileView = [ProfileView instanceFromDefaultNib];
     self.editView = [ProfileEditView instanceFromDefaultNib];
     self.phoneVerificcationView = [PhoneVerificationView instanceWithDefaultNib];
-    self.addContactsView = [AddContactsView instanceWithDefaultNib];
     
     CGRect frame = self.editView.frame;
     frame.origin.x = self.view.frame.size.width;
@@ -81,15 +79,9 @@
     frame.origin.x = self.view.frame.size.width * 3.0f;
     self.phoneVerificcationView.frame = frame;
     
-    frame = self.addContactsView.frame;
-    frame.origin.x = self.view.frame.size.width * 3.0f;
-    frame.size.height = self.containerView.frame.size.height;
-    self.addContactsView.frame = frame;
-    
     [self.containerView addSubview:self.profileView];
     [self.containerView addSubview:self.editView];
     [self.containerView addSubview:self.phoneVerificcationView];
-    [self.containerView addSubview:self.addContactsView];
     
     self.editView.profileDelegate = self;
     self.phoneVerificcationView.profileDelegate = self;
@@ -118,7 +110,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [[AppManager sharedInstance].accountManager loadCurrentAccuntWithComplete:^(BOOL success, NSError *error) {
+    [[AppManager sharedInstance].accountManager loadCurrentAccountWithComplete:^(BOOL success, NSError *error) {
         
     }];
 }
@@ -285,21 +277,8 @@
 
 
 - (void)showAddContacts:(UIButton *)sender {
-    CGPoint point = self.containerView.contentOffset;
-    point.x = 3 * self.view.frame.size.width;
-    [self.containerView setContentOffset:point];
-    
-    self.addContactsView.profileDelegate = self;
-    
-    [self.addContactsView becomesVisible];
-    
-    self.signoutButton.hidden = YES;
-    
-    self.navbarView.leftButton.text = @"Back";
-    self.navbarView.rightButton.text = @"";
-    self.navbarView.titleLabel.text = @"Add Contacts";
-
-    self.isEditiing = YES;
+    AddContactsViewController *vc = [[AddContactsViewController alloc] init];
+    [self.baseDelegate presentViewController:vc];
 }
 
 - (void)showContacts:(UIButton *)sender {

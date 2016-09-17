@@ -17,17 +17,32 @@
 
 @implementation AccountManager
 
-- (void)loadCurrentAccuntWithComplete:(void (^)(BOOL, NSError *))handler {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *uid = [defaults accountUID];
+- (void)loadCurrentAccountWithComplete:(void (^)(BOOL, NSError *))handler {
+    FIRUser *user = [[FIRAuth auth] currentUser];
     
-    if (uid.length == 0) {
+    if (!user) {
         handler(NO, nil);
     } else {
-        [self loadProfileAccountWithAccountForId:uid
+        [self loadProfileAccountWithAccountForId:user.uid
                                   withCompletion:handler];
     }
+}
 
+- (void)loadCurrentAccountFromFirUser:(void (^)(BOOL, NSError *))handler {
+    FIRUser *user = [[FIRAuth auth] currentUser];
+    if (user) {
+        [user getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+            if (token && !error) {
+                [self loadCurrentAccountWithComplete:handler];
+            } else {
+                [self signOut];
+                handler(NO, error);
+            }
+        }];
+    } else {
+        handler(NO, nil);
+    }
+    
 }
 
 - (void)authenticateWithNewAccount:(Account *)account
@@ -94,15 +109,14 @@
                                           
                                             [[FIRAuth auth] signInWithCredential:credential
                                                                       completion:^(FIRUser *user, NSError *error) {
-                                                                          Account *account = [self createAccountFromFaceBookAuthData:user];
-                                                                          [self loadProfileAccountWithAccountForId:account.uid
+                                                                          [self loadProfileAccountWithAccountForId:user.uid
                                                                                                withCompletion:^(BOOL success, NSError *error) {
                                                                                                    if (success) {
                                                                                                        handler(YES, nil);
                                                                                                    } else {
-                                                                                                       [self authenticateWithNewAccount:[self createAccountFromFaceBookAuthData:user] andUserCredentials:nil
+                                                                                                       [self authenticateWithNewAccount:[self createAccountFromFaceBookAuthData:user]
+                                                                                                                     andUserCredentials:nil
                                                                                                                          withCompletion:handler];
-
                                                                                                    }
                                                                                                }];
                                                     }];
@@ -116,12 +130,10 @@
         [facebookLogin logOut];
     }
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:NO forKey:@"hasSkipped"];
+    [[FIRAuth auth] signOut:nil];
     
     self.profileAccount = nil;
     self.authenticatedAccount = nil;
-    [self saveAccountID:@""];
 }
 
 - (void)saveAccount:(Account *)account
@@ -168,15 +180,12 @@
                   withComplete:^(Account *account, NSError *error) {
                       if (account && !error) {
                           self.authenticatedAccount = account;
-                          [self saveAccountID:account.uid];
+//                          [self saveAccountID:account.uid];
                           self.profileAccount = account;
                       
                           handler(YES, nil);
                       } else {
-                          self.authenticatedAccount = nil;
-                          [self saveAccountID:@""];
-                          self.profileAccount = nil;
-
+                          [self signOut];
                           handler(NO, error);
                       }
                   }];
@@ -190,25 +199,25 @@
     newAccount.displayName = [profile displayName];
     newAccount.emailAddress = [profile email];
     newAccount.photoUrl = [[profile photoURL] absoluteString];
-    newAccount.uid = [[FIRAuth auth] currentUser].uid;
+    newAccount.uid = data.uid;
     newAccount.type = ACCOUNTTYPE_FACEBOOK;
     
     return newAccount;
 }
 
-- (void)saveAccountID:(NSString *)accountId {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setAccountUID:accountId];
-}
-
-- (NSString *)loadAccountID {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults accountUID].length > 0) {
-        return [defaults accountUID];
-    } else {
-        return @"";
-    }
-}
+//- (void)saveAccountID:(NSString *)accountId {
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setAccountUID:accountId];
+//}
+//
+//- (NSString *)loadAccountID {
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if ([defaults accountUID].length > 0) {
+//        return [defaults accountUID];
+//    } else {
+//        return @"";
+//    }
+//}
 
 - (void)removeAccountId {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

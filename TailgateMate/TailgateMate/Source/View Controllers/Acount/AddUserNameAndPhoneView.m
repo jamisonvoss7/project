@@ -55,6 +55,8 @@
  
     [self showActivityIndicatorWithCurtain:YES];
     
+    FIRUser *user = [[FIRAuth auth] currentUser];
+        
     [service checkUserNameAvailability:self.userNameField.text
                           withComplete:^(BOOL available, NSError *error) {
                               [self hideActivityIndicator];

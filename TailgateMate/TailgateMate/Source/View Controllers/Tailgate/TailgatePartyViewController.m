@@ -10,6 +10,7 @@
 #import "TailgatePartyInfoViewController.h"
 #import "TailgatePartyTimeLineViewController.h"
 #import "EditTailgateViewController.h"
+#import "TailgatePartyServiceProvider.h"
 
 @interface TailgatePartyViewController () <TabPagerDataSource, TabPagerDelegate>
 @property (nonatomic) TailgateParty *tailgateParty;
@@ -89,7 +90,9 @@
 - (void)editParty {
     EditTailgateViewController *vc = [[EditTailgateViewController alloc] init];
     vc.party = self.tailgateParty;
+
     [self presentViewController:vc animated:YES completion:nil];
 }
+
 
 @end

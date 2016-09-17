@@ -31,33 +31,21 @@
                                 action:@selector(signUpButtonTapped:)
                       forControlEvents:UIControlEventTouchUpInside];
     
-    [self.skipButton addTarget:self
-                        action:@selector(skipButtonTapped:)
-              forControlEvents:UIControlEventTouchUpInside];
-    
     [self.backButton addTarget:self
                         action:@selector(backButtonTapped:)
               forControlEvents:UIControlEventTouchUpInside];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"pastFirstLaunch"]) {
-        self.backButton.hidden = YES;
-    }
-    
     self.facebbokButton.layer.cornerRadius = 15.0f;
     self.emailButton.layer.cornerRadius = 15.0f;
     self.basicAccountButton.layer.cornerRadius = 15.0f;
-    self.skipButton.layer.cornerRadius = 15.0f;
     
     self.facebbokButton.layer.borderWidth = 3.0f;
     self.emailButton.layer.borderWidth = 3.0f;
     self.basicAccountButton.layer.borderWidth = 3.0f;
-    self.skipButton.layer.borderWidth = 3.0f;
     
     self.facebbokButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.emailButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.basicAccountButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.skipButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-
 }
 
 - (void)facebookButtonAction:(UIButton *)sender {
@@ -86,10 +74,6 @@
 
 - (void)signInButtonTapped:(UIButton *)sender {
     [self.flowDelegate beginFlowOfType:FlowTypeSignIn];
-}
-
-- (void)skipButtonTapped:(UIButton *)sender {
-    [self.flowDelegate beginFlowOfType:FlowTypeSkip];
 }
 
 - (void)backButtonTapped:(UIButton *)sender {

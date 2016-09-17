@@ -11,5 +11,6 @@
 @interface EditTailgateViewController : AddTailgateViewController
 
 @property (nonatomic) TailgateParty *party;
+- (void)closeCompletion:(void (^)(BOOL updated))handler;
 
 @end

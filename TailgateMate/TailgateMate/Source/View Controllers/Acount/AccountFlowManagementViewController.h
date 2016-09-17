@@ -12,7 +12,6 @@ typedef NS_ENUM(NSUInteger, FlowType) {
     FlowTypeFacebook,
     FlowTypeSignUp,
     FlowTypeSignIn,
-    FlowTypeSkip,
     FlowTypeNone,
 };
 

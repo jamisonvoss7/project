@@ -103,6 +103,17 @@
                           withComplete:^(TailgateParty *party, NSError *error) {
                               if (party) {
                                   self.tailgateParty = party;
+                                  [self.invitedTableView reloadData];
+                                  
+                                  CGRect frame = self.invitedTableView.frame;
+                                  frame.origin.y = self.invitedTitleLabel.frame.origin.y + self.invitedTitleLabel.frame.size.height + 10.0f;
+                                  frame.size.height = self.invitedTableView.contentSize.height;
+                                  self.invitedTableView.frame = frame;
+                                  
+                                  CGSize size = self.scrollView.contentSize;
+                                  size.height = self.invitedTableView.frame.origin.y + self.invitedTableView.frame.size.height + 30.0f;
+                                  self.scrollView.contentSize = size;
+
                                   if (!self.annotation || [self.annotation.party isDifferentThanParty:party]) {
                                       [self.mapView removeAnnotation:self.annotation];
                                     

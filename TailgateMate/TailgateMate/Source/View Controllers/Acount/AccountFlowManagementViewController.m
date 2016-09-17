@@ -93,10 +93,6 @@
         [self.pages addObject:self.signInView];
         
         [self scrollRight];
-    } else if (type == FlowTypeSkip) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setBool:YES forKey:@"hasSkipped"];
-        [self showNextFlowStep:FlowStepDone withObject:nil];
     }
 }
 
@@ -133,8 +129,6 @@
         
         [self.pages addObject:self.phoneVerificationView];
     } else if (type == FlowStepDone) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setBool:YES forKey:@"pastFirstLaunch"];
         [self.baseDelegate dismissViewController:self];
         return;
     }

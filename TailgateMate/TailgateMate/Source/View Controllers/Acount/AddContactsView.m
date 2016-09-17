@@ -15,6 +15,8 @@
 #import <MessageUI/MessageUI.h>
 #import "CNContact+Additions.H"
 
+NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855430?mt=8";
+
 @interface AddContactsView () <MFMessageComposeViewControllerDelegate>
 @property (nonatomic) NavbarView *navbarView;
 @property (nonatomic) NSArray *availableContacts;
@@ -34,6 +36,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 }
 
 - (void)becomesVisible {
@@ -83,9 +87,6 @@
         if (success) {
             self.availableContacts = contacts;
             [self bootStrapData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
         }
     }];
 }
@@ -111,6 +112,8 @@
 }
 
 - (void)bootStrapData {
+    [self showActivityIndicatorWithCurtain:YES];
+    
     Batch *batch = [Batch create];
     
     NSMutableArray *addableContacts = [[NSMutableArray alloc] initWithCapacity:self.availableContacts.count];
@@ -185,7 +188,9 @@
         }];;
       
         self.accountsDict = accounts;
-
+        
+        [self hideActivityIndicator];
+        
         [self.tableView reloadData];
     }];
 }
@@ -326,7 +331,7 @@
         if (self.flowDelegate) {
             [self.flowDelegate presentAViewController:alert];
         } else {
-            [self.profileDelegate presentAViewController:alert];
+            [self.addContactsVCDelegate presentAViewController:alert];
         }
         return;
     }
@@ -334,7 +339,7 @@
     Account *profile = [AppManager sharedInstance].accountManager.profileAccount;
     
     NSArray *recipents = @[[contactToInvite phoneNumberString]];
-    NSString *message = [NSString stringWithFormat:@"%@ wants to you join Pregame! %@ ", profile.displayName, [AppManager sharedInstance].appStoreLink];
+    NSString *message = [NSString stringWithFormat:@"%@ wants to you join Pregame! %@ ", profile.displayName, kAppLink];
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;
@@ -345,14 +350,14 @@
     if (self.flowDelegate) {
         [self.flowDelegate presentAViewController:messageController];
     } else {
-        [self.profileDelegate presentAViewController:messageController];
+        [self.addContactsVCDelegate presentAViewController:messageController];
     }
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result {
     switch (result) {
         case MessageComposeResultCancelled:
-            [controller dismissViewControllerAnimated:NO completion:nil];
+            [controller dismissViewControllerAnimated:YES completion:nil];
             break;
             
         case MessageComposeResultFailed: {
@@ -369,7 +374,7 @@
         }
             
         case MessageComposeResultSent:
-            [controller dismissViewControllerAnimated:NO completion:nil];
+            [controller dismissViewControllerAnimated:YES completion:nil];
             break;
             
         default:

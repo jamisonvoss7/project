@@ -156,6 +156,9 @@
 		EF84EF891CEEA434006459DA /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF84EF881CEEA434006459DA /* LandingViewController.xib */; };
 		EF90AEA21CB5C62300883032 /* NSUserDefaults+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */; };
 		EFB53D1D1D7014F100564AA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFB53D1C1D7014F100564AA3 /* GoogleService-Info.plist */; };
+		EFB547271D88DFDA00DC709D /* AppStoreVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB547261D88DFDA00DC709D /* AppStoreVersion.m */; };
+		EFB5472A1D89051E00DC709D /* AddContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB547291D89051E00DC709D /* AddContactsViewController.m */; };
+		EFB5472C1D8907AC00DC709D /* AddContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFB5472B1D8907AC00DC709D /* AddContactsViewController.xib */; };
 		EFBF8DE11C5B194F0075DE38 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF8DE01C5B194F0075DE38 /* libicucore.tbd */; };
 		EFBF8DE31C5B196A0075DE38 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBF8DE21C5B196A0075DE38 /* libc++.tbd */; };
 		EFBF8DED1C6AB1D80075DE38 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBF8DEC1C6AB1D80075DE38 /* Account.m */; };
@@ -445,6 +448,11 @@
 		EF90AEA01CB5C62300883032 /* NSUserDefaults+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Additions.h"; sourceTree = "<group>"; };
 		EF90AEA11CB5C62300883032 /* NSUserDefaults+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Additions.m"; sourceTree = "<group>"; };
 		EFB53D1C1D7014F100564AA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFB547251D88DFDA00DC709D /* AppStoreVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStoreVersion.h; sourceTree = "<group>"; };
+		EFB547261D88DFDA00DC709D /* AppStoreVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStoreVersion.m; sourceTree = "<group>"; };
+		EFB547281D89051E00DC709D /* AddContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactsViewController.h; sourceTree = "<group>"; };
+		EFB547291D89051E00DC709D /* AddContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactsViewController.m; sourceTree = "<group>"; };
+		EFB5472B1D8907AC00DC709D /* AddContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContactsViewController.xib; sourceTree = "<group>"; };
 		EFBF8DE01C5B194F0075DE38 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		EFBF8DE21C5B196A0075DE38 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		EFBF8DE41C5B25EA0075DE38 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
@@ -604,6 +612,7 @@
 				EF0B5ED01D1F10B800551CDA /* AddContactsView.xib */,
 				EF01D7AC1D4EEB1A0058A500 /* AddUserNameAndPhoneView.xib */,
 				EF47A1861D715A01005FF2DC /* AddContactFromUserNameVIewController.xib */,
+				EFB5472B1D8907AC00DC709D /* AddContactsViewController.xib */,
 				EFE0942A1D6D6E2800094A9B /* EditTailgateViewController.xib */,
 				EF01D7931D3AE9870058A500 /* ContactsViewControler.xib */,
 				EF135F661CBB424600C80753 /* HomeMapViewController.xib */,
@@ -742,6 +751,8 @@
 				EFE094361D6E7CF800094A9B /* AccountFlowManagementViewController.m */,
 				EF5AD88E1D5D6AB300DDEAF1 /* AddContactsView.h */,
 				EF5AD88F1D5D6AB300DDEAF1 /* AddContactsView.m */,
+				EFB547281D89051E00DC709D /* AddContactsViewController.h */,
+				EFB547291D89051E00DC709D /* AddContactsViewController.m */,
 				EF5AD8901D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.h */,
 				EF5AD8911D5D6AB300DDEAF1 /* AddUserNameAndPhoneView.m */,
 				EF47A1831D7159E3005FF2DC /* AddContactFromUserNameVIewController.h */,
@@ -929,6 +940,8 @@
 				EFBF8DEC1C6AB1D80075DE38 /* Account.m */,
 				EF0B5ECA1D1EF0A700551CDA /* AccountType.h */,
 				EF0B5ECB1D1EF0A700551CDA /* AccountType.m */,
+				EFB547251D88DFDA00DC709D /* AppStoreVersion.h */,
+				EFB547261D88DFDA00DC709D /* AppStoreVersion.m */,
 				EFEB1AFE1D28F5A8006299CD /* Contact.h */,
 				EFEB1AFF1D28F5A8006299CD /* Contact.m */,
 				EF01D7A01D4EB4470058A500 /* ContactType.h */,
@@ -1191,6 +1204,7 @@
 				EF5AD9541D68967000DDEAF1 /* PromotionsFooterView.xib in Resources */,
 				EF5AD8B01D5D6FF700DDEAF1 /* TailgatePartyTimeLineViewController.xib in Resources */,
 				EF0B5EB61D08DBE200551CDA /* Burgers.png in Resources */,
+				EFB5472C1D8907AC00DC709D /* AddContactsViewController.xib in Resources */,
 				EF135F821CBE7ED800C80753 /* AddTailgateMapView.xib in Resources */,
 				EFE4A6BE1D51837700587C29 /* food.png in Resources */,
 				EF135F741CBB424600C80753 /* ProfileEditView.xib in Resources */,
@@ -1305,6 +1319,7 @@
 				EF4C7BAD1CA89C00004A6CF3 /* AccountManager.m in Sources */,
 				EF5AD8B91D5E48E400DDEAF1 /* NSDate+Additions.m in Sources */,
 				EF5AD8E31D5E546300DDEAF1 /* TailgateMBPointAnnotation.m in Sources */,
+				EFB547271D88DFDA00DC709D /* AppStoreVersion.m in Sources */,
 				EF5AD8A71D5D6BDC00DDEAF1 /* BaseViewController.m in Sources */,
 				EF47A17F1D70DC69005FF2DC /* UIImage+Orientation.m in Sources */,
 				EF73F77D1BC36D7500FA9DBA /* AppDelegate.m in Sources */,
@@ -1365,6 +1380,7 @@
 				EFEB1B001D28F5A8006299CD /* Contact.m in Sources */,
 				EF5AD8A21D5D6AB300DDEAF1 /* SignUpView.m in Sources */,
 				EF5AD9131D612DB900DDEAF1 /* DatePickerView.m in Sources */,
+				EFB5472A1D89051E00DC709D /* AddContactsViewController.m in Sources */,
 				EF0B5ECF1D1EF86500551CDA /* TailgatePartyType.m in Sources */,
 				EF5AD8FF1D5E54BE00DDEAF1 /* TailgateSupplyRow.m in Sources */,
 				EF5AD8B31D5D79C400DDEAF1 /* TimelineItem.m in Sources */,

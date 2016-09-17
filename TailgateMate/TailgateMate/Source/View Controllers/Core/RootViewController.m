@@ -47,29 +47,10 @@
 }
 
 - (void)startup {
-    AccountManager *manager = [AppManager sharedInstance].accountManager;
-    if (manager.isAuthenticated && manager.profileAccount.userName.length > 0) {
-        self.currentViewController = self.landingViewController;
-        [self presentViewController:self.landingViewController
-                           animated:NO
-                         completion:nil];
-    } else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"pastFirstLaunch"]) {
-        self.currentViewController = self.landingViewController;
-        [self presentViewController:self.landingViewController
-                           animated:NO
-                         completion:nil];
-    } else {
-        [self presentViewController:self.landingViewController
-                           animated:NO
-                         completion:^{
-                             self.currentViewController = self.accountFlowManager;
-                             
-                             [self.landingViewController presentViewController:self.accountFlowManager
-                                                                   animated:NO
-                                                                 completion:nil];
-                         }];
-
-    }
+    self.currentViewController = self.landingViewController;
+    [self presentViewController:self.landingViewController
+                       animated:NO
+                     completion:nil];
 }
 
 - (void)setBackToMainViewController {

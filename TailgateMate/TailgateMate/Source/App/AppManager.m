@@ -15,7 +15,8 @@
 @property (nonatomic, readwrite) FIRStorageReference *firebaseStorageRef;
 @property (nonatomic, readwrite) AccountManager *accountManager;
 @property (nonatomic, readwrite) LocationManager *locationManager;
-@property (nonatomic, readwrite) NSString *appStoreLink;
+@property (nonatomic, readwrite) AppStoreVersion *appStoreVersion;
+
 @end
 
 @implementation AppManager
@@ -41,15 +42,17 @@
     Batch *batch = [Batch create];
    
     [batch addBatchBlock:^(Batch *batch) {
-        [self.accountManager loadCurrentAccuntWithComplete:^(BOOL success, NSError *error) {
+        [self.accountManager loadCurrentAccountFromFirUser:^(BOOL success, NSError *error) {
             [batch complete:error];
         }];
     }];
     
     [batch addBatchBlock:^(Batch *batch) {
         AppService *service = [[AppService alloc] init];
-        [service getAppStoreLineWithCompletion:^(NSString *link, NSError *error) {
-            self.appStoreLink = link;
+        [service getAppStoreVersionWithCompletion:^(AppStoreVersion *version, NSError *error) {
+            if (version) {
+                self.appStoreVersion = version;
+            }
             [batch complete:error];
         }];
     }];

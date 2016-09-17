@@ -23,4 +23,18 @@
               }];
 }
 
+- (void)getAppStoreVersionWithCompletion:(void (^)(AppStoreVersion *version, NSError *error))handler {
+    NSString *path = @"appVersion";
+    
+    [super observeDataAtPath:path
+              withCompletion:^(FIRDataSnapshot *data) {
+                  if (data.exists) {
+                      AppStoreVersion *version = [AppStoreVersion instanceFromDate:data];
+                      handler(version , nil);
+                  } else {
+                      handler(nil, nil);
+                  }
+              }];
+}
+
 @end

@@ -12,7 +12,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -85,6 +84,46 @@
                             }
                         }];
 }
+
+- (TailgateParty *)buildTailgateParty {
+    TailgateParty *party = [[TailgateParty alloc] init];
+    
+    party.name = self.detailView.titleTextView.text;
+    party.details = self.detailView.descriptionTextView.text;
+    
+    party.parkingLot = [[ParkingLot alloc] init];
+    party.parkingLot.lotName = [NSString stringWithFormat:@"%@", self.detailView.lotNumberTextView.text];
+    Location *location = [[Location alloc] init];
+    location.lat = [NSNumber numberWithDouble:self.mapView.mapview.centerCoordinate.latitude];
+    location.lon = [NSNumber numberWithDouble:self.mapView.mapview.centerCoordinate.longitude];
+    party.parkingLot.location = location;
+    
+    party.guests = self.invitesView.invitees;;
+    
+    party.hostUserName = [AppManager sharedInstance].accountManager.profileAccount.userName;
+    party.hostDisplayName = [AppManager sharedInstance].accountManager.profileAccount.displayName;
+    
+    party.startDate = self.detailView.startDate;
+    party.endDate = self.detailView.endDate;
+  
+    switch (self.detailView.teamSegmentControl.selectedSegmentIndex) {
+        case 0:
+            party.fanType = TAILGATEPARTYFANTYPE_HOME;
+            break;
+        case 1:
+            party.fanType = TAILGATEPARTYFANTYPE_AWAY;
+            break;
+            
+        default:
+            party.fanType = TAILGATEPARTYFANTYPE_BOTH;
+            break;
+    }
+    
+    party.type = self.detailView.availabilitySegmentControl.selectedSegmentIndex == 0 ? TAILGATEPARTYTYPE_PRIVATE : TAILGATEPARTYTYPE_PUBLIC;
+    
+    return party;
+}
+
 
 - (void)setNavBarStringsForIndex:(NSInteger)index {
     if (index == 0) {

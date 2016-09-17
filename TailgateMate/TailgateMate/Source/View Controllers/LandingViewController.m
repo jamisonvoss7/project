@@ -66,6 +66,17 @@
     } else {
         [self.profileButton setTitle:@"Sign Up" forState:UIControlStateNormal];
     }
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+    
+    if ([minorVersion integerValue] < [[AppManager sharedInstance].appStoreVersion.minVersion integerValue]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                       message:@"Please update to the latest version of Pregame!"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+   
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)hostTapHandler:(UITapGestureRecognizer *)sender {

@@ -35,7 +35,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.contacts = [NSArray arrayWithArray:[AppManager sharedInstance].accountManager.profileAccount.contacts];
+    self.contacts = [AppManager sharedInstance].accountManager.profileAccount.contacts;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

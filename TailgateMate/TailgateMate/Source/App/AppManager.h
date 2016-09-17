@@ -8,6 +8,7 @@
 #import "FireBaseServiceProvider.h"
 #import "AccountManager.h"
 #import "LocationManager.h"
+#import "AppStoreVersion.h"
 
 @interface AppManager : NSObject
 
@@ -15,7 +16,7 @@
 @property (nonatomic, readonly) FIRStorageReference *firebaseStorageRef;
 @property (nonatomic, readonly) AccountManager *accountManager;
 @property (nonatomic, readonly) LocationManager *locationManager;
-@property (nonatomic, readonly) NSString *appStoreLink;
+@property (nonatomic, readonly) AppStoreVersion *appStoreVersion;
 
 + (AppManager *)sharedInstance;
 - (void)initAppWIthComplete:(void (^)(BOOL success, NSError *error))handler;

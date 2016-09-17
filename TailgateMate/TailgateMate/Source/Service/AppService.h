@@ -12,4 +12,6 @@
 
 - (void)getAppStoreLineWithCompletion:(void (^)(NSString *link, NSError *error))handler;
 
+- (void)getAppStoreVersionWithCompletion:(void (^)(AppStoreVersion *version, NSError *error))handler;
+
 @end

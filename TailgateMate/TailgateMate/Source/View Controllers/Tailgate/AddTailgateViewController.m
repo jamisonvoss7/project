@@ -175,8 +175,6 @@
     location.lon = [NSNumber numberWithDouble:self.mapView.mapview.centerCoordinate.longitude];
     party.parkingLot.location = location;
     
-//    party.supplies = self.suppliesView.selectedSupplies;
-//    party.needs = self.neededSuppliesView.selectedSupplies;
     party.guests = self.invitesView.invitees;
     
     party.hostUserName = [AppManager sharedInstance].accountManager.profileAccount.userName;
