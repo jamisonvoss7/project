@@ -18,7 +18,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *flagButton;
 
 + (instancetype)instanceWithDefaultNib;
-+ (CGFloat)heightForItem:(TimelineItem *)item;
 
 - (void)populateWithTimelineItem:(TimelineItem *)item;
 - (void)hasBeenFlagged:(void (^)(TimelineItem *item))handler;

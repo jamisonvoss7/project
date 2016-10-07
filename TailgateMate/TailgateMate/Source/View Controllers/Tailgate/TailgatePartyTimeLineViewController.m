@@ -14,6 +14,7 @@
 #import "TimelineItemImageTableCell.h"
 #import "TableImageCacher.h"
 #import "TimelineServiceProvider.h"
+#import "Batch.h"
 
 @interface TailgatePartyTimeLineViewController () <TableImageCacherDelegate, GADBannerViewDelegate>
 @property (nonatomic) TailgateParty *tailgateParty;
@@ -37,7 +38,7 @@
     
     self.cacher = [[TableImageCacher alloc] initForTable:self.tableView
                                                 delegate:self];
-
+ 
 
     self.timeline = [[NSArray alloc] init];
     
@@ -47,6 +48,9 @@
     
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 150;
+
     [self.addItemButton addTarget:self
                            action:@selector(presentAddItemView)
                  forControlEvents:UIControlEventTouchUpInside];
@@ -56,11 +60,29 @@
     [super viewWillAppear:animated];
     
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
-    [service getTimeLineForTailgate:self.tailgateParty.uid
-                       withComplete:^(NSArray *timeline, NSError *error) {
-                           self.timeline = timeline;
-                           [self.tableView reloadData];
-                       }];
+
+    Batch *batch = [Batch create];
+    [batch addBatchBlock:^(Batch *batch) {
+        [service getTimeLineForTailgate:self.tailgateParty.uid
+                           withComplete:^(NSArray *timeline, NSError *error) {
+                               self.timeline = timeline;
+                               
+                               [batch complete:error];
+                           }];
+    }];
+    
+    [batch addBatchBlock:^(Batch *batch) {
+        [service getTailgatePartyFullForId:self.tailgateParty.uid
+                              withComplete:^(TailgateParty *party, NSError *error) {
+                                  self.tailgateParty = party;
+
+                                  [batch complete:error];
+                              }];
+    }];
+    
+    [batch executeWithComplete:^(NSError *error) {
+        [self.tableView reloadData];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -116,19 +138,6 @@
         return cell;
     }
     return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger reversed = self.timeline.count - indexPath.row - 1;
-    TimelineItem *item = [self.timeline objectAtIndex:reversed];
-    if (item.type == TIMELINEITEMTYPE_IMAGE) {
-        return [TimelineItemImageTableCell heightForItem:item];
-    } else if (item.type == TIMELINEITEMTYPE_MESSAGE) {
-        return [TimelineItemMessageTableCell heightForItem:item];
-    } else if (item.type == TIMELINEITEMTYPE_CREATION) {
-        return [TimelineItemCreationTableCell heightForItem:item];
-    }
-    return 0;
 }
 
 - (void)presentAddItemView {

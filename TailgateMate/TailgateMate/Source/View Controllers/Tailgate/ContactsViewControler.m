@@ -12,30 +12,41 @@
 @interface ContactsViewControler ()
 @property (nonatomic) NSArray *contacts;
 @property (nonatomic) NavbarView *navbarView;
+@property (nonatomic, assign) BOOL isSubPage;
 @end
 
 @implementation ContactsViewControler
 
+- (id)initWithContactList:(NSArray *)contactList isSubpage:(BOOL)subpage {
+    self = [super init];
+    if (self) {
+        _contacts = contactList;
+        _isSubPage = subpage;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navbarView = [NavbarView instanceFromDefaultNib];
-    self.navbarView.titleLabel.text = @"Contacts";
-    self.navbarView.leftButton.text = @"Close";
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(closeView:)];
-    tap.numberOfTapsRequired = 1;
-    [self.navbarView.leftButton addGestureRecognizer:tap];
-
-    [self.view addSubview:self.navbarView];
-    
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 
+    if (!self.isSubPage) {
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(closeView)];
+        self.title = @"Contacts";
+    }
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.contacts = [AppManager sharedInstance].accountManager.profileAccount.contacts;
+    if (self.contacts.count == 0) {
+        self.contacts = [AppManager sharedInstance].accountManager.profileAccount.contacts;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -70,7 +81,7 @@
     }
 }
 
-- (void)closeView:(UITapGestureRecognizer *)sender {
+- (void)closeView {
     [self.baseDelegate dismissViewController:self];
 }
 

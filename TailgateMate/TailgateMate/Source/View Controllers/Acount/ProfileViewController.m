@@ -41,14 +41,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [[AppManager sharedInstance].accountManager loadCurrentAccountWithComplete:^(BOOL success, NSError *error) {
+        
+    }];
+    
+    [super viewWillAppear:animated];
     
     self.navbarView = [NavbarView instanceFromDefaultNib];
     self.navbarView.titleLabel.text = @"Profile";
     self.navbarView.leftButton.text = @"Close";
     self.navbarView.rightButton.text = @"Edit";
     
+    CGRect frame = self.navbarView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.navbarView.frame = frame;
+    
     UITapGestureRecognizer *closeTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(leftButtonAction:)];
+                                                                               action:@selector(leftButtonAction:)];
     closeTap.numberOfTapsRequired = 1;
     [self.navbarView.leftButton addGestureRecognizer:closeTap];
     
@@ -71,12 +84,14 @@
     self.editView = [ProfileEditView instanceFromDefaultNib];
     self.phoneVerificcationView = [PhoneVerificationView instanceWithDefaultNib];
     
-    CGRect frame = self.editView.frame;
+    frame = self.containerView.bounds;
+    
+    self.profileView.frame = frame;
+    
     frame.origin.x = self.view.frame.size.width;
     self.editView.frame = frame;
     
-    frame = self.phoneVerificcationView.frame;
-    frame.origin.x = self.view.frame.size.width * 3.0f;
+    frame.origin.x = self.view.frame.size.width * 2.0f;
     self.phoneVerificcationView.frame = frame;
     
     [self.containerView addSubview:self.profileView];
@@ -107,12 +122,6 @@
     UITapGestureRecognizer *imageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapHandler:)];
     imageTap.numberOfTapsRequired = 1;
     [self.profileView.imageClickReceiver addGestureRecognizer:imageTap];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [[AppManager sharedInstance].accountManager loadCurrentAccountWithComplete:^(BOOL success, NSError *error) {
-        
-    }];
 }
 
 - (void)rightButtonAction:(UITapGestureRecognizer *)sender {
@@ -283,7 +292,7 @@
 
 - (void)showContacts:(UIButton *)sender {
     ContactsViewControler *vc = [[ContactsViewControler alloc] init];
-    [self.baseDelegate presentViewController:vc];
+    [self.baseDelegate presentViewControllerInNavigation:vc];
 }
 
 - (void)showAddUserNameView:(UIButton *)sender {

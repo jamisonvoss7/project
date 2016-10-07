@@ -14,7 +14,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 
 + (instancetype)instanceWithDefaultNib;
-+ (CGFloat)heightForItem:(TimelineItem *)item;
 
 - (void)populateWithTimelineItem:(TimelineItem *)item;
 

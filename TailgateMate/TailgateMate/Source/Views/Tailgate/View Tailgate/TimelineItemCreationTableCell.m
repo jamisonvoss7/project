@@ -16,10 +16,6 @@
     return [[nib instantiateWithOwner:nil options:nil] lastObject];
 }
 
-+ (CGFloat)heightForItem:(TimelineItem *)item {
-    return 60.0f;
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
 

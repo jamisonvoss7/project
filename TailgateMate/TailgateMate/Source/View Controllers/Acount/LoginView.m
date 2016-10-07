@@ -62,8 +62,8 @@
                                            } else {
                                                [self.flowDelegate showNextFlowStep:FlowStepDone withObject:nil];
                                            }
-                                       } else {
-                                           [self makeToast:@"An error occurred"];
+                                       } else if (error) {
+                                           [self showAToast:@"An error occurred"];
                                        }
                                    }];
 }

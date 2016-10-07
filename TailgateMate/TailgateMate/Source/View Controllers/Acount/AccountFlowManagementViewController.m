@@ -48,18 +48,28 @@
     self.contactsView.flowDelegate = self;
     self.userNamePhoneView.flowDelegate = self;
     self.phoneVerificationView.flowDelegate = self;
+}
 
-    self.scrollView.contentSize = self.view.frame.size;
-    AccountManager *manager = [AppManager sharedInstance].accountManager;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
+    self.scrollView.contentSize = self.view.frame.size;
+
+    self.loginView.frame = self.view.bounds;
+    self.signUpView.frame = self.view.bounds;
+    self.signInView.frame = self.view.bounds;
+    self.contactsView.frame = self.view.bounds;
+    self.userNamePhoneView.frame = self.view.bounds;
+    self.phoneVerificationView.frame = self.view.bounds;
+
+    AccountManager *manager = [AppManager sharedInstance].accountManager;
+
     if ([manager isAuthenticated] &&
         manager.profileAccount.userName.length == 0) {
-        self.userNamePhoneView.frame = self.scrollView.bounds;
         [self.scrollView addSubview:self.userNamePhoneView];
         self.pageCursor = 1;
         self.pages = [[NSMutableArray alloc] initWithObjects:self.userNamePhoneView, nil];
     } else {
-        self.loginView.frame = self.scrollView.bounds;
         [self.scrollView addSubview:self.loginView];
         self.pageCursor = 1;
         self.pages = [[NSMutableArray alloc] initWithObjects:self.loginView, nil];
@@ -82,7 +92,6 @@
         
         [self scrollRight];
     } else if (type == FlowTypeSignIn) {
-        
         [self addPageSizeToTheRight];
         
         CGRect frame = self.signInView.frame;
@@ -167,7 +176,7 @@
         CGPoint point = self.scrollView.contentOffset;
         point.x = point.x - self.view.frame.size.width;
         [self.scrollView setContentOffset:point animated:YES];
-    
+            
         self.pageCursor--;
     }
 }

@@ -19,5 +19,7 @@
 
 + (instancetype)instanceWithDefaultNib;
 - (void)becomesVisible;
+- (void)addAllAvailableContacts:(UITapGestureRecognizer *)sender;
+- (void)dismissHandler:(void (^)(void))handler;
 
 @end

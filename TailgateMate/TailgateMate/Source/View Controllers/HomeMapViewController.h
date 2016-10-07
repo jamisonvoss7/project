@@ -19,6 +19,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *addButton;
 @property (nonatomic, weak) IBOutlet UIButton *filterButton;
 
+@property (nonatomic, weak) IBOutlet UIView *barView;
+
 @property (nonatomic, weak) IBOutlet GADBannerView *bannerView;
 
 @end

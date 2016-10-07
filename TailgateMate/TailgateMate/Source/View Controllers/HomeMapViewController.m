@@ -38,11 +38,6 @@
     
     self.mapView.delegate = self;
     
-    self.bannerView.adUnitID = @"ca-app-pub-9454622519784206/3692751173";
-    self.bannerView.rootViewController = self;
-    self.bannerView.delegate = self;
-    [self.bannerView loadRequest:[GADRequest request]];
-    
     self.visibleParties = [[NSArray alloc] init];
     self.partyAnnotations = [[NSMutableDictionary alloc] init];
     
@@ -74,17 +69,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (!self.filterView) {
-        self.filterView = [TailgatePartyFilterView instanceWithDefaultNib];
-        CGRect frame = self.filterView.frame;
-        frame.origin.x = self.view.frame.size.width - frame.size.width;
-        frame.origin.y = self.filterButton.superview.frame.origin.y - frame.size.height;
-        self.filterView.frame = frame;
-    
-        self.filterView.hidden = YES;
-        [self.view addSubview:self.filterView];
-        self.filterView.delegate = self;
-    }
     
     TailgatePartyServiceProvider *service = [[TailgatePartyServiceProvider alloc] init];
   
@@ -129,6 +113,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    self.bannerView.adUnitID = @"ca-app-pub-9454622519784206/3692751173";
+    self.bannerView.rootViewController = self;
+    self.bannerView.delegate = self;
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 // Map Delegate Methods
@@ -249,6 +238,18 @@
 }
 
 - (void)filterAction:(UIButton *)sender {
+    if (!self.filterView) {
+        self.filterView = [TailgatePartyFilterView instanceWithDefaultNib];
+        CGRect frame = self.filterView.frame;
+        frame.origin.x = self.view.frame.size.width - frame.size.width;
+        frame.origin.y = self.barView.frame.origin.y - frame.size.height;
+        self.filterView.frame = frame;
+        
+        self.filterView.hidden = YES;
+        [self.view addSubview:self.filterView];
+        self.filterView.delegate = self;
+    }
+
     if (self.filterView.hidden) {
         [self showFilterView];
     } else {

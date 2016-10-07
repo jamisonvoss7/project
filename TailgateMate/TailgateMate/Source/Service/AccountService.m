@@ -60,6 +60,7 @@
     NSString *path = [NSString stringWithFormat:@"accounts/%@", account.uid];
 
     NSLog(@"%@", [FIRAuth auth].currentUser.uid);
+    NSLog(@"%@", [FIRAuth auth]);
     
     [self setData:account
           forPath:path

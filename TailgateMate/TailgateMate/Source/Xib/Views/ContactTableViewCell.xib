@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,20 +11,34 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yUp-gE-ZUk" id="TDZ-Mb-cSd">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <frame key="frameInset" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5r-cB-F7v">
-                        <rect key="frame" x="8" y="6" width="30" height="30"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X5r-cB-F7v">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="AZ6-DB-BPV"/>
+                            <constraint firstAttribute="height" constant="30" id="tpt-r2-go5"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emp-JG-8CK">
-                        <rect key="frame" x="46" y="12" width="266" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emp-JG-8CK">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="zaK-lc-LXh"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Emp-JG-8CK" firstAttribute="leading" secondItem="X5r-cB-F7v" secondAttribute="trailing" constant="8" id="Aqx-1q-JHh"/>
+                </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="Emp-JG-8CK" firstAttribute="centerY" secondItem="yUp-gE-ZUk" secondAttribute="centerY" id="Bf4-bA-ECL"/>
+                <constraint firstItem="X5r-cB-F7v" firstAttribute="leading" secondItem="yUp-gE-ZUk" secondAttribute="leading" constant="8" id="XUy-bQ-0bA"/>
+                <constraint firstItem="X5r-cB-F7v" firstAttribute="centerY" secondItem="yUp-gE-ZUk" secondAttribute="centerY" id="sbp-Ys-esS"/>
+                <constraint firstAttribute="trailing" secondItem="Emp-JG-8CK" secondAttribute="trailing" constant="8" id="tPU-EJ-3RD"/>
+            </constraints>
             <connections>
                 <outlet property="contactImageView" destination="X5r-cB-F7v" id="80s-g2-MPD"/>
                 <outlet property="contactNameLabel" destination="Emp-JG-8CK" id="1ll-1N-g5l"/>

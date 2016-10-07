@@ -31,12 +31,6 @@
     self.detailView = [AddTailgateDetailsView instanceFromDefaultNib];
     self.detailView.frame = baseFrame;
     
-    self.detailView.bannerView.adUnitID = @"ca-app-pub-9454622519784206/3553150379";
-    self.detailView.bannerView.delegate = self;
-    self.detailView.bannerView.rootViewController = self;
-    [self.detailView.bannerView loadRequest:[GADRequest request]];
-
-    
     self.mapView = [AddTailgateMapView instanceFromDefaultNib];
     baseFrame.origin.x = self.view.frame.size.width;
     self.mapView.frame = baseFrame;
@@ -53,6 +47,11 @@
     baseFrame.origin.x = self.view.frame.size.width * 2;
     self.invitesView.frame = baseFrame;
     
+    self.invitesView.bannerView.adUnitID = @"ca-app-pub-9454622519784206/3553150379";
+    self.invitesView.bannerView.delegate = self;
+    self.invitesView.bannerView.rootViewController = self;
+    [self.invitesView.bannerView loadRequest:[GADRequest request]];
+
     [self.scrollview addSubview:self.detailView];
     [self.scrollview addSubview:self.mapView];
 //    [self.scrollview addSubview:self.suppliesView];
@@ -66,6 +65,7 @@
 
     self.navbar = [NavbarView instanceFromDefaultNib];
     CGRect frame = self.navbar.frame;
+    frame.size.width = self.view.frame.size.width;
     frame.origin.x = 0;
     frame.origin.y = 0;
     self.navbar.frame = frame;
@@ -147,7 +147,7 @@
 
 - (void)setNavBarStringsForIndex:(NSInteger)index {
     if (index == 0) {
-        self.navbar.leftButton.text = @"Cancle";
+        self.navbar.leftButton.text = @"Cancel";
         self.navbar.rightButton.text = @"Next";
         self.navbar.titleLabel.text = @"Tailgate Details";
     } else if (index == 1) {

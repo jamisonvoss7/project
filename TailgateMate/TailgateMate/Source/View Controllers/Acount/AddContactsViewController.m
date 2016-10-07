@@ -12,36 +12,27 @@
 
 @interface AddContactsViewController ()
 @property (nonatomic) AddContactsView *addContactsView;
-@property (nonatomic) NavbarView *navbarView;
 @end
 
 @implementation AddContactsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    self.navbarView = [NavbarView instanceFromDefaultNib];
-    self.navbarView.titleLabel.text = @"Contacts";
-    self.navbarView.leftButton.text = @"Close";
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(closeView:)];
-    tap.numberOfTapsRequired = 1;
-    [self.navbarView.leftButton addGestureRecognizer:tap];
-    
-    [self.view addSubview:self.navbarView];
-
     self.addContactsView = [AddContactsView instanceWithDefaultNib];
-    [self.addContactsView becomesVisible];
-
+    
     self.addContactsView.addContactsVCDelegate = self;
     
     CGRect frame = self.view.bounds;
-    frame.origin.y = self.navbarView.frame.size.height;
-    frame.size.height = frame.size.height - self.navbarView.frame.size.height;
     self.addContactsView.frame = frame;
     
+    [self.addContactsView dismissHandler:^{
+        [self closeView:nil];
+    }];
+    
     [self.view addSubview:self.addContactsView];
+    
+    [self.addContactsView becomesVisible];
 }
 
 - (void)presentAViewController:(UIViewController *)viewController {
@@ -52,6 +43,10 @@
 
 - (void)closeView:(UITapGestureRecognizer *)sender {
     [self.baseDelegate dismissViewController:self];
+}
+
+- (void)tapHandler:(UITapGestureRecognizer *)tap {
+    [self.addContactsView addAllAvailableContacts:nil];
 }
 
 @end

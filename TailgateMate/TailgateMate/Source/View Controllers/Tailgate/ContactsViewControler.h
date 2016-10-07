@@ -12,4 +12,6 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
+- (id)initWithContactList:(NSArray *)contactList isSubpage:(BOOL)subpage;
+
 @end

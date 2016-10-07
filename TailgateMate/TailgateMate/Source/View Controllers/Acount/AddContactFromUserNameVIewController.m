@@ -21,16 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navbarView = [NavbarView instanceFromDefaultNib];
-    self.navbarView.titleLabel.text = @"Contacts";
-    self.navbarView.leftButton.text = @"Close";
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(closeView:)];
-    tap.numberOfTapsRequired = 1;
-    [self.navbarView.leftButton addGestureRecognizer:tap];
-    
-    [self.view addSubview:self.navbarView];
+ 
 
     [self.searchButton addTarget:self
                           action:@selector(search:)
@@ -39,6 +30,30 @@
     self.searchButton.layer.cornerRadius = 15.0f;
     self.searchButton.layer.borderWidth = 3.0f;
     self.searchButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navbarView = [NavbarView instanceFromDefaultNib];
+    self.navbarView.titleLabel.text = @"Contacts";
+    self.navbarView.leftButton.text = @"Close";
+    
+    CGRect frame = self.navbarView.frame;
+    frame.size.width = self.view.frame.size.width;
+    self.navbarView.frame = frame;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(closeView:)];
+    tap.numberOfTapsRequired = 1;
+    [self.navbarView.leftButton addGestureRecognizer:tap];
+    
+    [self.view addSubview:self.navbarView];
+
 }
 
 - (void)search:(UIButton *)sender {

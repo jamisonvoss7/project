@@ -441,6 +441,7 @@
 		EF73F79F1BC3767D00FA9DBA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		EF73F7A01BC37AFA00FA9DBA /* TailgateSupply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TailgateSupply.h; sourceTree = "<group>"; };
 		EF73F7A11BC37AFA00FA9DBA /* TailgateSupply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TailgateSupply.m; sourceTree = "<group>"; };
+		EF7FF3311D922B5A001A9C7D /* TailgateMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TailgateMate.entitlements; sourceTree = "<group>"; };
 		EF84EF831CEE92E3006459DA /* JackTrice.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JackTrice.gpx; sourceTree = "<group>"; };
 		EF84EF851CEEA20E006459DA /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		EF84EF861CEEA20E006459DA /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
@@ -882,6 +883,7 @@
 		EF73F75C1BC36B9100FA9DBA /* TailgateMate */ = {
 			isa = PBXGroup;
 			children = (
+				EF7FF3311D922B5A001A9C7D /* TailgateMate.entitlements */,
 				EFB53D1C1D7014F100564AA3 /* GoogleService-Info.plist */,
 				EF73F7741BC36D7500FA9DBA /* Source */,
 				EF73F7691BC36B9100FA9DBA /* Assets.xcassets */,
@@ -1121,6 +1123,9 @@
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
 							};
 						};
 					};
@@ -1476,6 +1481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TailgateMate/TailgateMate.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1504,6 +1510,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TailgateMate/TailgateMate.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;

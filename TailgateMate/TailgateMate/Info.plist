@@ -39,7 +39,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>20</string>
+	<string>21</string>
 	<key>FacebookAppID</key>
 	<string>1127854283942704</string>
 	<key>FacebookDisplayName</key>
@@ -86,8 +86,14 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>The camera can be used to take photos and share them with your fellow Pregamers.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We want to help you find all of your contacts that are using Pregame!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Share your photos with your fellow Pregamers.</string>
 	<key>UIBackgroundModes</key>
 	<array/>
 	<key>UIRequiredDeviceCapabilities</key>

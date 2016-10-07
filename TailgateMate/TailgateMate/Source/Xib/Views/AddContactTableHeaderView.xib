@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,22 +11,40 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tailgaters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxd-mJ-p0D">
-                    <rect key="frame" x="100" y="5" width="120" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tailgaters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxd-mJ-p0D">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="Elc-Nc-SaC"/>
+                        <constraint firstAttribute="height" constant="21" id="I0b-Mq-Fsb"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXu-dJ-TfP">
-                    <rect key="frame" x="0.0" y="15" width="100" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXu-dJ-TfP">
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="l0B-Pm-Mpv"/>
+                        <constraint firstAttribute="height" constant="1" id="vTY-5M-EPy"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adE-Sa-V4l">
-                    <rect key="frame" x="220" y="15" width="100" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adE-Sa-V4l">
+                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Dq5-c6-VN8"/>
+                        <constraint firstAttribute="width" constant="100" id="Zhh-KR-zoH"/>
+                    </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Oxd-mJ-p0D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="A5t-oM-FaH"/>
+                <constraint firstItem="adE-Sa-V4l" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EsK-VZ-pVe"/>
+                <constraint firstItem="Oxd-mJ-p0D" firstAttribute="leading" secondItem="eXu-dJ-TfP" secondAttribute="trailing" id="Gdw-YY-J2n"/>
+                <constraint firstItem="Oxd-mJ-p0D" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MWf-2z-4m2"/>
+                <constraint firstItem="adE-Sa-V4l" firstAttribute="leading" secondItem="Oxd-mJ-p0D" secondAttribute="trailing" id="P6Z-lE-0xg"/>
+                <constraint firstItem="eXu-dJ-TfP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="axx-jC-UTs"/>
+                <constraint firstItem="eXu-dJ-TfP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vH5-rS-38q"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

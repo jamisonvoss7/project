@@ -13,9 +13,18 @@
 @interface AccountManager ()
 @property (nonatomic, readwrite) Account *profileAccount;
 @property (nonatomic) Account *authenticatedAccount;
+@property (nonatomic) FBSDKLoginManager *facebookLogin;
 @end
 
 @implementation AccountManager
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _facebookLogin = [[FBSDKLoginManager alloc] init];
+    }
+    return self;
+}
 
 - (void)loadCurrentAccountWithComplete:(void (^)(BOOL, NSError *))handler {
     FIRUser *user = [[FIRAuth auth] currentUser];
@@ -95,14 +104,13 @@
 
 
 - (void)signInWithFacebookFromViewController:(UIViewController *)vc withCompletion:(void (^)(BOOL success, NSError *error))handler {
-    FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
-    [facebookLogin logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
+    [self.facebookLogin logInWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]
                          fromViewController:vc
                                     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
                                         if (error) {
-
+                                            handler(NO, error);
                                         } else if (result.isCancelled) {
-
+                                            handler(NO, nil);
                                         } else {
                                             NSString *accessToken = [[FBSDKAccessToken currentAccessToken] tokenString];
                                             FIRAuthCredential *credential = [FIRFacebookAuthProvider credentialWithAccessToken:accessToken];
@@ -126,8 +134,7 @@
 
 - (void)signOut {
     if (self.profileAccount.type == ACCOUNTTYPE_FACEBOOK) {
-        FBSDKLoginManager *facebookLogin = [[FBSDKLoginManager alloc] init];
-        [facebookLogin logOut];
+        [self.facebookLogin logOut];
     }
     
     [[FIRAuth auth] signOut:nil];
@@ -180,12 +187,13 @@
                   withComplete:^(Account *account, NSError *error) {
                       if (account && !error) {
                           self.authenticatedAccount = account;
-//                          [self saveAccountID:account.uid];
                           self.profileAccount = account;
                       
                           handler(YES, nil);
                       } else {
-                          [self signOut];
+                          self.profileAccount = nil;
+                          self.authenticatedAccount = nil;
+
                           handler(NO, error);
                       }
                   }];
@@ -223,5 +231,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setAccountUID:@""];
 }
+
 
 @end

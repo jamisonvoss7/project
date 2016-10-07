@@ -11,11 +11,13 @@
 #import "TailgatePartyTimeLineViewController.h"
 #import "EditTailgateViewController.h"
 #import "TailgatePartyServiceProvider.h"
+#import "ContactsViewControler.h"
 
 @interface TailgatePartyViewController () <TabPagerDataSource, TabPagerDelegate>
 @property (nonatomic) TailgateParty *tailgateParty;
 @property (nonatomic) TailgatePartyInfoViewController *infoViewController;
 @property (nonatomic) TailgatePartyTimeLineViewController *timelineViewController;
+@property (nonatomic) ContactsViewControler *contactsViewController;
 @end
 
 @implementation TailgatePartyViewController
@@ -52,19 +54,30 @@
 
     self.infoViewController = [[TailgatePartyInfoViewController alloc] initWithTailgate:self.tailgateParty];
     self.timelineViewController = [[TailgatePartyTimeLineViewController alloc] initWithTailgateParty:self.tailgateParty];
+   
+    if (self.tailgateParty.guests.count > 0) {
+        self.contactsViewController = [[ContactsViewControler alloc] initWithContactList:self.tailgateParty.guests isSubpage:YES];
+    }
     
     [self reloadData];
 }
 
 - (NSInteger)numberOfViewControllers {
-    return 2;
+    if (self.tailgateParty.guests.count > 0) {
+        return 3;
+    } else {
+        return 2;
+    }
 }
 
 - (UIViewController *)viewControllerForIndex:(NSInteger)index {
     if (index == 0) {
         return self.infoViewController;
+    } else if (index == 1) {
+        return self.timelineViewController;
+    } else {
+        return self.contactsViewController;
     }
-    return self.timelineViewController;
 }
 
 - (UIColor *)tabBackgroundColor {
@@ -78,8 +91,10 @@
 - (NSString *)titleForTabAtIndex:(NSInteger)index {
     if (index == 0) {
         return @"Info";
-    } else {
+    } else if (index == 1) {
         return @"Timeline";
+    } else {
+        return @"Guests";
     }
 }
 

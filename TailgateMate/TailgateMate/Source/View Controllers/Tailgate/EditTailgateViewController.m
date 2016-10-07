@@ -127,7 +127,7 @@
 
 - (void)setNavBarStringsForIndex:(NSInteger)index {
     if (index == 0) {
-        self.navbar.leftButton.text = @"Cancle";
+        self.navbar.leftButton.text = @"Cancel";
         self.navbar.rightButton.text = @"Next";
         self.navbar.titleLabel.text = @"Tailgate Details";
     } else if (index == 1) {

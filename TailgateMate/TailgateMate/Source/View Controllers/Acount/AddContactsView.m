@@ -24,6 +24,7 @@ NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855
 @property (nonatomic) NSArray *invitableContacts;
 @property (nonatomic) NSMutableDictionary *accountsDict;
 @property (nonatomic) NSArray *currentContacts;
+@property (nonatomic, copy) void (^dismissHandler)();
 @end
 
 @implementation AddContactsView
@@ -40,10 +41,43 @@ NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 }
 
+- (void)dismissHandler:(void (^)(void))handler {
+    if (handler) {
+        self.dismissHandler = handler;
+    }
+}
+
 - (void)becomesVisible {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    self.navbarView = [NavbarView instanceFromDefaultNib];
+    self.navbarView.titleLabel.text = @"Add Contacts";
+    self.navbarView.leftButton.text = @"Done";
+    self.navbarView.rightButton.text = @"Add all";
+    
+    CGRect frame = self.navbarView.frame;
+    frame.size.width = self.frame.size.width;
+    self.navbarView.frame = frame;
+    
+    UITapGestureRecognizer *addAllTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(addAllAvailableContacts:)];
+    addAllTap.numberOfTapsRequired = 1;
+    [self.navbarView.rightButton addGestureRecognizer:addAllTap];
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(closeView:)];
+    tap.numberOfTapsRequired = 1;
+    [self.navbarView.leftButton addGestureRecognizer:tap];
+    
+    [self addSubview:self.navbarView];
+    
+    frame = self.tableView.frame;
+    frame.size.height = frame.size.height - self.navbarView.frame.size.height;
+    frame.origin.y = self.navbarView.frame.size.height;
+    self.tableView.frame = frame;
+
     self.availableContacts = [[NSArray alloc] init];
     self.addableContacts = [[NSArray alloc] init];
     self.invitableContacts = [[NSArray alloc] init];
@@ -93,22 +127,6 @@ NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855
 
 - (void)setFlowDelegate:(id<AccountFlowDelegate>)flowDelegate {
     _flowDelegate = flowDelegate;
-    
-    self.navbarView = [NavbarView instanceFromDefaultNib];
-    self.navbarView.titleLabel.text = @"Add Contacts";
-    self.navbarView.rightButton.text = @"Done";
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(closeView:)];
-    tap.numberOfTapsRequired = 1;
-    [self.navbarView.rightButton addGestureRecognizer:tap];
-    
-    [self addSubview:self.navbarView];
-    
-    CGRect frame = self.tableView.frame;
-    frame.size.height = frame.size.height - self.navbarView.frame.size.height;
-    frame.origin.y = self.navbarView.frame.size.height;
-    self.tableView.frame = frame;
 }
 
 - (void)bootStrapData {
@@ -186,7 +204,7 @@ NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855
                 return [firstName1 compare:firstName2];
             }
         }];;
-      
+        
         self.accountsDict = accounts;
         
         [self hideActivityIndicator];
@@ -247,7 +265,11 @@ NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855
     if (self.addableContacts.count > 0) {
         if (indexPath.section == 0) {
             contact = [self.addableContacts objectAtIndex:indexPath.row];
-            cell.actionLabel.text = @"Add";
+            if ([self.currentContacts containsObject:[contact phoneNumberString]]) {
+                cell.actionLabel.text = @"Added";
+            } else {
+                cell.actionLabel.text = @"Add";
+            }
         } else {
             contact = [self.invitableContacts objectAtIndex:indexPath.row];
         }
@@ -279,6 +301,9 @@ NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855
 }
 
 - (void)closeView:(UITapGestureRecognizer *)sender {
+    if (self.dismissHandler) {
+        self.dismissHandler();
+    }
     [self.flowDelegate showNextFlowStep:FlowStepDone withObject:nil];
 }
 
@@ -395,4 +420,52 @@ NSString * const kAppLink = @"https://itunes.apple.com/us/app/pregame!/id1143855
     self.currentContacts = [NSArray arrayWithArray:numbers];
 }
 
+- (void)addAllAvailableContacts:(UITapGestureRecognizer *)sender {
+    if (self.addableContacts.count <= 0) {
+        return;
+    }
+    
+    Account *account = [AppManager sharedInstance].accountManager.profileAccount;
+    NSMutableArray *newContacts = [[NSMutableArray alloc] init];
+
+    for (CNContact *cnContact in self.addableContacts) {
+        if ([self.currentContacts containsObject:[cnContact phoneNumberString]]) {
+            break;
+        }
+    
+        Account *accountToAdd = [self.accountsDict objectForKey:cnContact];
+    
+        Contact *newContact = [[Contact alloc] init];
+        newContact.displayName = accountToAdd.displayName;
+        newContact.emailAddress = accountToAdd.emailAddress;
+        newContact.phoneNumber = accountToAdd.phoneNumber;
+        newContact.userName = accountToAdd.userName;
+        newContact.imageId = accountToAdd.photoId;
+        newContact.imageURL = accountToAdd.photoUrl;
+    
+        [newContacts addObject:newContact];
+    }
+   
+    if (newContacts.count > 0) {
+        NSMutableArray *contacts = [NSMutableArray arrayWithArray:account.contacts];
+        [contacts addObjectsFromArray:newContacts];
+        account.contacts = contacts;
+        
+        [self showActivityIndicatorWithCurtain:YES];
+        
+        AccountService *service = [[AccountService alloc] init];
+        [service saveAccount:account
+                withComplete:^(BOOL success, NSError *error) {
+                    [self hideActivityIndicator];
+                    if (success) {
+                        NSMutableArray *update = [[NSMutableArray alloc] initWithArray:self.currentContacts];
+                        for (Contact *contact in newContacts) {
+                            [update addObject:contact.phoneNumber];
+                        }
+                        self.currentContacts = [NSArray arrayWithArray:update];
+                        [self.tableView reloadData];
+                    }
+                }];
+    }
+}
 @end
